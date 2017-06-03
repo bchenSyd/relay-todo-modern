@@ -36,12 +36,12 @@ class TodoList extends React.Component<any, any, any> {
   renderTodos() {
     const isNormalView = (!this.hidden.dataset /*initial render*/) || this.hidden.dataset.isnormalview === 'true';
     return this.props.viewer.todos.edges.map(edge => {
-      return isNormalView ? <Todo
+      return isNormalView ? <Todo2
         key={edge.node.id}
         todo={edge.node}
         viewer={this.props.viewer}
       /> :
-        <Todo2
+        <Todo
           key={edge.node.id}
           todo={edge.node}
           viewer={this.props.viewer}
@@ -53,7 +53,10 @@ class TodoList extends React.Component<any, any, any> {
     // 1. can't change props  2. set state will cause a re-render which I don't want
     const currentRefState = this.hidden.dataset.isnormalview;
     const isNormalView: boolean = currentRefState === 'true';
-    this.props.relay.refetch({ isNormalView: !isNormalView }, null, () => {
+    this.props.relay.refetch({
+      isNormalView: !isNormalView,
+      _: 0
+    }, null, () => {
       // relay will first execute refetch callback, then call setState internally;
       // so your callback is executed before the resulting re-render
       this.hidden.dataset.isnormalview = (!isNormalView).toString();
@@ -62,9 +65,22 @@ class TodoList extends React.Component<any, any, any> {
   }
   _onRefetch = _ => {
     const { relay } = this.props;
-    // relay.refetch(prev => prev, null); // this won't work know becuase _getFragmentVariables always return defaults value
+    // relay.refetch(prev => prev, null);
     const isNormalView = this.hidden.dataset.isnormalview === 'true';
-    relay.refetch({ isNormalView });
+    relay.refetch({
+      isNormalView,
+      _: 0,
+    });
+  }
+  _onRefetchNewVars = _ => {
+    const { relay } = this.props;
+    // this won't work know becuase _getFragmentVariables always return defaults value
+    // relay.refetch(prev => prev, null); 
+    const isNormalView = this.hidden.dataset.isnormalview === 'true';
+    relay.refetch({
+      isNormalView,
+      _: Math.floor(Math.random() * 100),
+    });
   }
   render() {
     const numTodos = this.props.viewer.totalCount;
@@ -85,8 +101,15 @@ class TodoList extends React.Component<any, any, any> {
           {this.renderTodos()}
         </ul>
         <div style={{ marginTop: '20px' }}>
-          <button onClick={this._onSwitchView}>refetch-changeview</button>
-          <button onClick={this._onRefetch}>refetch-keepview</button>
+          <div>
+            <button onClick={this._onSwitchView}>refetch-changeview</button>
+          </div>
+          <div>
+            <button onClick={this._onRefetch}>refech</button>
+          </div>
+          <div>
+            <button onClick={this._onRefetchNewVars}>refetch-changeVars</button>
+          </div>
           {/*  the callback will be executed immediately after the component is mounted or unmounted  */}
           <input type="hidden" data-isnormalview="true" ref={ref => this.hidden = ref} />
         </div>
@@ -102,16 +125,23 @@ export default createRefetchContainer(TodoList,
           isNormalView:{
             type:"Boolean!",
             defaultValue:true
+           },
+           _:{
+            type:"Int!",
+            defaultValue:0
            }){
                   todos(
-                    first: 2147483647  # max GraphQLInt
+                    first: 2147483647,  # max GraphQLInt
+                    _: $_ # echo
                   ) @connection(key: "TodoList_todos") {
                     edges {
                       node {
                         id,
                         complete,
-                        ...Todo_todo  @include(if: $isNormalView),
-                        ...Todo2_todo @skip(if: $isNormalView),
+                        echo,
+                        ...Todo2_todo @include(if: $isNormalView),
+                        ...Todo_todo  @skip(if: $isNormalView),
+                        
                       },
                     },
                   },
@@ -122,10 +152,10 @@ export default createRefetchContainer(TodoList,
         }
   `,
   graphql.experimental`
-  query TodoListViewRefetchQuery($isNormalView: Boolean!){
+  query TodoListViewRefetchQuery($isNormalView: Boolean!, $_: Int!){
     viewer{
       user{
-           ...TodoList_viewer @arguments(isNormalView: $isNormalView) 
+           ...TodoList_viewer @arguments(isNormalView: $isNormalView, _:$_) 
         }
       }
   }`

@@ -13,7 +13,6 @@ const GRAPHQL_PORT = process.env.port || 8081;
 
 // Expose a GraphQL endpoint
 const graphQLServer = express();
-graphQLServer.use(express.static('azure/public'));
 graphQLServer.use('/', graphQLHTTP({ schema, graphiql: true, pretty: true }));
 graphQLServer.listen(GRAPHQL_PORT, () => console.log(
   `GraphQL Server is now running on http://localhost:${GRAPHQL_PORT}`

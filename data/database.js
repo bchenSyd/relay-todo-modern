@@ -10,8 +10,8 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-export class Todo {}
-export class User {}
+export class Todo { }
+export class User { }
 
 // Mock authenticated ID
 const VIEWER_ID = 'me';
@@ -51,12 +51,14 @@ export function getTodo(id) {
   return todosById[id];
 }
 
-export function getTodos(status = 'any') {
+export function getTodos(status = 'any', _: 0) {
   const todos = todoIdsByUser[VIEWER_ID].map(id => todosById[id]);
+  let result;
   if (status === 'any') {
-    return todos;
+    result = todos;
   }
-  return todos.filter(todo => todo.complete === (status === 'completed'));
+  result = todos.filter(todo => todo.complete === (status === 'completed'));
+  return result.map(r => Object.assign({}, r, { echo:_ }));
 }
 
 export function getUser(id) {

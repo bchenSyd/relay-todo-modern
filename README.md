@@ -156,7 +156,7 @@ D:\learn-relay\relay-modern
 
 # deplay to azure
 ## server
-> note: ** graphQLServer.use(_express2.default.static('./public'));  //iis-node set current directory to 'azure'  **
+> add line: ** graphQLServer.use(_express2.default.static('./public'));  //iis-node set current directory to 'azure'  **
 
 ```
 admin@bchen-PC MINGW64 /d/__work/learn-relay/relay-modern (master)

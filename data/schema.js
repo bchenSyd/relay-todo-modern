@@ -88,7 +88,11 @@ const GraphQLTodo = new GraphQLObjectType({
     },
     comments: {
       type: GraphQLString,
-      resolve:() => `comments #${Math.floor(Math.random() * 100)} `
+      resolve: () => `comments #${Math.floor(Math.random() * 100)} `,
+    },
+    echo: {
+      type: GraphQLInt,
+      resolve: (obj) => obj.echo,
     },
   },
   interfaces: [nodeInterface],
@@ -113,10 +117,14 @@ const GraphQLUser = new GraphQLObjectType({
           type: GraphQLString,
           defaultValue: 'any',
         },
+        _: {
+          type: GraphQLInt,
+          defaultValue: 0,
+        },
         ...connectionArgs,
       },
-      resolve: (obj, { status, ...args }) =>
-        connectionFromArray(getTodos(status), args),
+      resolve: (obj, { status, _, ...args }) =>
+        connectionFromArray(getTodos(status, _), args),
     },
     totalCount: {
       type: GraphQLInt,
