@@ -45,8 +45,6 @@ export default createRefetchContainer(Todo2,
   graphql.experimental`
     query Todo2CommentsRefetchQuery($id: ID!, $showComments: Boolean!){
         node(id: $id){
-          ... on Todo{
-            comments @include(if: $showComments)
-          }
+          ... Todo2_todo @arguments(id: $id, showComments:$showComments)
         }
     }`);
