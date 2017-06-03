@@ -200,12 +200,14 @@ $ cp public/*    azure/pulic
 ```
 
 ## deploy
-specify node engine
+1. specify node engine
 ```
  "engines": {
     "node": "6.10.0"
   }
 ```
+2. check your `package.json` and see if all `dependencies` are necessary for production
+3. start deployment
 ```
 $ azue login
 $azure config list
@@ -220,4 +222,24 @@ $ azure site create --git relay-modern
 
 azure   https://bambora@relay-modern.scm.azurewebsites.net/relay-modern.git (fetch)
 azure   https://bambora@relay-modern.scm.azurewebsites.net/relay-modern.git (push)
+```
+4. log
+```
+remote: Copying file: 'js\mutations\ChangeTodoStatusMutation.js'
+remote: Copying file: 'js\mutations\MarkAllTodosMutation.js'
+remote: Copying file: 'js\mutations\RemoveCompletedTodosMutation.js'
+remote: Omitting next output lines...
+remote: Using start-up script azure/index.js from package.json.
+remote: Generated web.config.
+remote: Node.js versions available on the platform are: 0.6.20, ... 8.0.0.
+remote: Selected node.js version 6.10.0. Use package.json file to choose a different version.
+remote: Selected npm version 3.10.10
+remote: Updating iisnode.yml at D:\home\site\wwwroot\azure\iisnode.yml
+remote: ....................................................................................................
+remote: D:\home\site\wwwroot
+remote: +-- babel-core@6.24.1
+remote: | +-- babel-code-frame@6.22.0
+remote: | | +-- chalk@1.1.3
+remote: | | | +-- ansi-styles@2.2.1
+remote: | | | +-- escape-string-regexp@1.0.5
 ```
