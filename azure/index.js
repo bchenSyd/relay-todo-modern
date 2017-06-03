@@ -26,7 +26,7 @@ var GRAPHQL_PORT = process.env.port || 8081;
 //if you don't have below line, nodemon won't re-load generateSchemaJson, 
 //and as such your old schema.json is used
 var graphQLServer = (0, _express2.default)();
-graphQLServer.use(_express2.default.static('./azure/public'));
+graphQLServer.use(_express2.default.static('./public'));  //iis-node set current directory to 'azure'
 graphQLServer.use('/', (0, _expressGraphql2.default)({ schema: _schema.schema, graphiql: true, pretty: true }));
 graphQLServer.listen(GRAPHQL_PORT, function () {
   return console.log('GraphQL Server is now running on http://localhost:' + GRAPHQL_PORT);

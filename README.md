@@ -156,6 +156,8 @@ D:\learn-relay\relay-modern
 
 # deplay to azure
 ## server
+> note: ** graphQLServer.use(_express2.default.static('./public'));  //iis-node set current directory to 'azure'  **
+
 ```
 admin@bchen-PC MINGW64 /d/__work/learn-relay/relay-modern (master)
 $ mkdir azure
@@ -168,6 +170,8 @@ $ yarn run babel -- server.js  --out-file azure/index.js --source-maps
 yarn run v0.16.0
 $ "D:\__work\learn-relay\relay-modern\node_modules\.bin\babel" server.js --out-file azure/index.js --source-maps
 Done in 1.09s.
+
+** graphQLServer.use(_express2.default.static('./public'));  //iis-node set current directory to 'azure'  **
 
 admin@bchen-PC MINGW64 /d/__work/learn-relay/relay-modern (master)
 $ yarn run babel -- ./data  --out-dir azure/data  --source-maps  --copy-files
