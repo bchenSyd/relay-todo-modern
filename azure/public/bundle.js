@@ -35840,8 +35840,8 @@
 	 *   relay-compiler
 	 *
 	 * @providesModule Todo2CommentsRefetchQuery.graphql
-	 * @generated SignedSource<<19a92eedae36ab944e779bc2a5b117a8>>
-	 * @relayHash f4b718e891abea5095f371314b307a65
+	 * @generated SignedSource<<ba9db0c7d9bfa050694c2b0cba6acac9>>
+	 * @relayHash fb518ed0711a859d478ebbcd0d42666b
 	 * 
 	 * @nogrep
 	 */
@@ -35862,11 +35862,16 @@
 	) {
 	  node(id: $id) {
 	    __typename
-	    ... on Todo {
-	      comments @include(if: $showComments)
-	    }
+	    ...Todo2_todo_nvMGh
 	    id
 	  }
+	}
+	
+	fragment Todo2_todo_nvMGh on Todo {
+	  id
+	  text
+	  additional
+	  comments @include(if: $showComments)
 	}
 	*/
 	
@@ -35899,19 +35904,18 @@
 	      "name": "node",
 	      "plural": false,
 	      "selections": [{
-	        "kind": "InlineFragment",
-	        "type": "Todo",
-	        "selections": [{
-	          "kind": "Condition",
-	          "passingValue": true,
-	          "condition": "showComments",
-	          "selections": [{
-	            "kind": "ScalarField",
-	            "alias": null,
-	            "args": null,
-	            "name": "comments",
-	            "storageKey": null
-	          }]
+	        "kind": "FragmentSpread",
+	        "name": "Todo2_todo",
+	        "args": [{
+	          "kind": "Variable",
+	          "name": "id",
+	          "variableName": "id",
+	          "type": null
+	        }, {
+	          "kind": "Variable",
+	          "name": "showComments",
+	          "variableName": "showComments",
+	          "type": null
 	        }]
 	      }],
 	      "storageKey": null
@@ -35965,6 +35969,18 @@
 	        "kind": "InlineFragment",
 	        "type": "Todo",
 	        "selections": [{
+	          "kind": "ScalarField",
+	          "alias": null,
+	          "args": null,
+	          "name": "text",
+	          "storageKey": null
+	        }, {
+	          "kind": "ScalarField",
+	          "alias": null,
+	          "args": null,
+	          "name": "additional",
+	          "storageKey": null
+	        }, {
 	          "kind": "Condition",
 	          "passingValue": true,
 	          "condition": "showComments",
@@ -35980,7 +35996,7 @@
 	      "storageKey": null
 	    }]
 	  },
-	  "text": "query Todo2CommentsRefetchQuery(\n  $id: ID!\n  $showComments: Boolean!\n) {\n  node(id: $id) {\n    __typename\n    ... on Todo {\n      comments @include(if: $showComments)\n    }\n    id\n  }\n}\n"
+	  "text": "query Todo2CommentsRefetchQuery(\n  $id: ID!\n  $showComments: Boolean!\n) {\n  node(id: $id) {\n    __typename\n    ...Todo2_todo_nvMGh\n    id\n  }\n}\n\nfragment Todo2_todo_nvMGh on Todo {\n  id\n  text\n  additional\n  comments @include(if: $showComments)\n}\n"
 	};
 	
 	module.exports = batch;
