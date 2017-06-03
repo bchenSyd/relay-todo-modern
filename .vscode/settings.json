@@ -1,0 +1,6 @@
+// Place your settings in this file to overwrite default and user settings.
+{
+      "javascript.validate.enable": false,
+      "editor.detectIndentation": false,
+      "editor.tabSize": 2, //fb eslint rules
+}

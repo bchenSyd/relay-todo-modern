@@ -1,0 +1,15 @@
+[ignore]
+.*/public/.*
+.*/dist/.*
+.*/coverage/.*
+.*/resources/.*
+.*node_modules/fbjs.*
+
+[include]
+
+[libs]
+
+
+[options]
+experimental.const_params=true
+

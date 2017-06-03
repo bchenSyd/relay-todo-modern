@@ -1,0 +1,15 @@
+{
+    "verbose": true,
+    "watch": [
+        "data"
+    ],
+    "ignore": [
+        "data/schema.json",
+        "data/schema.graphql",
+        "js/*"
+    ],
+    "env": {
+        "NODE_ENV": "development"
+    },
+    "ext": "js json"
+}
