@@ -200,6 +200,12 @@ $ cp public/*    azure/pulic
 ```
 
 ## deploy
+specify node engine
+```
+ "engines": {
+    "node": "6.10.0"
+  }
+```
 ```
 $ azue login
 $azure config list
