@@ -84,12 +84,6 @@ var GraphQLTodo = new _graphql.GraphQLObjectType({
       resolve: function resolve() {
         return 'comments #' + Math.floor(Math.random() * 100) + ' ';
       }
-    },
-    echo: {
-      type: _graphql.GraphQLInt,
-      resolve: function resolve(obj) {
-        return obj.echo;
-      }
     }
   },
   interfaces: [nodeInterface]
@@ -112,10 +106,6 @@ var GraphQLUser = new _graphql.GraphQLObjectType({
         status: {
           type: _graphql.GraphQLString,
           defaultValue: 'any'
-        },
-        _: {
-          type: _graphql.GraphQLInt,
-          defaultValue: 0
         }
       }, _graphqlRelay.connectionArgs),
       resolve: function resolve(obj, _ref) {
@@ -135,6 +125,19 @@ var GraphQLUser = new _graphql.GraphQLObjectType({
       type: _graphql.GraphQLInt,
       resolve: function resolve() {
         return (0, _database.getTodos)('completed').length;
+      }
+    },
+    echo: {
+      type: _graphql.GraphQLInt,
+      args: {
+        _: {
+          type: _graphql.GraphQLInt,
+          defaultValue: 0
+        }
+      },
+      resolve: function resolve(obj, _ref2) {
+        var _ = _ref2._;
+        return _;
       }
     }
   },
@@ -172,8 +175,8 @@ var GraphQLAddTodoMutation = (0, _graphqlRelay.mutationWithClientMutationId)({
   outputFields: {
     todoEdge: {
       type: GraphQLTodoEdge,
-      resolve: function resolve(_ref2) {
-        var localTodoId = _ref2.localTodoId;
+      resolve: function resolve(_ref3) {
+        var localTodoId = _ref3.localTodoId;
 
         var todo = (0, _database.getTodo)(localTodoId);
         return {
@@ -189,8 +192,8 @@ var GraphQLAddTodoMutation = (0, _graphqlRelay.mutationWithClientMutationId)({
       }
     }
   },
-  mutateAndGetPayload: function mutateAndGetPayload(_ref3) {
-    var text = _ref3.text;
+  mutateAndGetPayload: function mutateAndGetPayload(_ref4) {
+    var text = _ref4.text;
 
     var localTodoId = (0, _database.addTodo)(text);
     return { localTodoId: localTodoId };
@@ -206,8 +209,8 @@ var GraphQLChangeTodoStatusMutation = (0, _graphqlRelay.mutationWithClientMutati
   outputFields: {
     todo: {
       type: GraphQLTodo,
-      resolve: function resolve(_ref4) {
-        var localTodoId = _ref4.localTodoId;
+      resolve: function resolve(_ref5) {
+        var localTodoId = _ref5.localTodoId;
         return (0, _database.getTodo)(localTodoId);
       }
     },
@@ -218,9 +221,9 @@ var GraphQLChangeTodoStatusMutation = (0, _graphqlRelay.mutationWithClientMutati
       }
     }
   },
-  mutateAndGetPayload: function mutateAndGetPayload(_ref5) {
-    var id = _ref5.id,
-        complete = _ref5.complete;
+  mutateAndGetPayload: function mutateAndGetPayload(_ref6) {
+    var id = _ref6.id,
+        complete = _ref6.complete;
 
     var localTodoId = (0, _unibetIds.fromGlobalId_unibet)(id).id;
     (0, _database.changeTodoStatus)(localTodoId, complete);
@@ -236,8 +239,8 @@ var GraphQLMarkAllTodosMutation = (0, _graphqlRelay.mutationWithClientMutationId
   outputFields: {
     changedTodos: {
       type: new _graphql.GraphQLList(GraphQLTodo),
-      resolve: function resolve(_ref6) {
-        var changedTodoLocalIds = _ref6.changedTodoLocalIds;
+      resolve: function resolve(_ref7) {
+        var changedTodoLocalIds = _ref7.changedTodoLocalIds;
         return changedTodoLocalIds.map(_database.getTodo);
       }
     },
@@ -248,8 +251,8 @@ var GraphQLMarkAllTodosMutation = (0, _graphqlRelay.mutationWithClientMutationId
       }
     }
   },
-  mutateAndGetPayload: function mutateAndGetPayload(_ref7) {
-    var complete = _ref7.complete;
+  mutateAndGetPayload: function mutateAndGetPayload(_ref8) {
+    var complete = _ref8.complete;
 
     var changedTodoLocalIds = (0, _database.markAllTodos)(complete);
     return { changedTodoLocalIds: changedTodoLocalIds };
@@ -262,8 +265,8 @@ var GraphQLRemoveCompletedTodosMutation = (0, _graphqlRelay.mutationWithClientMu
   outputFields: {
     deletedTodoIds: {
       type: new _graphql.GraphQLList(_graphql.GraphQLString),
-      resolve: function resolve(_ref8) {
-        var deletedTodoIds = _ref8.deletedTodoIds;
+      resolve: function resolve(_ref9) {
+        var deletedTodoIds = _ref9.deletedTodoIds;
         return deletedTodoIds;
       }
     },
@@ -289,8 +292,8 @@ var GraphQLRemoveTodoMutation = (0, _graphqlRelay.mutationWithClientMutationId)(
   outputFields: {
     deletedTodoId: {
       type: _graphql.GraphQLID,
-      resolve: function resolve(_ref9) {
-        var id = _ref9.id;
+      resolve: function resolve(_ref10) {
+        var id = _ref10.id;
         return id;
       }
     },
@@ -301,8 +304,8 @@ var GraphQLRemoveTodoMutation = (0, _graphqlRelay.mutationWithClientMutationId)(
       }
     }
   },
-  mutateAndGetPayload: function mutateAndGetPayload(_ref10) {
-    var id = _ref10.id;
+  mutateAndGetPayload: function mutateAndGetPayload(_ref11) {
+    var id = _ref11.id;
 
     var localTodoId = (0, _unibetIds.fromGlobalId_unibet)(id).id;
     (0, _database.removeTodo)(localTodoId);
@@ -319,15 +322,15 @@ var GraphQLRenameTodoMutation = (0, _graphqlRelay.mutationWithClientMutationId)(
   outputFields: {
     todo: {
       type: GraphQLTodo,
-      resolve: function resolve(_ref11) {
-        var localTodoId = _ref11.localTodoId;
+      resolve: function resolve(_ref12) {
+        var localTodoId = _ref12.localTodoId;
         return (0, _database.getTodo)(localTodoId);
       }
     }
   },
-  mutateAndGetPayload: function mutateAndGetPayload(_ref12) {
-    var id = _ref12.id,
-        text = _ref12.text;
+  mutateAndGetPayload: function mutateAndGetPayload(_ref13) {
+    var id = _ref13.id,
+        text = _ref13.text;
 
     var localTodoId = (0, _unibetIds.fromGlobalId_unibet)(id).id;
     (0, _database.renameTodo)(localTodoId, text);
@@ -351,3 +354,4 @@ var schema = exports.schema = new _graphql.GraphQLSchema({
   query: Query,
   mutation: Mutation
 });
+//# sourceMappingURL=schema.js.map

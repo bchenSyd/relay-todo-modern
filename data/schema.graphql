@@ -111,7 +111,6 @@ type Todo implements Node {
   complete: Boolean
   additional: String
   comments: String
-  echo: Int
 }
 
 # A connection to a list of items.
@@ -135,9 +134,10 @@ type TodoEdge {
 type User implements Node {
   # The ID of an object
   id: ID!
-  todos(status: String = "any", _: Int = 0, after: String, first: Int, before: String, last: Int): TodoConnection
+  todos(status: String = "any", after: String, first: Int, before: String, last: Int): TodoConnection
   totalCount: Int
   completedCount: Int
+  echo(_: Int = 0): Int
 }
 
 type Viewer {

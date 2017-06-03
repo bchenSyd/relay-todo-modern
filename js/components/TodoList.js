@@ -131,23 +131,21 @@ export default createRefetchContainer(TodoList,
             defaultValue:0
            }){
                   todos(
-                    first: 2147483647,  # max GraphQLInt
-                    _: $_ # echo
+                    first: 2147483647  # max GraphQLInt
                   ) @connection(key: "TodoList_todos") {
                     edges {
                       node {
                         id,
                         complete,
-                        echo,
                         ...Todo2_todo @include(if: $isNormalView),
-                        ...Todo_todo  @skip(if: $isNormalView),
-                        
+                        ...Todo_todo  @skip(if: $isNormalView)
                       },
                     },
                   },
                   id,
                   totalCount,
                   completedCount,
+                  echo(_:$_)
                   ...Todo_viewer,
         }
   `,

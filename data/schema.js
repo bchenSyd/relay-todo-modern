@@ -90,10 +90,6 @@ const GraphQLTodo = new GraphQLObjectType({
       type: GraphQLString,
       resolve: () => `comments #${Math.floor(Math.random() * 100)} `,
     },
-    echo: {
-      type: GraphQLInt,
-      resolve: (obj) => obj.echo,
-    },
   },
   interfaces: [nodeInterface],
 });
@@ -117,10 +113,6 @@ const GraphQLUser = new GraphQLObjectType({
           type: GraphQLString,
           defaultValue: 'any',
         },
-        _: {
-          type: GraphQLInt,
-          defaultValue: 0,
-        },
         ...connectionArgs,
       },
       resolve: (obj, { status, _, ...args }) =>
@@ -133,6 +125,16 @@ const GraphQLUser = new GraphQLObjectType({
     completedCount: {
       type: GraphQLInt,
       resolve: () => getTodos('completed').length,
+    },
+    echo: {
+      type: GraphQLInt,
+      args: {
+        _: {
+          type: GraphQLInt,
+          defaultValue: 0,
+        },
+      },
+      resolve: (obj, { _ }) => _,
     },
   },
   interfaces: [nodeInterface],

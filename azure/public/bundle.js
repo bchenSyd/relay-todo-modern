@@ -33343,7 +33343,8 @@
 	          _this._pendingRefetch = null;
 	          callback && callback();
 	          _this._resolver.setVariables(fragmentVariables);
-	          _this.setState({ data: _this._resolver.resolve() });
+	          var data = _this._resolver.resolve();
+	          _this.setState({ data: data });
 	        };
 	        var onError = function onError(error) {
 	          _this._pendingRefetch = null;
@@ -35993,7 +35994,7 @@
 	 *   relay-compiler
 	 *
 	 * @providesModule TodoList_viewer.graphql
-	 * @generated SignedSource<<e3805e44e76c72833f46c31491ad9fdc>>
+	 * @generated SignedSource<<2a8d587c24b15122d873db737e212061>>
 	 * 
 	 * @nogrep
 	 */
@@ -36007,12 +36008,12 @@
 	  id: string;
 	  totalCount?: ?number;
 	  completedCount?: ?number;
+	  echo?: ?number;
 	};
 	
 	export type TodoList_viewer_todos_edges_node = {
 	  id: string;
 	  complete?: ?boolean;
-	  echo?: ?number;
 	};
 	
 	export type TodoList_viewer_todos_edges = {
@@ -36051,12 +36052,7 @@
 	  "selections": [{
 	    "kind": "LinkedField",
 	    "alias": "todos",
-	    "args": [{
-	      "kind": "Variable",
-	      "name": "_",
-	      "variableName": "_",
-	      "type": "Int"
-	    }],
+	    "args": null,
 	    "concreteType": "TodoConnection",
 	    "name": "__TodoList_todos_connection",
 	    "plural": false,
@@ -36085,12 +36081,6 @@
 	          "alias": null,
 	          "args": null,
 	          "name": "complete",
-	          "storageKey": null
-	        }, {
-	          "kind": "ScalarField",
-	          "alias": null,
-	          "args": null,
-	          "name": "echo",
 	          "storageKey": null
 	        }, {
 	          "kind": "Condition",
@@ -36135,6 +36125,17 @@
 	    "name": "completedCount",
 	    "storageKey": null
 	  }, {
+	    "kind": "ScalarField",
+	    "alias": null,
+	    "args": [{
+	      "kind": "Variable",
+	      "name": "_",
+	      "variableName": "_",
+	      "type": "Int"
+	    }],
+	    "name": "echo",
+	    "storageKey": null
+	  }, {
 	    "kind": "FragmentSpread",
 	    "name": "Todo_viewer",
 	    "args": null
@@ -36153,8 +36154,8 @@
 	 *   relay-compiler
 	 *
 	 * @providesModule TodoListViewRefetchQuery.graphql
-	 * @generated SignedSource<<e22b2fe62ff4c6a7d0774da829986bd4>>
-	 * @relayHash 1db8927d83f6e9152b75c087938da019
+	 * @generated SignedSource<<5ba5502bbfc51b384cb00aed6c31ee26>>
+	 * @relayHash c8061e6dc61b86ad9f1d5f11b3e4ba70
 	 * 
 	 * @nogrep
 	 */
@@ -36182,12 +36183,11 @@
 	}
 	
 	fragment TodoList_viewer_AdR91 on User {
-	  todos(first: 2147483647, _: $_) {
+	  todos(first: 2147483647) {
 	    edges {
 	      node {
 	        id
 	        complete
-	        echo
 	        ...Todo2_todo @include(if: $isNormalView)
 	        ...Todo_todo @skip(if: $isNormalView)
 	        __typename
@@ -36204,6 +36204,7 @@
 	  id
 	  totalCount
 	  completedCount
+	  echo(_: $_)
 	  ...Todo_viewer
 	}
 	
@@ -36314,11 +36315,6 @@
 	          "kind": "LinkedField",
 	          "alias": null,
 	          "args": [{
-	            "kind": "Variable",
-	            "name": "_",
-	            "variableName": "_",
-	            "type": "Int"
-	          }, {
 	            "kind": "Literal",
 	            "name": "first",
 	            "value": 2147483647,
@@ -36352,12 +36348,6 @@
 	                "alias": null,
 	                "args": null,
 	                "name": "complete",
-	                "storageKey": null
-	              }, {
-	                "kind": "ScalarField",
-	                "alias": null,
-	                "args": null,
-	                "name": "echo",
 	                "storageKey": null
 	              }, {
 	                "kind": "ScalarField",
@@ -36445,16 +36435,11 @@
 	            }],
 	            "storageKey": null
 	          }],
-	          "storageKey": null
+	          "storageKey": "todos{\"first\":2147483647}"
 	        }, {
 	          "kind": "LinkedHandle",
 	          "alias": null,
 	          "args": [{
-	            "kind": "Variable",
-	            "name": "_",
-	            "variableName": "_",
-	            "type": "Int"
-	          }, {
 	            "kind": "Literal",
 	            "name": "first",
 	            "value": 2147483647,
@@ -36463,7 +36448,7 @@
 	          "handle": "connection",
 	          "name": "todos",
 	          "key": "TodoList_todos",
-	          "filters": ["_"]
+	          "filters": null
 	        }, {
 	          "kind": "ScalarField",
 	          "alias": null,
@@ -36482,6 +36467,17 @@
 	          "args": null,
 	          "name": "completedCount",
 	          "storageKey": null
+	        }, {
+	          "kind": "ScalarField",
+	          "alias": null,
+	          "args": [{
+	            "kind": "Variable",
+	            "name": "_",
+	            "variableName": "_",
+	            "type": "Int"
+	          }],
+	          "name": "echo",
+	          "storageKey": null
 	        }],
 	        "storageKey": null
 	      }],
@@ -36496,7 +36492,7 @@
 	      "filters": null
 	    }]
 	  },
-	  "text": "query TodoListViewRefetchQuery(\n  $isNormalView: Boolean!\n  $_: Int!\n) {\n  viewer {\n    user {\n      ...TodoList_viewer_AdR91\n      id\n    }\n  }\n}\n\nfragment TodoList_viewer_AdR91 on User {\n  todos(first: 2147483647, _: $_) {\n    edges {\n      node {\n        id\n        complete\n        echo\n        ...Todo2_todo @include(if: $isNormalView)\n        ...Todo_todo @skip(if: $isNormalView)\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n      hasPreviousPage\n      startCursor\n    }\n  }\n  id\n  totalCount\n  completedCount\n  ...Todo_viewer\n}\n\nfragment Todo2_todo on Todo {\n  id\n  text\n  additional\n}\n\nfragment Todo_todo on Todo {\n  complete\n  id\n  text\n}\n\nfragment Todo_viewer on User {\n  id\n  totalCount\n  completedCount\n}\n"
+	  "text": "query TodoListViewRefetchQuery(\n  $isNormalView: Boolean!\n  $_: Int!\n) {\n  viewer {\n    user {\n      ...TodoList_viewer_AdR91\n      id\n    }\n  }\n}\n\nfragment TodoList_viewer_AdR91 on User {\n  todos(first: 2147483647) {\n    edges {\n      node {\n        id\n        complete\n        ...Todo2_todo @include(if: $isNormalView)\n        ...Todo_todo @skip(if: $isNormalView)\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n      hasPreviousPage\n      startCursor\n    }\n  }\n  id\n  totalCount\n  completedCount\n  echo(_: $_)\n  ...Todo_viewer\n}\n\nfragment Todo2_todo on Todo {\n  id\n  text\n  additional\n}\n\nfragment Todo_todo on Todo {\n  complete\n  id\n  text\n}\n\nfragment Todo_viewer on User {\n  id\n  totalCount\n  completedCount\n}\n"
 	};
 	
 	module.exports = batch;
@@ -37027,8 +37023,8 @@
 	 *   relay-compiler
 	 *
 	 * @providesModule appQuery.graphql
-	 * @generated SignedSource<<9ba45d5ab1758014157ef133986278bd>>
-	 * @relayHash 6f890a6ba3563e57ef13c94f3f3a8568
+	 * @generated SignedSource<<b7854303865925ce04b0b7efb85655b7>>
+	 * @relayHash 025b638d6af83b7e76d791228993fadf
 	 * 
 	 * @nogrep
 	 */
@@ -37074,12 +37070,11 @@
 	}
 	
 	fragment TodoList_viewer on User {
-	  todos(first: 2147483647, _: 0) {
+	  todos(first: 2147483647) {
 	    edges {
 	      node {
 	        id
 	        complete
-	        echo
 	        ...Todo2_todo
 	        __typename
 	      }
@@ -37095,6 +37090,7 @@
 	  id
 	  totalCount
 	  completedCount
+	  echo(_: 0)
 	  ...Todo_viewer
 	}
 	
@@ -37237,11 +37233,6 @@
 	          "alias": null,
 	          "args": [{
 	            "kind": "Literal",
-	            "name": "_",
-	            "value": 0,
-	            "type": "Int"
-	          }, {
-	            "kind": "Literal",
 	            "name": "first",
 	            "value": 2147483647,
 	            "type": "Int"
@@ -37274,12 +37265,6 @@
 	                "alias": null,
 	                "args": null,
 	                "name": "complete",
-	                "storageKey": null
-	              }, {
-	                "kind": "ScalarField",
-	                "alias": null,
-	                "args": null,
-	                "name": "echo",
 	                "storageKey": null
 	              }, {
 	                "kind": "ScalarField",
@@ -37343,16 +37328,11 @@
 	            }],
 	            "storageKey": null
 	          }],
-	          "storageKey": "todos{\"_\":0,\"first\":2147483647}"
+	          "storageKey": "todos{\"first\":2147483647}"
 	        }, {
 	          "kind": "LinkedHandle",
 	          "alias": null,
 	          "args": [{
-	            "kind": "Literal",
-	            "name": "_",
-	            "value": 0,
-	            "type": "Int"
-	          }, {
 	            "kind": "Literal",
 	            "name": "first",
 	            "value": 2147483647,
@@ -37361,7 +37341,18 @@
 	          "handle": "connection",
 	          "name": "todos",
 	          "key": "TodoList_todos",
-	          "filters": ["_"]
+	          "filters": null
+	        }, {
+	          "kind": "ScalarField",
+	          "alias": null,
+	          "args": [{
+	            "kind": "Literal",
+	            "name": "_",
+	            "value": 0,
+	            "type": "Int"
+	          }],
+	          "name": "echo",
+	          "storageKey": "echo{\"_\":0}"
 	        }],
 	        "storageKey": null
 	      }],
@@ -37376,7 +37367,7 @@
 	      "filters": null
 	    }]
 	  },
-	  "text": "query appQuery {\n  viewer {\n    user {\n      ...TodoApp_viewer\n      id\n    }\n  }\n}\n\nfragment TodoApp_viewer on User {\n  id\n  totalCount\n  ...TodoListFooter_viewer\n  ...TodoList_viewer\n}\n\nfragment TodoListFooter_viewer on User {\n  id\n  completedCount\n  completedTodos: todos(status: \"completed\", first: 2147483647) {\n    edges {\n      node {\n        id\n        complete\n      }\n    }\n  }\n  totalCount\n}\n\nfragment TodoList_viewer on User {\n  todos(first: 2147483647, _: 0) {\n    edges {\n      node {\n        id\n        complete\n        echo\n        ...Todo2_todo\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n      hasPreviousPage\n      startCursor\n    }\n  }\n  id\n  totalCount\n  completedCount\n  ...Todo_viewer\n}\n\nfragment Todo2_todo on Todo {\n  id\n  text\n  additional\n}\n\nfragment Todo_viewer on User {\n  id\n  totalCount\n  completedCount\n}\n"
+	  "text": "query appQuery {\n  viewer {\n    user {\n      ...TodoApp_viewer\n      id\n    }\n  }\n}\n\nfragment TodoApp_viewer on User {\n  id\n  totalCount\n  ...TodoListFooter_viewer\n  ...TodoList_viewer\n}\n\nfragment TodoListFooter_viewer on User {\n  id\n  completedCount\n  completedTodos: todos(status: \"completed\", first: 2147483647) {\n    edges {\n      node {\n        id\n        complete\n      }\n    }\n  }\n  totalCount\n}\n\nfragment TodoList_viewer on User {\n  todos(first: 2147483647) {\n    edges {\n      node {\n        id\n        complete\n        ...Todo2_todo\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n      hasPreviousPage\n      startCursor\n    }\n  }\n  id\n  totalCount\n  completedCount\n  echo(_: 0)\n  ...Todo_viewer\n}\n\nfragment Todo2_todo on Todo {\n  id\n  text\n  additional\n}\n\nfragment Todo_viewer on User {\n  id\n  totalCount\n  completedCount\n}\n"
 	};
 	
 	module.exports = batch;

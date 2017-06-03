@@ -51,14 +51,12 @@ export function getTodo(id) {
   return todosById[id];
 }
 
-export function getTodos(status = 'any', _: 0) {
+export function getTodos(status = 'any') {
   const todos = todoIdsByUser[VIEWER_ID].map(id => todosById[id]);
-  let result;
   if (status === 'any') {
-    result = todos;
+    return todos;
   }
-  result = todos.filter(todo => todo.complete === (status === 'completed'));
-  return result.map(r => Object.assign({}, r, { echo:_ }));
+  return todos.filter(todo => todo.complete === (status === 'completed'));
 }
 
 export function getUser(id) {

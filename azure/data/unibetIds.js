@@ -27,3 +27,4 @@ var globalIdField_unibet = function globalIdField_unibet(typeName /*'User', 'Tod
 
 exports.fromGlobalId_unibet = fromGlobalId_unibet;
 exports.globalIdField_unibet = globalIdField_unibet;
+//# sourceMappingURL=unibetIds.js.map
