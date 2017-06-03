@@ -13,6 +13,10 @@ var _classCallCheck2 = require('babel-runtime/helpers/classCallCheck');
 
 var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
 
+var _assign = require('babel-runtime/core-js/object/assign');
+
+var _assign2 = _interopRequireDefault(_assign);
+
 exports.addTodo = addTodo;
 exports.changeTodoStatus = changeTodoStatus;
 exports.getTodo = getTodo;
@@ -84,15 +88,20 @@ function getTodo(id) {
 
 function getTodos() {
   var status = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'any';
+  var _ = arguments[1];
 
   var todos = todoIdsByUser[VIEWER_ID].map(function (id) {
     return todosById[id];
   });
+  var result = void 0;
   if (status === 'any') {
-    return todos;
+    result = todos;
   }
-  return todos.filter(function (todo) {
+  result = todos.filter(function (todo) {
     return todo.complete === (status === 'completed');
+  });
+  return result.map(function (r) {
+    return (0, _assign2.default)({}, r, { echo: _ });
   });
 }
 
@@ -141,4 +150,3 @@ function renameTodo(id, text) {
   var todo = getTodo(id);
   todo.text = text;
 }
-//# sourceMappingURL=database.js.map

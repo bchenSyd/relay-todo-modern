@@ -84,6 +84,12 @@ var GraphQLTodo = new _graphql.GraphQLObjectType({
       resolve: function resolve() {
         return 'comments #' + Math.floor(Math.random() * 100) + ' ';
       }
+    },
+    echo: {
+      type: _graphql.GraphQLInt,
+      resolve: function resolve(obj) {
+        return obj.echo;
+      }
     }
   },
   interfaces: [nodeInterface]
@@ -106,12 +112,17 @@ var GraphQLUser = new _graphql.GraphQLObjectType({
         status: {
           type: _graphql.GraphQLString,
           defaultValue: 'any'
+        },
+        _: {
+          type: _graphql.GraphQLInt,
+          defaultValue: 0
         }
       }, _graphqlRelay.connectionArgs),
       resolve: function resolve(obj, _ref) {
         var status = _ref.status,
-            args = (0, _objectWithoutProperties3.default)(_ref, ['status']);
-        return (0, _graphqlRelay.connectionFromArray)((0, _database.getTodos)(status), args);
+            _ = _ref._,
+            args = (0, _objectWithoutProperties3.default)(_ref, ['status', '_']);
+        return (0, _graphqlRelay.connectionFromArray)((0, _database.getTodos)(status, _), args);
       }
     },
     totalCount: {
@@ -340,4 +351,3 @@ var schema = exports.schema = new _graphql.GraphQLSchema({
   query: Query,
   mutation: Mutation
 });
-//# sourceMappingURL=schema.js.map
