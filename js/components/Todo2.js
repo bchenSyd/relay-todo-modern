@@ -6,6 +6,7 @@ import {
 } from 'react-relay';
 
 const Todo2 = props => {
+  console.log(`Todo2 is re-rendering...`)
   const { relay, todo: { id, text, additional, comments } } = props;
   const refetch = e => {
     relay.refetch({
