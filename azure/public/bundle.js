@@ -35659,6 +35659,7 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var Todo2 = function Todo2(props) {
+	  console.log('Todo2 is re-rendering...');
 	  var relay = props.relay,
 	      _props$todo = props.todo,
 	      id = _props$todo.id,
