@@ -27,11 +27,6 @@ const Todo2 = props => {
 export default createRefetchContainer(Todo2,
   graphql.experimental`fragment Todo2_todo on Todo
       @argumentDefinitions(
-          # this should be an optional argument; not argument with optional value type
-          id:{
-            type:"ID!",
-            defaultValue:""
-          },
           showComments:{
             type:"Boolean!",
             defaultValue:false
@@ -45,6 +40,6 @@ export default createRefetchContainer(Todo2,
   graphql.experimental`
     query Todo2CommentsRefetchQuery($id: ID!, $showComments: Boolean!){
         node(id: $id){
-          ... Todo2_todo @arguments(id: $id, showComments:$showComments)
+          ... Todo2_todo @arguments(showComments:$showComments)
         }
     }`);
