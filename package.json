@@ -1,4 +1,9 @@
 {
+  "_readme": [
+    "npm ls source-map-supoort you will find:",
+    "babel-register is added via babel-cli",
+    "source-map-support is added via babel-register"
+  ],
   "engines": {
     "node": "6.10.0"
   },
@@ -17,20 +22,21 @@
     "prestart-client": "npm run clean & npm run build",
     "update-schema": "babel-node ./script/updateSchema.js",
     "test": "mocha --compilers js:babel-register --recursive \"component/**/*.spec.js\" --require test/setup.js",
-    "debug-mocha": "mocha --compilers js:babel-register --source-maps  --recursive \"component/**/*.spec.js\" --require test/setup.js --debug-brk --inspect",
+    "debug-mocha": "mocha --compilers js:babel-register  --recursive \"js/**/*.spec.js\" --require test/setup.js --debug-brk --inspect",
     "lint": "eslint ./js",
     "webpack": "npm run deploy-schema-change&webpack --config webpack.azure.config.js  --progress --verbose --colors --display-error-details",
-    "deploy-schema-change":"babel data --out-dir azure/data --source-maps"
+    "deploy-schema-change": "babel data --out-dir azure/data --source-maps"
   },
   "dependencies": {
     "babel-runtime": "^6.11.6",
-    "express": "^4.15.2",
     "express-graphql": "^0.6.4",
     "graphql": "^0.9.1",
     "graphql-relay": "^0.5.1"
   },
   "devDependencies": {
+    "babel-cli": "^6.11.4",
     "babel-core": "^6.13.2",
+    "babel-eslint": "6.1.2",
     "babel-loader": "^6.2.5",
     "babel-plugin-relay": "^1.0.1-a",
     "babel-plugin-transform-runtime": "^6.12.0",
@@ -38,23 +44,23 @@
     "babel-preset-react": "^6.11.1",
     "babel-preset-stage-0": "^6.5.0",
     "classnames": "2.2.5",
-    "prop-types": "^15.5.8",
-    "react": "^15.3.1",
-    "react-dom": "^15.3.1",
-    "react-relay": "^1.0.0-a",
-    "todomvc-app-css": "^2.1.0",
-    "webpack": "1.13.2",
-    "webpack-dev-server": "^1.16.1",
-    "whatwg-fetch": "2.0.3",
-    "babel-cli": "^6.11.4",
-    "babel-eslint": "6.1.2",
     "eslint": "3.19.0",
     "eslint-config-fbjs": "1.1.1",
     "eslint-plugin-babel": "3.3.0",
     "eslint-plugin-flowtype": "2.15.0",
     "eslint-plugin-react": "5.2.2",
+    "expect": "^1.20.2",
     "flow-bin": "^0.46.0",
+    "jsdom": "^11.0.0",
     "mocha": "^3.4.2",
-    "relay-compiler": "^1.0.0-a"
+    "prop-types": "^15.5.8",
+    "react": "^15.3.1",
+    "react-dom": "^15.3.1",
+    "react-relay": "^1.0.0-a",
+    "relay-compiler": "^1.0.0-a",
+    "todomvc-app-css": "^2.1.0",
+    "webpack": "1.13.2",
+    "webpack-dev-server": "^1.16.1",
+    "whatwg-fetch": "2.0.3"
   }
 }
