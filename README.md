@@ -16,21 +16,21 @@ D:\relay-todo-modern
 In typescript world, similarly, we have `ts-node/register` which does the same
 [ts-node/register](https://github.com/bochen2014/graphql-tools/blob/develop/package.json#L23);
 
+[source code](https://github.com/babel/babel/blob/7.0/packages/babel-cli/src/_babel-node.js#L9)
 ```
-_sourceMapSupport2.default.install({
-  handleUncaughtExceptions: false,
-  environment: "node",
-  retrieveSourceMap: function retrieveSourceMap(source) {
-    var map = maps && maps[source];
-    if (map) {
-      return {
-        url: null,
-        map: map
-      };
-    } else {
-      return null;
-    }
-  }
+//babel-cli/_babel-node.js line 9
+import register from "babel-register";  // this will call source-map-support.install()
+```
+
+note that [this line](https://github.com/babel/babel/blob/7.0/packages/babel-cli/src/_babel-node.js#L40) is not called;
+it is only called when you run `babel-node` command (which we are not in `debug-mocha`;
+```
+register({
+  extensions: program.extensions,
+  ignore: program.ignore,
+  only: program.only,
+  plugins: program.plugins,
+  presets: program.presets,
 });
 ```
 
