@@ -2,7 +2,8 @@
   "_readme": [
     "npm ls source-map-supoort you will find:",
     "babel-register is added via babel-cli",
-    "source-map-support is added via babel-register"
+    "source-map-support is added via babel-register",
+    "nodemon --exec babel-node : you need to install babel-cli either locally or globally to make it work"
   ],
   "engines": {
     "node": "6.10.0"

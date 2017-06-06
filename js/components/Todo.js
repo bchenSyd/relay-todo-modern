@@ -8,6 +8,9 @@
  * FACEBOOK BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN
  * ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ * 
+ *  @providesModule Todo  ; restrained to fb only;
+ *  @flow
  */
 
 import ChangeTodoStatusMutation from '../mutations/ChangeTodoStatusMutation';
@@ -20,7 +23,17 @@ import {
   createFragmentContainer,
   graphql,
 } from 'react-relay';
+
+import type {
+  Todo_todo,
+} from './__generated__/Todo_todo';
+
 import classnames from 'classnames';
+
+
+const test:Todo_todo = {foo:1} // expect an flow error here;
+
+
 
 class Todo extends React.Component {
   state = {

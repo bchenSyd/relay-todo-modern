@@ -8,8 +8,15 @@
 [include]
 
 [libs]
-
+# include all you flowtype definition here;
+./flow-typed
 
 [options]
+# in for a penny, in for a pound
+module.file_ext=.graphql.js
+module.file_ext=.js
+module.file_ext=.jsx
+module.file_ext=.json
+module.name_mapper='^ReactDOM$' -> 'react-dom'
 experimental.const_params=true
 

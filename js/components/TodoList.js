@@ -9,10 +9,12 @@
  * ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  * 
+ *  @providesModule Todo  ; no effect ; restrained to fb only;
  * @flow
  */
 
 import MarkAllTodosMutation from '../mutations/MarkAllTodosMutation';
+
 import Todo from './Todo';
 import Todo2 from './Todo2';
 
@@ -21,6 +23,7 @@ import {
   createRefetchContainer,
   graphql,
 } from 'react-relay';
+
 
 class TodoList extends React.Component<any, any, any> {
   hidden: Object = {};
@@ -35,7 +38,7 @@ class TodoList extends React.Component<any, any, any> {
   };
   renderTodos() {
     const isNormalView = (!this.hidden.dataset /*initial render*/) || this.hidden.dataset.isnormalview === 'true';
-    return this.props.viewer.todos.edges.map(edge => {
+    return this.props.viewer.todos .todos.edges.map(edge => {
       return isNormalView ? <Todo2
         key={edge.node.id}
         todo={edge.node}
@@ -49,6 +52,8 @@ class TodoList extends React.Component<any, any, any> {
     });
   }
   _onSwitchView = e => {
+
+
     // i'm using ref becuase 
     // 1. can't change props  2. set state will cause a re-render which I don't want
     const currentRefState = this.hidden.dataset.isnormalview;
