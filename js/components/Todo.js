@@ -31,7 +31,7 @@ import type {
 import classnames from 'classnames';
 
 
-const test:Todo_todo = {foo:1} // expect an flow error here;
+// const test:Todo_todo = {foo:1} // expect an flow error here;
 
 
 
