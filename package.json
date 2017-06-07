@@ -29,6 +29,7 @@
     "deploy-schema-change": "babel data --out-dir azure/data --source-maps"
   },
   "dependencies": {
+    "express": "^4.15.3",
     "babel-runtime": "^6.11.6",
     "express-graphql": "^0.6.4",
     "graphql": "^0.9.1",
