@@ -38,7 +38,7 @@ class TodoList extends React.Component<any, any, any> {
   };
   renderTodos() {
     const isNormalView = (!this.hidden.dataset /*initial render*/) || this.hidden.dataset.isnormalview === 'true';
-    return this.props.viewer.todos .todos.edges.map(edge => {
+    return this.props.viewer.todos.edges.map(edge => {
       return isNormalView ? <Todo2
         key={edge.node.id}
         todo={edge.node}

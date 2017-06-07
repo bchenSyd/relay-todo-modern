@@ -116,7 +116,7 @@ const GraphQLUser = new GraphQLObjectType({
         ...connectionArgs,
       },
       resolve: (obj, { status, _, ...args }) =>
-        connectionFromArray(getTodos(status, _), args),
+        connectionFromArray(getTodos(status), args),
     },
     totalCount: {
       type: GraphQLInt,
