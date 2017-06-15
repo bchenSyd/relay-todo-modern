@@ -90,4 +90,4 @@ socket.on('connect', () => {
     console.error(`ws error: event ${error_event}  error: ${JSON.stringify(error)}`);
     //socket.connect(); // by default socket.io will try reconnect;
   });
-})
+});

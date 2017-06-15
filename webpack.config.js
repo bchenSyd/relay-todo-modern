@@ -1,5 +1,5 @@
-const path = require('path')
-const webpack = require('webpack')
+const path = require('path');
+const webpack = require('webpack');
 
 var config = {
   debug: true,
@@ -19,19 +19,25 @@ var config = {
     // e.g. css-loader needs to handle the `url("imag/greentick.png")`, but where to fetch the png file?
     // the author of `css-loader` may refer to webpack.config.publicPath to figure it out if he/she likes (most don't, which render this configuration meaningless)
     // `wds` also take a hint from it, which is where the [virtual directory] thing comes from
-    filename: 'bundle.js'
+    filename: 'bundle.js',
   },
+  plugins: [
+    new webpack.DefinePlugin({
+      //PRODUCTION: JSON.stringify(true), must have JSON.stringify !!
+      '__WS_SERVER__': JSON.stringify('http://localhost:8081'), //only need it in local dev environment;
+    }),
+  ],
   module: {
     loaders: [
       {
         test: /\.jsx?$/,
         exclude: /(node_modules)/,
-        loader: 'babel'
-      }]
+        loader: 'babel',
+      }],
   },
   devServer: {
     historyApiFallback: true,
-    proxy: { '/graphql': `http://localhost:8081` }
-  }
-}
-module.exports = config
+    proxy: {'/graphql': 'http://localhost:8081'},
+  },
+};
+module.exports = config;

@@ -33587,7 +33587,9 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	//only one instance of socket;
-	var socket = exports.socket = (0, _socket2.default)('http://localhost:8081');
+	var socket = !!__WS_SERVER__ ? (0, _socket2.default)(__WS_SERVER__) : (0, _socket2.default)();
+	
+	exports.socket = socket;
 
 /***/ },
 /* 405 */
