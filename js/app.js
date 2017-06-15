@@ -36,10 +36,21 @@ function fetchQuery(
 }
 
 function subscribeFunction(operation, variables, cacheConfig, observer) {
-  //send the subscription query to server;
+  const {onCompleted, onError, onNext} = observer;
+  socket.on('graphql:subscription', response => {
+    onNext({
+      ...response, errors: []
+    });
+  });
+  socket.on('error', error => {
+    console.error(error);
+    onError();
+    socket.connect();
+  })
   socket.emit('graphql:subscription', {
-    query:operation.text,
-    variables});
+    query: operation.text,
+    variables
+  });
   return {dispose: () => null}; // must return a disposable;
 }
 
@@ -75,7 +86,4 @@ ReactDOM.render(
 //https://github.com/facebook/relay/issues/1655#issuecomment-306178478
 socket.on('connect', () => {
   console.log('ws connection established!!');
-});
-socket.on('greeting', response => {
-  console.log(response);
 });

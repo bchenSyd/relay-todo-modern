@@ -19,7 +19,7 @@ const subscribeTodo = (environment, arg) => {
   requestSubscription(environment, {
     subscription,
     variables:arg,
-    onComplete: () => { /* need this if payload doesn't contain an id field*/},
+    onCompleted: () => { /* need this if payload doesn't contain an id field*/},
     onError: error => console.error(error),
   })
 }

@@ -23,7 +23,6 @@ const httpServer = graphQLServer.listen(GRAPHQL_PORT, () => console.log(
 
 const io = IO(httpServer);
 io.on('connection', socket => {
-  socket.emit('greeting', 'good morning!!');
   socket.on('graphql:subscription', async request => {
     var initialPayload = await subscriptionHandler.subscribe(request);
     socket.emit('graphql:subscription', initialPayload);
