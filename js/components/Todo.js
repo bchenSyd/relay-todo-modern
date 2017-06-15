@@ -22,6 +22,7 @@ import React from 'react';
 import {
   createFragmentContainer,
   graphql,
+  requestSubscription,
 } from 'react-relay';
 
 import type {
@@ -39,6 +40,7 @@ class Todo extends React.Component {
   state = {
     isEditing: false,
   };
+    
   _handleCompleteChange = (e) => {
     const complete = e.target.checked;
     ChangeTodoStatusMutation.commit(

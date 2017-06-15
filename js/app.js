@@ -12,6 +12,7 @@ import {
   Store,
 } from 'relay-runtime';
 
+import {socket} from './socket';
 import TodoApp from './components/TodoApp';
 
 const mountNode = document.getElementById('root');
@@ -34,8 +35,16 @@ function fetchQuery(
   });
 }
 
+function subscribeFunction(operation, variables, cacheConfig, observer) {
+  //send the subscription query to server;
+  socket.emit('graphql:subscription', JSON.stringify({
+    query:operation.text,
+    variables}));
+  return {dispose: () => null}; // must return a disposable;
+}
+
 const modernEnvironment = new Environment({
-  network: Network.create(fetchQuery),
+  network: Network.create(fetchQuery, subscribeFunction),
   store: new Store(new RecordSource()),
 });
 
@@ -52,7 +61,7 @@ ReactDOM.render(
       }
     `}
     variables={{}}
-    render={({ error, props }) => {
+    render={({error, props}) => {
       if (props) {
         return <TodoApp viewer={props.viewer.user} />;
       } else {
@@ -62,3 +71,11 @@ ReactDOM.render(
   />,
   mountNode
 );
+
+//https://github.com/facebook/relay/issues/1655#issuecomment-306178478
+socket.on('connect', () => {
+  console.log('ws connection established!!');
+});
+socket.on('greeting', response => {
+  console.log(response);
+});

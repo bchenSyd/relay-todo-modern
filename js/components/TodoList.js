@@ -24,9 +24,22 @@ import {
   graphql,
 } from 'react-relay';
 
-
+import todoSubscription from '../subscriptions/todo';
 class TodoList extends React.Component<any, any, any> {
   hidden: Object = {};
+
+  componentDidMount() {
+
+    const {environment} = this.props.relay;
+    todoSubscription.subscribeTodo(environment, {
+      input: {
+        arg: 'bchen',
+        clientSubscriptionId: 'bchen-client-id',
+      },
+    });
+  }
+
+
   _handleMarkAllChange = (e) => {
     const complete = e.target.checked;
     MarkAllTodosMutation.commit(
@@ -60,7 +73,7 @@ class TodoList extends React.Component<any, any, any> {
     const isNormalView: boolean = currentRefState === 'true';
     this.props.relay.refetch({
       isNormalView: !isNormalView,
-      _: 0
+      _: 0,
     }, null, () => {
       // relay will first execute refetch callback, then call setState internally;
       // so your callback is executed before the resulting re-render
@@ -69,7 +82,7 @@ class TodoList extends React.Component<any, any, any> {
     });
   }
   _onRefetch = _ => {
-    const { relay } = this.props;
+    const {relay} = this.props;
     // relay.refetch(prev => prev, null);
     const isNormalView = this.hidden.dataset.isnormalview === 'true';
     relay.refetch({
@@ -78,7 +91,7 @@ class TodoList extends React.Component<any, any, any> {
     });
   }
   _onRefetchNewVars = _ => {
-    const { relay } = this.props;
+    const {relay} = this.props;
     // this won't work know becuase _getFragmentVariables always return defaults value
     // relay.refetch(prev => prev, null); 
     const isNormalView = this.hidden.dataset.isnormalview === 'true';
@@ -105,7 +118,7 @@ class TodoList extends React.Component<any, any, any> {
         <ul className="todo-list">
           {this.renderTodos()}
         </ul>
-        <div style={{ marginTop: '20px' }}>
+        <div style={{marginTop: '20px'}}>
           <div>
             <button onClick={this._onSwitchView}>refetch-changeview</button>
           </div>
