@@ -9,9 +9,13 @@ const subscription = graphql`
   #Got 'TodoblablaSubscription' in module 'TodoSubscription' (file name).
   subscription todoSubscription($input: TodoSubScriptionInput!){
       todoSubScription(input: $input){
-         value
-         arg
          clientSubscriptionId
+         arg
+         todo{
+           id,
+           text,
+           complete
+         }
       }
   }`;
 

@@ -141,8 +141,8 @@ input TodoSubScriptionInput {
 }
 
 type TodoSubScriptionPayload {
-  value: String
   arg: String
+  todo: Todo
   clientSubscriptionId: String
 }
 

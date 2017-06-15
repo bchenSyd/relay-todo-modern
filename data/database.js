@@ -35,7 +35,7 @@ export function changeTodoStatus(id, complete) {
 
   const todo = getTodo(id);
   todo.complete = complete;
-  events.emit('amqp.changes', {id, complete});
+  events.emit('amqp.changes', {id});
 }
 
 export function getTodo(id) {

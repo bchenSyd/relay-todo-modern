@@ -44,7 +44,7 @@ function subscribeFunction(operation, variables, cacheConfig, observer) {
   });
 
   socket.on('graphql:subscription', response => {
-    console.log('graphql:subscription received......');
+    console.log('graphql:subscription received......' + JSON.stringify(response));
     onNext({
       ...response, errors: []
     });

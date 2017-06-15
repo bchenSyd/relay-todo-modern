@@ -305,16 +305,23 @@ const GraphqlTodoSubscription = subscriptionWithClientId({
     arg: {type: GraphQLString},
   }),
   outputFields: () => ({
-    value: {type: GraphQLString},
-    arg: {type: GraphQLString},
+    arg: {type: GraphQLString}, // useless, just for demo purpose 
+    todo: { //useful!!
+      type: GraphQLTodo,
+      resolve: ({localTodoId}) => {
+        return typeof localTodoId !== 'undefined' ? getTodo(localTodoId) : null;
+      },
+    },
   }),
+  //subscription mode;
   subscribe: async ({arg}, context) => {
     const {subscript2RabbitMQ} = context;
     subscript2RabbitMQ();
-    return {value: 'initial-value', arg};
+    return {localTodoId: undefined, arg};
   },
-  getPayload: async ({value}, {arg}) => {
-    return {value, arg};
+  //payload mode (event emitter mode)
+  getPayload: async ({localTodoId}, {arg}) => {
+    return {localTodoId, arg};
   },
 });
 

@@ -28,8 +28,8 @@ const subscribe = async (request, updateCallback) => {
 
 const _subscript2RabbitMQ = (query, variables, updateCallback) => {
   events.on('amqp.changes', async msg => {
-    console.log(msg);
-    const updatedPayload = await graphql(schema, query, {value: 'rabbit-mq-new-val'}, null, variables);
+    const {id: localTodoId} = msg;
+    const updatedPayload = await graphql(schema, query, {localTodoId}, null, variables);
     updateCallback(updatedPayload);
   });
 }
