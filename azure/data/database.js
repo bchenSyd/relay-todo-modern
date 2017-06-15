@@ -24,19 +24,11 @@ exports.removeTodo = removeTodo;
 exports.removeCompletedTodos = removeCompletedTodos;
 exports.renameTodo = renameTodo;
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var _events = require('../server/events');
 
-/**
- * This file provided by Facebook is for non-commercial testing and evaluation
- * purposes only.  Facebook reserves all rights not expressly granted.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
- * FACEBOOK BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN
- * ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
- * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
- */
+var _events2 = _interopRequireDefault(_events);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Todo = exports.Todo = function Todo() {
   (0, _classCallCheck3.default)(this, Todo);
@@ -47,8 +39,6 @@ var User = exports.User = function User() {
 };
 
 // Mock authenticated ID
-
-
 var VIEWER_ID = 'me';
 
 // Mock user data
@@ -62,6 +52,12 @@ var todoIdsByUser = (0, _defineProperty3.default)({}, VIEWER_ID, []);
 var nextTodoId = 0;
 addTodo('Taste JavaScript', true);
 addTodo('Buy a unicorn', false);
+addTodo('todo3', false);
+addTodo('todo4', false);
+addTodo('todo5', false);
+addTodo('todo6', false);
+addTodo('todo7', false);
+addTodo('todo8', false);
 
 function addTodo(text, complete) {
   var todo = new Todo();
@@ -74,8 +70,10 @@ function addTodo(text, complete) {
 }
 
 function changeTodoStatus(id, complete) {
+
   var todo = getTodo(id);
   todo.complete = complete;
+  _events2.default.emit('amqp.changes', { id: id });
 }
 
 function getTodo(id) {

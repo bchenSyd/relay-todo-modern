@@ -5,6 +5,10 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.schema = undefined;
 
+var _asyncToGenerator2 = require('babel-runtime/helpers/asyncToGenerator');
+
+var _asyncToGenerator3 = _interopRequireDefault(_asyncToGenerator2);
+
 var _objectWithoutProperties2 = require('babel-runtime/helpers/objectWithoutProperties');
 
 var _objectWithoutProperties3 = _interopRequireDefault(_objectWithoutProperties2);
@@ -17,23 +21,13 @@ var _graphql = require('graphql');
 
 var _graphqlRelay = require('graphql-relay');
 
+var _graphqlRelaySubscription = require('graphql-relay-subscription');
+
 var _database = require('./database');
 
 var _unibetIds = require('./unibetIds');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-/**
- * This file provided by Facebook is for non-commercial testing and evaluation
- * purposes only.  Facebook reserves all rights not expressly granted.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
- * FACEBOOK BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN
- * ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
- * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
- */
 
 var _nodeDefinitions = (0, _graphqlRelay.nodeDefinitions)(function (globalId) {
   var _fromGlobalId_unibet = (0, _unibetIds.fromGlobalId_unibet)(globalId),
@@ -112,7 +106,7 @@ var GraphQLUser = new _graphql.GraphQLObjectType({
         var status = _ref.status,
             _ = _ref._,
             args = (0, _objectWithoutProperties3.default)(_ref, ['status', '_']);
-        return (0, _graphqlRelay.connectionFromArray)((0, _database.getTodos)(status, _), args);
+        return (0, _graphqlRelay.connectionFromArray)((0, _database.getTodos)(status), args);
       }
     },
     totalCount: {
@@ -135,8 +129,8 @@ var GraphQLUser = new _graphql.GraphQLObjectType({
           defaultValue: 0
         }
       },
-      resolve: function resolve(obj, _ref2) {
-        var _ = _ref2._;
+      resolve: function resolve(obj, _ref4) {
+        var _ = _ref4._;
         return _;
       }
     }
@@ -175,8 +169,8 @@ var GraphQLAddTodoMutation = (0, _graphqlRelay.mutationWithClientMutationId)({
   outputFields: {
     todoEdge: {
       type: GraphQLTodoEdge,
-      resolve: function resolve(_ref3) {
-        var localTodoId = _ref3.localTodoId;
+      resolve: function resolve(_ref5) {
+        var localTodoId = _ref5.localTodoId;
 
         var todo = (0, _database.getTodo)(localTodoId);
         return {
@@ -192,8 +186,8 @@ var GraphQLAddTodoMutation = (0, _graphqlRelay.mutationWithClientMutationId)({
       }
     }
   },
-  mutateAndGetPayload: function mutateAndGetPayload(_ref4) {
-    var text = _ref4.text;
+  mutateAndGetPayload: function mutateAndGetPayload(_ref6) {
+    var text = _ref6.text;
 
     var localTodoId = (0, _database.addTodo)(text);
     return { localTodoId: localTodoId };
@@ -209,8 +203,8 @@ var GraphQLChangeTodoStatusMutation = (0, _graphqlRelay.mutationWithClientMutati
   outputFields: {
     todo: {
       type: GraphQLTodo,
-      resolve: function resolve(_ref5) {
-        var localTodoId = _ref5.localTodoId;
+      resolve: function resolve(_ref7) {
+        var localTodoId = _ref7.localTodoId;
         return (0, _database.getTodo)(localTodoId);
       }
     },
@@ -221,9 +215,10 @@ var GraphQLChangeTodoStatusMutation = (0, _graphqlRelay.mutationWithClientMutati
       }
     }
   },
-  mutateAndGetPayload: function mutateAndGetPayload(_ref6) {
-    var id = _ref6.id,
-        complete = _ref6.complete;
+  mutateAndGetPayload: function mutateAndGetPayload(_ref8) {
+    var id = _ref8.id,
+        complete = _ref8.complete;
+
 
     var localTodoId = (0, _unibetIds.fromGlobalId_unibet)(id).id;
     (0, _database.changeTodoStatus)(localTodoId, complete);
@@ -239,8 +234,8 @@ var GraphQLMarkAllTodosMutation = (0, _graphqlRelay.mutationWithClientMutationId
   outputFields: {
     changedTodos: {
       type: new _graphql.GraphQLList(GraphQLTodo),
-      resolve: function resolve(_ref7) {
-        var changedTodoLocalIds = _ref7.changedTodoLocalIds;
+      resolve: function resolve(_ref9) {
+        var changedTodoLocalIds = _ref9.changedTodoLocalIds;
         return changedTodoLocalIds.map(_database.getTodo);
       }
     },
@@ -251,8 +246,8 @@ var GraphQLMarkAllTodosMutation = (0, _graphqlRelay.mutationWithClientMutationId
       }
     }
   },
-  mutateAndGetPayload: function mutateAndGetPayload(_ref8) {
-    var complete = _ref8.complete;
+  mutateAndGetPayload: function mutateAndGetPayload(_ref10) {
+    var complete = _ref10.complete;
 
     var changedTodoLocalIds = (0, _database.markAllTodos)(complete);
     return { changedTodoLocalIds: changedTodoLocalIds };
@@ -265,8 +260,8 @@ var GraphQLRemoveCompletedTodosMutation = (0, _graphqlRelay.mutationWithClientMu
   outputFields: {
     deletedTodoIds: {
       type: new _graphql.GraphQLList(_graphql.GraphQLString),
-      resolve: function resolve(_ref9) {
-        var deletedTodoIds = _ref9.deletedTodoIds;
+      resolve: function resolve(_ref11) {
+        var deletedTodoIds = _ref11.deletedTodoIds;
         return deletedTodoIds;
       }
     },
@@ -292,8 +287,8 @@ var GraphQLRemoveTodoMutation = (0, _graphqlRelay.mutationWithClientMutationId)(
   outputFields: {
     deletedTodoId: {
       type: _graphql.GraphQLID,
-      resolve: function resolve(_ref10) {
-        var id = _ref10.id;
+      resolve: function resolve(_ref12) {
+        var id = _ref12.id;
         return id;
       }
     },
@@ -304,8 +299,8 @@ var GraphQLRemoveTodoMutation = (0, _graphqlRelay.mutationWithClientMutationId)(
       }
     }
   },
-  mutateAndGetPayload: function mutateAndGetPayload(_ref11) {
-    var id = _ref11.id;
+  mutateAndGetPayload: function mutateAndGetPayload(_ref13) {
+    var id = _ref13.id;
 
     var localTodoId = (0, _unibetIds.fromGlobalId_unibet)(id).id;
     (0, _database.removeTodo)(localTodoId);
@@ -322,15 +317,15 @@ var GraphQLRenameTodoMutation = (0, _graphqlRelay.mutationWithClientMutationId)(
   outputFields: {
     todo: {
       type: GraphQLTodo,
-      resolve: function resolve(_ref12) {
-        var localTodoId = _ref12.localTodoId;
+      resolve: function resolve(_ref14) {
+        var localTodoId = _ref14.localTodoId;
         return (0, _database.getTodo)(localTodoId);
       }
     }
   },
-  mutateAndGetPayload: function mutateAndGetPayload(_ref13) {
-    var id = _ref13.id,
-        text = _ref13.text;
+  mutateAndGetPayload: function mutateAndGetPayload(_ref15) {
+    var id = _ref15.id,
+        text = _ref15.text;
 
     var localTodoId = (0, _unibetIds.fromGlobalId_unibet)(id).id;
     (0, _database.renameTodo)(localTodoId, text);
@@ -350,8 +345,87 @@ var Mutation = new _graphql.GraphQLObjectType({
   }
 });
 
+var GraphqlTodoSubscription = (0, _graphqlRelaySubscription.subscriptionWithClientId)({
+  name: 'TodoSubScription',
+  inputFields: function inputFields() {
+    return {
+      arg: { type: _graphql.GraphQLString }
+    };
+  },
+  outputFields: function outputFields() {
+    return {
+      arg: { type: _graphql.GraphQLString }, // useless, just for demo purpose 
+      todo: { //useful!!
+        type: GraphQLTodo,
+        resolve: function resolve(_ref16) {
+          var localTodoId = _ref16.localTodoId;
+
+          return typeof localTodoId !== 'undefined' ? (0, _database.getTodo)(localTodoId) : null;
+        }
+      }
+    };
+  },
+  //subscription mode;
+  subscribe: function () {
+    var _ref2 = (0, _asyncToGenerator3.default)(regeneratorRuntime.mark(function _callee(_ref17, context) {
+      var arg = _ref17.arg;
+      var subscript2RabbitMQ;
+      return regeneratorRuntime.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              subscript2RabbitMQ = context.subscript2RabbitMQ;
+
+              subscript2RabbitMQ();
+              return _context.abrupt('return', { localTodoId: undefined, arg: arg });
+
+            case 3:
+            case 'end':
+              return _context.stop();
+          }
+        }
+      }, _callee, undefined);
+    }));
+
+    return function subscribe(_x, _x2) {
+      return _ref2.apply(this, arguments);
+    };
+  }(),
+  //payload mode (event emitter mode)
+  getPayload: function () {
+    var _ref3 = (0, _asyncToGenerator3.default)(regeneratorRuntime.mark(function _callee2(_ref18, _ref19) {
+      var localTodoId = _ref18.localTodoId;
+      var arg = _ref19.arg;
+      return regeneratorRuntime.wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              return _context2.abrupt('return', { localTodoId: localTodoId, arg: arg });
+
+            case 1:
+            case 'end':
+              return _context2.stop();
+          }
+        }
+      }, _callee2, undefined);
+    }));
+
+    return function getPayload(_x3, _x4) {
+      return _ref3.apply(this, arguments);
+    };
+  }()
+});
+
+var Subscription = new _graphql.GraphQLObjectType({
+  name: 'Subscription',
+  fields: {
+    todoSubScription: GraphqlTodoSubscription
+  }
+});
+
 var schema = exports.schema = new _graphql.GraphQLSchema({
   query: Query,
-  mutation: Mutation
+  mutation: Mutation,
+  subscription: Subscription
 });
 //# sourceMappingURL=schema.js.map

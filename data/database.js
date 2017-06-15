@@ -20,6 +20,12 @@ const todoIdsByUser = {
 let nextTodoId = 0;
 addTodo('Taste JavaScript', true);
 addTodo('Buy a unicorn', false);
+addTodo('todo3', false);
+addTodo('todo4', false);
+addTodo('todo5', false);
+addTodo('todo6', false);
+addTodo('todo7', false);
+addTodo('todo8', false);
 
 export function addTodo(text, complete) {
   const todo = new Todo();
