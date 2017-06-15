@@ -1,7 +1,9 @@
 import express from 'express';
+import bodyParser from 'body-parser';
 import graphQLHTTP from 'express-graphql';
 import {schema} from './data/schema';
 import IO from 'socket.io';
+import subscriptionHandler from './subscriptionHandler';
 //*****************************************************************************************/
 
 //if you don't have below line, nodemon won't re-load generateSchemaJson, 
@@ -13,6 +15,7 @@ const GRAPHQL_PORT = process.env.port || 8081;
 
 // Expose a GraphQL endpoint
 const graphQLServer = express();
+graphQLServer.use(bodyParser.json());
 graphQLServer.use('/', graphQLHTTP({schema, graphiql: true, pretty: true}));
 const httpServer = graphQLServer.listen(GRAPHQL_PORT, () => console.log(
   `GraphQL Server is now running on http://localhost:${GRAPHQL_PORT}`
@@ -21,9 +24,9 @@ const httpServer = graphQLServer.listen(GRAPHQL_PORT, () => console.log(
 const io = IO(httpServer);
 io.on('connection', socket => {
   socket.emit('greeting', 'good morning!!');
-  socket.on('graphql:subscription', request => {
-    const {query, variables} = request;
-    console.log('subscribe mode start...')
-  })
+  socket.on('graphql:subscription', async request => {
+    var initialPayload = await subscriptionHandler.subscribe(request);
+    socket.emit('graphql:subscription', initialPayload);
+  });
 });
 

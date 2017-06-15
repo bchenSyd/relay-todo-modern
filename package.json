@@ -30,6 +30,7 @@
   },
   "dependencies": {
     "babel-runtime": "^6.11.6",
+    "body-parser": "^1.17.2",
     "express": "^4.15.3",
     "express-graphql": "^0.6.4",
     "graphql": "^0.9.1",

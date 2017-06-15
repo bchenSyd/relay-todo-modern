@@ -37,9 +37,9 @@ function fetchQuery(
 
 function subscribeFunction(operation, variables, cacheConfig, observer) {
   //send the subscription query to server;
-  socket.emit('graphql:subscription', JSON.stringify({
+  socket.emit('graphql:subscription', {
     query:operation.text,
-    variables}));
+    variables});
   return {dispose: () => null}; // must return a disposable;
 }
 
