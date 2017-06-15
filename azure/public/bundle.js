@@ -33587,7 +33587,7 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	//only one instance of socket;
-	var socket = __WS_SERVER__ === 'azure' ? (0, _socket2.default)() : (0, _socket2.default)(__WS_SERVER__);
+	var socket =  true ? (0, _socket2.default)() : (0, _socket2.default)(__WSENV__);
 	
 	exports.socket = socket;
 
