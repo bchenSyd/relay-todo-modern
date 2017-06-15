@@ -104,6 +104,10 @@ type RenameTodoPayload {
   clientMutationId: String
 }
 
+type Subscription {
+  todoSubScription(input: TodoSubScriptionInput!): TodoSubScriptionPayload
+}
+
 type Todo implements Node {
   # The ID of an object
   id: ID!
@@ -131,12 +135,24 @@ type TodoEdge {
   cursor: String!
 }
 
+input TodoSubScriptionInput {
+  arg: String
+  clientSubscriptionId: String
+}
+
+type TodoSubScriptionPayload {
+  arg: String
+  todo: Todo
+  clientSubscriptionId: String
+}
+
 type User implements Node {
   # The ID of an object
   id: ID!
   todos(status: String = "any", after: String, first: Int, before: String, last: Int): TodoConnection
   totalCount: Int
   completedCount: Int
+  echo(_: Int = 0): Int
 }
 
 type Viewer {
