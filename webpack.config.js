@@ -24,7 +24,7 @@ var config = {
   plugins: [
     new webpack.DefinePlugin({
       //PRODUCTION: JSON.stringify(true), must have JSON.stringify !!
-      '__WS_SERVER__': JSON.stringify('http://localhost:8081'), //only need it in local dev environment;
+      '__WSENV__': JSON.stringify('http://localhost:8081'),
     }),
   ],
   module: {

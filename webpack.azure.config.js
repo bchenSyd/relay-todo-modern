@@ -21,6 +21,12 @@ var config = {
     // `wds` also take a hint from it, which is where the [virtual directory] thing comes from
     filename: 'bundle.js'
   },
+  plugins: [
+    new webpack.DefinePlugin({
+      //PRODUCTION: JSON.stringify(true), must have JSON.stringify !!
+      '__WSENV__': JSON.stringify('azure'), // '__WSENV__': JSON.stringify('http://relay-modern.azurewebsites.net'),
+    }),
+  ],
   module: {
     loaders: [
       {
