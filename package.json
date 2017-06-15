@@ -26,7 +26,7 @@
     "debug-mocha": "mocha --compilers js:babel-register  --recursive \"js/**/*.spec.js\" --require test/setup.js --debug-brk --inspect",
     "lint": "eslint ./js",
     "webpack": "npm run deploy-schema-change&webpack --config webpack.azure.config.js  --progress --verbose --colors --display-error-details",
-    "deploy-schema-change": "babel data --out-dir azure/data --source-maps"
+    "deploy-schema-change": "babel data --out-dir azure/data --source-maps&babel server --out-dir azure/server --source-maps"
   },
   "dependencies": {
     "babel-runtime": "^6.11.6",
