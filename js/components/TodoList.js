@@ -50,7 +50,12 @@ class TodoList extends React.Component<any, any, any> {
     );
   };
   renderTodos() {
-    const isNormalView = (!this.hidden.dataset /*initial render*/) || this.hidden.dataset.isnormalview === 'true';
+    const isNormalView /*normalView bound to todo2 in fragment definition*/ =
+      // !!  change $isNormalView default value to true  and  change uncomment below line to show todo2 first
+      //(!this.hidden.dataset /*initial render*/) || this.hidden.dataset.isnormalview === 'true';
+      // !!  change $isNormalView default value to false  and  uncomment below line to show todo first
+      (!!this.hidden.dataset /*initial render*/) && this.hidden.dataset.isnormalview === 'true';
+
     return this.props.viewer.todos.edges.map(edge => {
       return isNormalView ? <Todo2
         key={edge.node.id}
@@ -65,8 +70,6 @@ class TodoList extends React.Component<any, any, any> {
     });
   }
   _onSwitchView = e => {
-
-
     // i'm using ref becuase 
     // 1. can't change props  2. set state will cause a re-render which I don't want
     const currentRefState = this.hidden.dataset.isnormalview;
@@ -129,7 +132,7 @@ class TodoList extends React.Component<any, any, any> {
             <button onClick={this._onRefetchNewVars}>refetch-changeVars</button>
           </div>
           {/*  the callback will be executed immediately after the component is mounted or unmounted  */}
-          <input type="hidden" data-isnormalview="true" ref={ref => this.hidden = ref} />
+          <input type="hidden" data-isnormalview="false" ref={ref => this.hidden = ref} />
         </div>
       </section>
     );
@@ -142,7 +145,7 @@ export default createRefetchContainer(TodoList,
         @argumentDefinitions( 
           isNormalView:{
             type:"Boolean!",
-            defaultValue:true
+            defaultValue:false
            },
            _:{
             type:"Int!",

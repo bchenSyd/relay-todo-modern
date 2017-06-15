@@ -3,7 +3,7 @@ import bodyParser from 'body-parser';
 import graphQLHTTP from 'express-graphql';
 import {schema} from './data/schema';
 import IO from 'socket.io';
-import subscriptionHandler from './subscriptionHandler';
+import subscriptionHandler from './server/subscriptionHandler';
 //*****************************************************************************************/
 
 //if you don't have below line, nodemon won't re-load generateSchemaJson, 
@@ -24,7 +24,9 @@ const httpServer = graphQLServer.listen(GRAPHQL_PORT, () => console.log(
 const io = IO(httpServer);
 io.on('connection', socket => {
   socket.on('graphql:subscription', async request => {
-    var initialPayload = await subscriptionHandler.subscribe(request);
+    var initialPayload = await subscriptionHandler.subscribe(request, updatedPayload => {
+      socket.emit('graphql:subscription', updatedPayload);
+    });
     socket.emit('graphql:subscription', initialPayload);
   });
 });

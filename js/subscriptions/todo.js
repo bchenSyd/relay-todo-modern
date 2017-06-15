@@ -18,10 +18,12 @@ const subscription = graphql`
 const subscribeTodo = (environment, arg) => {
   requestSubscription(environment, {
     subscription,
-    variables:arg,
-    onCompleted: () => { /* need this if payload doesn't contain an id field*/},
+    variables: arg,
+    //a callback function executed when the subscription is closed by the peer without error.
+    onCompleted: () => {alert('done!');/* need this if payload doesn't contain an id field*/},
+    //a callback function executed when Relay or the server encounters an error processing the subscription.
     onError: error => console.error(error),
-  })
-}
+  });
+};
 
 export default {subscribeTodo};

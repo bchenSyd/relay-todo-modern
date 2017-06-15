@@ -35,22 +35,21 @@ function fetchQuery(
   });
 }
 
+//https://github.com/facebook/relay/issues/1655#issuecomment-306178478
 function subscribeFunction(operation, variables, cacheConfig, observer) {
   const {onCompleted, onError, onNext} = observer;
+  socket.emit('graphql:subscription', {
+    query: operation.text,
+    variables,
+  });
+
   socket.on('graphql:subscription', response => {
+    console.log('graphql:subscription received......');
     onNext({
       ...response, errors: []
     });
   });
-  socket.on('error', error => {
-    console.error(error);
-    onError();
-    socket.connect();
-  })
-  socket.emit('graphql:subscription', {
-    query: operation.text,
-    variables
-  });
+
   return {dispose: () => null}; // must return a disposable;
 }
 
@@ -83,7 +82,12 @@ ReactDOM.render(
   mountNode
 );
 
-//https://github.com/facebook/relay/issues/1655#issuecomment-306178478
 socket.on('connect', () => {
   console.log('ws connection established!!');
 });
+['connect_timeout', 'connect_error'].forEach(error_event => {
+  socket.on(error_event, error => {
+    console.error(`ws error: event ${error_event}  error: ${JSON.stringify(error)}`);
+    //socket.connect(); // by default socket.io will try reconnect;
+  });
+})
