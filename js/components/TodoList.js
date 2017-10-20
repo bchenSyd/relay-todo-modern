@@ -1,22 +1,9 @@
-/**
- * This file provided by Facebook is for non-commercial testing and evaluation
- * purposes only.  Facebook reserves all rights not expressly granted.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
- * FACEBOOK BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN
- * ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
- * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
- * 
- *  @providesModule Todo  ; no effect ; restrained to fb only;
- * @flow
- */
-
+// @flow
 import MarkAllTodosMutation from '../mutations/MarkAllTodosMutation';
 
 import Todo from './Todo';
-import Todo2 from './Todo2';
+import TodoWithComments from './TodoWithComments';
+import PropTypes from 'prop-types';
 
 import React from 'react';
 import {
@@ -25,12 +12,17 @@ import {
 } from 'react-relay';
 
 import todoSubscription from '../subscriptions/todo';
-class TodoList extends React.Component<any, any, any> {
-  hidden: Object = {};
+class TodoList extends React.Component {
+
+  static contextTypes = {
+    relay: PropTypes.shape({
+      variables: PropTypes.object,
+    }),
+  }
 
   componentDidMount() {
 
-    const {environment} = this.props.relay;
+    const { environment } = this.props.relay;
     todoSubscription.subscribeTodo(environment, {
       input: {
         arg: 'bchen',
@@ -50,14 +42,9 @@ class TodoList extends React.Component<any, any, any> {
     );
   };
   renderTodos() {
-    const isNormalView /*normalView bound to todo2 in fragment definition*/ =
-      // !!  change $isNormalView default value to true  and  change uncomment below line to show todo2 first
-      //(!this.hidden.dataset /*initial render*/) || this.hidden.dataset.isnormalview === 'true';
-      // !!  change $isNormalView default value to false  and  uncomment below line to show todo first
-      (!!this.hidden.dataset /*initial render*/) && this.hidden.dataset.isnormalview === 'true';
-
+    const { relay: { variables: { showTodoWithComments } } } = this.context;
     return this.props.viewer.todos.edges.map(edge => {
-      return isNormalView ? <Todo2
+      return showTodoWithComments ? <TodoWithComments
         key={edge.node.id}
         todo={edge.node}
         viewer={this.props.viewer}
@@ -70,58 +57,42 @@ class TodoList extends React.Component<any, any, any> {
     });
   }
   _onSwitchView = e => {
-    // i'm using ref becuase 
-    // 1. can't change props  2. set state will cause a re-render which I don't want
-    const currentRefState = this.hidden.dataset.isnormalview;
-    const isNormalView: boolean = currentRefState === 'true';
-    this.props.relay.refetch({
-      isNormalView: !isNormalView,
-      _: 0,
-    }, null, () => {
-      // relay will first execute refetch callback, then call setState internally;
-      // so your callback is executed before the resulting re-render
-      this.hidden.dataset.isnormalview = (!isNormalView).toString();
-      console.log(`refetch is down with isNormalView = ${(!isNormalView).toString()}`);
-    });
-  }
+    const { relay: relayContext } = this.context;
+    const { variables: { showTodoWithComments } } = relayContext;
+    this.props.relay.refetch(preVars => ({
+      ...preVars,
+      showTodoWithComments: !showTodoWithComments,
+    }));
+  };
+
+
   _onRefetch = _ => {
-    const {relay} = this.props;
-    // relay.refetch(prev => prev, null);
-    const isNormalView = this.hidden.dataset.isnormalview === 'true';
-    relay.refetch({
-      isNormalView,
-      _: 0,
-    });
-  }
+    const { relay } = this.props;
+    relay.refetch(preVars => preVars /*fetch vars*/, null /*?render vars*/, null/*?callback*/, { force: true }/*?RefetchOptions*/);
+  };
+
   _onRefetchNewVars = _ => {
-    const {relay} = this.props;
-    // this won't work know becuase _getFragmentVariables always return defaults value
-    // relay.refetch(prev => prev, null); 
-    const isNormalView = this.hidden.dataset.isnormalview === 'true';
-    relay.refetch({
-      isNormalView,
+    const { relay } = this.props;
+    relay.refetch(preVars => ({
+      ...preVars,
       _: Math.floor(Math.random() * 100),
-    });
+    }));
   }
   render() {
     const numTodos = this.props.viewer.totalCount;
     const numCompletedTodos = this.props.viewer.completedCount;
     return (
       <section className="main">
-
-        <input
+        <input   type="checkbox"
           checked={numTodos === numCompletedTodos}
           className="toggle-all"
           onChange={this._handleMarkAllChange}
-          type="checkbox"
         />
-        <label htmlFor="toggle-all">
-          Mark all as complete
-        </label>
+
         <ul className="todo-list">
           {this.renderTodos()}
         </ul>
-        <div style={{marginTop: '20px'}}>
+        <div style={{ marginTop: '20px' }}>
           <div>
             <button onClick={this._onSwitchView}>refetch-changeview</button>
           </div>
@@ -131,8 +102,6 @@ class TodoList extends React.Component<any, any, any> {
           <div>
             <button onClick={this._onRefetchNewVars}>refetch-changeVars</button>
           </div>
-          {/*  the callback will be executed immediately after the component is mounted or unmounted  */}
-          <input type="hidden" data-isnormalview="false" ref={ref => this.hidden = ref} />
         </div>
       </section>
     );
@@ -143,7 +112,7 @@ export default createRefetchContainer(TodoList,
   graphql.experimental`
     fragment TodoList_viewer on User
         @argumentDefinitions( 
-          isNormalView:{
+          showTodoWithComments:{
             type:"Boolean!",
             defaultValue:false
            },
@@ -158,8 +127,8 @@ export default createRefetchContainer(TodoList,
                       node {
                         id,
                         complete,
-                        ...Todo2_todo @include(if: $isNormalView),
-                        ...Todo_todo  @skip(if: $isNormalView)
+                        ...TodoWithComments_todo @include(if: $showTodoWithComments),
+                        ...Todo_todo  @skip(if: $showTodoWithComments)
                       },
                     },
                   },
@@ -171,10 +140,10 @@ export default createRefetchContainer(TodoList,
         }
   `,
   graphql.experimental`
-  query TodoListViewRefetchQuery($isNormalView: Boolean!, $_: Int!){
+  query TodoListAnyNameRefetchQuery($showTodoWithComments: Boolean!, $_: Int!){
     viewer{
       user{
-           ...TodoList_viewer @arguments(isNormalView: $isNormalView, _:$_) 
+           ...TodoList_viewer @arguments(showTodoWithComments: $showTodoWithComments, _:$_) 
         }
       }
   }`

@@ -1,11 +1,11 @@
 {
     "verbose": true,
     "watch": [
-        "data"
+        "server/data"
     ],
     "ignore": [
-        "data/schema.json",
-        "data/schema.graphql",
+        "server/data/schema.json",
+        "server/data/schema.graphql",
         "js/*"
     ],
     "env": {

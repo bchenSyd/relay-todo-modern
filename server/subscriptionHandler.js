@@ -1,8 +1,10 @@
+// @flow
+
 import {graphql} from 'graphql';
 import {
   graphqlSubscribe,
 } from 'graphql-relay-subscription';
-import {schema} from '../data/schema';
+import {schema} from './data/schema';
 
 import events from './events';
 

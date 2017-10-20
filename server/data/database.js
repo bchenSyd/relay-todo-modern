@@ -1,7 +1,7 @@
 export class Todo { }
 export class User { }
 
-import events from '../server/events';
+import events from '../events';
 // Mock authenticated ID
 const VIEWER_ID = 'me';
 
@@ -18,14 +18,14 @@ const todoIdsByUser = {
   [VIEWER_ID]: [],
 };
 let nextTodoId = 0;
-addTodo('Taste JavaScript', true);
-addTodo('Buy a unicorn', false);
-addTodo('todo3', false);
-addTodo('todo4', false);
-addTodo('todo5', false);
-addTodo('todo6', false);
-addTodo('todo7', false);
-addTodo('todo8', false);
+addTodo('R 1', true);
+addTodo('R 2', false);
+addTodo('R 3', false);
+addTodo('R 4', false);
+addTodo('R 5', false);
+addTodo('R 6', false);
+addTodo('R 7', false);
+addTodo('R 8', false);
 
 export function addTodo(text, complete) {
   const todo = new Todo();

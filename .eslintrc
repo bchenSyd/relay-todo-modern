@@ -1,4 +1,3 @@
----
-
-extends:
-  - fbjs
+{
+  "extends": "fbjs"
+}

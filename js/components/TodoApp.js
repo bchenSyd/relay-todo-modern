@@ -1,14 +1,4 @@
-/**
- * This file provided by Facebook is for non-commercial testing and evaluation
- * purposes only.  Facebook reserves all rights not expressly granted.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
- * FACEBOOK BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN
- * ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
- * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
- */
+// @flow
 
 import AddTodoMutation from '../mutations/AddTodoMutation';
 import TodoList from './TodoList';
@@ -33,16 +23,14 @@ class TodoApp extends React.Component {
     const hasTodos = this.props.viewer.totalCount > 0;
     return (
       <div>
+        <div className="header">Relay Modern Demo</div>
         <section className="todoapp">
-          <header className="header">
-            <h1>
-              todos
-            </h1>
+          <header >
             <TodoTextInput
               autoFocus={true}
               className="new-todo"
               onSave={this._handleTextInputSave}
-              placeholder="What needs to be done?"
+              placeholder="create a new competitor"
             />
           </header>
           <TodoList viewer={this.props.viewer} />
@@ -53,19 +41,6 @@ class TodoApp extends React.Component {
             />
           }
         </section>
-        <footer className="info">
-          <p>
-            Double-click to edit a todo
-          </p>
-          <p>
-            Created by the <a href="https://facebook.github.io/relay/">
-              Relay team
-            </a>
-          </p>
-          <p>
-            Part of <a href="http://todomvc.com">TodoMVC</a>
-          </p>
-        </footer>
       </div>
     );
   }
