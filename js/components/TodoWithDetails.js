@@ -5,7 +5,7 @@ import {
   graphql,
 } from 'react-relay';
 
-const TodoWithComments = props => {
+const TodoWithDetails = props => {
   const { relay, todo: { id, text, status, details } } = props;
   const refetch = e => {
     relay.refetch({
@@ -23,8 +23,8 @@ const TodoWithComments = props => {
 };
 
 
-export default createRefetchContainer(TodoWithComments,
-  graphql.experimental`fragment TodoWithComments_todo on Todo
+export default createRefetchContainer(TodoWithDetails,
+  graphql.experimental`fragment TodoWithDetails_todo on Todo
       @argumentDefinitions(
           showDetails:{
             type:"Boolean!",
@@ -37,8 +37,8 @@ export default createRefetchContainer(TodoWithComments,
         details @include(if: $showDetails)
     }`,
   graphql.experimental`
-    query TodoWithCommentsBoChenRefetchQuery($id: ID!, $showDetails: Boolean!){
+    query TodoWithDetailsBoChenRefetchQuery($id: ID!, $showDetails: Boolean!){
         node(id: $id){
-          ... TodoWithComments_todo @arguments(showDetails:$showDetails)
+          ... TodoWithDetails_todo @arguments(showDetails:$showDetails)
         }
     }`);

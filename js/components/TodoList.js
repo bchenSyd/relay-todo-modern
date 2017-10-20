@@ -2,7 +2,7 @@
 import MarkAllTodosMutation from '../mutations/MarkAllTodosMutation';
 
 import Todo from './Todo';
-import TodoWithComments from './TodoWithComments';
+import TodoWithDetails from './TodoWithDetails';
 import PropTypes from 'prop-types';
 
 import React from 'react';
@@ -12,6 +12,8 @@ import {
 } from 'react-relay';
 
 import todoSubscription from '../subscriptions/todo';
+
+
 class TodoList extends React.Component {
 
   static contextTypes = {
@@ -42,9 +44,9 @@ class TodoList extends React.Component {
     );
   };
   renderTodos() {
-    const { relay: { variables: { showTodoWithComments } } } = this.context;
+    const { relay: { variables: { showTodoWithDetails } } } = this.context;
     return this.props.viewer.todos.edges.map(edge => {
-      return showTodoWithComments ? <TodoWithComments
+      return showTodoWithDetails ? <TodoWithDetails
         key={edge.node.id}
         todo={edge.node}
         viewer={this.props.viewer}
@@ -58,10 +60,10 @@ class TodoList extends React.Component {
   }
   _onSwitchView = e => {
     const { relay: relayContext } = this.context;
-    const { variables: { showTodoWithComments } } = relayContext;
+    const { variables: { showTodoWithDetails } } = relayContext;
     this.props.relay.refetch(preVars => ({
       ...preVars,
-      showTodoWithComments: !showTodoWithComments,
+      showTodoWithDetails: !showTodoWithDetails,
     }));
   };
 
@@ -71,7 +73,7 @@ class TodoList extends React.Component {
     relay.refetch(preVars => preVars /*fetch vars*/, null /*?render vars*/, null/*?callback*/, { force: true }/*?RefetchOptions*/);
   };
 
-  _onRefetchNewVars = _ => {
+  _onRefetchWithNewParams = _ => {
     const { relay } = this.props;
     relay.refetch(preVars => ({
       ...preVars,
@@ -100,7 +102,7 @@ class TodoList extends React.Component {
             <button onClick={this._onRefetch}>refech</button>
           </div>
           <div>
-            <button onClick={this._onRefetchNewVars}>refetch-changeVars</button>
+            <button onClick={this._onRefetchWithNewParams}>refetch with new Params</button>
           </div>
         </div>
       </section>
@@ -112,7 +114,7 @@ export default createRefetchContainer(TodoList,
   graphql.experimental`
     fragment TodoList_viewer on User
         @argumentDefinitions( 
-          showTodoWithComments:{
+          showTodoWithDetails:{
             type:"Boolean!",
             defaultValue:false
            },
@@ -127,8 +129,8 @@ export default createRefetchContainer(TodoList,
                       node {
                         id,
                         complete,
-                        ...TodoWithComments_todo @include(if: $showTodoWithComments),
-                        ...Todo_todo  @skip(if: $showTodoWithComments)
+                        ...TodoWithDetails_todo @include(if: $showTodoWithDetails),
+                        ...Todo_todo  @skip(if: $showTodoWithDetails)
                       },
                     },
                   },
@@ -140,10 +142,10 @@ export default createRefetchContainer(TodoList,
         }
   `,
   graphql.experimental`
-  query TodoListAnyNameRefetchQuery($showTodoWithComments: Boolean!, $_: Int!){
+  query TodoListAnyNameRefetchQuery($showTodoWithDetails: Boolean!, $_: Int!){
     viewer{
       user{
-           ...TodoList_viewer @arguments(showTodoWithComments: $showTodoWithComments, _:$_) 
+           ...TodoList_viewer @arguments(showTodoWithDetails: $showTodoWithDetails, _:$_) 
         }
       }
   }`
