@@ -1,12 +1,12 @@
 # watchman
 > https://github.com/facebook/watchman/issues/475#issuecomment-304948937
 
+[this link](https://ci.appveyor.com/api/projects/wez/watchman/artifacts/watchman.zip?branch=master&job=Environment:+WATCHMAN_WIN7_COMPAT%3D) should always resolve to the latest windows build
+
 # flow [ignore]
 >  https://github.com/facebook/flow/issues/869#issuecomment-192548460
+
 Ignoring everything in node_modules is problematic, because we look in there to a) ensure you've actually installed your dependencies and b) find Flow types for packages which might have included them.
-
-
-[this link](https://ci.appveyor.com/api/projects/wez/watchman/artifacts/watchman.zip?branch=master&job=Environment:+WATCHMAN_WIN7_COMPAT%3D) should always resolve to the latest windows build
 
 # debug mocha
 1. package chain: `source-map-support` required; installed via `bbel-regitser` which is included via `babel-cli`
