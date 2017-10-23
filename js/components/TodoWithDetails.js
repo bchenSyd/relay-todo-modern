@@ -24,7 +24,7 @@ const TodoWithDetails = props => {
 
 
 export default createRefetchContainer(TodoWithDetails,
-  graphql.experimental`fragment TodoWithDetails_todo on Todo
+  graphql`fragment TodoWithDetails_todo on Todo
       @argumentDefinitions(
           showDetails:{
             type:"Boolean!",
@@ -36,7 +36,7 @@ export default createRefetchContainer(TodoWithDetails,
         status
         details @include(if: $showDetails)
     }`,
-  graphql.experimental`
+  graphql`
     query TodoWithDetailsBoChenRefetchQuery($id: ID!, $showDetails: Boolean!){
         node(id: $id){
           ... TodoWithDetails_todo @arguments(showDetails:$showDetails)

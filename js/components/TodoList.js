@@ -111,7 +111,7 @@ class TodoList extends React.Component {
 }
 
 export default createRefetchContainer(TodoList,
-  graphql.experimental`
+  graphql`
     fragment TodoList_viewer on User
         @argumentDefinitions( 
           showTodoWithDetails:{
@@ -141,7 +141,7 @@ export default createRefetchContainer(TodoList,
                   ...Todo_viewer,
         }
   `,
-  graphql.experimental`
+  graphql`
   query TodoListAnyNameRefetchQuery($showTodoWithDetails: Boolean!, $_: Int!){
     viewer{
       user{
