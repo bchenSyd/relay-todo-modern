@@ -21,7 +21,7 @@
     "test": "mocha --compilers js:babel-register --recursive \"component/**/*.spec.js\" --require test/setup.js",
     "debug-mocha": "mocha --compilers js:babel-register  --recursive \"js/**/*.spec.js\" --require test/setup.js --debug-brk --inspect",
     "lint": "eslint ./js",
-    "predeploy":"rm -rf heroku &rm -rf public/!(index.html)",
+    "predeploy":"rm -rf heroku &find public -name '*.js' -or -name '*.map' | xargs rm -rf ",
     "deploy": "set NODE_ENV=production &npm run build-server&webpack --progress --verbose --colors --display-error-details",
     "postdeploy":"cp -r public heroku/public",
     "build-server": "babel server --out-dir heroku --source-maps --copy-files"
