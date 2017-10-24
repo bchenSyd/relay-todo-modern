@@ -1,6 +1,9 @@
 const path = require('path');
 const webpack = require('webpack');
 
+const env = process.env.NODE_ENV;
+console.log(`********** webpack env=${env} *********`);
+
 const isVendorModule = (module) => {
   const white_list = ['react-relay','relay-runtime'];
   if(module.context){
@@ -36,8 +39,9 @@ var config = {
   },
   plugins: [
     new webpack.DefinePlugin({
-      //PRODUCTION: JSON.stringify(true), must have JSON.stringify !!
-      '__WSENV__': JSON.stringify('http://localhost:8081'),
+      'process.env': {
+        'NODE_ENV': JSON.stringify(env),
+      },
     }),
 
     /** you don't want to generate source map for vendor code; 8M -> 1M

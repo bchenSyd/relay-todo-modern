@@ -1,2 +1,4 @@
 .DS_Store
+heroku/
 __generated__/
+yarn.lock

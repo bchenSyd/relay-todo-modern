@@ -1,3 +1,5 @@
+#
+ `rm -rf node_modules/+(babel-plugin-relay|react-relay|relay-compiler|relay-runtime)`
 # watchman
 > https://github.com/facebook/watchman/issues/475#issuecomment-304948937
 
