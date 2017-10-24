@@ -9243,7 +9243,7 @@ webpackJsonp([0],[
 
 	/**
 	 * 
-	 * @relayHash c6d6bfd8581767c3ac214dd0defdb7ae
+	 * @relayHash d4934fe4ff1c2011bd7e3b3e60c99eb2
 	 */
 	
 	/* eslint-disable */
@@ -9251,29 +9251,29 @@ webpackJsonp([0],[
 	'use strict';
 	
 	/*::
-	import type { ConcreteOperation } from 'relay-runtime';
+	import type {ConcreteBatch} from 'relay-runtime';
 	export type AddTodoMutationVariables = {|
 	  input: {
-	    text: string,
-	    clientMutationId?: ?string,
-	  },
+	    text: string;
+	    clientMutationId?: ?string;
+	  };
 	|};
 	export type AddTodoMutationResponse = {|
 	  +addTodo: ?{|
 	    +todoEdge: ?{|
-	      +__typename: string,
-	      +cursor: string,
+	      +__typename: string;
+	      +cursor: string;
 	      +node: ?{|
-	        +complete: ?boolean,
-	        +id: string,
-	        +text: ?string,
-	      |},
-	    |},
+	        +complete: ?boolean;
+	        +id: string;
+	        +text: ?string;
+	      |};
+	    |};
 	    +viewer: ?{|
-	      +id: string,
-	      +totalCount: ?number,
-	    |},
-	  |},
+	      +id: string;
+	      +totalCount: ?number;
+	    |};
+	  |};
 	|};
 	*/
 	
@@ -9299,111 +9299,204 @@ webpackJsonp([0],[
 	}
 	*/
 	
-	var batch /*: ConcreteOperation*/ = function () {
-	  var v0 = [{
-	    "kind": "LocalArgument",
-	    "name": "input",
-	    "type": "AddTodoInput!",
-	    "defaultValue": null
-	  }],
-	      v1 = {
-	    "kind": "ScalarField",
-	    "alias": null,
-	    "name": "id",
-	    "args": null,
-	    "storageKey": null
-	  },
-	      v2 = [{
-	    "kind": "LinkedField",
-	    "alias": null,
-	    "name": "addTodo",
-	    "storageKey": null,
-	    "args": [{
-	      "kind": "Variable",
+	var batch /*: ConcreteBatch*/ = {
+	  "fragment": {
+	    "argumentDefinitions": [{
+	      "kind": "LocalArgument",
 	      "name": "input",
-	      "variableName": "input",
-	      "type": "AddTodoInput!"
+	      "type": "AddTodoInput!",
+	      "defaultValue": null
 	    }],
-	    "concreteType": "AddTodoPayload",
-	    "plural": false,
+	    "kind": "Fragment",
+	    "metadata": null,
+	    "name": "AddTodoMutation",
 	    "selections": [{
 	      "kind": "LinkedField",
 	      "alias": null,
-	      "name": "todoEdge",
-	      "storageKey": null,
-	      "args": null,
-	      "concreteType": "TodoEdge",
+	      "args": [{
+	        "kind": "Variable",
+	        "name": "input",
+	        "variableName": "input",
+	        "type": "AddTodoInput!"
+	      }],
+	      "concreteType": "AddTodoPayload",
+	      "name": "addTodo",
 	      "plural": false,
 	      "selections": [{
-	        "kind": "ScalarField",
-	        "alias": null,
-	        "name": "__typename",
-	        "args": null,
-	        "storageKey": null
-	      }, {
-	        "kind": "ScalarField",
-	        "alias": null,
-	        "name": "cursor",
-	        "args": null,
-	        "storageKey": null
-	      }, {
 	        "kind": "LinkedField",
 	        "alias": null,
-	        "name": "node",
-	        "storageKey": null,
 	        "args": null,
-	        "concreteType": "Todo",
+	        "concreteType": "TodoEdge",
+	        "name": "todoEdge",
 	        "plural": false,
 	        "selections": [{
 	          "kind": "ScalarField",
 	          "alias": null,
-	          "name": "complete",
 	          "args": null,
+	          "name": "__typename",
 	          "storageKey": null
-	        }, v1, {
+	        }, {
 	          "kind": "ScalarField",
 	          "alias": null,
-	          "name": "text",
 	          "args": null,
+	          "name": "cursor",
 	          "storageKey": null
-	        }]
-	      }]
-	    }, {
+	        }, {
+	          "kind": "LinkedField",
+	          "alias": null,
+	          "args": null,
+	          "concreteType": "Todo",
+	          "name": "node",
+	          "plural": false,
+	          "selections": [{
+	            "kind": "ScalarField",
+	            "alias": null,
+	            "args": null,
+	            "name": "complete",
+	            "storageKey": null
+	          }, {
+	            "kind": "ScalarField",
+	            "alias": null,
+	            "args": null,
+	            "name": "id",
+	            "storageKey": null
+	          }, {
+	            "kind": "ScalarField",
+	            "alias": null,
+	            "args": null,
+	            "name": "text",
+	            "storageKey": null
+	          }],
+	          "storageKey": null
+	        }],
+	        "storageKey": null
+	      }, {
+	        "kind": "LinkedField",
+	        "alias": null,
+	        "args": null,
+	        "concreteType": "User",
+	        "name": "viewer",
+	        "plural": false,
+	        "selections": [{
+	          "kind": "ScalarField",
+	          "alias": null,
+	          "args": null,
+	          "name": "id",
+	          "storageKey": null
+	        }, {
+	          "kind": "ScalarField",
+	          "alias": null,
+	          "args": null,
+	          "name": "totalCount",
+	          "storageKey": null
+	        }],
+	        "storageKey": null
+	      }],
+	      "storageKey": null
+	    }],
+	    "type": "Mutation"
+	  },
+	  "id": null,
+	  "kind": "Batch",
+	  "metadata": {},
+	  "name": "AddTodoMutation",
+	  "query": {
+	    "argumentDefinitions": [{
+	      "kind": "LocalArgument",
+	      "name": "input",
+	      "type": "AddTodoInput!",
+	      "defaultValue": null
+	    }],
+	    "kind": "Root",
+	    "name": "AddTodoMutation",
+	    "operation": "mutation",
+	    "selections": [{
 	      "kind": "LinkedField",
 	      "alias": null,
-	      "name": "viewer",
-	      "storageKey": null,
-	      "args": null,
-	      "concreteType": "User",
+	      "args": [{
+	        "kind": "Variable",
+	        "name": "input",
+	        "variableName": "input",
+	        "type": "AddTodoInput!"
+	      }],
+	      "concreteType": "AddTodoPayload",
+	      "name": "addTodo",
 	      "plural": false,
-	      "selections": [v1, {
-	        "kind": "ScalarField",
+	      "selections": [{
+	        "kind": "LinkedField",
 	        "alias": null,
-	        "name": "totalCount",
 	        "args": null,
+	        "concreteType": "TodoEdge",
+	        "name": "todoEdge",
+	        "plural": false,
+	        "selections": [{
+	          "kind": "ScalarField",
+	          "alias": null,
+	          "args": null,
+	          "name": "__typename",
+	          "storageKey": null
+	        }, {
+	          "kind": "ScalarField",
+	          "alias": null,
+	          "args": null,
+	          "name": "cursor",
+	          "storageKey": null
+	        }, {
+	          "kind": "LinkedField",
+	          "alias": null,
+	          "args": null,
+	          "concreteType": "Todo",
+	          "name": "node",
+	          "plural": false,
+	          "selections": [{
+	            "kind": "ScalarField",
+	            "alias": null,
+	            "args": null,
+	            "name": "complete",
+	            "storageKey": null
+	          }, {
+	            "kind": "ScalarField",
+	            "alias": null,
+	            "args": null,
+	            "name": "id",
+	            "storageKey": null
+	          }, {
+	            "kind": "ScalarField",
+	            "alias": null,
+	            "args": null,
+	            "name": "text",
+	            "storageKey": null
+	          }],
+	          "storageKey": null
+	        }],
 	        "storageKey": null
-	      }]
+	      }, {
+	        "kind": "LinkedField",
+	        "alias": null,
+	        "args": null,
+	        "concreteType": "User",
+	        "name": "viewer",
+	        "plural": false,
+	        "selections": [{
+	          "kind": "ScalarField",
+	          "alias": null,
+	          "args": null,
+	          "name": "id",
+	          "storageKey": null
+	        }, {
+	          "kind": "ScalarField",
+	          "alias": null,
+	          "args": null,
+	          "name": "totalCount",
+	          "storageKey": null
+	        }],
+	        "storageKey": null
+	      }],
+	      "storageKey": null
 	    }]
-	  }];
-	  return {
-	    "kind": "Operation",
-	    "operation": "mutation",
-	    "name": "AddTodoMutation",
-	    "id": null,
-	    "metadata": {},
-	    "argumentDefinitions": v0,
-	    "selections": v2,
-	    "fragment": {
-	      "kind": "Fragment",
-	      "name": "AddTodoMutation",
-	      "type": "Mutation",
-	      "metadata": null,
-	      "argumentDefinitions": v0,
-	      "selections": v2
-	    },
-	    "text": "mutation AddTodoMutation(\n  $input: AddTodoInput!\n) {\n  addTodo(input: $input) {\n    todoEdge {\n      __typename\n      cursor\n      node {\n        complete\n        id\n        text\n      }\n    }\n    viewer {\n      id\n      totalCount\n    }\n  }\n}\n"
-	  };
-	}();
+	  },
+	  "text": "mutation AddTodoMutation(\n  $input: AddTodoInput!\n) {\n  addTodo(input: $input) {\n    todoEdge {\n      __typename\n      cursor\n      node {\n        complete\n        id\n        text\n      }\n    }\n    viewer {\n      id\n      totalCount\n    }\n  }\n}\n"
+	};
 	
 	module.exports = batch;
 
@@ -9663,7 +9756,7 @@ webpackJsonp([0],[
 
 	/**
 	 * 
-	 * @relayHash ee1d980901c5289fcd2b1e7fb565f65c
+	 * @relayHash 9f4d634e884be9a470b9acb7d619460c
 	 */
 	
 	/* eslint-disable */
@@ -9671,24 +9764,24 @@ webpackJsonp([0],[
 	'use strict';
 	
 	/*::
-	import type { ConcreteOperation } from 'relay-runtime';
+	import type {ConcreteBatch} from 'relay-runtime';
 	export type MarkAllTodosMutationVariables = {|
 	  input: {
-	    complete: boolean,
-	    clientMutationId?: ?string,
-	  },
+	    complete: boolean;
+	    clientMutationId?: ?string;
+	  };
 	|};
 	export type MarkAllTodosMutationResponse = {|
 	  +markAllTodos: ?{|
 	    +changedTodos: ?$ReadOnlyArray<?{|
-	      +id: string,
-	      +complete: ?boolean,
-	    |}>,
+	      +id: string;
+	      +complete: ?boolean;
+	    |}>;
 	    +viewer: ?{|
-	      +id: string,
-	      +completedCount: ?number,
-	    |},
-	  |},
+	      +id: string;
+	      +completedCount: ?number;
+	    |};
+	  |};
 	|};
 	*/
 	
@@ -9709,84 +9802,150 @@ webpackJsonp([0],[
 	}
 	*/
 	
-	var batch /*: ConcreteOperation*/ = function () {
-	  var v0 = [{
-	    "kind": "LocalArgument",
-	    "name": "input",
-	    "type": "MarkAllTodosInput!",
-	    "defaultValue": null
-	  }],
-	      v1 = {
-	    "kind": "ScalarField",
-	    "alias": null,
-	    "name": "id",
-	    "args": null,
-	    "storageKey": null
-	  },
-	      v2 = [{
-	    "kind": "LinkedField",
-	    "alias": null,
-	    "name": "markAllTodos",
-	    "storageKey": null,
-	    "args": [{
-	      "kind": "Variable",
+	var batch /*: ConcreteBatch*/ = {
+	  "fragment": {
+	    "argumentDefinitions": [{
+	      "kind": "LocalArgument",
 	      "name": "input",
-	      "variableName": "input",
-	      "type": "MarkAllTodosInput!"
+	      "type": "MarkAllTodosInput!",
+	      "defaultValue": null
 	    }],
-	    "concreteType": "MarkAllTodosPayload",
-	    "plural": false,
+	    "kind": "Fragment",
+	    "metadata": null,
+	    "name": "MarkAllTodosMutation",
 	    "selections": [{
 	      "kind": "LinkedField",
 	      "alias": null,
-	      "name": "changedTodos",
-	      "storageKey": null,
-	      "args": null,
-	      "concreteType": "Todo",
-	      "plural": true,
-	      "selections": [v1, {
-	        "kind": "ScalarField",
+	      "args": [{
+	        "kind": "Variable",
+	        "name": "input",
+	        "variableName": "input",
+	        "type": "MarkAllTodosInput!"
+	      }],
+	      "concreteType": "MarkAllTodosPayload",
+	      "name": "markAllTodos",
+	      "plural": false,
+	      "selections": [{
+	        "kind": "LinkedField",
 	        "alias": null,
-	        "name": "complete",
 	        "args": null,
+	        "concreteType": "Todo",
+	        "name": "changedTodos",
+	        "plural": true,
+	        "selections": [{
+	          "kind": "ScalarField",
+	          "alias": null,
+	          "args": null,
+	          "name": "id",
+	          "storageKey": null
+	        }, {
+	          "kind": "ScalarField",
+	          "alias": null,
+	          "args": null,
+	          "name": "complete",
+	          "storageKey": null
+	        }],
 	        "storageKey": null
-	      }]
-	    }, {
+	      }, {
+	        "kind": "LinkedField",
+	        "alias": null,
+	        "args": null,
+	        "concreteType": "User",
+	        "name": "viewer",
+	        "plural": false,
+	        "selections": [{
+	          "kind": "ScalarField",
+	          "alias": null,
+	          "args": null,
+	          "name": "id",
+	          "storageKey": null
+	        }, {
+	          "kind": "ScalarField",
+	          "alias": null,
+	          "args": null,
+	          "name": "completedCount",
+	          "storageKey": null
+	        }],
+	        "storageKey": null
+	      }],
+	      "storageKey": null
+	    }],
+	    "type": "Mutation"
+	  },
+	  "id": null,
+	  "kind": "Batch",
+	  "metadata": {},
+	  "name": "MarkAllTodosMutation",
+	  "query": {
+	    "argumentDefinitions": [{
+	      "kind": "LocalArgument",
+	      "name": "input",
+	      "type": "MarkAllTodosInput!",
+	      "defaultValue": null
+	    }],
+	    "kind": "Root",
+	    "name": "MarkAllTodosMutation",
+	    "operation": "mutation",
+	    "selections": [{
 	      "kind": "LinkedField",
 	      "alias": null,
-	      "name": "viewer",
-	      "storageKey": null,
-	      "args": null,
-	      "concreteType": "User",
+	      "args": [{
+	        "kind": "Variable",
+	        "name": "input",
+	        "variableName": "input",
+	        "type": "MarkAllTodosInput!"
+	      }],
+	      "concreteType": "MarkAllTodosPayload",
+	      "name": "markAllTodos",
 	      "plural": false,
-	      "selections": [v1, {
-	        "kind": "ScalarField",
+	      "selections": [{
+	        "kind": "LinkedField",
 	        "alias": null,
-	        "name": "completedCount",
 	        "args": null,
+	        "concreteType": "Todo",
+	        "name": "changedTodos",
+	        "plural": true,
+	        "selections": [{
+	          "kind": "ScalarField",
+	          "alias": null,
+	          "args": null,
+	          "name": "id",
+	          "storageKey": null
+	        }, {
+	          "kind": "ScalarField",
+	          "alias": null,
+	          "args": null,
+	          "name": "complete",
+	          "storageKey": null
+	        }],
 	        "storageKey": null
-	      }]
+	      }, {
+	        "kind": "LinkedField",
+	        "alias": null,
+	        "args": null,
+	        "concreteType": "User",
+	        "name": "viewer",
+	        "plural": false,
+	        "selections": [{
+	          "kind": "ScalarField",
+	          "alias": null,
+	          "args": null,
+	          "name": "id",
+	          "storageKey": null
+	        }, {
+	          "kind": "ScalarField",
+	          "alias": null,
+	          "args": null,
+	          "name": "completedCount",
+	          "storageKey": null
+	        }],
+	        "storageKey": null
+	      }],
+	      "storageKey": null
 	    }]
-	  }];
-	  return {
-	    "kind": "Operation",
-	    "operation": "mutation",
-	    "name": "MarkAllTodosMutation",
-	    "id": null,
-	    "metadata": {},
-	    "argumentDefinitions": v0,
-	    "selections": v2,
-	    "fragment": {
-	      "kind": "Fragment",
-	      "name": "MarkAllTodosMutation",
-	      "type": "Mutation",
-	      "metadata": null,
-	      "argumentDefinitions": v0,
-	      "selections": v2
-	    },
-	    "text": "mutation MarkAllTodosMutation(\n  $input: MarkAllTodosInput!\n) {\n  markAllTodos(input: $input) {\n    changedTodos {\n      id\n      complete\n    }\n    viewer {\n      id\n      completedCount\n    }\n  }\n}\n"
-	  };
-	}();
+	  },
+	  "text": "mutation MarkAllTodosMutation(\n  $input: MarkAllTodosInput!\n) {\n  markAllTodos(input: $input) {\n    changedTodos {\n      id\n      complete\n    }\n    viewer {\n      id\n      completedCount\n    }\n  }\n}\n"
+	};
 	
 	module.exports = batch;
 
@@ -9994,7 +10153,7 @@ webpackJsonp([0],[
 
 	/**
 	 * 
-	 * @relayHash 260ce28b994d29a3919eba603e9c0fcc
+	 * @relayHash 7c315df2a045002b59faabff190adf1e
 	 */
 	
 	/* eslint-disable */
@@ -10002,25 +10161,25 @@ webpackJsonp([0],[
 	'use strict';
 	
 	/*::
-	import type { ConcreteOperation } from 'relay-runtime';
+	import type {ConcreteBatch} from 'relay-runtime';
 	export type ChangeTodoStatusMutationVariables = {|
 	  input: {
-	    complete: boolean,
-	    id: string,
-	    clientMutationId?: ?string,
-	  },
+	    complete: boolean;
+	    id: string;
+	    clientMutationId?: ?string;
+	  };
 	|};
 	export type ChangeTodoStatusMutationResponse = {|
 	  +changeTodoStatus: ?{|
 	    +todo: ?{|
-	      +id: string,
-	      +complete: ?boolean,
-	    |},
+	      +id: string;
+	      +complete: ?boolean;
+	    |};
 	    +viewer: ?{|
-	      +id: string,
-	      +completedCount: ?number,
-	    |},
-	  |},
+	      +id: string;
+	      +completedCount: ?number;
+	    |};
+	  |};
 	|};
 	*/
 	
@@ -10041,84 +10200,150 @@ webpackJsonp([0],[
 	}
 	*/
 	
-	var batch /*: ConcreteOperation*/ = function () {
-	  var v0 = [{
-	    "kind": "LocalArgument",
-	    "name": "input",
-	    "type": "ChangeTodoStatusInput!",
-	    "defaultValue": null
-	  }],
-	      v1 = {
-	    "kind": "ScalarField",
-	    "alias": null,
-	    "name": "id",
-	    "args": null,
-	    "storageKey": null
-	  },
-	      v2 = [{
-	    "kind": "LinkedField",
-	    "alias": null,
-	    "name": "changeTodoStatus",
-	    "storageKey": null,
-	    "args": [{
-	      "kind": "Variable",
+	var batch /*: ConcreteBatch*/ = {
+	  "fragment": {
+	    "argumentDefinitions": [{
+	      "kind": "LocalArgument",
 	      "name": "input",
-	      "variableName": "input",
-	      "type": "ChangeTodoStatusInput!"
+	      "type": "ChangeTodoStatusInput!",
+	      "defaultValue": null
 	    }],
-	    "concreteType": "ChangeTodoStatusPayload",
-	    "plural": false,
+	    "kind": "Fragment",
+	    "metadata": null,
+	    "name": "ChangeTodoStatusMutation",
 	    "selections": [{
 	      "kind": "LinkedField",
 	      "alias": null,
-	      "name": "todo",
-	      "storageKey": null,
-	      "args": null,
-	      "concreteType": "Todo",
+	      "args": [{
+	        "kind": "Variable",
+	        "name": "input",
+	        "variableName": "input",
+	        "type": "ChangeTodoStatusInput!"
+	      }],
+	      "concreteType": "ChangeTodoStatusPayload",
+	      "name": "changeTodoStatus",
 	      "plural": false,
-	      "selections": [v1, {
-	        "kind": "ScalarField",
+	      "selections": [{
+	        "kind": "LinkedField",
 	        "alias": null,
-	        "name": "complete",
 	        "args": null,
+	        "concreteType": "Todo",
+	        "name": "todo",
+	        "plural": false,
+	        "selections": [{
+	          "kind": "ScalarField",
+	          "alias": null,
+	          "args": null,
+	          "name": "id",
+	          "storageKey": null
+	        }, {
+	          "kind": "ScalarField",
+	          "alias": null,
+	          "args": null,
+	          "name": "complete",
+	          "storageKey": null
+	        }],
 	        "storageKey": null
-	      }]
-	    }, {
+	      }, {
+	        "kind": "LinkedField",
+	        "alias": null,
+	        "args": null,
+	        "concreteType": "User",
+	        "name": "viewer",
+	        "plural": false,
+	        "selections": [{
+	          "kind": "ScalarField",
+	          "alias": null,
+	          "args": null,
+	          "name": "id",
+	          "storageKey": null
+	        }, {
+	          "kind": "ScalarField",
+	          "alias": null,
+	          "args": null,
+	          "name": "completedCount",
+	          "storageKey": null
+	        }],
+	        "storageKey": null
+	      }],
+	      "storageKey": null
+	    }],
+	    "type": "Mutation"
+	  },
+	  "id": null,
+	  "kind": "Batch",
+	  "metadata": {},
+	  "name": "ChangeTodoStatusMutation",
+	  "query": {
+	    "argumentDefinitions": [{
+	      "kind": "LocalArgument",
+	      "name": "input",
+	      "type": "ChangeTodoStatusInput!",
+	      "defaultValue": null
+	    }],
+	    "kind": "Root",
+	    "name": "ChangeTodoStatusMutation",
+	    "operation": "mutation",
+	    "selections": [{
 	      "kind": "LinkedField",
 	      "alias": null,
-	      "name": "viewer",
-	      "storageKey": null,
-	      "args": null,
-	      "concreteType": "User",
+	      "args": [{
+	        "kind": "Variable",
+	        "name": "input",
+	        "variableName": "input",
+	        "type": "ChangeTodoStatusInput!"
+	      }],
+	      "concreteType": "ChangeTodoStatusPayload",
+	      "name": "changeTodoStatus",
 	      "plural": false,
-	      "selections": [v1, {
-	        "kind": "ScalarField",
+	      "selections": [{
+	        "kind": "LinkedField",
 	        "alias": null,
-	        "name": "completedCount",
 	        "args": null,
+	        "concreteType": "Todo",
+	        "name": "todo",
+	        "plural": false,
+	        "selections": [{
+	          "kind": "ScalarField",
+	          "alias": null,
+	          "args": null,
+	          "name": "id",
+	          "storageKey": null
+	        }, {
+	          "kind": "ScalarField",
+	          "alias": null,
+	          "args": null,
+	          "name": "complete",
+	          "storageKey": null
+	        }],
 	        "storageKey": null
-	      }]
+	      }, {
+	        "kind": "LinkedField",
+	        "alias": null,
+	        "args": null,
+	        "concreteType": "User",
+	        "name": "viewer",
+	        "plural": false,
+	        "selections": [{
+	          "kind": "ScalarField",
+	          "alias": null,
+	          "args": null,
+	          "name": "id",
+	          "storageKey": null
+	        }, {
+	          "kind": "ScalarField",
+	          "alias": null,
+	          "args": null,
+	          "name": "completedCount",
+	          "storageKey": null
+	        }],
+	        "storageKey": null
+	      }],
+	      "storageKey": null
 	    }]
-	  }];
-	  return {
-	    "kind": "Operation",
-	    "operation": "mutation",
-	    "name": "ChangeTodoStatusMutation",
-	    "id": null,
-	    "metadata": {},
-	    "argumentDefinitions": v0,
-	    "selections": v2,
-	    "fragment": {
-	      "kind": "Fragment",
-	      "name": "ChangeTodoStatusMutation",
-	      "type": "Mutation",
-	      "metadata": null,
-	      "argumentDefinitions": v0,
-	      "selections": v2
-	    },
-	    "text": "mutation ChangeTodoStatusMutation(\n  $input: ChangeTodoStatusInput!\n) {\n  changeTodoStatus(input: $input) {\n    todo {\n      id\n      complete\n    }\n    viewer {\n      id\n      completedCount\n    }\n  }\n}\n"
-	  };
-	}();
+	  },
+	  "text": "mutation ChangeTodoStatusMutation(\n  $input: ChangeTodoStatusInput!\n) {\n  changeTodoStatus(input: $input) {\n    todo {\n      id\n      complete\n    }\n    viewer {\n      id\n      completedCount\n    }\n  }\n}\n"
+	};
 	
 	module.exports = batch;
 
@@ -10170,7 +10395,7 @@ webpackJsonp([0],[
 
 	/**
 	 * 
-	 * @relayHash 6e631504a8ebdea7c6d9f12f393e2be8
+	 * @relayHash e992239d9c6370d03f05cc57958fbf28
 	 */
 	
 	/* eslint-disable */
@@ -10178,21 +10403,21 @@ webpackJsonp([0],[
 	'use strict';
 	
 	/*::
-	import type { ConcreteOperation } from 'relay-runtime';
+	import type {ConcreteBatch} from 'relay-runtime';
 	export type RemoveTodoMutationVariables = {|
 	  input: {
-	    id: string,
-	    clientMutationId?: ?string,
-	  },
+	    id: string;
+	    clientMutationId?: ?string;
+	  };
 	|};
 	export type RemoveTodoMutationResponse = {|
 	  +removeTodo: ?{|
-	    +deletedTodoId: ?string,
+	    +deletedTodoId: ?string;
 	    +viewer: ?{|
-	      +completedCount: ?number,
-	      +totalCount: ?number,
-	    |},
-	  |},
+	      +completedCount: ?number;
+	      +totalCount: ?number;
+	    |};
+	  |};
 	|};
 	*/
 	
@@ -10211,101 +10436,126 @@ webpackJsonp([0],[
 	}
 	*/
 	
-	var batch /*: ConcreteOperation*/ = function () {
-	  var v0 = [{
-	    "kind": "LocalArgument",
-	    "name": "input",
-	    "type": "RemoveTodoInput!",
-	    "defaultValue": null
-	  }],
-	      v1 = [{
-	    "kind": "Variable",
-	    "name": "input",
-	    "variableName": "input",
-	    "type": "RemoveTodoInput!"
-	  }],
-	      v2 = {
-	    "kind": "ScalarField",
-	    "alias": null,
-	    "name": "deletedTodoId",
-	    "args": null,
-	    "storageKey": null
-	  },
-	      v3 = {
-	    "kind": "ScalarField",
-	    "alias": null,
-	    "name": "completedCount",
-	    "args": null,
-	    "storageKey": null
-	  },
-	      v4 = {
-	    "kind": "ScalarField",
-	    "alias": null,
-	    "name": "totalCount",
-	    "args": null,
-	    "storageKey": null
-	  };
-	  return {
-	    "kind": "Operation",
-	    "operation": "mutation",
+	var batch /*: ConcreteBatch*/ = {
+	  "fragment": {
+	    "argumentDefinitions": [{
+	      "kind": "LocalArgument",
+	      "name": "input",
+	      "type": "RemoveTodoInput!",
+	      "defaultValue": null
+	    }],
+	    "kind": "Fragment",
+	    "metadata": null,
 	    "name": "RemoveTodoMutation",
-	    "id": null,
-	    "metadata": {},
-	    "argumentDefinitions": v0,
 	    "selections": [{
 	      "kind": "LinkedField",
 	      "alias": null,
-	      "name": "removeTodo",
-	      "storageKey": null,
-	      "args": v1,
+	      "args": [{
+	        "kind": "Variable",
+	        "name": "input",
+	        "variableName": "input",
+	        "type": "RemoveTodoInput!"
+	      }],
 	      "concreteType": "RemoveTodoPayload",
+	      "name": "removeTodo",
 	      "plural": false,
-	      "selections": [v2, {
+	      "selections": [{
+	        "kind": "ScalarField",
+	        "alias": null,
+	        "args": null,
+	        "name": "deletedTodoId",
+	        "storageKey": null
+	      }, {
 	        "kind": "LinkedField",
 	        "alias": null,
-	        "name": "viewer",
-	        "storageKey": null,
 	        "args": null,
 	        "concreteType": "User",
+	        "name": "viewer",
 	        "plural": false,
-	        "selections": [v3, v4, {
+	        "selections": [{
 	          "kind": "ScalarField",
 	          "alias": null,
-	          "name": "id",
 	          "args": null,
+	          "name": "completedCount",
 	          "storageKey": null
-	        }]
-	      }]
+	        }, {
+	          "kind": "ScalarField",
+	          "alias": null,
+	          "args": null,
+	          "name": "totalCount",
+	          "storageKey": null
+	        }],
+	        "storageKey": null
+	      }],
+	      "storageKey": null
 	    }],
-	    "fragment": {
-	      "kind": "Fragment",
-	      "name": "RemoveTodoMutation",
-	      "type": "Mutation",
-	      "metadata": null,
-	      "argumentDefinitions": v0,
+	    "type": "Mutation"
+	  },
+	  "id": null,
+	  "kind": "Batch",
+	  "metadata": {},
+	  "name": "RemoveTodoMutation",
+	  "query": {
+	    "argumentDefinitions": [{
+	      "kind": "LocalArgument",
+	      "name": "input",
+	      "type": "RemoveTodoInput!",
+	      "defaultValue": null
+	    }],
+	    "kind": "Root",
+	    "name": "RemoveTodoMutation",
+	    "operation": "mutation",
+	    "selections": [{
+	      "kind": "LinkedField",
+	      "alias": null,
+	      "args": [{
+	        "kind": "Variable",
+	        "name": "input",
+	        "variableName": "input",
+	        "type": "RemoveTodoInput!"
+	      }],
+	      "concreteType": "RemoveTodoPayload",
+	      "name": "removeTodo",
+	      "plural": false,
 	      "selections": [{
+	        "kind": "ScalarField",
+	        "alias": null,
+	        "args": null,
+	        "name": "deletedTodoId",
+	        "storageKey": null
+	      }, {
 	        "kind": "LinkedField",
 	        "alias": null,
-	        "name": "removeTodo",
-	        "storageKey": null,
-	        "args": v1,
-	        "concreteType": "RemoveTodoPayload",
+	        "args": null,
+	        "concreteType": "User",
+	        "name": "viewer",
 	        "plural": false,
-	        "selections": [v2, {
-	          "kind": "LinkedField",
+	        "selections": [{
+	          "kind": "ScalarField",
 	          "alias": null,
-	          "name": "viewer",
-	          "storageKey": null,
 	          "args": null,
-	          "concreteType": "User",
-	          "plural": false,
-	          "selections": [v3, v4]
-	        }]
-	      }]
-	    },
-	    "text": "mutation RemoveTodoMutation(\n  $input: RemoveTodoInput!\n) {\n  removeTodo(input: $input) {\n    deletedTodoId\n    viewer {\n      completedCount\n      totalCount\n      id\n    }\n  }\n}\n"
-	  };
-	}();
+	          "name": "completedCount",
+	          "storageKey": null
+	        }, {
+	          "kind": "ScalarField",
+	          "alias": null,
+	          "args": null,
+	          "name": "totalCount",
+	          "storageKey": null
+	        }, {
+	          "kind": "ScalarField",
+	          "alias": null,
+	          "args": null,
+	          "name": "id",
+	          "storageKey": null
+	        }],
+	        "storageKey": null
+	      }],
+	      "storageKey": null
+	    }]
+	  },
+	  "text": "mutation RemoveTodoMutation(\n  $input: RemoveTodoInput!\n) {\n  removeTodo(input: $input) {\n    deletedTodoId\n    viewer {\n      completedCount\n      totalCount\n      id\n    }\n  }\n}\n"
+	};
 	
 	module.exports = batch;
 
@@ -10357,7 +10607,7 @@ webpackJsonp([0],[
 
 	/**
 	 * 
-	 * @relayHash 5d204ce6113035482d889df21e5219c8
+	 * @relayHash 9c5e8b0cf65773b4efdd37194aa3f2f4
 	 */
 	
 	/* eslint-disable */
@@ -10365,21 +10615,21 @@ webpackJsonp([0],[
 	'use strict';
 	
 	/*::
-	import type { ConcreteOperation } from 'relay-runtime';
+	import type {ConcreteBatch} from 'relay-runtime';
 	export type RenameTodoMutationVariables = {|
 	  input: {
-	    id: string,
-	    text: string,
-	    clientMutationId?: ?string,
-	  },
+	    id: string;
+	    text: string;
+	    clientMutationId?: ?string;
+	  };
 	|};
 	export type RenameTodoMutationResponse = {|
 	  +renameTodo: ?{|
 	    +todo: ?{|
-	      +id: string,
-	      +text: ?string,
-	    |},
-	  |},
+	      +id: string;
+	      +text: ?string;
+	    |};
+	  |};
 	|};
 	*/
 	
@@ -10396,68 +10646,108 @@ webpackJsonp([0],[
 	}
 	*/
 	
-	var batch /*: ConcreteOperation*/ = function () {
-	  var v0 = [{
-	    "kind": "LocalArgument",
-	    "name": "input",
-	    "type": "RenameTodoInput!",
-	    "defaultValue": null
-	  }],
-	      v1 = [{
-	    "kind": "LinkedField",
-	    "alias": null,
-	    "name": "renameTodo",
-	    "storageKey": null,
-	    "args": [{
-	      "kind": "Variable",
+	var batch /*: ConcreteBatch*/ = {
+	  "fragment": {
+	    "argumentDefinitions": [{
+	      "kind": "LocalArgument",
 	      "name": "input",
-	      "variableName": "input",
-	      "type": "RenameTodoInput!"
+	      "type": "RenameTodoInput!",
+	      "defaultValue": null
 	    }],
-	    "concreteType": "RenameTodoPayload",
-	    "plural": false,
+	    "kind": "Fragment",
+	    "metadata": null,
+	    "name": "RenameTodoMutation",
 	    "selections": [{
 	      "kind": "LinkedField",
 	      "alias": null,
-	      "name": "todo",
-	      "storageKey": null,
-	      "args": null,
-	      "concreteType": "Todo",
+	      "args": [{
+	        "kind": "Variable",
+	        "name": "input",
+	        "variableName": "input",
+	        "type": "RenameTodoInput!"
+	      }],
+	      "concreteType": "RenameTodoPayload",
+	      "name": "renameTodo",
 	      "plural": false,
 	      "selections": [{
-	        "kind": "ScalarField",
+	        "kind": "LinkedField",
 	        "alias": null,
-	        "name": "id",
 	        "args": null,
+	        "concreteType": "Todo",
+	        "name": "todo",
+	        "plural": false,
+	        "selections": [{
+	          "kind": "ScalarField",
+	          "alias": null,
+	          "args": null,
+	          "name": "id",
+	          "storageKey": null
+	        }, {
+	          "kind": "ScalarField",
+	          "alias": null,
+	          "args": null,
+	          "name": "text",
+	          "storageKey": null
+	        }],
 	        "storageKey": null
-	      }, {
-	        "kind": "ScalarField",
-	        "alias": null,
-	        "name": "text",
-	        "args": null,
-	        "storageKey": null
-	      }]
-	    }]
-	  }];
-	  return {
-	    "kind": "Operation",
-	    "operation": "mutation",
+	      }],
+	      "storageKey": null
+	    }],
+	    "type": "Mutation"
+	  },
+	  "id": null,
+	  "kind": "Batch",
+	  "metadata": {},
+	  "name": "RenameTodoMutation",
+	  "query": {
+	    "argumentDefinitions": [{
+	      "kind": "LocalArgument",
+	      "name": "input",
+	      "type": "RenameTodoInput!",
+	      "defaultValue": null
+	    }],
+	    "kind": "Root",
 	    "name": "RenameTodoMutation",
-	    "id": null,
-	    "metadata": {},
-	    "argumentDefinitions": v0,
-	    "selections": v1,
-	    "fragment": {
-	      "kind": "Fragment",
-	      "name": "RenameTodoMutation",
-	      "type": "Mutation",
-	      "metadata": null,
-	      "argumentDefinitions": v0,
-	      "selections": v1
-	    },
-	    "text": "mutation RenameTodoMutation(\n  $input: RenameTodoInput!\n) {\n  renameTodo(input: $input) {\n    todo {\n      id\n      text\n    }\n  }\n}\n"
-	  };
-	}();
+	    "operation": "mutation",
+	    "selections": [{
+	      "kind": "LinkedField",
+	      "alias": null,
+	      "args": [{
+	        "kind": "Variable",
+	        "name": "input",
+	        "variableName": "input",
+	        "type": "RenameTodoInput!"
+	      }],
+	      "concreteType": "RenameTodoPayload",
+	      "name": "renameTodo",
+	      "plural": false,
+	      "selections": [{
+	        "kind": "LinkedField",
+	        "alias": null,
+	        "args": null,
+	        "concreteType": "Todo",
+	        "name": "todo",
+	        "plural": false,
+	        "selections": [{
+	          "kind": "ScalarField",
+	          "alias": null,
+	          "args": null,
+	          "name": "id",
+	          "storageKey": null
+	        }, {
+	          "kind": "ScalarField",
+	          "alias": null,
+	          "args": null,
+	          "name": "text",
+	          "storageKey": null
+	        }],
+	        "storageKey": null
+	      }],
+	      "storageKey": null
+	    }]
+	  },
+	  "text": "mutation RenameTodoMutation(\n  $input: RenameTodoInput!\n) {\n  renameTodo(input: $input) {\n    todo {\n      id\n      text\n    }\n  }\n}\n"
+	};
 	
 	module.exports = batch;
 
@@ -10591,39 +10881,39 @@ webpackJsonp([0],[
 	'use strict';
 	
 	/*::
-	import type { ConcreteFragment } from 'relay-runtime';
+	import type {ConcreteFragment} from 'relay-runtime';
 	export type Todo_todo = {|
-	  +complete: ?boolean,
-	  +id: string,
-	  +text: ?string,
+	  +complete: ?boolean;
+	  +id: string;
+	  +text: ?string;
 	|};
 	*/
 	
 	var fragment /*: ConcreteFragment*/ = {
-	  "kind": "Fragment",
-	  "name": "Todo_todo",
-	  "type": "Todo",
-	  "metadata": null,
 	  "argumentDefinitions": [],
+	  "kind": "Fragment",
+	  "metadata": null,
+	  "name": "Todo_todo",
 	  "selections": [{
 	    "kind": "ScalarField",
 	    "alias": null,
+	    "args": null,
 	    "name": "complete",
-	    "args": null,
 	    "storageKey": null
 	  }, {
 	    "kind": "ScalarField",
 	    "alias": null,
+	    "args": null,
 	    "name": "id",
-	    "args": null,
 	    "storageKey": null
 	  }, {
 	    "kind": "ScalarField",
 	    "alias": null,
-	    "name": "text",
 	    "args": null,
+	    "name": "text",
 	    "storageKey": null
-	  }]
+	  }],
+	  "type": "Todo"
 	};
 	
 	module.exports = fragment;
@@ -10639,39 +10929,39 @@ webpackJsonp([0],[
 	'use strict';
 	
 	/*::
-	import type { ConcreteFragment } from 'relay-runtime';
+	import type {ConcreteFragment} from 'relay-runtime';
 	export type Todo_viewer = {|
-	  +id: string,
-	  +totalCount: ?number,
-	  +completedCount: ?number,
+	  +id: string;
+	  +totalCount: ?number;
+	  +completedCount: ?number;
 	|};
 	*/
 	
 	var fragment /*: ConcreteFragment*/ = {
-	  "kind": "Fragment",
-	  "name": "Todo_viewer",
-	  "type": "User",
-	  "metadata": null,
 	  "argumentDefinitions": [],
+	  "kind": "Fragment",
+	  "metadata": null,
+	  "name": "Todo_viewer",
 	  "selections": [{
 	    "kind": "ScalarField",
 	    "alias": null,
+	    "args": null,
 	    "name": "id",
-	    "args": null,
 	    "storageKey": null
 	  }, {
 	    "kind": "ScalarField",
 	    "alias": null,
+	    "args": null,
 	    "name": "totalCount",
-	    "args": null,
 	    "storageKey": null
 	  }, {
 	    "kind": "ScalarField",
 	    "alias": null,
-	    "name": "completedCount",
 	    "args": null,
+	    "name": "completedCount",
 	    "storageKey": null
-	  }]
+	  }],
+	  "type": "User"
 	};
 	
 	module.exports = fragment;
@@ -10753,43 +11043,42 @@ webpackJsonp([0],[
 	'use strict';
 	
 	/*::
-	import type { ConcreteFragment } from 'relay-runtime';
+	import type {ConcreteFragment} from 'relay-runtime';
 	export type TodoWithDetails_todo = {|
-	  +id: string,
-	  +text: ?string,
-	  +status: ?string,
-	  +details?: ?string,
+	  +id: string;
+	  +text: ?string;
+	  +status: ?string;
+	  +details?: ?string;
 	|};
 	*/
 	
 	var fragment /*: ConcreteFragment*/ = {
-	  "kind": "Fragment",
-	  "name": "TodoWithDetails_todo",
-	  "type": "Todo",
-	  "metadata": null,
 	  "argumentDefinitions": [{
 	    "kind": "LocalArgument",
 	    "name": "showDetails",
 	    "type": "Boolean!",
 	    "defaultValue": false
 	  }],
+	  "kind": "Fragment",
+	  "metadata": null,
+	  "name": "TodoWithDetails_todo",
 	  "selections": [{
 	    "kind": "ScalarField",
 	    "alias": null,
+	    "args": null,
 	    "name": "id",
-	    "args": null,
 	    "storageKey": null
 	  }, {
 	    "kind": "ScalarField",
 	    "alias": null,
+	    "args": null,
 	    "name": "text",
-	    "args": null,
 	    "storageKey": null
 	  }, {
 	    "kind": "ScalarField",
 	    "alias": null,
-	    "name": "status",
 	    "args": null,
+	    "name": "status",
 	    "storageKey": null
 	  }, {
 	    "kind": "Condition",
@@ -10798,11 +11087,12 @@ webpackJsonp([0],[
 	    "selections": [{
 	      "kind": "ScalarField",
 	      "alias": null,
-	      "name": "details",
 	      "args": null,
+	      "name": "details",
 	      "storageKey": null
 	    }]
-	  }]
+	  }],
+	  "type": "Todo"
 	};
 	
 	module.exports = fragment;
@@ -10813,7 +11103,7 @@ webpackJsonp([0],[
 
 	/**
 	 * 
-	 * @relayHash ae9751c8f6d4cc36c8f999da1355af8b
+	 * @relayHash 346a57c5cfd58536524cf9ddca88ea5f
 	 */
 	
 	/* eslint-disable */
@@ -10821,13 +11111,9 @@ webpackJsonp([0],[
 	'use strict';
 	
 	/*::
-	import type { ConcreteOperation } from 'relay-runtime';
-	import type { FragmentReference } from 'relay-runtime';
-	type TodoWithDetails_todo = any;
+	import type {ConcreteBatch} from 'relay-runtime';
 	export type TodoWithDetailsBoChenRefetchQueryResponse = {|
-	  +node: ?{|
-	    +__fragments: FragmentReference<TodoWithDetails_todo>,
-	  |},
+	  +node: ?{| |};
 	|};
 	*/
 	
@@ -10851,50 +11137,90 @@ webpackJsonp([0],[
 	}
 	*/
 	
-	var batch /*: ConcreteOperation*/ = function () {
-	  var v0 = [{
-	    "kind": "LocalArgument",
-	    "name": "id",
-	    "type": "ID!",
-	    "defaultValue": null
-	  }, {
-	    "kind": "LocalArgument",
-	    "name": "showDetails",
-	    "type": "Boolean!",
-	    "defaultValue": null
-	  }],
-	      v1 = [{
-	    "kind": "Variable",
-	    "name": "id",
-	    "variableName": "id",
-	    "type": "ID!"
-	  }];
-	  return {
-	    "kind": "Operation",
-	    "operation": "query",
+	var batch /*: ConcreteBatch*/ = {
+	  "fragment": {
+	    "argumentDefinitions": [{
+	      "kind": "LocalArgument",
+	      "name": "id",
+	      "type": "ID!",
+	      "defaultValue": null
+	    }, {
+	      "kind": "LocalArgument",
+	      "name": "showDetails",
+	      "type": "Boolean!",
+	      "defaultValue": null
+	    }],
+	    "kind": "Fragment",
+	    "metadata": null,
 	    "name": "TodoWithDetailsBoChenRefetchQuery",
-	    "id": null,
-	    "metadata": {},
-	    "argumentDefinitions": v0,
 	    "selections": [{
 	      "kind": "LinkedField",
 	      "alias": null,
-	      "name": "node",
-	      "storageKey": null,
-	      "args": v1,
+	      "args": [{
+	        "kind": "Variable",
+	        "name": "id",
+	        "variableName": "id",
+	        "type": "ID!"
+	      }],
 	      "concreteType": null,
+	      "name": "node",
+	      "plural": false,
+	      "selections": [{
+	        "kind": "FragmentSpread",
+	        "name": "TodoWithDetails_todo",
+	        "args": [{
+	          "kind": "Variable",
+	          "name": "showDetails",
+	          "variableName": "showDetails",
+	          "type": null
+	        }]
+	      }],
+	      "storageKey": null
+	    }],
+	    "type": "Query"
+	  },
+	  "id": null,
+	  "kind": "Batch",
+	  "metadata": {},
+	  "name": "TodoWithDetailsBoChenRefetchQuery",
+	  "query": {
+	    "argumentDefinitions": [{
+	      "kind": "LocalArgument",
+	      "name": "id",
+	      "type": "ID!",
+	      "defaultValue": null
+	    }, {
+	      "kind": "LocalArgument",
+	      "name": "showDetails",
+	      "type": "Boolean!",
+	      "defaultValue": null
+	    }],
+	    "kind": "Root",
+	    "name": "TodoWithDetailsBoChenRefetchQuery",
+	    "operation": "query",
+	    "selections": [{
+	      "kind": "LinkedField",
+	      "alias": null,
+	      "args": [{
+	        "kind": "Variable",
+	        "name": "id",
+	        "variableName": "id",
+	        "type": "ID!"
+	      }],
+	      "concreteType": null,
+	      "name": "node",
 	      "plural": false,
 	      "selections": [{
 	        "kind": "ScalarField",
 	        "alias": null,
-	        "name": "__typename",
 	        "args": null,
+	        "name": "__typename",
 	        "storageKey": null
 	      }, {
 	        "kind": "ScalarField",
 	        "alias": null,
-	        "name": "id",
 	        "args": null,
+	        "name": "id",
 	        "storageKey": null
 	      }, {
 	        "kind": "InlineFragment",
@@ -10902,14 +11228,14 @@ webpackJsonp([0],[
 	        "selections": [{
 	          "kind": "ScalarField",
 	          "alias": null,
-	          "name": "text",
 	          "args": null,
+	          "name": "text",
 	          "storageKey": null
 	        }, {
 	          "kind": "ScalarField",
 	          "alias": null,
-	          "name": "status",
 	          "args": null,
+	          "name": "status",
 	          "storageKey": null
 	        }, {
 	          "kind": "Condition",
@@ -10918,42 +11244,17 @@ webpackJsonp([0],[
 	          "selections": [{
 	            "kind": "ScalarField",
 	            "alias": null,
-	            "name": "details",
 	            "args": null,
+	            "name": "details",
 	            "storageKey": null
 	          }]
 	        }]
-	      }]
-	    }],
-	    "fragment": {
-	      "kind": "Fragment",
-	      "name": "TodoWithDetailsBoChenRefetchQuery",
-	      "type": "Query",
-	      "metadata": null,
-	      "argumentDefinitions": v0,
-	      "selections": [{
-	        "kind": "LinkedField",
-	        "alias": null,
-	        "name": "node",
-	        "storageKey": null,
-	        "args": v1,
-	        "concreteType": null,
-	        "plural": false,
-	        "selections": [{
-	          "kind": "FragmentSpread",
-	          "name": "TodoWithDetails_todo",
-	          "args": [{
-	            "kind": "Variable",
-	            "name": "showDetails",
-	            "variableName": "showDetails",
-	            "type": null
-	          }]
-	        }]
-	      }]
-	    },
-	    "text": "query TodoWithDetailsBoChenRefetchQuery(\n  $id: ID!\n  $showDetails: Boolean!\n) {\n  node(id: $id) {\n    __typename\n    ...TodoWithDetails_todo_m0EcS\n    id\n  }\n}\n\nfragment TodoWithDetails_todo_m0EcS on Todo {\n  id\n  text\n  status\n  details @include(if: $showDetails)\n}\n"
-	  };
-	}();
+	      }],
+	      "storageKey": null
+	    }]
+	  },
+	  "text": "query TodoWithDetailsBoChenRefetchQuery(\n  $id: ID!\n  $showDetails: Boolean!\n) {\n  node(id: $id) {\n    __typename\n    ...TodoWithDetails_todo_m0EcS\n    id\n  }\n}\n\nfragment TodoWithDetails_todo_m0EcS on Todo {\n  id\n  text\n  status\n  details @include(if: $showDetails)\n}\n"
+	};
 	
 	module.exports = batch;
 
@@ -11026,7 +11327,7 @@ webpackJsonp([0],[
 
 	/**
 	 * 
-	 * @relayHash a8eaee958f06bbcdc688614bc6b5cbf5
+	 * @relayHash d9135c546e515333b743b691af0c1909
 	 */
 	
 	/* eslint-disable */
@@ -11034,23 +11335,23 @@ webpackJsonp([0],[
 	'use strict';
 	
 	/*::
-	import type { ConcreteOperation } from 'relay-runtime';
+	import type {ConcreteBatch} from 'relay-runtime';
 	export type todoSubscriptionVariables = {|
 	  input: {
-	    arg?: ?string,
-	    clientSubscriptionId?: ?string,
-	  },
+	    arg?: ?string;
+	    clientSubscriptionId?: ?string;
+	  };
 	|};
 	export type todoSubscriptionResponse = {|
 	  +todoSubScription: ?{|
-	    +clientSubscriptionId: ?string,
-	    +arg: ?string,
+	    +clientSubscriptionId: ?string;
+	    +arg: ?string;
 	    +todo: ?{|
-	      +id: string,
-	      +text: ?string,
-	      +complete: ?boolean,
-	    |},
-	  |},
+	      +id: string;
+	      +text: ?string;
+	      +complete: ?boolean;
+	    |};
+	  |};
 	|};
 	*/
 	
@@ -11070,86 +11371,144 @@ webpackJsonp([0],[
 	}
 	*/
 	
-	var batch /*: ConcreteOperation*/ = function () {
-	  var v0 = [{
-	    "kind": "LocalArgument",
-	    "name": "input",
-	    "type": "TodoSubScriptionInput!",
-	    "defaultValue": null
-	  }],
-	      v1 = [{
-	    "kind": "LinkedField",
-	    "alias": null,
-	    "name": "todoSubScription",
-	    "storageKey": null,
-	    "args": [{
-	      "kind": "Variable",
+	var batch /*: ConcreteBatch*/ = {
+	  "fragment": {
+	    "argumentDefinitions": [{
+	      "kind": "LocalArgument",
 	      "name": "input",
-	      "variableName": "input",
-	      "type": "TodoSubScriptionInput!"
+	      "type": "TodoSubScriptionInput!",
+	      "defaultValue": null
 	    }],
-	    "concreteType": "TodoSubScriptionPayload",
-	    "plural": false,
+	    "kind": "Fragment",
+	    "metadata": null,
+	    "name": "todoSubscription",
 	    "selections": [{
-	      "kind": "ScalarField",
-	      "alias": null,
-	      "name": "clientSubscriptionId",
-	      "args": null,
-	      "storageKey": null
-	    }, {
-	      "kind": "ScalarField",
-	      "alias": null,
-	      "name": "arg",
-	      "args": null,
-	      "storageKey": null
-	    }, {
 	      "kind": "LinkedField",
 	      "alias": null,
-	      "name": "todo",
-	      "storageKey": null,
-	      "args": null,
-	      "concreteType": "Todo",
+	      "args": [{
+	        "kind": "Variable",
+	        "name": "input",
+	        "variableName": "input",
+	        "type": "TodoSubScriptionInput!"
+	      }],
+	      "concreteType": "TodoSubScriptionPayload",
+	      "name": "todoSubScription",
 	      "plural": false,
 	      "selections": [{
 	        "kind": "ScalarField",
 	        "alias": null,
-	        "name": "id",
 	        "args": null,
+	        "name": "clientSubscriptionId",
 	        "storageKey": null
 	      }, {
 	        "kind": "ScalarField",
 	        "alias": null,
-	        "name": "text",
 	        "args": null,
+	        "name": "arg",
 	        "storageKey": null
 	      }, {
-	        "kind": "ScalarField",
+	        "kind": "LinkedField",
 	        "alias": null,
-	        "name": "complete",
 	        "args": null,
+	        "concreteType": "Todo",
+	        "name": "todo",
+	        "plural": false,
+	        "selections": [{
+	          "kind": "ScalarField",
+	          "alias": null,
+	          "args": null,
+	          "name": "id",
+	          "storageKey": null
+	        }, {
+	          "kind": "ScalarField",
+	          "alias": null,
+	          "args": null,
+	          "name": "text",
+	          "storageKey": null
+	        }, {
+	          "kind": "ScalarField",
+	          "alias": null,
+	          "args": null,
+	          "name": "complete",
+	          "storageKey": null
+	        }],
 	        "storageKey": null
-	      }]
-	    }]
-	  }];
-	  return {
-	    "kind": "Operation",
-	    "operation": "subscription",
+	      }],
+	      "storageKey": null
+	    }],
+	    "type": "Subscription"
+	  },
+	  "id": null,
+	  "kind": "Batch",
+	  "metadata": {},
+	  "name": "todoSubscription",
+	  "query": {
+	    "argumentDefinitions": [{
+	      "kind": "LocalArgument",
+	      "name": "input",
+	      "type": "TodoSubScriptionInput!",
+	      "defaultValue": null
+	    }],
+	    "kind": "Root",
 	    "name": "todoSubscription",
-	    "id": null,
-	    "metadata": {},
-	    "argumentDefinitions": v0,
-	    "selections": v1,
-	    "fragment": {
-	      "kind": "Fragment",
-	      "name": "todoSubscription",
-	      "type": "Subscription",
-	      "metadata": null,
-	      "argumentDefinitions": v0,
-	      "selections": v1
-	    },
-	    "text": "subscription todoSubscription(\n  $input: TodoSubScriptionInput!\n) {\n  todoSubScription(input: $input) {\n    clientSubscriptionId\n    arg\n    todo {\n      id\n      text\n      complete\n    }\n  }\n}\n"
-	  };
-	}();
+	    "operation": "subscription",
+	    "selections": [{
+	      "kind": "LinkedField",
+	      "alias": null,
+	      "args": [{
+	        "kind": "Variable",
+	        "name": "input",
+	        "variableName": "input",
+	        "type": "TodoSubScriptionInput!"
+	      }],
+	      "concreteType": "TodoSubScriptionPayload",
+	      "name": "todoSubScription",
+	      "plural": false,
+	      "selections": [{
+	        "kind": "ScalarField",
+	        "alias": null,
+	        "args": null,
+	        "name": "clientSubscriptionId",
+	        "storageKey": null
+	      }, {
+	        "kind": "ScalarField",
+	        "alias": null,
+	        "args": null,
+	        "name": "arg",
+	        "storageKey": null
+	      }, {
+	        "kind": "LinkedField",
+	        "alias": null,
+	        "args": null,
+	        "concreteType": "Todo",
+	        "name": "todo",
+	        "plural": false,
+	        "selections": [{
+	          "kind": "ScalarField",
+	          "alias": null,
+	          "args": null,
+	          "name": "id",
+	          "storageKey": null
+	        }, {
+	          "kind": "ScalarField",
+	          "alias": null,
+	          "args": null,
+	          "name": "text",
+	          "storageKey": null
+	        }, {
+	          "kind": "ScalarField",
+	          "alias": null,
+	          "args": null,
+	          "name": "complete",
+	          "storageKey": null
+	        }],
+	        "storageKey": null
+	      }],
+	      "storageKey": null
+	    }]
+	  },
+	  "text": "subscription todoSubscription(\n  $input: TodoSubScriptionInput!\n) {\n  todoSubScription(input: $input) {\n    clientSubscriptionId\n    arg\n    todo {\n      id\n      text\n      complete\n    }\n  }\n}\n"
+	};
 	
 	module.exports = batch;
 
@@ -11164,174 +11523,171 @@ webpackJsonp([0],[
 	'use strict';
 	
 	/*::
-	import type { ConcreteFragment } from 'relay-runtime';
-	import type { FragmentReference } from 'relay-runtime';
-	type TodoWithDetails_todo = any;
-	type Todo_todo = any;
-	type Todo_viewer = any;
+	import type {ConcreteFragment} from 'relay-runtime';
 	export type TodoList_viewer = {|
 	  +todos: ?{|
 	    +edges: ?$ReadOnlyArray<?{|
 	      +node: ?{|
-	        +id: string,
-	        +complete: ?boolean,
-	        +__fragments: (FragmentReference<TodoWithDetails_todo> & FragmentReference<Todo_todo>),
-	      |},
-	    |}>,
-	  |},
-	  +id: string,
-	  +totalCount: ?number,
-	  +completedCount: ?number,
-	  +echo: ?number,
-	  +__fragments: FragmentReference<Todo_viewer>,
+	        +id: string;
+	        +complete: ?boolean;
+	      |};
+	    |}>;
+	  |};
+	  +id: string;
+	  +totalCount: ?number;
+	  +completedCount: ?number;
+	  +echo: ?number;
 	|};
 	*/
 	
-	var fragment /*: ConcreteFragment*/ = function () {
-	  var v0 = {
-	    "kind": "ScalarField",
-	    "alias": null,
-	    "name": "id",
+	var fragment /*: ConcreteFragment*/ = {
+	  "argumentDefinitions": [{
+	    "kind": "LocalArgument",
+	    "name": "showTodoWithDetails",
+	    "type": "Boolean!",
+	    "defaultValue": false
+	  }, {
+	    "kind": "LocalArgument",
+	    "name": "_",
+	    "type": "Int!",
+	    "defaultValue": 0
+	  }],
+	  "kind": "Fragment",
+	  "metadata": {
+	    "connection": [{
+	      "count": null,
+	      "cursor": null,
+	      "direction": "forward",
+	      "path": ["todos"]
+	    }]
+	  },
+	  "name": "TodoList_viewer",
+	  "selections": [{
+	    "kind": "LinkedField",
+	    "alias": "todos",
 	    "args": null,
-	    "storageKey": null
-	  };
-	  return {
-	    "kind": "Fragment",
-	    "name": "TodoList_viewer",
-	    "type": "User",
-	    "metadata": {
-	      "connection": [{
-	        "count": null,
-	        "cursor": null,
-	        "direction": "forward",
-	        "path": ["todos"]
-	      }]
-	    },
-	    "argumentDefinitions": [{
-	      "kind": "LocalArgument",
-	      "name": "showTodoWithDetails",
-	      "type": "Boolean!",
-	      "defaultValue": false
-	    }, {
-	      "kind": "LocalArgument",
-	      "name": "_",
-	      "type": "Int!",
-	      "defaultValue": 0
-	    }],
+	    "concreteType": "TodoConnection",
+	    "name": "__TodoList_todos_connection",
+	    "plural": false,
 	    "selections": [{
 	      "kind": "LinkedField",
-	      "alias": "todos",
-	      "name": "__TodoList_todos_connection",
-	      "storageKey": null,
+	      "alias": null,
 	      "args": null,
-	      "concreteType": "TodoConnection",
-	      "plural": false,
+	      "concreteType": "TodoEdge",
+	      "name": "edges",
+	      "plural": true,
 	      "selections": [{
 	        "kind": "LinkedField",
 	        "alias": null,
-	        "name": "edges",
-	        "storageKey": null,
 	        "args": null,
-	        "concreteType": "TodoEdge",
-	        "plural": true,
-	        "selections": [{
-	          "kind": "LinkedField",
-	          "alias": null,
-	          "name": "node",
-	          "storageKey": null,
-	          "args": null,
-	          "concreteType": "Todo",
-	          "plural": false,
-	          "selections": [v0, {
-	            "kind": "ScalarField",
-	            "alias": null,
-	            "name": "complete",
-	            "args": null,
-	            "storageKey": null
-	          }, {
-	            "kind": "ScalarField",
-	            "alias": null,
-	            "name": "__typename",
-	            "args": null,
-	            "storageKey": null
-	          }, {
-	            "kind": "Condition",
-	            "passingValue": false,
-	            "condition": "showTodoWithDetails",
-	            "selections": [{
-	              "kind": "FragmentSpread",
-	              "name": "Todo_todo",
-	              "args": null
-	            }]
-	          }, {
-	            "kind": "Condition",
-	            "passingValue": true,
-	            "condition": "showTodoWithDetails",
-	            "selections": [{
-	              "kind": "FragmentSpread",
-	              "name": "TodoWithDetails_todo",
-	              "args": null
-	            }]
-	          }]
-	        }, {
-	          "kind": "ScalarField",
-	          "alias": null,
-	          "name": "cursor",
-	          "args": null,
-	          "storageKey": null
-	        }]
-	      }, {
-	        "kind": "LinkedField",
-	        "alias": null,
-	        "name": "pageInfo",
-	        "storageKey": null,
-	        "args": null,
-	        "concreteType": "PageInfo",
+	        "concreteType": "Todo",
+	        "name": "node",
 	        "plural": false,
 	        "selections": [{
 	          "kind": "ScalarField",
 	          "alias": null,
-	          "name": "endCursor",
 	          "args": null,
+	          "name": "id",
 	          "storageKey": null
 	        }, {
 	          "kind": "ScalarField",
 	          "alias": null,
-	          "name": "hasNextPage",
 	          "args": null,
+	          "name": "complete",
 	          "storageKey": null
-	        }]
-	      }]
-	    }, v0, {
-	      "kind": "ScalarField",
-	      "alias": null,
-	      "name": "totalCount",
-	      "args": null,
-	      "storageKey": null
-	    }, {
-	      "kind": "ScalarField",
-	      "alias": null,
-	      "name": "completedCount",
-	      "args": null,
-	      "storageKey": null
-	    }, {
-	      "kind": "ScalarField",
-	      "alias": null,
-	      "name": "echo",
-	      "args": [{
-	        "kind": "Variable",
-	        "name": "_",
-	        "variableName": "_",
-	        "type": "Int"
+	        }, {
+	          "kind": "ScalarField",
+	          "alias": null,
+	          "args": null,
+	          "name": "__typename",
+	          "storageKey": null
+	        }, {
+	          "kind": "Condition",
+	          "passingValue": false,
+	          "condition": "showTodoWithDetails",
+	          "selections": [{
+	            "kind": "FragmentSpread",
+	            "name": "Todo_todo",
+	            "args": null
+	          }]
+	        }, {
+	          "kind": "Condition",
+	          "passingValue": true,
+	          "condition": "showTodoWithDetails",
+	          "selections": [{
+	            "kind": "FragmentSpread",
+	            "name": "TodoWithDetails_todo",
+	            "args": null
+	          }]
+	        }],
+	        "storageKey": null
+	      }, {
+	        "kind": "ScalarField",
+	        "alias": null,
+	        "args": null,
+	        "name": "cursor",
+	        "storageKey": null
 	      }],
 	      "storageKey": null
 	    }, {
-	      "kind": "FragmentSpread",
-	      "name": "Todo_viewer",
-	      "args": null
-	    }]
-	  };
-	}();
+	      "kind": "LinkedField",
+	      "alias": null,
+	      "args": null,
+	      "concreteType": "PageInfo",
+	      "name": "pageInfo",
+	      "plural": false,
+	      "selections": [{
+	        "kind": "ScalarField",
+	        "alias": null,
+	        "args": null,
+	        "name": "endCursor",
+	        "storageKey": null
+	      }, {
+	        "kind": "ScalarField",
+	        "alias": null,
+	        "args": null,
+	        "name": "hasNextPage",
+	        "storageKey": null
+	      }],
+	      "storageKey": null
+	    }],
+	    "storageKey": null
+	  }, {
+	    "kind": "ScalarField",
+	    "alias": null,
+	    "args": null,
+	    "name": "id",
+	    "storageKey": null
+	  }, {
+	    "kind": "ScalarField",
+	    "alias": null,
+	    "args": null,
+	    "name": "totalCount",
+	    "storageKey": null
+	  }, {
+	    "kind": "ScalarField",
+	    "alias": null,
+	    "args": null,
+	    "name": "completedCount",
+	    "storageKey": null
+	  }, {
+	    "kind": "ScalarField",
+	    "alias": null,
+	    "args": [{
+	      "kind": "Variable",
+	      "name": "_",
+	      "variableName": "_",
+	      "type": "Int"
+	    }],
+	    "name": "echo",
+	    "storageKey": null
+	  }, {
+	    "kind": "FragmentSpread",
+	    "name": "Todo_viewer",
+	    "args": null
+	  }],
+	  "type": "User"
+	};
 	
 	module.exports = fragment;
 
@@ -11341,7 +11697,7 @@ webpackJsonp([0],[
 
 	/**
 	 * 
-	 * @relayHash 26846c3a4962a1ad6c921e21f5066182
+	 * @relayHash 4f55f2ec2fd8eb1c30b562f0eed7d185
 	 */
 	
 	/* eslint-disable */
@@ -11349,15 +11705,11 @@ webpackJsonp([0],[
 	'use strict';
 	
 	/*::
-	import type { ConcreteOperation } from 'relay-runtime';
-	import type { FragmentReference } from 'relay-runtime';
-	type TodoList_viewer = any;
+	import type {ConcreteBatch} from 'relay-runtime';
 	export type TodoListAnyNameRefetchQueryResponse = {|
 	  +viewer: ?{|
-	    +user: ?{|
-	      +__fragments: FragmentReference<TodoList_viewer>,
-	    |},
-	  |},
+	    +user: ?{| |};
+	  |};
 	|};
 	*/
 	
@@ -11417,60 +11769,93 @@ webpackJsonp([0],[
 	}
 	*/
 	
-	var batch /*: ConcreteOperation*/ = function () {
-	  var v0 = [{
-	    "kind": "LocalArgument",
-	    "name": "showTodoWithDetails",
-	    "type": "Boolean!",
-	    "defaultValue": null
-	  }, {
-	    "kind": "LocalArgument",
-	    "name": "_",
-	    "type": "Int!",
-	    "defaultValue": null
-	  }],
-	      v1 = {
-	    "kind": "ScalarField",
-	    "alias": null,
-	    "name": "id",
-	    "args": null,
-	    "storageKey": null
-	  },
-	      v2 = {
-	    "kind": "ScalarField",
-	    "alias": null,
-	    "name": "text",
-	    "args": null,
-	    "storageKey": null
-	  };
-	  return {
-	    "kind": "Operation",
-	    "operation": "query",
+	var batch /*: ConcreteBatch*/ = {
+	  "fragment": {
+	    "argumentDefinitions": [{
+	      "kind": "LocalArgument",
+	      "name": "showTodoWithDetails",
+	      "type": "Boolean!",
+	      "defaultValue": null
+	    }, {
+	      "kind": "LocalArgument",
+	      "name": "_",
+	      "type": "Int!",
+	      "defaultValue": null
+	    }],
+	    "kind": "Fragment",
+	    "metadata": null,
 	    "name": "TodoListAnyNameRefetchQuery",
-	    "id": null,
-	    "metadata": {},
-	    "argumentDefinitions": v0,
 	    "selections": [{
 	      "kind": "LinkedField",
-	      "alias": null,
-	      "name": "viewer",
-	      "storageKey": null,
+	      "alias": "viewer",
 	      "args": null,
 	      "concreteType": "Viewer",
+	      "name": "__viewer_viewer",
 	      "plural": false,
 	      "selections": [{
 	        "kind": "LinkedField",
 	        "alias": null,
-	        "name": "user",
-	        "storageKey": null,
 	        "args": null,
 	        "concreteType": "User",
+	        "name": "user",
+	        "plural": false,
+	        "selections": [{
+	          "kind": "FragmentSpread",
+	          "name": "TodoList_viewer",
+	          "args": [{
+	            "kind": "Variable",
+	            "name": "_",
+	            "variableName": "_",
+	            "type": null
+	          }, {
+	            "kind": "Variable",
+	            "name": "showTodoWithDetails",
+	            "variableName": "showTodoWithDetails",
+	            "type": null
+	          }]
+	        }],
+	        "storageKey": null
+	      }],
+	      "storageKey": null
+	    }],
+	    "type": "Query"
+	  },
+	  "id": null,
+	  "kind": "Batch",
+	  "metadata": {},
+	  "name": "TodoListAnyNameRefetchQuery",
+	  "query": {
+	    "argumentDefinitions": [{
+	      "kind": "LocalArgument",
+	      "name": "showTodoWithDetails",
+	      "type": "Boolean!",
+	      "defaultValue": null
+	    }, {
+	      "kind": "LocalArgument",
+	      "name": "_",
+	      "type": "Int!",
+	      "defaultValue": null
+	    }],
+	    "kind": "Root",
+	    "name": "TodoListAnyNameRefetchQuery",
+	    "operation": "query",
+	    "selections": [{
+	      "kind": "LinkedField",
+	      "alias": null,
+	      "args": null,
+	      "concreteType": "Viewer",
+	      "name": "viewer",
+	      "plural": false,
+	      "selections": [{
+	        "kind": "LinkedField",
+	        "alias": null,
+	        "args": null,
+	        "concreteType": "User",
+	        "name": "user",
 	        "plural": false,
 	        "selections": [{
 	          "kind": "LinkedField",
 	          "alias": null,
-	          "name": "todos",
-	          "storageKey": "todos{\"first\":2147483647}",
 	          "args": [{
 	            "kind": "Literal",
 	            "name": "first",
@@ -11478,85 +11863,104 @@ webpackJsonp([0],[
 	            "type": "Int"
 	          }],
 	          "concreteType": "TodoConnection",
+	          "name": "todos",
 	          "plural": false,
 	          "selections": [{
 	            "kind": "LinkedField",
 	            "alias": null,
-	            "name": "edges",
-	            "storageKey": null,
 	            "args": null,
 	            "concreteType": "TodoEdge",
+	            "name": "edges",
 	            "plural": true,
 	            "selections": [{
 	              "kind": "LinkedField",
 	              "alias": null,
-	              "name": "node",
-	              "storageKey": null,
 	              "args": null,
 	              "concreteType": "Todo",
+	              "name": "node",
 	              "plural": false,
 	              "selections": [{
 	                "kind": "ScalarField",
 	                "alias": null,
-	                "name": "__typename",
 	                "args": null,
+	                "name": "__typename",
 	                "storageKey": null
-	              }, v1, {
+	              }, {
 	                "kind": "ScalarField",
 	                "alias": null,
-	                "name": "complete",
 	                "args": null,
+	                "name": "id",
+	                "storageKey": null
+	              }, {
+	                "kind": "ScalarField",
+	                "alias": null,
+	                "args": null,
+	                "name": "complete",
 	                "storageKey": null
 	              }, {
 	                "kind": "Condition",
 	                "passingValue": false,
 	                "condition": "showTodoWithDetails",
-	                "selections": [v2]
+	                "selections": [{
+	                  "kind": "ScalarField",
+	                  "alias": null,
+	                  "args": null,
+	                  "name": "text",
+	                  "storageKey": null
+	                }]
 	              }, {
 	                "kind": "Condition",
 	                "passingValue": true,
 	                "condition": "showTodoWithDetails",
-	                "selections": [v2, {
+	                "selections": [{
 	                  "kind": "ScalarField",
 	                  "alias": null,
-	                  "name": "status",
 	                  "args": null,
+	                  "name": "text",
+	                  "storageKey": null
+	                }, {
+	                  "kind": "ScalarField",
+	                  "alias": null,
+	                  "args": null,
+	                  "name": "status",
 	                  "storageKey": null
 	                }]
-	              }]
+	              }],
+	              "storageKey": null
 	            }, {
 	              "kind": "ScalarField",
 	              "alias": null,
-	              "name": "cursor",
 	              "args": null,
+	              "name": "cursor",
 	              "storageKey": null
-	            }]
+	            }],
+	            "storageKey": null
 	          }, {
 	            "kind": "LinkedField",
 	            "alias": null,
-	            "name": "pageInfo",
-	            "storageKey": null,
 	            "args": null,
 	            "concreteType": "PageInfo",
+	            "name": "pageInfo",
 	            "plural": false,
 	            "selections": [{
 	              "kind": "ScalarField",
 	              "alias": null,
-	              "name": "endCursor",
 	              "args": null,
+	              "name": "endCursor",
 	              "storageKey": null
 	            }, {
 	              "kind": "ScalarField",
 	              "alias": null,
-	              "name": "hasNextPage",
 	              "args": null,
+	              "name": "hasNextPage",
 	              "storageKey": null
-	            }]
-	          }]
+	            }],
+	            "storageKey": null
+	          }],
+	          "storageKey": "todos{\"first\":2147483647}"
 	        }, {
 	          "kind": "LinkedHandle",
 	          "alias": null,
-	          "name": "todos",
 	          "args": [{
 	            "kind": "Literal",
 	            "name": "first",
@@ -11564,85 +11968,54 @@ webpackJsonp([0],[
 	            "type": "Int"
 	          }],
 	          "handle": "connection",
+	          "name": "todos",
 	          "key": "TodoList_todos",
 	          "filters": null
-	        }, v1, {
+	        }, {
 	          "kind": "ScalarField",
 	          "alias": null,
+	          "args": null,
+	          "name": "id",
+	          "storageKey": null
+	        }, {
+	          "kind": "ScalarField",
+	          "alias": null,
+	          "args": null,
 	          "name": "totalCount",
-	          "args": null,
 	          "storageKey": null
 	        }, {
 	          "kind": "ScalarField",
 	          "alias": null,
+	          "args": null,
 	          "name": "completedCount",
-	          "args": null,
 	          "storageKey": null
 	        }, {
 	          "kind": "ScalarField",
 	          "alias": null,
-	          "name": "echo",
 	          "args": [{
 	            "kind": "Variable",
 	            "name": "_",
 	            "variableName": "_",
 	            "type": "Int"
 	          }],
+	          "name": "echo",
 	          "storageKey": null
-	        }]
-	      }]
+	        }],
+	        "storageKey": null
+	      }],
+	      "storageKey": null
 	    }, {
 	      "kind": "LinkedHandle",
 	      "alias": null,
-	      "name": "viewer",
 	      "args": null,
 	      "handle": "viewer",
+	      "name": "viewer",
 	      "key": "",
 	      "filters": null
-	    }],
-	    "fragment": {
-	      "kind": "Fragment",
-	      "name": "TodoListAnyNameRefetchQuery",
-	      "type": "Query",
-	      "metadata": null,
-	      "argumentDefinitions": v0,
-	      "selections": [{
-	        "kind": "LinkedField",
-	        "alias": "viewer",
-	        "name": "__viewer_viewer",
-	        "storageKey": null,
-	        "args": null,
-	        "concreteType": "Viewer",
-	        "plural": false,
-	        "selections": [{
-	          "kind": "LinkedField",
-	          "alias": null,
-	          "name": "user",
-	          "storageKey": null,
-	          "args": null,
-	          "concreteType": "User",
-	          "plural": false,
-	          "selections": [{
-	            "kind": "FragmentSpread",
-	            "name": "TodoList_viewer",
-	            "args": [{
-	              "kind": "Variable",
-	              "name": "_",
-	              "variableName": "_",
-	              "type": null
-	            }, {
-	              "kind": "Variable",
-	              "name": "showTodoWithDetails",
-	              "variableName": "showTodoWithDetails",
-	              "type": null
-	            }]
-	          }]
-	        }]
-	      }]
-	    },
-	    "text": "query TodoListAnyNameRefetchQuery(\n  $showTodoWithDetails: Boolean!\n  $_: Int!\n) {\n  viewer {\n    user {\n      ...TodoList_viewer_3ZEZJ\n      id\n    }\n  }\n}\n\nfragment TodoList_viewer_3ZEZJ on User {\n  todos(first: 2147483647) {\n    edges {\n      node {\n        __typename\n        id\n        complete\n        ...TodoWithDetails_todo @include(if: $showTodoWithDetails)\n        ...Todo_todo @skip(if: $showTodoWithDetails)\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  id\n  totalCount\n  completedCount\n  echo(_: $_)\n  ...Todo_viewer\n}\n\nfragment TodoWithDetails_todo on Todo {\n  id\n  text\n  status\n}\n\nfragment Todo_todo on Todo {\n  complete\n  id\n  text\n}\n\nfragment Todo_viewer on User {\n  id\n  totalCount\n  completedCount\n}\n"
-	  };
-	}();
+	    }]
+	  },
+	  "text": "query TodoListAnyNameRefetchQuery(\n  $showTodoWithDetails: Boolean!\n  $_: Int!\n) {\n  viewer {\n    user {\n      ...TodoList_viewer_3ZEZJ\n      id\n    }\n  }\n}\n\nfragment TodoList_viewer_3ZEZJ on User {\n  todos(first: 2147483647) {\n    edges {\n      node {\n        __typename\n        id\n        complete\n        ...TodoWithDetails_todo @include(if: $showTodoWithDetails)\n        ...Todo_todo @skip(if: $showTodoWithDetails)\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  id\n  totalCount\n  completedCount\n  echo(_: $_)\n  ...Todo_viewer\n}\n\nfragment TodoWithDetails_todo on Todo {\n  id\n  text\n  status\n}\n\nfragment Todo_todo on Todo {\n  complete\n  id\n  text\n}\n\nfragment Todo_viewer on User {\n  id\n  totalCount\n  completedCount\n}\n"
+	};
 	
 	module.exports = batch;
 
@@ -11799,7 +12172,7 @@ webpackJsonp([0],[
 
 	/**
 	 * 
-	 * @relayHash f4be02688b0d56db00c3557a7a4848f1
+	 * @relayHash 05d4aaca3140107c65dfd77d1d390c87
 	 */
 	
 	/* eslint-disable */
@@ -11807,20 +12180,20 @@ webpackJsonp([0],[
 	'use strict';
 	
 	/*::
-	import type { ConcreteOperation } from 'relay-runtime';
+	import type {ConcreteBatch} from 'relay-runtime';
 	export type RemoveCompletedTodosMutationVariables = {|
 	  input: {
-	    clientMutationId?: ?string,
-	  },
+	    clientMutationId?: ?string;
+	  };
 	|};
 	export type RemoveCompletedTodosMutationResponse = {|
 	  +removeCompletedTodos: ?{|
-	    +deletedTodoIds: ?$ReadOnlyArray<?string>,
+	    +deletedTodoIds: ?$ReadOnlyArray<?string>;
 	    +viewer: ?{|
-	      +completedCount: ?number,
-	      +totalCount: ?number,
-	    |},
-	  |},
+	      +completedCount: ?number;
+	      +totalCount: ?number;
+	    |};
+	  |};
 	|};
 	*/
 	
@@ -11839,101 +12212,126 @@ webpackJsonp([0],[
 	}
 	*/
 	
-	var batch /*: ConcreteOperation*/ = function () {
-	  var v0 = [{
-	    "kind": "LocalArgument",
-	    "name": "input",
-	    "type": "RemoveCompletedTodosInput!",
-	    "defaultValue": null
-	  }],
-	      v1 = [{
-	    "kind": "Variable",
-	    "name": "input",
-	    "variableName": "input",
-	    "type": "RemoveCompletedTodosInput!"
-	  }],
-	      v2 = {
-	    "kind": "ScalarField",
-	    "alias": null,
-	    "name": "deletedTodoIds",
-	    "args": null,
-	    "storageKey": null
-	  },
-	      v3 = {
-	    "kind": "ScalarField",
-	    "alias": null,
-	    "name": "completedCount",
-	    "args": null,
-	    "storageKey": null
-	  },
-	      v4 = {
-	    "kind": "ScalarField",
-	    "alias": null,
-	    "name": "totalCount",
-	    "args": null,
-	    "storageKey": null
-	  };
-	  return {
-	    "kind": "Operation",
-	    "operation": "mutation",
+	var batch /*: ConcreteBatch*/ = {
+	  "fragment": {
+	    "argumentDefinitions": [{
+	      "kind": "LocalArgument",
+	      "name": "input",
+	      "type": "RemoveCompletedTodosInput!",
+	      "defaultValue": null
+	    }],
+	    "kind": "Fragment",
+	    "metadata": null,
 	    "name": "RemoveCompletedTodosMutation",
-	    "id": null,
-	    "metadata": {},
-	    "argumentDefinitions": v0,
 	    "selections": [{
 	      "kind": "LinkedField",
 	      "alias": null,
-	      "name": "removeCompletedTodos",
-	      "storageKey": null,
-	      "args": v1,
+	      "args": [{
+	        "kind": "Variable",
+	        "name": "input",
+	        "variableName": "input",
+	        "type": "RemoveCompletedTodosInput!"
+	      }],
 	      "concreteType": "RemoveCompletedTodosPayload",
+	      "name": "removeCompletedTodos",
 	      "plural": false,
-	      "selections": [v2, {
+	      "selections": [{
+	        "kind": "ScalarField",
+	        "alias": null,
+	        "args": null,
+	        "name": "deletedTodoIds",
+	        "storageKey": null
+	      }, {
 	        "kind": "LinkedField",
 	        "alias": null,
-	        "name": "viewer",
-	        "storageKey": null,
 	        "args": null,
 	        "concreteType": "User",
+	        "name": "viewer",
 	        "plural": false,
-	        "selections": [v3, v4, {
+	        "selections": [{
 	          "kind": "ScalarField",
 	          "alias": null,
-	          "name": "id",
 	          "args": null,
+	          "name": "completedCount",
 	          "storageKey": null
-	        }]
-	      }]
+	        }, {
+	          "kind": "ScalarField",
+	          "alias": null,
+	          "args": null,
+	          "name": "totalCount",
+	          "storageKey": null
+	        }],
+	        "storageKey": null
+	      }],
+	      "storageKey": null
 	    }],
-	    "fragment": {
-	      "kind": "Fragment",
-	      "name": "RemoveCompletedTodosMutation",
-	      "type": "Mutation",
-	      "metadata": null,
-	      "argumentDefinitions": v0,
+	    "type": "Mutation"
+	  },
+	  "id": null,
+	  "kind": "Batch",
+	  "metadata": {},
+	  "name": "RemoveCompletedTodosMutation",
+	  "query": {
+	    "argumentDefinitions": [{
+	      "kind": "LocalArgument",
+	      "name": "input",
+	      "type": "RemoveCompletedTodosInput!",
+	      "defaultValue": null
+	    }],
+	    "kind": "Root",
+	    "name": "RemoveCompletedTodosMutation",
+	    "operation": "mutation",
+	    "selections": [{
+	      "kind": "LinkedField",
+	      "alias": null,
+	      "args": [{
+	        "kind": "Variable",
+	        "name": "input",
+	        "variableName": "input",
+	        "type": "RemoveCompletedTodosInput!"
+	      }],
+	      "concreteType": "RemoveCompletedTodosPayload",
+	      "name": "removeCompletedTodos",
+	      "plural": false,
 	      "selections": [{
+	        "kind": "ScalarField",
+	        "alias": null,
+	        "args": null,
+	        "name": "deletedTodoIds",
+	        "storageKey": null
+	      }, {
 	        "kind": "LinkedField",
 	        "alias": null,
-	        "name": "removeCompletedTodos",
-	        "storageKey": null,
-	        "args": v1,
-	        "concreteType": "RemoveCompletedTodosPayload",
+	        "args": null,
+	        "concreteType": "User",
+	        "name": "viewer",
 	        "plural": false,
-	        "selections": [v2, {
-	          "kind": "LinkedField",
+	        "selections": [{
+	          "kind": "ScalarField",
 	          "alias": null,
-	          "name": "viewer",
-	          "storageKey": null,
 	          "args": null,
-	          "concreteType": "User",
-	          "plural": false,
-	          "selections": [v3, v4]
-	        }]
-	      }]
-	    },
-	    "text": "mutation RemoveCompletedTodosMutation(\n  $input: RemoveCompletedTodosInput!\n) {\n  removeCompletedTodos(input: $input) {\n    deletedTodoIds\n    viewer {\n      completedCount\n      totalCount\n      id\n    }\n  }\n}\n"
-	  };
-	}();
+	          "name": "completedCount",
+	          "storageKey": null
+	        }, {
+	          "kind": "ScalarField",
+	          "alias": null,
+	          "args": null,
+	          "name": "totalCount",
+	          "storageKey": null
+	        }, {
+	          "kind": "ScalarField",
+	          "alias": null,
+	          "args": null,
+	          "name": "id",
+	          "storageKey": null
+	        }],
+	        "storageKey": null
+	      }],
+	      "storageKey": null
+	    }]
+	  },
+	  "text": "mutation RemoveCompletedTodosMutation(\n  $input: RemoveCompletedTodosInput!\n) {\n  removeCompletedTodos(input: $input) {\n    deletedTodoIds\n    viewer {\n      completedCount\n      totalCount\n      id\n    }\n  }\n}\n"
+	};
 	
 	module.exports = batch;
 
@@ -11948,94 +12346,97 @@ webpackJsonp([0],[
 	'use strict';
 	
 	/*::
-	import type { ConcreteFragment } from 'relay-runtime';
+	import type {ConcreteFragment} from 'relay-runtime';
 	export type TodoListFooter_viewer = {|
-	  +id: string,
-	  +completedCount: ?number,
+	  +id: string;
+	  +completedCount: ?number;
 	  +completedTodos: ?{|
 	    +edges: ?$ReadOnlyArray<?{|
 	      +node: ?{|
-	        +id: string,
-	        +complete: ?boolean,
-	      |},
-	    |}>,
-	  |},
-	  +totalCount: ?number,
+	        +id: string;
+	        +complete: ?boolean;
+	      |};
+	    |}>;
+	  |};
+	  +totalCount: ?number;
 	|};
 	*/
 	
-	var fragment /*: ConcreteFragment*/ = function () {
-	  var v0 = {
+	var fragment /*: ConcreteFragment*/ = {
+	  "argumentDefinitions": [],
+	  "kind": "Fragment",
+	  "metadata": null,
+	  "name": "TodoListFooter_viewer",
+	  "selections": [{
 	    "kind": "ScalarField",
 	    "alias": null,
-	    "name": "id",
 	    "args": null,
+	    "name": "id",
 	    "storageKey": null
-	  };
-	  return {
-	    "kind": "Fragment",
-	    "name": "TodoListFooter_viewer",
-	    "type": "User",
-	    "metadata": null,
-	    "argumentDefinitions": [],
-	    "selections": [v0, {
-	      "kind": "ScalarField",
-	      "alias": null,
-	      "name": "completedCount",
-	      "args": null,
-	      "storageKey": null
+	  }, {
+	    "kind": "ScalarField",
+	    "alias": null,
+	    "args": null,
+	    "name": "completedCount",
+	    "storageKey": null
+	  }, {
+	    "kind": "LinkedField",
+	    "alias": "completedTodos",
+	    "args": [{
+	      "kind": "Literal",
+	      "name": "first",
+	      "value": 2147483647,
+	      "type": "Int"
 	    }, {
+	      "kind": "Literal",
+	      "name": "status",
+	      "value": "completed",
+	      "type": "String"
+	    }],
+	    "concreteType": "TodoConnection",
+	    "name": "todos",
+	    "plural": false,
+	    "selections": [{
 	      "kind": "LinkedField",
-	      "alias": "completedTodos",
-	      "name": "todos",
-	      "storageKey": "todos{\"first\":2147483647,\"status\":\"completed\"}",
-	      "args": [{
-	        "kind": "Literal",
-	        "name": "first",
-	        "value": 2147483647,
-	        "type": "Int"
-	      }, {
-	        "kind": "Literal",
-	        "name": "status",
-	        "value": "completed",
-	        "type": "String"
-	      }],
-	      "concreteType": "TodoConnection",
-	      "plural": false,
+	      "alias": null,
+	      "args": null,
+	      "concreteType": "TodoEdge",
+	      "name": "edges",
+	      "plural": true,
 	      "selections": [{
 	        "kind": "LinkedField",
 	        "alias": null,
-	        "name": "edges",
-	        "storageKey": null,
 	        "args": null,
-	        "concreteType": "TodoEdge",
-	        "plural": true,
+	        "concreteType": "Todo",
+	        "name": "node",
+	        "plural": false,
 	        "selections": [{
-	          "kind": "LinkedField",
+	          "kind": "ScalarField",
 	          "alias": null,
-	          "name": "node",
-	          "storageKey": null,
 	          "args": null,
-	          "concreteType": "Todo",
-	          "plural": false,
-	          "selections": [v0, {
-	            "kind": "ScalarField",
-	            "alias": null,
-	            "name": "complete",
-	            "args": null,
-	            "storageKey": null
-	          }]
-	        }]
-	      }]
-	    }, {
-	      "kind": "ScalarField",
-	      "alias": null,
-	      "name": "totalCount",
-	      "args": null,
+	          "name": "id",
+	          "storageKey": null
+	        }, {
+	          "kind": "ScalarField",
+	          "alias": null,
+	          "args": null,
+	          "name": "complete",
+	          "storageKey": null
+	        }],
+	        "storageKey": null
+	      }],
 	      "storageKey": null
-	    }]
-	  };
-	}();
+	    }],
+	    "storageKey": "todos{\"first\":2147483647,\"status\":\"completed\"}"
+	  }, {
+	    "kind": "ScalarField",
+	    "alias": null,
+	    "args": null,
+	    "name": "totalCount",
+	    "storageKey": null
+	  }],
+	  "type": "User"
+	};
 	
 	module.exports = fragment;
 
@@ -12050,34 +12451,29 @@ webpackJsonp([0],[
 	'use strict';
 	
 	/*::
-	import type { ConcreteFragment } from 'relay-runtime';
-	import type { FragmentReference } from 'relay-runtime';
-	type TodoListFooter_viewer = any;
-	type TodoList_viewer = any;
+	import type {ConcreteFragment} from 'relay-runtime';
 	export type TodoApp_viewer = {|
-	  +id: string,
-	  +totalCount: ?number,
-	  +__fragments: (FragmentReference<TodoListFooter_viewer> & FragmentReference<TodoList_viewer>),
+	  +id: string;
+	  +totalCount: ?number;
 	|};
 	*/
 	
 	var fragment /*: ConcreteFragment*/ = {
-	  "kind": "Fragment",
-	  "name": "TodoApp_viewer",
-	  "type": "User",
-	  "metadata": null,
 	  "argumentDefinitions": [],
+	  "kind": "Fragment",
+	  "metadata": null,
+	  "name": "TodoApp_viewer",
 	  "selections": [{
 	    "kind": "ScalarField",
 	    "alias": null,
-	    "name": "id",
 	    "args": null,
+	    "name": "id",
 	    "storageKey": null
 	  }, {
 	    "kind": "ScalarField",
 	    "alias": null,
-	    "name": "totalCount",
 	    "args": null,
+	    "name": "totalCount",
 	    "storageKey": null
 	  }, {
 	    "kind": "FragmentSpread",
@@ -12087,7 +12483,8 @@ webpackJsonp([0],[
 	    "kind": "FragmentSpread",
 	    "name": "TodoList_viewer",
 	    "args": null
-	  }]
+	  }],
+	  "type": "User"
 	};
 	
 	module.exports = fragment;
@@ -12098,7 +12495,7 @@ webpackJsonp([0],[
 
 	/**
 	 * 
-	 * @relayHash 120a29b36b9c4fee1001db504961035a
+	 * @relayHash 7221259ad595f9330ac0480edb578908
 	 */
 	
 	/* eslint-disable */
@@ -12106,15 +12503,11 @@ webpackJsonp([0],[
 	'use strict';
 	
 	/*::
-	import type { ConcreteOperation } from 'relay-runtime';
-	import type { FragmentReference } from 'relay-runtime';
-	type TodoApp_viewer = any;
+	import type {ConcreteBatch} from 'relay-runtime';
 	export type appQueryResponse = {|
 	  +viewer: ?{|
-	    +user: ?{|
-	      +__fragments: FragmentReference<TodoApp_viewer>,
-	    |},
-	  |},
+	    +user: ?{| |};
+	  |};
 	|};
 	*/
 	
@@ -12185,223 +12578,250 @@ webpackJsonp([0],[
 	}
 	*/
 	
-	var batch /*: ConcreteOperation*/ = function () {
-	  var v0 = {
-	    "kind": "ScalarField",
-	    "alias": null,
-	    "name": "id",
-	    "args": null,
-	    "storageKey": null
-	  },
-	      v1 = {
-	    "kind": "Literal",
-	    "name": "first",
-	    "value": 2147483647,
-	    "type": "Int"
-	  },
-	      v2 = {
-	    "kind": "ScalarField",
-	    "alias": null,
-	    "name": "complete",
-	    "args": null,
-	    "storageKey": null
-	  };
-	  return {
-	    "kind": "Operation",
-	    "operation": "query",
-	    "name": "appQuery",
-	    "id": null,
-	    "metadata": {},
+	var batch /*: ConcreteBatch*/ = {
+	  "fragment": {
 	    "argumentDefinitions": [],
+	    "kind": "Fragment",
+	    "metadata": null,
+	    "name": "appQuery",
 	    "selections": [{
 	      "kind": "LinkedField",
-	      "alias": null,
-	      "name": "viewer",
-	      "storageKey": null,
+	      "alias": "viewer",
 	      "args": null,
 	      "concreteType": "Viewer",
+	      "name": "__viewer_viewer",
 	      "plural": false,
 	      "selections": [{
 	        "kind": "LinkedField",
 	        "alias": null,
-	        "name": "user",
-	        "storageKey": null,
 	        "args": null,
 	        "concreteType": "User",
+	        "name": "user",
 	        "plural": false,
-	        "selections": [v0, {
+	        "selections": [{
+	          "kind": "FragmentSpread",
+	          "name": "TodoApp_viewer",
+	          "args": null
+	        }],
+	        "storageKey": null
+	      }],
+	      "storageKey": null
+	    }],
+	    "type": "Query"
+	  },
+	  "id": null,
+	  "kind": "Batch",
+	  "metadata": {},
+	  "name": "appQuery",
+	  "query": {
+	    "argumentDefinitions": [],
+	    "kind": "Root",
+	    "name": "appQuery",
+	    "operation": "query",
+	    "selections": [{
+	      "kind": "LinkedField",
+	      "alias": null,
+	      "args": null,
+	      "concreteType": "Viewer",
+	      "name": "viewer",
+	      "plural": false,
+	      "selections": [{
+	        "kind": "LinkedField",
+	        "alias": null,
+	        "args": null,
+	        "concreteType": "User",
+	        "name": "user",
+	        "plural": false,
+	        "selections": [{
 	          "kind": "ScalarField",
 	          "alias": null,
-	          "name": "totalCount",
 	          "args": null,
+	          "name": "id",
 	          "storageKey": null
 	        }, {
 	          "kind": "ScalarField",
 	          "alias": null,
-	          "name": "completedCount",
 	          "args": null,
+	          "name": "totalCount",
+	          "storageKey": null
+	        }, {
+	          "kind": "ScalarField",
+	          "alias": null,
+	          "args": null,
+	          "name": "completedCount",
 	          "storageKey": null
 	        }, {
 	          "kind": "LinkedField",
 	          "alias": "completedTodos",
-	          "name": "todos",
-	          "storageKey": "todos{\"first\":2147483647,\"status\":\"completed\"}",
-	          "args": [v1, {
+	          "args": [{
+	            "kind": "Literal",
+	            "name": "first",
+	            "value": 2147483647,
+	            "type": "Int"
+	          }, {
 	            "kind": "Literal",
 	            "name": "status",
 	            "value": "completed",
 	            "type": "String"
 	          }],
 	          "concreteType": "TodoConnection",
-	          "plural": false,
-	          "selections": [{
-	            "kind": "LinkedField",
-	            "alias": null,
-	            "name": "edges",
-	            "storageKey": null,
-	            "args": null,
-	            "concreteType": "TodoEdge",
-	            "plural": true,
-	            "selections": [{
-	              "kind": "LinkedField",
-	              "alias": null,
-	              "name": "node",
-	              "storageKey": null,
-	              "args": null,
-	              "concreteType": "Todo",
-	              "plural": false,
-	              "selections": [v0, v2]
-	            }]
-	          }]
-	        }, {
-	          "kind": "LinkedField",
-	          "alias": null,
 	          "name": "todos",
-	          "storageKey": "todos{\"first\":2147483647}",
-	          "args": [v1],
-	          "concreteType": "TodoConnection",
 	          "plural": false,
 	          "selections": [{
 	            "kind": "LinkedField",
 	            "alias": null,
-	            "name": "edges",
-	            "storageKey": null,
 	            "args": null,
 	            "concreteType": "TodoEdge",
+	            "name": "edges",
 	            "plural": true,
 	            "selections": [{
 	              "kind": "LinkedField",
 	              "alias": null,
-	              "name": "node",
-	              "storageKey": null,
 	              "args": null,
 	              "concreteType": "Todo",
+	              "name": "node",
 	              "plural": false,
 	              "selections": [{
 	                "kind": "ScalarField",
 	                "alias": null,
-	                "name": "__typename",
 	                "args": null,
+	                "name": "id",
 	                "storageKey": null
-	              }, v0, v2, {
+	              }, {
 	                "kind": "ScalarField",
 	                "alias": null,
-	                "name": "text",
 	                "args": null,
+	                "name": "complete",
 	                "storageKey": null
-	              }]
+	              }],
+	              "storageKey": null
+	            }],
+	            "storageKey": null
+	          }],
+	          "storageKey": "todos{\"first\":2147483647,\"status\":\"completed\"}"
+	        }, {
+	          "kind": "LinkedField",
+	          "alias": null,
+	          "args": [{
+	            "kind": "Literal",
+	            "name": "first",
+	            "value": 2147483647,
+	            "type": "Int"
+	          }],
+	          "concreteType": "TodoConnection",
+	          "name": "todos",
+	          "plural": false,
+	          "selections": [{
+	            "kind": "LinkedField",
+	            "alias": null,
+	            "args": null,
+	            "concreteType": "TodoEdge",
+	            "name": "edges",
+	            "plural": true,
+	            "selections": [{
+	              "kind": "LinkedField",
+	              "alias": null,
+	              "args": null,
+	              "concreteType": "Todo",
+	              "name": "node",
+	              "plural": false,
+	              "selections": [{
+	                "kind": "ScalarField",
+	                "alias": null,
+	                "args": null,
+	                "name": "__typename",
+	                "storageKey": null
+	              }, {
+	                "kind": "ScalarField",
+	                "alias": null,
+	                "args": null,
+	                "name": "id",
+	                "storageKey": null
+	              }, {
+	                "kind": "ScalarField",
+	                "alias": null,
+	                "args": null,
+	                "name": "complete",
+	                "storageKey": null
+	              }, {
+	                "kind": "ScalarField",
+	                "alias": null,
+	                "args": null,
+	                "name": "text",
+	                "storageKey": null
+	              }],
+	              "storageKey": null
 	            }, {
 	              "kind": "ScalarField",
 	              "alias": null,
-	              "name": "cursor",
 	              "args": null,
+	              "name": "cursor",
 	              "storageKey": null
-	            }]
+	            }],
+	            "storageKey": null
 	          }, {
 	            "kind": "LinkedField",
 	            "alias": null,
-	            "name": "pageInfo",
-	            "storageKey": null,
 	            "args": null,
 	            "concreteType": "PageInfo",
+	            "name": "pageInfo",
 	            "plural": false,
 	            "selections": [{
 	              "kind": "ScalarField",
 	              "alias": null,
-	              "name": "endCursor",
 	              "args": null,
+	              "name": "endCursor",
 	              "storageKey": null
 	            }, {
 	              "kind": "ScalarField",
 	              "alias": null,
-	              "name": "hasNextPage",
 	              "args": null,
+	              "name": "hasNextPage",
 	              "storageKey": null
-	            }]
-	          }]
+	            }],
+	            "storageKey": null
+	          }],
+	          "storageKey": "todos{\"first\":2147483647}"
 	        }, {
 	          "kind": "LinkedHandle",
 	          "alias": null,
-	          "name": "todos",
-	          "args": [v1],
+	          "args": [{
+	            "kind": "Literal",
+	            "name": "first",
+	            "value": 2147483647,
+	            "type": "Int"
+	          }],
 	          "handle": "connection",
+	          "name": "todos",
 	          "key": "TodoList_todos",
 	          "filters": null
 	        }, {
 	          "kind": "ScalarField",
 	          "alias": null,
-	          "name": "echo",
 	          "args": [{
 	            "kind": "Literal",
 	            "name": "_",
 	            "value": 0,
 	            "type": "Int"
 	          }],
+	          "name": "echo",
 	          "storageKey": "echo{\"_\":0}"
-	        }]
-	      }]
+	        }],
+	        "storageKey": null
+	      }],
+	      "storageKey": null
 	    }, {
 	      "kind": "LinkedHandle",
 	      "alias": null,
-	      "name": "viewer",
 	      "args": null,
 	      "handle": "viewer",
+	      "name": "viewer",
 	      "key": "",
 	      "filters": null
-	    }],
-	    "fragment": {
-	      "kind": "Fragment",
-	      "name": "appQuery",
-	      "type": "Query",
-	      "metadata": null,
-	      "argumentDefinitions": [],
-	      "selections": [{
-	        "kind": "LinkedField",
-	        "alias": "viewer",
-	        "name": "__viewer_viewer",
-	        "storageKey": null,
-	        "args": null,
-	        "concreteType": "Viewer",
-	        "plural": false,
-	        "selections": [{
-	          "kind": "LinkedField",
-	          "alias": null,
-	          "name": "user",
-	          "storageKey": null,
-	          "args": null,
-	          "concreteType": "User",
-	          "plural": false,
-	          "selections": [{
-	            "kind": "FragmentSpread",
-	            "name": "TodoApp_viewer",
-	            "args": null
-	          }]
-	        }]
-	      }]
-	    },
-	    "text": "query appQuery {\n  viewer {\n    user {\n      ...TodoApp_viewer\n      id\n    }\n  }\n}\n\nfragment TodoApp_viewer on User {\n  id\n  totalCount\n  ...TodoListFooter_viewer\n  ...TodoList_viewer\n}\n\nfragment TodoListFooter_viewer on User {\n  id\n  completedCount\n  completedTodos: todos(status: \"completed\", first: 2147483647) {\n    edges {\n      node {\n        id\n        complete\n      }\n    }\n  }\n  totalCount\n}\n\nfragment TodoList_viewer on User {\n  todos(first: 2147483647) {\n    edges {\n      node {\n        __typename\n        id\n        complete\n        ...Todo_todo\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  id\n  totalCount\n  completedCount\n  echo(_: 0)\n  ...Todo_viewer\n}\n\nfragment Todo_todo on Todo {\n  complete\n  id\n  text\n}\n\nfragment Todo_viewer on User {\n  id\n  totalCount\n  completedCount\n}\n"
-	  };
-	}();
+	    }]
+	  },
+	  "text": "query appQuery {\n  viewer {\n    user {\n      ...TodoApp_viewer\n      id\n    }\n  }\n}\n\nfragment TodoApp_viewer on User {\n  id\n  totalCount\n  ...TodoListFooter_viewer\n  ...TodoList_viewer\n}\n\nfragment TodoListFooter_viewer on User {\n  id\n  completedCount\n  completedTodos: todos(status: \"completed\", first: 2147483647) {\n    edges {\n      node {\n        id\n        complete\n      }\n    }\n  }\n  totalCount\n}\n\nfragment TodoList_viewer on User {\n  todos(first: 2147483647) {\n    edges {\n      node {\n        __typename\n        id\n        complete\n        ...Todo_todo\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  id\n  totalCount\n  completedCount\n  echo(_: 0)\n  ...Todo_viewer\n}\n\nfragment Todo_todo on Todo {\n  complete\n  id\n  text\n}\n\nfragment Todo_viewer on User {\n  id\n  totalCount\n  completedCount\n}\n"
+	};
 	
 	module.exports = batch;
 
