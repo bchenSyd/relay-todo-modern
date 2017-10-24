@@ -17,7 +17,7 @@ import './scripts/updateSchema';
 
 //however you don't have to explicitly call the generateSchemaJSON method, as it's automatically 
 //callel everytime the file is loaded (node loads that module)
-const GRAPHQL_PORT = process.env.port || 8081;
+const GRAPHQL_PORT = process.env.PORT || 8081;
 // Expose a GraphQL endpoint
 const app = express();
 app.use(bodyParser.json());
