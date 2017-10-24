@@ -16,17 +16,17 @@ webpackJsonp([0],[
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _reactDom = __webpack_require__(50);
+	var _reactDom = __webpack_require__(47);
 	
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 	
-	var _reactRelay = __webpack_require__(68);
+	var _reactRelay = __webpack_require__(57);
 	
-	var _relayRuntime = __webpack_require__(70);
+	var _relayRuntime = __webpack_require__(59);
 	
-	var _socket = __webpack_require__(217);
+	var _socket = __webpack_require__(208);
 	
-	var _TodoApp = __webpack_require__(261);
+	var _TodoApp = __webpack_require__(252);
 	
 	var _TodoApp2 = _interopRequireDefault(_TodoApp);
 	
@@ -79,7 +79,7 @@ webpackJsonp([0],[
 	_reactDom2.default.render(_react2.default.createElement(_reactRelay.QueryRenderer, {
 	  environment: modernEnvironment,
 	  query: function query() {
-	    return __webpack_require__(291);
+	    return __webpack_require__(282);
 	  },
 	  variables: {},
 	  render: function render(_ref) {
@@ -165,18 +165,7 @@ webpackJsonp([0],[
 /* 54 */,
 /* 55 */,
 /* 56 */,
-/* 57 */,
-/* 58 */,
-/* 59 */,
-/* 60 */,
-/* 61 */,
-/* 62 */,
-/* 63 */,
-/* 64 */,
-/* 65 */,
-/* 66 */,
-/* 67 */,
-/* 68 */
+/* 57 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -188,10 +177,10 @@ webpackJsonp([0],[
 	 * LICENSE file in the root directory of this source tree.
 	 */
 	
-	module.exports = __webpack_require__(69);
+	module.exports = __webpack_require__(58);
 
 /***/ },
-/* 69 */
+/* 58 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -207,7 +196,7 @@ webpackJsonp([0],[
 	
 	'use strict';
 	
-	var _require = __webpack_require__(70),
+	var _require = __webpack_require__(59),
 	    commitLocalUpdate = _require.commitLocalUpdate,
 	    commitMutation = _require.commitMutation,
 	    fetchQuery = _require.fetchQuery,
@@ -218,10 +207,10 @@ webpackJsonp([0],[
 	 * The public interface to React Relay.
 	 */
 	module.exports = {
-	  QueryRenderer: __webpack_require__(170),
-	  createFragmentContainer: __webpack_require__(208).createContainer,
-	  createPaginationContainer: __webpack_require__(215).createContainer,
-	  createRefetchContainer: __webpack_require__(216).createContainer,
+	  QueryRenderer: __webpack_require__(157),
+	  createFragmentContainer: __webpack_require__(197).createContainer,
+	  createPaginationContainer: __webpack_require__(206).createContainer,
+	  createRefetchContainer: __webpack_require__(207).createContainer,
 	  commitLocalUpdate: commitLocalUpdate,
 	  commitMutation: commitMutation,
 	  fetchQuery: fetchQuery,
@@ -230,7 +219,7 @@ webpackJsonp([0],[
 	};
 
 /***/ },
-/* 70 */
+/* 59 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -242,10 +231,10 @@ webpackJsonp([0],[
 	 * LICENSE file in the root directory of this source tree.
 	 */
 	
-	module.exports = __webpack_require__(71);
+	module.exports = __webpack_require__(60);
 
 /***/ },
-/* 71 */
+/* 60 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -263,11 +252,7 @@ webpackJsonp([0],[
 	
 	// As early as possible, check for the existence of the JavaScript globals which
 	// Relay Runtime relies upon, and produce a clear message if they do not exist.
-	
-	
-	// There's a lint false positive for opaque types
-	// eslint-disable-next-line no-undef
-	if (true) {
+	if (false) {
 	  if (typeof Map !== 'function' || typeof Set !== 'function' || typeof Promise !== 'function' || typeof Object.assign !== 'function') {
 	    throw new Error('relay-runtime requires Map, Set, Promise, and Object.assign to exist. ' + 'Use a polyfill to provide these for older browsers.');
 	  }
@@ -278,52 +263,52 @@ webpackJsonp([0],[
 	 */
 	module.exports = {
 	  // Core API
-	  Environment: __webpack_require__(72),
-	  Network: __webpack_require__(140),
-	  Observable: __webpack_require__(142),
-	  QueryResponseCache: __webpack_require__(144),
-	  RecordSource: __webpack_require__(89),
-	  Store: __webpack_require__(145),
+	  Environment: __webpack_require__(61),
+	  Network: __webpack_require__(129),
+	  Observable: __webpack_require__(131),
+	  QueryResponseCache: __webpack_require__(133),
+	  RecordSource: __webpack_require__(79),
+	  Store: __webpack_require__(134),
 	
-	  areEqualSelectors: __webpack_require__(104).areEqualSelectors,
-	  createFragmentSpecResolver: __webpack_require__(104).createFragmentSpecResolver,
-	  createOperationSelector: __webpack_require__(104).createOperationSelector,
-	  getDataIDsFromObject: __webpack_require__(104).getDataIDsFromObject,
-	  getFragment: __webpack_require__(105).getFragment,
-	  getOperation: __webpack_require__(105).getOperation,
-	  getSelector: __webpack_require__(104).getSelector,
-	  getSelectorList: __webpack_require__(104).getSelectorList,
-	  getSelectorsFromObject: __webpack_require__(104).getSelectorsFromObject,
-	  getVariablesFromObject: __webpack_require__(104).getVariablesFromObject,
-	  graphql: __webpack_require__(105).graphql,
+	  areEqualSelectors: __webpack_require__(94).areEqualSelectors,
+	  createFragmentSpecResolver: __webpack_require__(94).createFragmentSpecResolver,
+	  createOperationSelector: __webpack_require__(94).createOperationSelector,
+	  getDataIDsFromObject: __webpack_require__(94).getDataIDsFromObject,
+	  getFragment: __webpack_require__(95).getFragment,
+	  getOperation: __webpack_require__(95).getOperation,
+	  getSelector: __webpack_require__(94).getSelector,
+	  getSelectorList: __webpack_require__(94).getSelectorList,
+	  getSelectorsFromObject: __webpack_require__(94).getSelectorsFromObject,
+	  getVariablesFromObject: __webpack_require__(94).getVariablesFromObject,
+	  graphql: __webpack_require__(95).graphql,
 	
 	  // Extensions
-	  ConnectionHandler: __webpack_require__(75),
-	  ViewerHandler: __webpack_require__(84),
+	  ConnectionHandler: __webpack_require__(64),
+	  ViewerHandler: __webpack_require__(74),
 	
 	  // Helpers (can be implemented via the above API)
-	  applyOptimisticMutation: __webpack_require__(161),
-	  commitLocalUpdate: __webpack_require__(164),
-	  commitMutation: __webpack_require__(165),
-	  fetchQuery: __webpack_require__(166),
-	  isRelayModernEnvironment: __webpack_require__(162),
-	  requestSubscription: __webpack_require__(167),
+	  applyOptimisticMutation: __webpack_require__(150),
+	  commitLocalUpdate: __webpack_require__(153),
+	  commitMutation: __webpack_require__(154),
+	  fetchQuery: __webpack_require__(155),
+	  isRelayModernEnvironment: __webpack_require__(151),
+	  requestSubscription: __webpack_require__(156),
 	
 	  // Configuration interface for legacy or special uses
-	  ConnectionInterface: __webpack_require__(76),
-	
-	  // Utilities
-	  RelayProfiler: __webpack_require__(100),
-	
-	  // TODO T22766889 remove cross-cell imports of internal modules
-	  // INTERNAL-ONLY: these WILL be removed from this API in the next release
-	  recycleNodesInto: __webpack_require__(147),
-	  simpleClone: __webpack_require__(168),
-	  ROOT_ID: __webpack_require__(85).ROOT_ID
+	  ConnectionInterface: __webpack_require__(65)
 	};
+	
+	if (false) {
+	  var RelayRecordSourceInspector = require('./RelayRecordSourceInspector');
+	
+	  // Debugging-related symbols exposed only in development
+	  Object.assign(module.exports, {
+	    RecordSourceInspector: RelayRecordSourceInspector
+	  });
+	}
 
 /***/ },
-/* 72 */
+/* 61 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {/**
@@ -339,7 +324,7 @@ webpackJsonp([0],[
 	
 	'use strict';
 	
-	var _classCallCheck3 = _interopRequireDefault(__webpack_require__(73));
+	var _classCallCheck3 = _interopRequireDefault(__webpack_require__(62));
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 	
@@ -350,15 +335,47 @@ webpackJsonp([0],[
 	    (0, _classCallCheck3['default'])(this, RelayModernEnvironment);
 	
 	    this.configName = config.configName;
-	    var handlerProvider = config.handlerProvider ? config.handlerProvider : __webpack_require__(74);
+	    var handlerProvider = config.handlerProvider ? config.handlerProvider : __webpack_require__(63);
 	    this._network = config.network;
-	    this._publishQueue = new (__webpack_require__(88))(config.store, handlerProvider);
+	    this._publishQueue = new (__webpack_require__(78))(config.store, handlerProvider);
 	    this._store = config.store;
-	    this.unstable_internal = __webpack_require__(104);
+	    this.unstable_internal = __webpack_require__(94);
 	
 	    this.__setNet = function (newNet) {
 	      return _this._network = newNet;
 	    };
+	
+	    // TODO(#21781004): This adds support for the older Relay Debugger, which
+	    // has been replaced with the Relay DevTools global hook below. This logic
+	    // should stick around for a release or two to not break support for the
+	    // existing debugger. After allowing time to migrate to latest versions,
+	    // this code can be removed.
+	    if (false) {
+	      var g = typeof global !== 'undefined' ? global : window;
+	
+	      // Attach the debugger symbol to the global symbol so it can be accessed by
+	      // devtools extension.
+	      if (!g.__RELAY_DEBUGGER__) {
+	        var _require = require('./RelayDebugger'),
+	            RelayDebugger = _require.RelayDebugger;
+	
+	        g.__RELAY_DEBUGGER__ = new RelayDebugger();
+	      }
+	
+	      // Setup the runtime part for Native
+	      if (typeof g.registerDevtoolsPlugin === 'function') {
+	        try {
+	          g.registerDevtoolsPlugin(require('relay-debugger-react-native-runtime'));
+	        } catch (error) {
+	          // No debugger for you.
+	        }
+	      }
+	
+	      var envId = g.__RELAY_DEBUGGER__.registerEnvironment(this);
+	      this._debugger = g.__RELAY_DEBUGGER__.getEnvironmentDebugger(envId);
+	    } else {
+	      this._debugger = null;
+	    }
 	
 	    // Register this Relay Environment with Relay DevTools if it exists.
 	    // Note: this must always be the last step in the constructor.
@@ -375,6 +392,10 @@ webpackJsonp([0],[
 	
 	  RelayModernEnvironment.prototype.getNetwork = function getNetwork() {
 	    return this._network;
+	  };
+	
+	  RelayModernEnvironment.prototype.getDebugger = function getDebugger() {
+	    return this._debugger;
 	  };
 	
 	  RelayModernEnvironment.prototype.applyUpdate = function applyUpdate(optimisticUpdate) {
@@ -418,7 +439,7 @@ webpackJsonp([0],[
 	
 	  RelayModernEnvironment.prototype.commitPayload = function commitPayload(operationSelector, payload) {
 	    // Do not handle stripped nulls when commiting a payload
-	    var relayPayload = __webpack_require__(97)(operationSelector.root, payload);
+	    var relayPayload = __webpack_require__(87)(operationSelector.root, payload);
 	    this._publishQueue.commitPayload(operationSelector, relayPayload);
 	    this._publishQueue.run();
 	  };
@@ -456,8 +477,12 @@ webpackJsonp([0],[
 	    var operation = _ref2.operation,
 	        cacheConfig = _ref2.cacheConfig,
 	        updater = _ref2.updater;
+	    var node = operation.node,
+	        variables = operation.variables;
 	
-	    return this._network.execute(operation.node, operation.variables, cacheConfig || {}).map(__webpack_require__(112))['do']({
+	    return this._network.execute(node, variables, cacheConfig || {}).map(function (payload) {
+	      return __webpack_require__(101)(node, variables, payload);
+	    })['do']({
 	      next: function next(payload) {
 	        _this3._publishQueue.commitPayload(operation, payload, updater);
 	        _this3._publishQueue.run();
@@ -485,6 +510,10 @@ webpackJsonp([0],[
 	        optimisticUpdater = _ref3.optimisticUpdater,
 	        updater = _ref3.updater,
 	        uploadables = _ref3.uploadables;
+	    var node = operation.node,
+	        variables = operation.variables;
+	
+	    var mutationUid = nextMutationUid();
 	
 	    var optimisticUpdate = void 0;
 	    if (optimisticResponse || optimisticUpdater) {
@@ -495,20 +524,39 @@ webpackJsonp([0],[
 	      };
 	    }
 	
-	    return this._network.execute(operation.node, operation.variables, { force: true }, uploadables).map(__webpack_require__(112))['do']({
+	    return this._network.execute(node, variables, { force: true }, uploadables).map(function (payload) {
+	      return __webpack_require__(101)(node, variables, payload);
+	    })['do']({
 	      start: function start() {
 	        if (optimisticUpdate) {
-	          _this4._publishQueue.applyUpdate(optimisticUpdate);
-	          _this4._publishQueue.run();
+	          _this4._recordDebuggerEvent({
+	            eventName: 'optimistic_update',
+	            mutationUid: mutationUid,
+	            operation: operation,
+	            fn: function fn() {
+	              if (optimisticUpdate) {
+	                _this4._publishQueue.applyUpdate(optimisticUpdate);
+	              }
+	              _this4._publishQueue.run();
+	            }
+	          });
 	        }
 	      },
 	      next: function next(payload) {
-	        if (optimisticUpdate) {
-	          _this4._publishQueue.revertUpdate(optimisticUpdate);
-	          optimisticUpdate = undefined;
-	        }
-	        _this4._publishQueue.commitPayload(operation, payload, updater);
-	        _this4._publishQueue.run();
+	        _this4._recordDebuggerEvent({
+	          eventName: 'request_commit',
+	          mutationUid: mutationUid,
+	          operation: operation,
+	          payload: payload,
+	          fn: function fn() {
+	            if (optimisticUpdate) {
+	              _this4._publishQueue.revertUpdate(optimisticUpdate);
+	              optimisticUpdate = undefined;
+	            }
+	            _this4._publishQueue.commitPayload(operation, payload, updater);
+	            _this4._publishQueue.run();
+	          }
+	        });
 	      },
 	      error: function (_error) {
 	        function error(_x) {
@@ -521,17 +569,32 @@ webpackJsonp([0],[
 	
 	        return error;
 	      }(function (error) {
-	        if (optimisticUpdate) {
-	          _this4._publishQueue.revertUpdate(optimisticUpdate);
-	          optimisticUpdate = undefined;
-	          _this4._publishQueue.run();
-	        }
+	        _this4._recordDebuggerEvent({
+	          eventName: 'request_error',
+	          mutationUid: mutationUid,
+	          operation: operation,
+	          payload: error,
+	          fn: function fn() {
+	            if (optimisticUpdate) {
+	              _this4._publishQueue.revertUpdate(optimisticUpdate);
+	            }
+	            _this4._publishQueue.run();
+	          }
+	        });
 	      }),
 	      unsubscribe: function unsubscribe() {
 	        if (optimisticUpdate) {
-	          _this4._publishQueue.revertUpdate(optimisticUpdate);
-	          optimisticUpdate = undefined;
-	          _this4._publishQueue.run();
+	          _this4._recordDebuggerEvent({
+	            eventName: 'optimistic_revert',
+	            mutationUid: mutationUid,
+	            operation: operation,
+	            fn: function fn() {
+	              if (optimisticUpdate) {
+	                _this4._publishQueue.revertUpdate(optimisticUpdate);
+	              }
+	              _this4._publishQueue.run();
+	            }
+	          });
 	        }
 	      }
 	    });
@@ -549,7 +612,7 @@ webpackJsonp([0],[
 	        onNext = _ref4.onNext,
 	        operation = _ref4.operation;
 	
-	    __webpack_require__(44)(false, 'environment.sendQuery() is deprecated. Update to the latest ' + 'version of react-relay, and use environment.execute().');
+	    __webpack_require__(71)(false, 'environment.sendQuery() is deprecated. Update to the latest ' + 'version of react-relay, and use environment.execute().');
 	    return this.execute({ operation: operation, cacheConfig: cacheConfig }).subscribeLegacy({
 	      onNext: onNext,
 	      onError: onError,
@@ -569,7 +632,7 @@ webpackJsonp([0],[
 	        onNext = _ref5.onNext,
 	        operation = _ref5.operation;
 	
-	    __webpack_require__(44)(false, 'environment.streamQuery() is deprecated. Update to the latest ' + 'version of react-relay, and use environment.execute().');
+	    __webpack_require__(71)(false, 'environment.streamQuery() is deprecated. Update to the latest ' + 'version of react-relay, and use environment.execute().');
 	    return this.execute({ operation: operation, cacheConfig: cacheConfig }).subscribeLegacy({
 	      onNext: onNext,
 	      onError: onError,
@@ -591,7 +654,7 @@ webpackJsonp([0],[
 	        updater = _ref6.updater,
 	        uploadables = _ref6.uploadables;
 	
-	    __webpack_require__(44)(false, 'environment.sendMutation() is deprecated. Update to the latest ' + 'version of react-relay, and use environment.executeMutation().');
+	    __webpack_require__(71)(false, 'environment.sendMutation() is deprecated. Update to the latest ' + 'version of react-relay, and use environment.executeMutation().');
 	    return this.executeMutation({
 	      operation: operation,
 	      optimisticResponse: optimisticResponse,
@@ -622,7 +685,7 @@ webpackJsonp([0],[
 	        operation = _ref7.operation,
 	        updater = _ref7.updater;
 	
-	    __webpack_require__(44)(false, 'environment.sendSubscription() is deprecated. Update to the latest ' + 'version of react-relay, and use environment.execute().');
+	    __webpack_require__(71)(false, 'environment.sendSubscription() is deprecated. Update to the latest ' + 'version of react-relay, and use environment.execute().');
 	    return this.execute({
 	      operation: operation,
 	      updater: updater,
@@ -630,9 +693,29 @@ webpackJsonp([0],[
 	    }).subscribeLegacy({ onNext: onNext, onError: onError, onCompleted: onCompleted });
 	  };
 	
+	  RelayModernEnvironment.prototype._recordDebuggerEvent = function _recordDebuggerEvent(_ref8) {
+	    var eventName = _ref8.eventName,
+	        mutationUid = _ref8.mutationUid,
+	        operation = _ref8.operation,
+	        payload = _ref8.payload,
+	        fn = _ref8.fn;
+	
+	    if (this._debugger) {
+	      this._debugger.recordMutationEvent({
+	        eventName: eventName,
+	        payload: payload,
+	        fn: fn,
+	        mutation: operation,
+	        seriesId: mutationUid
+	      });
+	    } else {
+	      fn();
+	    }
+	  };
+	
 	  RelayModernEnvironment.prototype.checkSelectorAndUpdateStore = function checkSelectorAndUpdateStore(selector, handlers) {
-	    var target = new (__webpack_require__(89))();
-	    var result = __webpack_require__(138).check(this._store.getSource(), target, selector, handlers);
+	    var target = new (__webpack_require__(79))();
+	    var result = __webpack_require__(127).check(this._store.getSource(), target, selector, handlers);
 	    if (target.size() > 0) {
 	      this._publishQueue.commitSource(target);
 	      this._publishQueue.run();
@@ -643,19 +726,23 @@ webpackJsonp([0],[
 	  return RelayModernEnvironment;
 	}();
 	
+	var mutationUidCounter = 0;
+	var mutationUidPrefix = Math.random().toString();
+	function nextMutationUid() {
+	  return mutationUidPrefix + mutationUidCounter++;
+	}
+	
 	// Add a sigil for detection by `isRelayModernEnvironment()` to avoid a
 	// realm-specific instanceof check, and to aid in module tree-shaking to
 	// avoid requiring all of RelayRuntime just to detect its environment.
-	
-	
 	RelayModernEnvironment.prototype['@@RelayModernEnvironment'] = true;
 	
 	module.exports = RelayModernEnvironment;
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 73 */,
-/* 74 */
+/* 62 */,
+/* 63 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -674,17 +761,17 @@ webpackJsonp([0],[
 	function RelayDefaultHandlerProvider(handle) {
 	  switch (handle) {
 	    case 'connection':
-	      return __webpack_require__(75);
+	      return __webpack_require__(64);
 	    case 'viewer':
-	      return __webpack_require__(84);
+	      return __webpack_require__(74);
 	  }
-	  __webpack_require__(47)(false, 'RelayDefaultHandlerProvider: No handler provided for `%s`.', handle);
+	  __webpack_require__(45)(false, 'RelayDefaultHandlerProvider: No handler provided for `%s`.', handle);
 	}
 	
 	module.exports = RelayDefaultHandlerProvider;
 
 /***/ },
-/* 75 */
+/* 64 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -718,7 +805,7 @@ webpackJsonp([0],[
 	    return;
 	  }
 	
-	  var _RelayConnectionInter = __webpack_require__(76).get(),
+	  var _RelayConnectionInter = __webpack_require__(65).get(),
 	      EDGES = _RelayConnectionInter.EDGES,
 	      END_CURSOR = _RelayConnectionInter.END_CURSOR,
 	      HAS_NEXT_PAGE = _RelayConnectionInter.HAS_NEXT_PAGE,
@@ -737,7 +824,7 @@ webpackJsonp([0],[
 	  var clientPageInfo = clientConnection && clientConnection.getLinkedRecord(PAGE_INFO);
 	  if (!clientConnection) {
 	    // Initial fetch with data: copy fields from the server record
-	    var connection = store.create(__webpack_require__(81)(record.getDataID(), payload.handleKey), serverConnection.getType());
+	    var connection = store.create(__webpack_require__(70)(record.getDataID(), payload.handleKey), serverConnection.getType());
 	    connection.setValue(0, NEXT_EDGE_INDEX);
 	    connection.copyFieldsFrom(serverConnection);
 	    var serverEdges = serverConnection.getLinkedRecords(EDGES);
@@ -749,7 +836,7 @@ webpackJsonp([0],[
 	    }
 	    record.setLinkedRecord(connection, payload.handleKey);
 	
-	    clientPageInfo = store.create(__webpack_require__(81)(connection.getDataID(), PAGE_INFO), PAGE_INFO_TYPE);
+	    clientPageInfo = store.create(__webpack_require__(70)(connection.getDataID(), PAGE_INFO), PAGE_INFO_TYPE);
 	    clientPageInfo.setValue(false, HAS_NEXT_PAGE);
 	    clientPageInfo.setValue(false, HAS_PREV_PAGE);
 	    clientPageInfo.setValue(null, END_CURSOR);
@@ -791,7 +878,7 @@ webpackJsonp([0],[
 	          mergeEdges(prevEdges, nextEdges, nodeIDs);
 	          mergeEdges(_serverEdges, nextEdges, nodeIDs);
 	        } else {
-	          __webpack_require__(44)(false, 'RelayConnectionHandler: Unexpected after cursor `%s`, edges must ' + 'be fetched from the end of the list (`%s`).', args.after, clientPageInfo && clientPageInfo.getValue(END_CURSOR));
+	          __webpack_require__(71)(false, 'RelayConnectionHandler: Unexpected after cursor `%s`, edges must ' + 'be fetched from the end of the list (`%s`).', args.after, clientPageInfo && clientPageInfo.getValue(END_CURSOR));
 	          return;
 	        }
 	      } else if (args.before != null) {
@@ -801,7 +888,7 @@ webpackJsonp([0],[
 	          mergeEdges(_serverEdges, nextEdges, _nodeIDs);
 	          mergeEdges(prevEdges, nextEdges, _nodeIDs);
 	        } else {
-	          __webpack_require__(44)(false, 'RelayConnectionHandler: Unexpected before cursor `%s`, edges must ' + 'be fetched from the beginning of the list (`%s`).', args.before, clientPageInfo && clientPageInfo.getValue(START_CURSOR));
+	          __webpack_require__(71)(false, 'RelayConnectionHandler: Unexpected before cursor `%s`, edges must ' + 'be fetched from the beginning of the list (`%s`).', args.before, clientPageInfo && clientPageInfo.getValue(START_CURSOR));
 	          return;
 	        }
 	      } else {
@@ -876,7 +963,7 @@ webpackJsonp([0],[
 	 * that returns an array of the connections under the same `key` regardless of the variables.
 	 */
 	function getConnection(record, key, filters) {
-	  var handleKey = __webpack_require__(82)(CONNECTION, key, null);
+	  var handleKey = __webpack_require__(72)(CONNECTION, key, null);
 	  return record.getLinkedRecord(handleKey, filters);
 	}
 	
@@ -915,7 +1002,7 @@ webpackJsonp([0],[
 	 * ```
 	 */
 	function insertEdgeAfter(record, newEdge, cursor) {
-	  var _RelayConnectionInter2 = __webpack_require__(76).get(),
+	  var _RelayConnectionInter2 = __webpack_require__(65).get(),
 	      CURSOR = _RelayConnectionInter2.CURSOR,
 	      EDGES = _RelayConnectionInter2.EDGES;
 	
@@ -955,7 +1042,7 @@ webpackJsonp([0],[
 	 * Creates an edge for a connection record, given a node and edge type.
 	 */
 	function createEdge(store, record, node, edgeType) {
-	  var _RelayConnectionInter3 = __webpack_require__(76).get(),
+	  var _RelayConnectionInter3 = __webpack_require__(65).get(),
 	      NODE = _RelayConnectionInter3.NODE;
 	
 	  // An index-based client ID could easily conflict (unless it was
@@ -966,7 +1053,7 @@ webpackJsonp([0],[
 	  // duplicates.
 	
 	
-	  var edgeID = __webpack_require__(81)(record.getDataID(), node.getDataID());
+	  var edgeID = __webpack_require__(70)(record.getDataID(), node.getDataID());
 	  var edge = store.get(edgeID);
 	  if (!edge) {
 	    edge = store.create(edgeID, edgeType);
@@ -1010,7 +1097,7 @@ webpackJsonp([0],[
 	 * ```
 	 */
 	function insertEdgeBefore(record, newEdge, cursor) {
-	  var _RelayConnectionInter4 = __webpack_require__(76).get(),
+	  var _RelayConnectionInter4 = __webpack_require__(65).get(),
 	      CURSOR = _RelayConnectionInter4.CURSOR,
 	      EDGES = _RelayConnectionInter4.EDGES;
 	
@@ -1049,7 +1136,7 @@ webpackJsonp([0],[
 	 * Remove any edges whose `node.id` matches the given id.
 	 */
 	function deleteNode(record, nodeID) {
-	  var _RelayConnectionInter5 = __webpack_require__(76).get(),
+	  var _RelayConnectionInter5 = __webpack_require__(65).get(),
 	      EDGES = _RelayConnectionInter5.EDGES,
 	      NODE = _RelayConnectionInter5.NODE;
 	
@@ -1092,12 +1179,12 @@ webpackJsonp([0],[
 	    return edge;
 	  }
 	
-	  var _RelayConnectionInter6 = __webpack_require__(76).get(),
+	  var _RelayConnectionInter6 = __webpack_require__(65).get(),
 	      EDGES = _RelayConnectionInter6.EDGES;
 	
 	  var edgeIndex = connection.getValue(NEXT_EDGE_INDEX);
-	  __webpack_require__(47)(typeof edgeIndex === 'number', 'RelayConnectionHandler: Expected %s to be a number, got `%s`.', NEXT_EDGE_INDEX, edgeIndex);
-	  var edgeID = __webpack_require__(81)(connection.getDataID(), EDGES, edgeIndex);
+	  __webpack_require__(45)(typeof edgeIndex === 'number', 'RelayConnectionHandler: Expected %s to be a number, got `%s`.', NEXT_EDGE_INDEX, edgeIndex);
+	  var edgeID = __webpack_require__(70)(connection.getDataID(), EDGES, edgeIndex);
 	  var connectionEdge = store.create(edgeID, edge.getType());
 	  connectionEdge.copyFieldsFrom(edge);
 	  connection.setValue(edgeIndex + 1, NEXT_EDGE_INDEX);
@@ -1111,7 +1198,7 @@ webpackJsonp([0],[
 	 * duplicate cursors or node ids.
 	 */
 	function mergeEdges(sourceEdges, targetEdges, nodeIDs) {
-	  var _RelayConnectionInter7 = __webpack_require__(76).get(),
+	  var _RelayConnectionInter7 = __webpack_require__(65).get(),
 	      NODE = _RelayConnectionInter7.NODE;
 	
 	  for (var ii = 0; ii < sourceEdges.length; ii++) {
@@ -1142,7 +1229,7 @@ webpackJsonp([0],[
 	};
 
 /***/ },
-/* 76 */
+/* 65 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -1158,7 +1245,7 @@ webpackJsonp([0],[
 	
 	'use strict';
 	
-	var _defineProperty3 = _interopRequireDefault(__webpack_require__(77));
+	var _defineProperty3 = _interopRequireDefault(__webpack_require__(66));
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 	
@@ -1242,11 +1329,11 @@ webpackJsonp([0],[
 	module.exports = RelayConnectionInterface;
 
 /***/ },
-/* 77 */,
-/* 78 */,
-/* 79 */,
-/* 80 */,
-/* 81 */
+/* 66 */,
+/* 67 */,
+/* 68 */,
+/* 69 */,
+/* 70 */
 /***/ function(module, exports) {
 
 	/**
@@ -1278,7 +1365,8 @@ webpackJsonp([0],[
 	module.exports = generateRelayClientID;
 
 /***/ },
-/* 82 */
+/* 71 */,
+/* 72 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -1294,7 +1382,7 @@ webpackJsonp([0],[
 	
 	'use strict';
 	
-	var _require = __webpack_require__(83),
+	var _require = __webpack_require__(73),
 	    DEFAULT_HANDLE_KEY = _require.DEFAULT_HANDLE_KEY;
 	
 	/**
@@ -1310,14 +1398,14 @@ webpackJsonp([0],[
 	    return '__' + key + '_' + handleName;
 	  }
 	
-	  __webpack_require__(47)(fieldName != null, 'getRelayHandleKey: Expected either `fieldName` or `key` in `handle` to be provided');
+	  __webpack_require__(45)(fieldName != null, 'getRelayHandleKey: Expected either `fieldName` or `key` in `handle` to be provided');
 	  return '__' + fieldName + '_' + handleName;
 	}
 	
 	module.exports = getRelayHandleKey;
 
 /***/ },
-/* 83 */
+/* 73 */
 /***/ function(module, exports) {
 
 	/**
@@ -1338,7 +1426,7 @@ webpackJsonp([0],[
 	};
 
 /***/ },
-/* 84 */
+/* 74 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -1354,10 +1442,10 @@ webpackJsonp([0],[
 	
 	'use strict';
 	
-	var _require = __webpack_require__(85),
+	var _require = __webpack_require__(75),
 	    ROOT_ID = _require.ROOT_ID;
 	
-	var VIEWER_ID = __webpack_require__(81)(ROOT_ID, 'viewer');
+	var VIEWER_ID = __webpack_require__(70)(ROOT_ID, 'viewer');
 	var VIEWER_TYPE = 'Viewer';
 	
 	/**
@@ -1378,8 +1466,7 @@ webpackJsonp([0],[
 	  }
 	  var serverViewer = record.getLinkedRecord(payload.fieldKey);
 	  if (!serverViewer) {
-	    // If `serverViewer` is null, `viewer` key for `client:root` should already
-	    // be null, so no need to `setValue` again.
+	    record.setValue(null, payload.handleKey);
 	    return;
 	  }
 	  // Server data already has viewer data at `client:root:viewer`, so link the
@@ -1408,7 +1495,7 @@ webpackJsonp([0],[
 	};
 
 /***/ },
-/* 85 */
+/* 75 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -1424,7 +1511,7 @@ webpackJsonp([0],[
 	
 	'use strict';
 	
-	var VARIABLE = __webpack_require__(86).VARIABLE;
+	var VARIABLE = __webpack_require__(76).VARIABLE;
 	
 	/**
 	 * Returns the values of field/fragment arguments as an object keyed by argument
@@ -1479,7 +1566,7 @@ webpackJsonp([0],[
 	      value = arg.value;
 	    }
 	    if (value != null) {
-	      values.push('"' + arg.name + '":' + __webpack_require__(87)(value));
+	      values.push('"' + arg.name + '":' + __webpack_require__(77)(value));
 	    }
 	  });
 	  if (values.length) {
@@ -1490,7 +1577,7 @@ webpackJsonp([0],[
 	}
 	
 	function getVariableValue(name, variables) {
-	  __webpack_require__(47)(variables.hasOwnProperty(name), 'getVariableValue(): Undefined variable `%s`.', name);
+	  __webpack_require__(45)(variables.hasOwnProperty(name), 'getVariableValue(): Undefined variable `%s`.', name);
 	  return variables[name];
 	}
 	
@@ -1516,7 +1603,7 @@ webpackJsonp([0],[
 	module.exports = RelayStoreUtils;
 
 /***/ },
-/* 86 */
+/* 76 */
 /***/ function(module, exports) {
 
 	/**
@@ -1532,14 +1619,17 @@ webpackJsonp([0],[
 	
 	'use strict';
 	
-	// TODO: Add BatchRequest to RequestNode
-	
 	/**
-	 * Represents a single ConcreteOperation along containing metadata for
-	 * processing it at runtime. The `text` (or persisted `id`) can be used to
-	 * execute the operation, the `fragment` is derived from this operation to
-	 * read the response data (masking data from child fragments), while
-	 * the `selections` can be used to normalize server responses.
+	 * Represents a single ConcreteRoot along with metadata for processing it at
+	 * runtime. The persisted `id` (or `text`) can be used to fetch the query,
+	 * the `fragment` can be used to read the root data (masking data from child
+	 * fragments), and the `query` can be used to normalize server responses.
+	 *
+	 * NOTE: The use of "batch" in the name is intentional, as this wrapper around
+	 * the ConcreteRoot will provide a place to store multiple concrete nodes that
+	 * are part of the same batch, e.g. in the case of deferred nodes or
+	 * for streaming connections that are represented as distinct concrete roots but
+	 * are still conceptually tied to one source query.
 	 */
 	var RelayConcreteNode = {
 	  CONDITION: 'Condition',
@@ -1550,7 +1640,7 @@ webpackJsonp([0],[
 	  LINKED_HANDLE: 'LinkedHandle',
 	  LITERAL: 'Literal',
 	  LOCAL_ARGUMENT: 'LocalArgument',
-	  OPERATION: 'Operation',
+	  ROOT: 'Root',
 	  ROOT_ARGUMENT: 'RootArgument',
 	  SCALAR_FIELD: 'ScalarField',
 	  SCALAR_HANDLE: 'ScalarHandle',
@@ -1560,7 +1650,7 @@ webpackJsonp([0],[
 	module.exports = RelayConcreteNode;
 
 /***/ },
-/* 87 */
+/* 77 */
 /***/ function(module, exports) {
 
 	/**
@@ -1608,7 +1698,7 @@ webpackJsonp([0],[
 	module.exports = stableJSONStringify;
 
 /***/ },
-/* 88 */
+/* 78 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -1624,7 +1714,7 @@ webpackJsonp([0],[
 	
 	'use strict';
 	
-	var _classCallCheck3 = _interopRequireDefault(__webpack_require__(73));
+	var _classCallCheck3 = _interopRequireDefault(__webpack_require__(62));
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 	
@@ -1650,7 +1740,7 @@ webpackJsonp([0],[
 	  function RelayPublishQueue(store, handlerProvider) {
 	    (0, _classCallCheck3['default'])(this, RelayPublishQueue);
 	
-	    this._backup = new (__webpack_require__(89))();
+	    this._backup = new (__webpack_require__(79))();
 	    this._handlerProvider = handlerProvider || null;
 	    this._pendingBackupRebase = false;
 	    this._pendingUpdaters = new Set();
@@ -1675,7 +1765,7 @@ webpackJsonp([0],[
 	
 	
 	  RelayPublishQueue.prototype.applyUpdate = function applyUpdate(updater) {
-	    __webpack_require__(47)(!this._appliedOptimisticUpdates.has(updater) && !this._pendingOptimisticUpdates.has(updater), 'RelayPublishQueue: Cannot apply the same update function more than ' + 'once concurrently.');
+	    __webpack_require__(45)(!this._appliedOptimisticUpdates.has(updater) && !this._pendingOptimisticUpdates.has(updater), 'RelayPublishQueue: Cannot apply the same update function more than ' + 'once concurrently.');
 	    this._pendingOptimisticUpdates.add(updater);
 	  };
 	
@@ -1752,7 +1842,7 @@ webpackJsonp([0],[
 	  RelayPublishQueue.prototype.run = function run() {
 	    if (this._pendingBackupRebase && this._backup.size()) {
 	      this._store.publish(this._backup);
-	      this._backup = new (__webpack_require__(89))();
+	      this._backup = new (__webpack_require__(79))();
 	    }
 	    this._commitData();
 	    this._commitUpdaters();
@@ -1769,13 +1859,13 @@ webpackJsonp([0],[
 	        source = payload.source,
 	        updater = payload.updater;
 	
-	    var mutator = new (__webpack_require__(91))(this._store.getSource(), source);
-	    var store = new (__webpack_require__(95))(mutator);
-	    var selectorStore = new (__webpack_require__(96))(store, operation.fragment);
+	    var mutator = new (__webpack_require__(81))(this._store.getSource(), source);
+	    var store = new (__webpack_require__(85))(mutator);
+	    var selectorStore = new (__webpack_require__(86))(store, operation.fragment);
 	    if (fieldPayloads && fieldPayloads.length) {
 	      fieldPayloads.forEach(function (fieldPayload) {
 	        var handler = _this._handlerProvider && _this._handlerProvider(fieldPayload.handle);
-	        __webpack_require__(47)(handler, 'RelayModernEnvironment: Expected a handler to be provided for ' + 'handle `%s`.', fieldPayload.handle);
+	        __webpack_require__(45)(handler, 'RelayModernEnvironment: Expected a handler to be provided for ' + 'handle `%s`.', fieldPayload.handle);
 	        handler.update(store, fieldPayload);
 	      });
 	    }
@@ -1810,10 +1900,10 @@ webpackJsonp([0],[
 	    if (!this._pendingUpdaters.size) {
 	      return;
 	    }
-	    var sink = new (__webpack_require__(89))();
+	    var sink = new (__webpack_require__(79))();
 	    this._pendingUpdaters.forEach(function (updater) {
-	      var mutator = new (__webpack_require__(91))(_this3._store.getSource(), sink);
-	      var store = new (__webpack_require__(95))(mutator);
+	      var mutator = new (__webpack_require__(81))(_this3._store.getSource(), sink);
+	      var store = new (__webpack_require__(85))(mutator);
 	      updater(store);
 	    });
 	    this._store.publish(sink);
@@ -1824,9 +1914,9 @@ webpackJsonp([0],[
 	    var _this4 = this;
 	
 	    if (this._pendingOptimisticUpdates.size || this._pendingBackupRebase && this._appliedOptimisticUpdates.size) {
-	      var sink = new (__webpack_require__(89))();
-	      var mutator = new (__webpack_require__(91))(this._store.getSource(), sink, this._backup);
-	      var store = new (__webpack_require__(95))(mutator, this._handlerProvider);
+	      var sink = new (__webpack_require__(79))();
+	      var mutator = new (__webpack_require__(81))(this._store.getSource(), sink, this._backup);
+	      var store = new (__webpack_require__(85))(mutator, this._handlerProvider);
 	
 	      // rerun all updaters in case we are running a rebase
 	      if (this._pendingBackupRebase && this._appliedOptimisticUpdates.size) {
@@ -1841,7 +1931,7 @@ webpackJsonp([0],[
 	            var selectorData = void 0,
 	                _source = void 0;
 	            if (response) {
-	              var _normalizeRelayPayloa = __webpack_require__(97)(_operation.root, response);
+	              var _normalizeRelayPayloa = __webpack_require__(87)(_operation.root, response);
 	
 	              _source = _normalizeRelayPayloa.source;
 	
@@ -1869,7 +1959,7 @@ webpackJsonp([0],[
 	            var selectorData = void 0,
 	                _source2 = void 0;
 	            if (response) {
-	              var _normalizeRelayPayloa2 = __webpack_require__(97)(_operation2.root, response);
+	              var _normalizeRelayPayloa2 = __webpack_require__(87)(_operation2.root, response);
 	
 	              _source2 = _normalizeRelayPayloa2.source;
 	
@@ -1894,9 +1984,9 @@ webpackJsonp([0],[
 	}();
 	
 	function lookupSelector(source, selector) {
-	  var selectorData = __webpack_require__(103).read(source, selector).data;
-	  if (true) {
-	    var deepFreeze = __webpack_require__(94);
+	  var selectorData = __webpack_require__(93).read(source, selector).data;
+	  if (false) {
+	    var deepFreeze = require('./deepFreeze');
 	    if (selectorData) {
 	      deepFreeze(selectorData);
 	    }
@@ -1907,7 +1997,7 @@ webpackJsonp([0],[
 	module.exports = RelayPublishQueue;
 
 /***/ },
-/* 89 */
+/* 79 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -1923,13 +2013,13 @@ webpackJsonp([0],[
 	
 	'use strict';
 	
-	var _classCallCheck3 = _interopRequireDefault(__webpack_require__(73));
+	var _classCallCheck3 = _interopRequireDefault(__webpack_require__(62));
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 	
-	var EXISTENT = __webpack_require__(90).EXISTENT,
-	    NONEXISTENT = __webpack_require__(90).NONEXISTENT,
-	    UNKNOWN = __webpack_require__(90).UNKNOWN;
+	var EXISTENT = __webpack_require__(80).EXISTENT,
+	    NONEXISTENT = __webpack_require__(80).NONEXISTENT,
+	    UNKNOWN = __webpack_require__(80).UNKNOWN;
 	
 	/**
 	 * An implementation of the `MutableRecordSource` interface (defined in
@@ -1997,7 +2087,7 @@ webpackJsonp([0],[
 	module.exports = RelayInMemoryRecordSource;
 
 /***/ },
-/* 90 */
+/* 80 */
 /***/ function(module, exports) {
 
 	/**
@@ -2036,7 +2126,7 @@ webpackJsonp([0],[
 	module.exports = RelayRecordState;
 
 /***/ },
-/* 91 */
+/* 81 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -2054,14 +2144,14 @@ webpackJsonp([0],[
 	
 	var _extends3 = _interopRequireDefault(__webpack_require__(1));
 	
-	var _classCallCheck3 = _interopRequireDefault(__webpack_require__(73));
+	var _classCallCheck3 = _interopRequireDefault(__webpack_require__(62));
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 	
-	var _require = __webpack_require__(90),
+	var _require = __webpack_require__(80),
 	    EXISTENT = _require.EXISTENT;
 	
-	var _require2 = __webpack_require__(85),
+	var _require2 = __webpack_require__(75),
 	    UNPUBLISH_FIELD_SENTINEL = _require2.UNPUBLISH_FIELD_SENTINEL,
 	    UNPUBLISH_RECORD_SENTINEL = _require2.UNPUBLISH_RECORD_SENTINEL;
 	
@@ -2132,7 +2222,7 @@ webpackJsonp([0],[
 	      var backupRecord = backup.get(dataID);
 	      if (backupRecord && backupRecord !== UNPUBLISH_RECORD_SENTINEL && !(storageKey in backupRecord)) {
 	        var copy = (0, _extends3['default'])({}, backupRecord);
-	        __webpack_require__(92).setValue(copy, storageKey, UNPUBLISH_FIELD_SENTINEL);
+	        __webpack_require__(82).setValue(copy, storageKey, UNPUBLISH_FIELD_SENTINEL);
 	        backup.set(dataID, copy);
 	      }
 	    }
@@ -2142,8 +2232,8 @@ webpackJsonp([0],[
 	    var sinkRecord = this._sink.get(dataID);
 	    if (!sinkRecord) {
 	      var baseRecord = this._base.get(dataID);
-	      __webpack_require__(47)(baseRecord, 'RelayRecordSourceMutator: Cannot modify non-existent record `%s`.', dataID);
-	      sinkRecord = __webpack_require__(92).create(dataID, __webpack_require__(92).getType(baseRecord));
+	      __webpack_require__(45)(baseRecord, 'RelayRecordSourceMutator: Cannot modify non-existent record `%s`.', dataID);
+	      sinkRecord = __webpack_require__(82).create(dataID, __webpack_require__(82).getType(baseRecord));
 	      this._sink.set(dataID, sinkRecord);
 	    }
 	    return sinkRecord;
@@ -2152,31 +2242,31 @@ webpackJsonp([0],[
 	  RelayRecordSourceMutator.prototype.copyFields = function copyFields(sourceID, sinkID) {
 	    var sinkSource = this._sink.get(sourceID);
 	    var baseSource = this._base.get(sourceID);
-	    __webpack_require__(47)(sinkSource || baseSource, 'RelayRecordSourceMutator#copyFields(): Cannot copy fields from ' + 'non-existent record `%s`.', sourceID);
+	    __webpack_require__(45)(sinkSource || baseSource, 'RelayRecordSourceMutator#copyFields(): Cannot copy fields from ' + 'non-existent record `%s`.', sourceID);
 	    this._createBackupRecord(sinkID);
 	    var sink = this._getSinkRecord(sinkID);
 	    if (baseSource) {
-	      __webpack_require__(92).copyFields(baseSource, sink);
+	      __webpack_require__(82).copyFields(baseSource, sink);
 	    }
 	    if (sinkSource) {
-	      __webpack_require__(92).copyFields(sinkSource, sink);
+	      __webpack_require__(82).copyFields(sinkSource, sink);
 	    }
 	    this._setSentinelFieldsInBackupRecord(sinkID, sink);
 	  };
 	
 	  RelayRecordSourceMutator.prototype.copyFieldsFromRecord = function copyFieldsFromRecord(record, sinkID) {
-	    this.copyFields(__webpack_require__(92).getDataID(record), sinkID);
+	    this.copyFields(__webpack_require__(82).getDataID(record), sinkID);
 	    var sink = this._getSinkRecord(sinkID);
-	    __webpack_require__(92).copyFields(record, sink);
+	    __webpack_require__(82).copyFields(record, sink);
 	    this._setSentinelFieldsInBackupRecord(sinkID, sink);
 	  };
 	
 	  RelayRecordSourceMutator.prototype.create = function create(dataID, typeName) {
-	    __webpack_require__(47)(this._base.getStatus(dataID) !== EXISTENT && this._sink.getStatus(dataID) !== EXISTENT, 'RelayRecordSourceMutator#create(): Cannot create a record with id ' + '`%s`, this record already exists.', dataID);
+	    __webpack_require__(45)(this._base.getStatus(dataID) !== EXISTENT && this._sink.getStatus(dataID) !== EXISTENT, 'RelayRecordSourceMutator#create(): Cannot create a record with id ' + '`%s`, this record already exists.', dataID);
 	    if (this._backup) {
 	      this._backup.set(dataID, UNPUBLISH_RECORD_SENTINEL);
 	    }
-	    var record = __webpack_require__(92).create(dataID, typeName);
+	    var record = __webpack_require__(82).create(dataID, typeName);
 	    this._sink.set(dataID, record);
 	  };
 	
@@ -2193,7 +2283,7 @@ webpackJsonp([0],[
 	    for (var ii = 0; ii < this.__sources.length; ii++) {
 	      var record = this.__sources[ii].get(dataID);
 	      if (record) {
-	        return __webpack_require__(92).getType(record);
+	        return __webpack_require__(82).getType(record);
 	      } else if (record === null) {
 	        return null;
 	      }
@@ -2204,7 +2294,7 @@ webpackJsonp([0],[
 	    for (var ii = 0; ii < this.__sources.length; ii++) {
 	      var record = this.__sources[ii].get(dataID);
 	      if (record) {
-	        var value = __webpack_require__(92).getValue(record, storageKey);
+	        var value = __webpack_require__(82).getValue(record, storageKey);
 	        if (value !== undefined) {
 	          return value;
 	        }
@@ -2217,7 +2307,7 @@ webpackJsonp([0],[
 	  RelayRecordSourceMutator.prototype.setValue = function setValue(dataID, storageKey, value) {
 	    this._createBackupRecord(dataID);
 	    var sinkRecord = this._getSinkRecord(dataID);
-	    __webpack_require__(92).setValue(sinkRecord, storageKey, value);
+	    __webpack_require__(82).setValue(sinkRecord, storageKey, value);
 	    this._setSentinelFieldInBackupRecord(dataID, storageKey);
 	  };
 	
@@ -2225,7 +2315,7 @@ webpackJsonp([0],[
 	    for (var ii = 0; ii < this.__sources.length; ii++) {
 	      var record = this.__sources[ii].get(dataID);
 	      if (record) {
-	        var linkedID = __webpack_require__(92).getLinkedRecordID(record, storageKey);
+	        var linkedID = __webpack_require__(82).getLinkedRecordID(record, storageKey);
 	        if (linkedID !== undefined) {
 	          return linkedID;
 	        }
@@ -2238,7 +2328,7 @@ webpackJsonp([0],[
 	  RelayRecordSourceMutator.prototype.setLinkedRecordID = function setLinkedRecordID(dataID, storageKey, linkedID) {
 	    this._createBackupRecord(dataID);
 	    var sinkRecord = this._getSinkRecord(dataID);
-	    __webpack_require__(92).setLinkedRecordID(sinkRecord, storageKey, linkedID);
+	    __webpack_require__(82).setLinkedRecordID(sinkRecord, storageKey, linkedID);
 	    this._setSentinelFieldInBackupRecord(dataID, storageKey);
 	  };
 	
@@ -2246,7 +2336,7 @@ webpackJsonp([0],[
 	    for (var ii = 0; ii < this.__sources.length; ii++) {
 	      var record = this.__sources[ii].get(dataID);
 	      if (record) {
-	        var linkedIDs = __webpack_require__(92).getLinkedRecordIDs(record, storageKey);
+	        var linkedIDs = __webpack_require__(82).getLinkedRecordIDs(record, storageKey);
 	        if (linkedIDs !== undefined) {
 	          return linkedIDs;
 	        }
@@ -2259,7 +2349,7 @@ webpackJsonp([0],[
 	  RelayRecordSourceMutator.prototype.setLinkedRecordIDs = function setLinkedRecordIDs(dataID, storageKey, linkedIDs) {
 	    this._createBackupRecord(dataID);
 	    var sinkRecord = this._getSinkRecord(dataID);
-	    __webpack_require__(92).setLinkedRecordIDs(sinkRecord, storageKey, linkedIDs);
+	    __webpack_require__(82).setLinkedRecordIDs(sinkRecord, storageKey, linkedIDs);
 	    this._setSentinelFieldInBackupRecord(dataID, storageKey);
 	  };
 	
@@ -2269,7 +2359,7 @@ webpackJsonp([0],[
 	module.exports = RelayRecordSourceMutator;
 
 /***/ },
-/* 92 */
+/* 82 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -2289,7 +2379,7 @@ webpackJsonp([0],[
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 	
-	var _require = __webpack_require__(85),
+	var _require = __webpack_require__(75),
 	    ID_KEY = _require.ID_KEY,
 	    REF_KEY = _require.REF_KEY,
 	    REFS_KEY = _require.REFS_KEY,
@@ -2408,7 +2498,7 @@ webpackJsonp([0],[
 	function getValue(record, storageKey) {
 	  var value = record[storageKey];
 	  if (value && typeof value === 'object') {
-	    __webpack_require__(47)(!value.hasOwnProperty(REF_KEY) && !value.hasOwnProperty(REFS_KEY), 'RelayModernRecord.getValue(): Expected a scalar (non-link) value for `%s.%s` ' + 'but found %s.', record[ID_KEY], storageKey, value.hasOwnProperty(REF_KEY) ? 'a linked record' : 'plural linked records');
+	    __webpack_require__(45)(!value.hasOwnProperty(REF_KEY) && !value.hasOwnProperty(REFS_KEY), 'RelayModernRecord.getValue(): Expected a scalar (non-link) value for `%s.%s` ' + 'but found %s.', record[ID_KEY], storageKey, value.hasOwnProperty(REF_KEY) ? 'a linked record' : 'plural linked records');
 	  }
 	  return value;
 	}
@@ -2424,7 +2514,7 @@ webpackJsonp([0],[
 	  if (link == null) {
 	    return link;
 	  }
-	  __webpack_require__(47)(typeof link === 'object' && link && typeof link[REF_KEY] === 'string', 'RelayModernRecord.getLinkedRecordID(): Expected `%s.%s` to be a linked ID, ' + 'was `%s`.', record[ID_KEY], storageKey, link);
+	  __webpack_require__(45)(typeof link === 'object' && link && typeof link[REF_KEY] === 'string', 'RelayModernRecord.getLinkedRecordID(): Expected `%s.%s` to be a linked ID, ' + 'was `%s`.', record[ID_KEY], storageKey, link);
 	  return link[REF_KEY];
 	}
 	
@@ -2439,7 +2529,7 @@ webpackJsonp([0],[
 	  if (links == null) {
 	    return links;
 	  }
-	  __webpack_require__(47)(typeof links === 'object' && Array.isArray(links[REFS_KEY]), 'RelayModernRecord.getLinkedRecordIDs(): Expected `%s.%s` to contain an array ' + 'of linked IDs, got `%s`.', record[ID_KEY], storageKey, JSON.stringify(links));
+	  __webpack_require__(45)(typeof links === 'object' && Array.isArray(links[REFS_KEY]), 'RelayModernRecord.getLinkedRecordIDs(): Expected `%s.%s` to contain an array ' + 'of linked IDs, got `%s`.', record[ID_KEY], storageKey, JSON.stringify(links));
 	  // assume items of the array are ids
 	  return links[REFS_KEY];
 	}
@@ -2456,7 +2546,7 @@ webpackJsonp([0],[
 	  var keys = Object.keys(nextRecord);
 	  for (var ii = 0; ii < keys.length; ii++) {
 	    var key = keys[ii];
-	    if (updated || !__webpack_require__(93)(prevRecord[key], nextRecord[key])) {
+	    if (updated || !__webpack_require__(83)(prevRecord[key], nextRecord[key])) {
 	      updated = updated || (0, _extends3['default'])({}, prevRecord);
 	      if (nextRecord[key] !== UNPUBLISH_FIELD_SENTINEL) {
 	        updated[key] = nextRecord[key];
@@ -2485,7 +2575,7 @@ webpackJsonp([0],[
 	 * frozen record will fatal at runtime.
 	 */
 	function freeze(record) {
-	  __webpack_require__(94)(record);
+	  __webpack_require__(84)(record);
 	}
 	
 	/**
@@ -2539,8 +2629,8 @@ webpackJsonp([0],[
 	};
 
 /***/ },
-/* 93 */,
-/* 94 */
+/* 83 */,
+/* 84 */
 /***/ function(module, exports) {
 
 	/**
@@ -2577,7 +2667,7 @@ webpackJsonp([0],[
 	module.exports = deepFreeze;
 
 /***/ },
-/* 95 */
+/* 85 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -2593,15 +2683,15 @@ webpackJsonp([0],[
 	
 	'use strict';
 	
-	var _classCallCheck3 = _interopRequireDefault(__webpack_require__(73));
+	var _classCallCheck3 = _interopRequireDefault(__webpack_require__(62));
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 	
-	var _require = __webpack_require__(90),
+	var _require = __webpack_require__(80),
 	    EXISTENT = _require.EXISTENT,
 	    NONEXISTENT = _require.NONEXISTENT;
 	
-	var _require2 = __webpack_require__(85),
+	var _require2 = __webpack_require__(75),
 	    ROOT_ID = _require2.ROOT_ID,
 	    ROOT_TYPE = _require2.ROOT_TYPE;
 	
@@ -2623,10 +2713,10 @@ webpackJsonp([0],[
 	    var _this = this;
 	
 	    if (!response) {
-	      return new (__webpack_require__(96))(this, operation.fragment);
+	      return new (__webpack_require__(86))(this, operation.fragment);
 	    }
 	
-	    var _normalizeRelayPayloa = __webpack_require__(97)(operation.root, response),
+	    var _normalizeRelayPayloa = __webpack_require__(87)(operation.root, response),
 	        source = _normalizeRelayPayloa.source,
 	        fieldPayloads = _normalizeRelayPayloa.fieldPayloads;
 	
@@ -2637,7 +2727,7 @@ webpackJsonp([0],[
 	        var sourceRecord = source.get(dataID);
 	        if (sourceRecord) {
 	          if (_this.__mutator.getStatus(dataID) !== EXISTENT) {
-	            _this.create(dataID, __webpack_require__(92).getType(sourceRecord));
+	            _this.create(dataID, __webpack_require__(82).getType(sourceRecord));
 	          }
 	          _this.__mutator.copyFieldsFromRecord(sourceRecord, dataID);
 	          delete _this._proxies[dataID];
@@ -2650,11 +2740,11 @@ webpackJsonp([0],[
 	    if (fieldPayloads && fieldPayloads.length) {
 	      fieldPayloads.forEach(function (fieldPayload) {
 	        var handler = _this._handlerProvider && _this._handlerProvider(fieldPayload.handle);
-	        __webpack_require__(47)(handler, 'RelayModernEnvironment: Expected a handler to be provided for handle `%s`.', fieldPayload.handle);
+	        __webpack_require__(45)(handler, 'RelayModernEnvironment: Expected a handler to be provided for handle `%s`.', fieldPayload.handle);
 	        handler.update(_this, fieldPayload);
 	      });
 	    }
-	    return new (__webpack_require__(96))(this, operation.fragment);
+	    return new (__webpack_require__(86))(this, operation.fragment);
 	  };
 	
 	  RelayRecordSourceProxy.prototype.create = function create(dataID, typeName) {
@@ -2662,12 +2752,12 @@ webpackJsonp([0],[
 	    delete this._proxies[dataID];
 	    var record = this.get(dataID);
 	    // For flow
-	    __webpack_require__(47)(record, 'RelayRecordSourceProxy#create(): Expected the created record to exist.');
+	    __webpack_require__(45)(record, 'RelayRecordSourceProxy#create(): Expected the created record to exist.');
 	    return record;
 	  };
 	
 	  RelayRecordSourceProxy.prototype['delete'] = function _delete(dataID) {
-	    __webpack_require__(47)(dataID !== ROOT_ID, 'RelayRecordSourceProxy#delete(): Cannot delete the root record.');
+	    __webpack_require__(45)(dataID !== ROOT_ID, 'RelayRecordSourceProxy#delete(): Cannot delete the root record.');
 	    delete this._proxies[dataID];
 	    this.__mutator['delete'](dataID);
 	  };
@@ -2676,7 +2766,7 @@ webpackJsonp([0],[
 	    if (!this._proxies.hasOwnProperty(dataID)) {
 	      var status = this.__mutator.getStatus(dataID);
 	      if (status === EXISTENT) {
-	        this._proxies[dataID] = new (__webpack_require__(102))(this, this.__mutator, dataID);
+	        this._proxies[dataID] = new (__webpack_require__(92))(this, this.__mutator, dataID);
 	      } else {
 	        this._proxies[dataID] = status === NONEXISTENT ? null : undefined;
 	      }
@@ -2689,7 +2779,7 @@ webpackJsonp([0],[
 	    if (!root) {
 	      root = this.create(ROOT_ID, ROOT_TYPE);
 	    }
-	    __webpack_require__(47)(root && root.getType() === ROOT_TYPE, 'RelayRecordSourceProxy#getRoot(): Expected the source to contain a ' + 'root record.');
+	    __webpack_require__(45)(root && root.getType() === ROOT_TYPE, 'RelayRecordSourceProxy#getRoot(): Expected the source to contain a ' + 'root record.');
 	    return root;
 	  };
 	
@@ -2699,7 +2789,7 @@ webpackJsonp([0],[
 	module.exports = RelayRecordSourceProxy;
 
 /***/ },
-/* 96 */
+/* 86 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -2715,11 +2805,11 @@ webpackJsonp([0],[
 	
 	'use strict';
 	
-	var _classCallCheck3 = _interopRequireDefault(__webpack_require__(73));
+	var _classCallCheck3 = _interopRequireDefault(__webpack_require__(62));
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 	
-	var _require = __webpack_require__(85),
+	var _require = __webpack_require__(75),
 	    getStorageKey = _require.getStorageKey;
 	
 	/**
@@ -2758,8 +2848,8 @@ webpackJsonp([0],[
 	    var field = selector.node.selections.find(function (selection) {
 	      return selection.kind === 'LinkedField' && selection.name === fieldName;
 	    });
-	    __webpack_require__(47)(field && field.kind === 'LinkedField', 'RelayRecordSourceSelectorProxy#getRootField(): Cannot find root ' + 'field `%s`, no such field is defined on GraphQL document `%s`.', fieldName, selector.node.name);
-	    __webpack_require__(47)(field.plural === plural, 'RelayRecordSourceSelectorProxy#getRootField(): Expected root field ' + '`%s` to be %s.', fieldName, plural ? 'plural' : 'singular');
+	    __webpack_require__(45)(field && field.kind === 'LinkedField', 'RelayRecordSourceSelectorProxy#getRootField(): Cannot find root ' + 'field `%s`, no such field is defined on GraphQL document `%s`.', fieldName, selector.node.name);
+	    __webpack_require__(45)(field.plural === plural, 'RelayRecordSourceSelectorProxy#getRootField(): Expected root field ' + '`%s` to be %s.', fieldName, plural ? 'plural' : 'singular');
 	    return field;
 	  };
 	
@@ -2781,7 +2871,7 @@ webpackJsonp([0],[
 	module.exports = RelayRecordSourceSelectorProxy;
 
 /***/ },
-/* 97 */
+/* 87 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -2797,16 +2887,16 @@ webpackJsonp([0],[
 	
 	'use strict';
 	
-	var _require = __webpack_require__(85),
+	var _require = __webpack_require__(75),
 	    ROOT_ID = _require.ROOT_ID,
 	    ROOT_TYPE = _require.ROOT_TYPE;
 	
 	function normalizeRelayPayload(selector, payload, errors) {
 	  var options = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : { handleStrippedNulls: false };
 	
-	  var source = new (__webpack_require__(89))();
-	  source.set(ROOT_ID, __webpack_require__(92).create(ROOT_ID, ROOT_TYPE));
-	  var fieldPayloads = __webpack_require__(98).normalize(source, selector, payload, options);
+	  var source = new (__webpack_require__(79))();
+	  source.set(ROOT_ID, __webpack_require__(82).create(ROOT_ID, ROOT_TYPE));
+	  var fieldPayloads = __webpack_require__(88).normalize(source, selector, payload, options);
 	  return {
 	    errors: errors,
 	    fieldPayloads: fieldPayloads,
@@ -2817,7 +2907,7 @@ webpackJsonp([0],[
 	module.exports = normalizeRelayPayload;
 
 /***/ },
-/* 98 */
+/* 88 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -2833,22 +2923,22 @@ webpackJsonp([0],[
 	
 	'use strict';
 	
-	var _classCallCheck3 = _interopRequireDefault(__webpack_require__(73));
+	var _classCallCheck3 = _interopRequireDefault(__webpack_require__(62));
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 	
-	var _require = __webpack_require__(85),
+	var _require = __webpack_require__(75),
 	    getHandleFilterValues = _require.getHandleFilterValues,
 	    getArgumentValues = _require.getArgumentValues,
 	    getStorageKey = _require.getStorageKey,
 	    TYPENAME_KEY = _require.TYPENAME_KEY;
 	
-	var CONDITION = __webpack_require__(86).CONDITION,
-	    INLINE_FRAGMENT = __webpack_require__(86).INLINE_FRAGMENT,
-	    LINKED_FIELD = __webpack_require__(86).LINKED_FIELD,
-	    LINKED_HANDLE = __webpack_require__(86).LINKED_HANDLE,
-	    SCALAR_FIELD = __webpack_require__(86).SCALAR_FIELD,
-	    SCALAR_HANDLE = __webpack_require__(86).SCALAR_HANDLE;
+	var CONDITION = __webpack_require__(76).CONDITION,
+	    INLINE_FRAGMENT = __webpack_require__(76).INLINE_FRAGMENT,
+	    LINKED_FIELD = __webpack_require__(76).LINKED_FIELD,
+	    LINKED_HANDLE = __webpack_require__(76).LINKED_HANDLE,
+	    SCALAR_FIELD = __webpack_require__(76).SCALAR_FIELD,
+	    SCALAR_HANDLE = __webpack_require__(76).SCALAR_HANDLE;
 	
 	/**
 	 * Normalizes the results of a query and standard GraphQL response, writing the
@@ -2885,19 +2975,19 @@ webpackJsonp([0],[
 	
 	  RelayResponseNormalizer.prototype.normalizeResponse = function normalizeResponse(node, dataID, data) {
 	    var record = this._recordSource.get(dataID);
-	    __webpack_require__(47)(record, 'RelayResponseNormalizer(): Expected root record `%s` to exist.', dataID);
+	    __webpack_require__(45)(record, 'RelayResponseNormalizer(): Expected root record `%s` to exist.', dataID);
 	    this._traverseSelections(node.selections, record, data);
 	    return this._handleFieldPayloads;
 	  };
 	
 	  RelayResponseNormalizer.prototype._getVariableValue = function _getVariableValue(name) {
-	    __webpack_require__(47)(this._variables.hasOwnProperty(name), 'RelayResponseNormalizer(): Undefined variable `%s`.', name);
+	    __webpack_require__(45)(this._variables.hasOwnProperty(name), 'RelayResponseNormalizer(): Undefined variable `%s`.', name);
 	    return this._variables[name];
 	  };
 	
 	  RelayResponseNormalizer.prototype._getRecordType = function _getRecordType(data) {
 	    var typeName = data[TYPENAME_KEY];
-	    __webpack_require__(47)(typeName != null, 'RelayResponseNormalizer(): Expected a typename for record `%s`.', JSON.stringify(data, null, 2));
+	    __webpack_require__(45)(typeName != null, 'RelayResponseNormalizer(): Expected a typename for record `%s`.', JSON.stringify(data, null, 2));
 	    return typeName;
 	  };
 	
@@ -2913,34 +3003,34 @@ webpackJsonp([0],[
 	          _this._traverseSelections(selection.selections, record, data);
 	        }
 	      } else if (selection.kind === INLINE_FRAGMENT) {
-	        var typeName = __webpack_require__(92).getType(record);
+	        var typeName = __webpack_require__(82).getType(record);
 	        if (typeName === selection.type) {
 	          _this._traverseSelections(selection.selections, record, data);
 	        }
 	      } else if (selection.kind === LINKED_HANDLE || selection.kind === SCALAR_HANDLE) {
 	        var args = selection.args ? getArgumentValues(selection.args, _this._variables) : {};
 	
-	        var fieldKey = __webpack_require__(99)(selection.name, args);
-	        var handleKey = __webpack_require__(82)(selection.handle, selection.key, selection.name);
+	        var fieldKey = __webpack_require__(89)(selection.name, args);
+	        var handleKey = __webpack_require__(72)(selection.handle, selection.key, selection.name);
 	        if (selection.filters) {
 	          var filterValues = getHandleFilterValues(selection.args || [], selection.filters, _this._variables);
-	          handleKey = __webpack_require__(99)(handleKey, filterValues);
+	          handleKey = __webpack_require__(89)(handleKey, filterValues);
 	        }
 	        _this._handleFieldPayloads.push({
 	          args: args,
-	          dataID: __webpack_require__(92).getDataID(record),
+	          dataID: __webpack_require__(82).getDataID(record),
 	          fieldKey: fieldKey,
 	          handle: selection.handle,
 	          handleKey: handleKey
 	        });
 	      } else {
-	        __webpack_require__(47)(false, 'RelayResponseNormalizer(): Unexpected ast kind `%s`.', selection.kind);
+	        __webpack_require__(45)(false, 'RelayResponseNormalizer(): Unexpected ast kind `%s`.', selection.kind);
 	      }
 	    });
 	  };
 	
 	  RelayResponseNormalizer.prototype._normalizeField = function _normalizeField(selection, record, data) {
-	    __webpack_require__(47)(typeof data === 'object' && data, 'writeField(): Expected data for field `%s` to be an object.', selection.name);
+	    __webpack_require__(45)(typeof data === 'object' && data, 'writeField(): Expected data for field `%s` to be an object.', selection.name);
 	    var responseKey = selection.alias || selection.name;
 	    var storageKey = getStorageKey(selection, this._variables);
 	    var fieldValue = data[responseKey];
@@ -2949,15 +3039,15 @@ webpackJsonp([0],[
 	        // If we're not stripping nulls, undefined fields are unset
 	        return;
 	      }
-	      if (true) {
-	        __webpack_require__(44)(Object.prototype.hasOwnProperty.call(data, responseKey), 'RelayResponseNormalizer(): Payload did not contain a value ' + 'for field `%s: %s`. Check that you are parsing with the same ' + 'query that was used to fetch the payload.', responseKey, storageKey);
+	      if (false) {
+	        require('fbjs/lib/warning')(Object.prototype.hasOwnProperty.call(data, responseKey), 'RelayResponseNormalizer(): Payload did not contain a value ' + 'for field `%s: %s`. Check that you are parsing with the same ' + 'query that was used to fetch the payload.', responseKey, storageKey);
 	      }
-	      __webpack_require__(92).setValue(record, storageKey, null);
+	      __webpack_require__(82).setValue(record, storageKey, null);
 	      return;
 	    }
 	
 	    if (selection.kind === SCALAR_FIELD) {
-	      __webpack_require__(92).setValue(record, storageKey, fieldValue);
+	      __webpack_require__(82).setValue(record, storageKey, fieldValue);
 	    } else if (selection.plural) {
 	      this._normalizePluralLink(selection, record, storageKey, fieldValue);
 	    } else {
@@ -2966,18 +3056,18 @@ webpackJsonp([0],[
 	  };
 	
 	  RelayResponseNormalizer.prototype._normalizeLink = function _normalizeLink(field, record, storageKey, fieldValue) {
-	    __webpack_require__(47)(typeof fieldValue === 'object' && fieldValue, 'RelayResponseNormalizer: Expected data for field `%s` to be an object.', storageKey);
+	    __webpack_require__(45)(typeof fieldValue === 'object' && fieldValue, 'RelayResponseNormalizer: Expected data for field `%s` to be an object.', storageKey);
 	    var nextID = fieldValue.id ||
 	    // Reuse previously generated client IDs
-	    __webpack_require__(92).getLinkedRecordID(record, storageKey) || __webpack_require__(81)(__webpack_require__(92).getDataID(record), storageKey);
-	    __webpack_require__(47)(typeof nextID === 'string', 'RelayResponseNormalizer: Expected id on field `%s` to be a string.', storageKey);
-	    __webpack_require__(92).setLinkedRecordID(record, storageKey, nextID);
+	    __webpack_require__(82).getLinkedRecordID(record, storageKey) || __webpack_require__(70)(__webpack_require__(82).getDataID(record), storageKey);
+	    __webpack_require__(45)(typeof nextID === 'string', 'RelayResponseNormalizer: Expected id on field `%s` to be a string.', storageKey);
+	    __webpack_require__(82).setLinkedRecordID(record, storageKey, nextID);
 	    var nextRecord = this._recordSource.get(nextID);
 	    if (!nextRecord) {
 	      var typeName = field.concreteType || this._getRecordType(fieldValue);
-	      nextRecord = __webpack_require__(92).create(nextID, typeName);
+	      nextRecord = __webpack_require__(82).create(nextID, typeName);
 	      this._recordSource.set(nextID, nextRecord);
-	    } else if (true) {
+	    } else if (false) {
 	      this._validateRecordType(nextRecord, field, fieldValue);
 	    }
 	    this._traverseSelections(field.selections, nextRecord, fieldValue);
@@ -2986,8 +3076,8 @@ webpackJsonp([0],[
 	  RelayResponseNormalizer.prototype._normalizePluralLink = function _normalizePluralLink(field, record, storageKey, fieldValue) {
 	    var _this2 = this;
 	
-	    __webpack_require__(47)(Array.isArray(fieldValue), 'RelayResponseNormalizer: Expected data for field `%s` to be an array ' + 'of objects.', storageKey);
-	    var prevIDs = __webpack_require__(92).getLinkedRecordIDs(record, storageKey);
+	    __webpack_require__(45)(Array.isArray(fieldValue), 'RelayResponseNormalizer: Expected data for field `%s` to be an array ' + 'of objects.', storageKey);
+	    var prevIDs = __webpack_require__(82).getLinkedRecordIDs(record, storageKey);
 	    var nextIDs = [];
 	    fieldValue.forEach(function (item, nextIndex) {
 	      // validate response data
@@ -2995,24 +3085,24 @@ webpackJsonp([0],[
 	        nextIDs.push(item);
 	        return;
 	      }
-	      __webpack_require__(47)(typeof item === 'object', 'RelayResponseNormalizer: Expected elements for field `%s` to be ' + 'objects.', storageKey);
+	      __webpack_require__(45)(typeof item === 'object', 'RelayResponseNormalizer: Expected elements for field `%s` to be ' + 'objects.', storageKey);
 	
 	      var nextID = item.id || prevIDs && prevIDs[nextIndex] || // Reuse previously generated client IDs
-	      __webpack_require__(81)(__webpack_require__(92).getDataID(record), storageKey, nextIndex);
-	      __webpack_require__(47)(typeof nextID === 'string', 'RelayResponseNormalizer: Expected id of elements of field `%s` to ' + 'be strings.', storageKey);
+	      __webpack_require__(70)(__webpack_require__(82).getDataID(record), storageKey, nextIndex);
+	      __webpack_require__(45)(typeof nextID === 'string', 'RelayResponseNormalizer: Expected id of elements of field `%s` to ' + 'be strings.', storageKey);
 	
 	      nextIDs.push(nextID);
 	      var nextRecord = _this2._recordSource.get(nextID);
 	      if (!nextRecord) {
 	        var typeName = field.concreteType || _this2._getRecordType(item);
-	        nextRecord = __webpack_require__(92).create(nextID, typeName);
+	        nextRecord = __webpack_require__(82).create(nextID, typeName);
 	        _this2._recordSource.set(nextID, nextRecord);
-	      } else if (true) {
+	      } else if (false) {
 	        _this2._validateRecordType(nextRecord, field, item);
 	      }
 	      _this2._traverseSelections(field.selections, nextRecord, item);
 	    });
-	    __webpack_require__(92).setLinkedRecordIDs(record, storageKey, nextIDs);
+	    __webpack_require__(82).setLinkedRecordIDs(record, storageKey, nextIDs);
 	  };
 	
 	  /**
@@ -3022,7 +3112,7 @@ webpackJsonp([0],[
 	
 	  RelayResponseNormalizer.prototype._validateRecordType = function _validateRecordType(record, field, payload) {
 	    var typeName = field.concreteType || this._getRecordType(payload);
-	    __webpack_require__(44)(__webpack_require__(92).getType(record) === typeName, 'RelayResponseNormalizer: Invalid record `%s`. Expected %s to be ' + 'be consistent, but the record was assigned conflicting types `%s` ' + 'and `%s`. The GraphQL server likely violated the globally unique ' + 'id requirement by returning the same id for different objects.', __webpack_require__(92).getDataID(record), TYPENAME_KEY, __webpack_require__(92).getType(record), typeName);
+	    __webpack_require__(71)(__webpack_require__(82).getType(record) === typeName, 'RelayResponseNormalizer: Invalid record `%s`. Expected %s to be ' + 'be consistent, but the record was assigned conflicting types `%s` ' + 'and `%s`. The GraphQL server likely violated the globally unique ' + 'id requirement by returning the same id for different objects.', __webpack_require__(82).getDataID(record), TYPENAME_KEY, __webpack_require__(82).getType(record), typeName);
 	  };
 	
 	  return RelayResponseNormalizer;
@@ -3031,12 +3121,12 @@ webpackJsonp([0],[
 	// eslint-disable-next-line no-func-assign
 	
 	
-	normalize = __webpack_require__(100).instrument('RelayResponseNormalizer.normalize', normalize);
+	normalize = __webpack_require__(90).instrument('RelayResponseNormalizer.normalize', normalize);
 	
 	module.exports = { normalize: normalize };
 
 /***/ },
-/* 99 */
+/* 89 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -3073,13 +3163,13 @@ webpackJsonp([0],[
 	      }
 	    }
 	  }
-	  return filtered ? fieldName + __webpack_require__(87)(filtered) : fieldName;
+	  return filtered ? fieldName + __webpack_require__(77)(filtered) : fieldName;
 	}
 	
 	module.exports = formatStorageKey;
 
 /***/ },
-/* 100 */
+/* 90 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -3103,9 +3193,9 @@ webpackJsonp([0],[
 	};
 	
 	var NOT_INVOKED = {};
-	var defaultProfiler = { stop: __webpack_require__(45) };
+	var defaultProfiler = { stop: __webpack_require__(46) };
 	var shouldInstrument = function shouldInstrument(name) {
-	  if (true) {
+	  if (false) {
 	    return true;
 	  }
 	  return name.charAt(0) !== '@';
@@ -3182,8 +3272,8 @@ webpackJsonp([0],[
 	   */
 	  instrument: function instrument(name, originalFunction) {
 	    if (!shouldInstrument(name)) {
-	      originalFunction.attachHandler = __webpack_require__(45);
-	      originalFunction.detachHandler = __webpack_require__(45);
+	      originalFunction.attachHandler = __webpack_require__(46);
+	      originalFunction.detachHandler = __webpack_require__(46);
 	      return originalFunction;
 	    }
 	    if (!aggregateHandlersByName.hasOwnProperty(name)) {
@@ -3227,7 +3317,7 @@ webpackJsonp([0],[
 	      handlers.push(handler);
 	    };
 	    instrumentedCallback.detachHandler = function (handler) {
-	      __webpack_require__(101)(handlers, handler);
+	      __webpack_require__(91)(handlers, handler);
 	    };
 	    instrumentedCallback.displayName = '(instrumented ' + name + ')';
 	    return instrumentedCallback;
@@ -3266,7 +3356,7 @@ webpackJsonp([0],[
 	  detachAggregateHandler: function detachAggregateHandler(name, handler) {
 	    if (shouldInstrument(name)) {
 	      if (aggregateHandlersByName.hasOwnProperty(name)) {
-	        __webpack_require__(101)(aggregateHandlersByName[name], handler);
+	        __webpack_require__(91)(aggregateHandlersByName[name], handler);
 	      }
 	    }
 	  },
@@ -3331,7 +3421,7 @@ webpackJsonp([0],[
 	  detachProfileHandler: function detachProfileHandler(name, handler) {
 	    if (shouldInstrument(name)) {
 	      if (profileHandlersByName.hasOwnProperty(name)) {
-	        __webpack_require__(101)(profileHandlersByName[name], handler);
+	        __webpack_require__(91)(profileHandlersByName[name], handler);
 	      }
 	    }
 	  }
@@ -3340,8 +3430,8 @@ webpackJsonp([0],[
 	module.exports = RelayProfiler;
 
 /***/ },
-/* 101 */,
-/* 102 */
+/* 91 */,
+/* 92 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -3357,7 +3447,7 @@ webpackJsonp([0],[
 	
 	'use strict';
 	
-	var _classCallCheck3 = _interopRequireDefault(__webpack_require__(73));
+	var _classCallCheck3 = _interopRequireDefault(__webpack_require__(62));
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 	
@@ -3386,31 +3476,31 @@ webpackJsonp([0],[
 	
 	  RelayRecordProxy.prototype.getType = function getType() {
 	    var type = this._mutator.getType(this._dataID);
-	    __webpack_require__(47)(type != null, 'RelayRecordProxy: Cannot get the type of deleted record `%s`.', this._dataID);
+	    __webpack_require__(45)(type != null, 'RelayRecordProxy: Cannot get the type of deleted record `%s`.', this._dataID);
 	    return type;
 	  };
 	
 	  RelayRecordProxy.prototype.getValue = function getValue(name, args) {
-	    var storageKey = args ? __webpack_require__(99)(name, args) : name;
+	    var storageKey = args ? __webpack_require__(89)(name, args) : name;
 	    return this._mutator.getValue(this._dataID, storageKey);
 	  };
 	
 	  RelayRecordProxy.prototype.setValue = function setValue(value, name, args) {
-	    __webpack_require__(47)(isValidLeafValue(value), 'RelayRecordProxy#setValue(): Expected a scalar or array of scalars, ' + 'got `%s`.', JSON.stringify(value));
-	    var storageKey = args ? __webpack_require__(99)(name, args) : name;
+	    __webpack_require__(45)(isValidLeafValue(value), 'RelayRecordProxy#setValue(): Expected a scalar or array of scalars, ' + 'got `%s`.', JSON.stringify(value));
+	    var storageKey = args ? __webpack_require__(89)(name, args) : name;
 	    this._mutator.setValue(this._dataID, storageKey, value);
 	    return this;
 	  };
 	
 	  RelayRecordProxy.prototype.getLinkedRecord = function getLinkedRecord(name, args) {
-	    var storageKey = args ? __webpack_require__(99)(name, args) : name;
+	    var storageKey = args ? __webpack_require__(89)(name, args) : name;
 	    var linkedID = this._mutator.getLinkedRecordID(this._dataID, storageKey);
 	    return linkedID != null ? this._source.get(linkedID) : linkedID;
 	  };
 	
 	  RelayRecordProxy.prototype.setLinkedRecord = function setLinkedRecord(record, name, args) {
-	    __webpack_require__(47)(record instanceof RelayRecordProxy, 'RelayRecordProxy#setLinkedRecord(): Expected a record, got `%s`.', record);
-	    var storageKey = args ? __webpack_require__(99)(name, args) : name;
+	    __webpack_require__(45)(record instanceof RelayRecordProxy, 'RelayRecordProxy#setLinkedRecord(): Expected a record, got `%s`.', record);
+	    var storageKey = args ? __webpack_require__(89)(name, args) : name;
 	    var linkedID = record.getDataID();
 	    this._mutator.setLinkedRecordID(this._dataID, storageKey, linkedID);
 	    return this;
@@ -3419,8 +3509,8 @@ webpackJsonp([0],[
 	  RelayRecordProxy.prototype.getOrCreateLinkedRecord = function getOrCreateLinkedRecord(name, typeName, args) {
 	    var linkedRecord = this.getLinkedRecord(name, args);
 	    if (!linkedRecord) {
-	      var storageKey = args ? __webpack_require__(99)(name, args) : name;
-	      var clientID = __webpack_require__(81)(this.getDataID(), storageKey);
+	      var storageKey = args ? __webpack_require__(89)(name, args) : name;
+	      var clientID = __webpack_require__(70)(this.getDataID(), storageKey);
 	      linkedRecord = this._source.create(clientID, typeName);
 	      this.setLinkedRecord(linkedRecord, name, args);
 	    }
@@ -3430,7 +3520,7 @@ webpackJsonp([0],[
 	  RelayRecordProxy.prototype.getLinkedRecords = function getLinkedRecords(name, args) {
 	    var _this = this;
 	
-	    var storageKey = args ? __webpack_require__(99)(name, args) : name;
+	    var storageKey = args ? __webpack_require__(89)(name, args) : name;
 	    var linkedIDs = this._mutator.getLinkedRecordIDs(this._dataID, storageKey);
 	    if (linkedIDs == null) {
 	      return linkedIDs;
@@ -3441,8 +3531,8 @@ webpackJsonp([0],[
 	  };
 	
 	  RelayRecordProxy.prototype.setLinkedRecords = function setLinkedRecords(records, name, args) {
-	    __webpack_require__(47)(Array.isArray(records), 'RelayRecordProxy#setLinkedRecords(): Expected records to be an array, got `%s`.', records);
-	    var storageKey = args ? __webpack_require__(99)(name, args) : name;
+	    __webpack_require__(45)(Array.isArray(records), 'RelayRecordProxy#setLinkedRecords(): Expected records to be an array, got `%s`.', records);
+	    var storageKey = args ? __webpack_require__(89)(name, args) : name;
 	    var linkedIDs = records.map(function (record) {
 	      return record && record.getDataID();
 	    });
@@ -3460,7 +3550,7 @@ webpackJsonp([0],[
 	module.exports = RelayRecordProxy;
 
 /***/ },
-/* 103 */
+/* 93 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -3476,20 +3566,20 @@ webpackJsonp([0],[
 	
 	'use strict';
 	
-	var _classCallCheck3 = _interopRequireDefault(__webpack_require__(73));
+	var _classCallCheck3 = _interopRequireDefault(__webpack_require__(62));
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 	
-	var CONDITION = __webpack_require__(86).CONDITION,
-	    FRAGMENT_SPREAD = __webpack_require__(86).FRAGMENT_SPREAD,
-	    INLINE_FRAGMENT = __webpack_require__(86).INLINE_FRAGMENT,
-	    LINKED_FIELD = __webpack_require__(86).LINKED_FIELD,
-	    SCALAR_FIELD = __webpack_require__(86).SCALAR_FIELD;
+	var CONDITION = __webpack_require__(76).CONDITION,
+	    FRAGMENT_SPREAD = __webpack_require__(76).FRAGMENT_SPREAD,
+	    INLINE_FRAGMENT = __webpack_require__(76).INLINE_FRAGMENT,
+	    LINKED_FIELD = __webpack_require__(76).LINKED_FIELD,
+	    SCALAR_FIELD = __webpack_require__(76).SCALAR_FIELD;
 	
-	var FRAGMENTS_KEY = __webpack_require__(85).FRAGMENTS_KEY,
-	    ID_KEY = __webpack_require__(85).ID_KEY,
-	    getArgumentValues = __webpack_require__(85).getArgumentValues,
-	    getStorageKey = __webpack_require__(85).getStorageKey;
+	var FRAGMENTS_KEY = __webpack_require__(75).FRAGMENTS_KEY,
+	    ID_KEY = __webpack_require__(75).ID_KEY,
+	    getArgumentValues = __webpack_require__(75).getArgumentValues,
+	    getStorageKey = __webpack_require__(75).getStorageKey;
 	
 	function read(recordSource, selector) {
 	  var dataID = selector.dataID,
@@ -3536,7 +3626,7 @@ webpackJsonp([0],[
 	  };
 	
 	  RelayReader.prototype._getVariableValue = function _getVariableValue(name) {
-	    __webpack_require__(47)(this._variables.hasOwnProperty(name), 'RelayReader(): Undefined variable `%s`.', name);
+	    __webpack_require__(45)(this._variables.hasOwnProperty(name), 'RelayReader(): Undefined variable `%s`.', name);
 	    return this._variables[name];
 	  };
 	
@@ -3558,14 +3648,14 @@ webpackJsonp([0],[
 	          _this._traverseSelections(selection.selections, record, data);
 	        }
 	      } else if (selection.kind === INLINE_FRAGMENT) {
-	        var typeName = __webpack_require__(92).getType(record);
+	        var typeName = __webpack_require__(82).getType(record);
 	        if (typeName != null && typeName === selection.type) {
 	          _this._traverseSelections(selection.selections, record, data);
 	        }
 	      } else if (selection.kind === FRAGMENT_SPREAD) {
 	        _this._createFragmentPointer(selection, record, data);
 	      } else {
-	        __webpack_require__(47)(false, 'RelayReader(): Unexpected ast kind `%s`.', selection.kind);
+	        __webpack_require__(45)(false, 'RelayReader(): Unexpected ast kind `%s`.', selection.kind);
 	      }
 	    });
 	  };
@@ -3573,14 +3663,14 @@ webpackJsonp([0],[
 	  RelayReader.prototype._readScalar = function _readScalar(field, record, data) {
 	    var applicationName = field.alias || field.name;
 	    var storageKey = getStorageKey(field, this._variables);
-	    var value = __webpack_require__(92).getValue(record, storageKey);
+	    var value = __webpack_require__(82).getValue(record, storageKey);
 	    data[applicationName] = value;
 	  };
 	
 	  RelayReader.prototype._readLink = function _readLink(field, record, data) {
 	    var applicationName = field.alias || field.name;
 	    var storageKey = getStorageKey(field, this._variables);
-	    var linkedID = __webpack_require__(92).getLinkedRecordID(record, storageKey);
+	    var linkedID = __webpack_require__(82).getLinkedRecordID(record, storageKey);
 	
 	    if (linkedID == null) {
 	      data[applicationName] = linkedID;
@@ -3588,7 +3678,7 @@ webpackJsonp([0],[
 	    }
 	
 	    var prevData = data[applicationName];
-	    __webpack_require__(47)(prevData == null || typeof prevData === 'object', 'RelayReader(): Expected data for field `%s` on record `%s` ' + 'to be an object, got `%s`.', applicationName, __webpack_require__(92).getDataID(record), prevData);
+	    __webpack_require__(45)(prevData == null || typeof prevData === 'object', 'RelayReader(): Expected data for field `%s` on record `%s` ' + 'to be an object, got `%s`.', applicationName, __webpack_require__(82).getDataID(record), prevData);
 	    data[applicationName] = this._traverse(field, linkedID, prevData);
 	  };
 	
@@ -3597,7 +3687,7 @@ webpackJsonp([0],[
 	
 	    var applicationName = field.alias || field.name;
 	    var storageKey = getStorageKey(field, this._variables);
-	    var linkedIDs = __webpack_require__(92).getLinkedRecordIDs(record, storageKey);
+	    var linkedIDs = __webpack_require__(82).getLinkedRecordIDs(record, storageKey);
 	
 	    if (linkedIDs == null) {
 	      data[applicationName] = linkedIDs;
@@ -3605,7 +3695,7 @@ webpackJsonp([0],[
 	    }
 	
 	    var prevData = data[applicationName];
-	    __webpack_require__(47)(prevData == null || Array.isArray(prevData), 'RelayReader(): Expected data for field `%s` on record `%s` ' + 'to be an array, got `%s`.', applicationName, __webpack_require__(92).getDataID(record), prevData);
+	    __webpack_require__(45)(prevData == null || Array.isArray(prevData), 'RelayReader(): Expected data for field `%s` on record `%s` ' + 'to be an array, got `%s`.', applicationName, __webpack_require__(82).getDataID(record), prevData);
 	    var linkedArray = prevData || [];
 	    linkedIDs.forEach(function (linkedID, nextIndex) {
 	      if (linkedID == null) {
@@ -3613,7 +3703,7 @@ webpackJsonp([0],[
 	        return;
 	      }
 	      var prevItem = linkedArray[nextIndex];
-	      __webpack_require__(47)(prevItem == null || typeof prevItem === 'object', 'RelayReader(): Expected data for field `%s` on record `%s` ' + 'to be an object, got `%s`.', applicationName, __webpack_require__(92).getDataID(record), prevItem);
+	      __webpack_require__(45)(prevItem == null || typeof prevItem === 'object', 'RelayReader(): Expected data for field `%s` on record `%s` ' + 'to be an object, got `%s`.', applicationName, __webpack_require__(82).getDataID(record), prevItem);
 	      var linkedItem = _this2._traverse(field, linkedID, prevItem);
 	      linkedArray[nextIndex] = linkedItem;
 	    });
@@ -3625,8 +3715,8 @@ webpackJsonp([0],[
 	    if (!fragmentPointers) {
 	      fragmentPointers = data[FRAGMENTS_KEY] = {};
 	    }
-	    __webpack_require__(47)(typeof fragmentPointers === 'object' && fragmentPointers, 'RelayReader: Expected fragment spread data to be an object, got `%s`.', fragmentPointers);
-	    data[ID_KEY] = data[ID_KEY] || __webpack_require__(92).getDataID(record);
+	    __webpack_require__(45)(typeof fragmentPointers === 'object' && fragmentPointers, 'RelayReader: Expected fragment spread data to be an object, got `%s`.', fragmentPointers);
+	    data[ID_KEY] = data[ID_KEY] || __webpack_require__(82).getDataID(record);
 	    var variables = fragmentSpread.args ? getArgumentValues(fragmentSpread.args, this._variables) : {};
 	    fragmentPointers[fragmentSpread.name] = variables;
 	  };
@@ -3637,7 +3727,7 @@ webpackJsonp([0],[
 	module.exports = { read: read };
 
 /***/ },
-/* 104 */
+/* 94 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -3653,14 +3743,14 @@ webpackJsonp([0],[
 	
 	'use strict';
 	
-	var _require = __webpack_require__(105),
+	var _require = __webpack_require__(95),
 	    getFragment = _require.getFragment,
 	    getOperation = _require.getOperation;
 	
-	var _require2 = __webpack_require__(106),
+	var _require2 = __webpack_require__(96),
 	    createOperationSelector = _require2.createOperationSelector;
 	
-	var _require3 = __webpack_require__(108),
+	var _require3 = __webpack_require__(98),
 	    areEqualSelectors = _require3.areEqualSelectors,
 	    getDataIDsFromObject = _require3.getDataIDsFromObject,
 	    getSelector = _require3.getSelector,
@@ -3669,15 +3759,15 @@ webpackJsonp([0],[
 	    getVariablesFromObject = _require3.getVariablesFromObject;
 	
 	function createFragmentSpecResolver(context, containerName, fragments, props, callback) {
-	  if (true) {
+	  if (false) {
 	    var fragmentNames = Object.keys(fragments);
 	    fragmentNames.forEach(function (fragmentName) {
 	      var propValue = props[fragmentName];
-	      __webpack_require__(44)(propValue !== undefined, 'createFragmentSpecResolver: Expected prop `%s` to be supplied to `%s`, but ' + 'got `undefined`. Pass an explicit `null` if this is intentional.', fragmentName, containerName);
+	      require('fbjs/lib/warning')(propValue !== undefined, 'createFragmentSpecResolver: Expected prop `%s` to be supplied to `%s`, but ' + 'got `undefined`. Pass an explicit `null` if this is intentional.', fragmentName, containerName);
 	    });
 	  }
 	
-	  return new (__webpack_require__(109))(context, fragments, props, callback);
+	  return new (__webpack_require__(99))(context, fragments, props, callback);
 	}
 	
 	module.exports = {
@@ -3694,7 +3784,7 @@ webpackJsonp([0],[
 	};
 
 /***/ },
-/* 105 */
+/* 95 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -3718,8 +3808,15 @@ webpackJsonp([0],[
 	
 	// The type of a graphql`...` tagged template expression.
 	function graphql(strings) {
-	  __webpack_require__(47)(false, 'graphql: Unexpected invocation at runtime. Either the Babel transform ' + 'was not set up, or it failed to identify this call site. Make sure it ' + 'is being used verbatim as `graphql`.');
+	  __webpack_require__(45)(false, 'graphql: Unexpected invocation at runtime. Either the Babel transform ' + 'was not set up, or it failed to identify this call site. Make sure it ' + 'is being used verbatim as `graphql`.');
 	}
+	
+	/**
+	 * Variant of the `graphql` tag that enables experimental features.
+	 */
+	graphql.experimental = function (strings) {
+	  __webpack_require__(45)(false, 'graphql.experimental: Unexpected invocation at runtime. Either the ' + 'Babel transform was not set up, or it failed to identify this call ' + 'site. Make sure it is being used verbatim as `graphql`.');
+	};
 	
 	function getNode(taggedNode) {
 	  var fn = typeof taggedNode === 'function' ? taggedNode : taggedNode.modern;
@@ -3732,13 +3829,13 @@ webpackJsonp([0],[
 	
 	function getFragment(taggedNode) {
 	  var fragment = getNode(taggedNode);
-	  __webpack_require__(47)(typeof fragment === 'object' && fragment !== null && fragment.kind === 'Fragment', 'RelayModernGraphQLTag: Expected a fragment, got `%s`.', JSON.stringify(fragment));
+	  __webpack_require__(45)(typeof fragment === 'object' && fragment !== null && fragment.kind === 'Fragment', 'RelayModernGraphQLTag: Expected a fragment, got `%s`.', JSON.stringify(fragment));
 	  return fragment;
 	}
 	
 	function getOperation(taggedNode) {
 	  var operation = getNode(taggedNode);
-	  __webpack_require__(47)(typeof operation === 'object' && operation !== null && operation.kind === 'Operation', 'RelayModernGraphQLTag: Expected an operation, got `%s`.', JSON.stringify(operation));
+	  __webpack_require__(45)(typeof operation === 'object' && operation !== null && operation.kind === 'Batch', 'RelayModernGraphQLTag: Expected an operation, got `%s`.', JSON.stringify(operation));
 	  return operation;
 	}
 	
@@ -3749,7 +3846,7 @@ webpackJsonp([0],[
 	};
 
 /***/ },
-/* 106 */
+/* 96 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -3765,10 +3862,10 @@ webpackJsonp([0],[
 	
 	'use strict';
 	
-	var _require = __webpack_require__(107),
+	var _require = __webpack_require__(97),
 	    getOperationVariables = _require.getOperationVariables;
 	
-	var _require2 = __webpack_require__(85),
+	var _require2 = __webpack_require__(75),
 	    ROOT_ID = _require2.ROOT_ID;
 	
 	/**
@@ -3789,7 +3886,7 @@ webpackJsonp([0],[
 	    node: operation,
 	    root: {
 	      dataID: dataID,
-	      node: operation,
+	      node: operation.query,
 	      variables: operationVariables
 	    },
 	    variables: operationVariables
@@ -3801,7 +3898,7 @@ webpackJsonp([0],[
 	};
 
 /***/ },
-/* 107 */
+/* 97 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -3840,18 +3937,11 @@ webpackJsonp([0],[
 	        variables[definition.name] = definition.defaultValue;
 	        break;
 	      case 'RootArgument':
-	        if (!rootVariables.hasOwnProperty(definition.name)) {
-	          /*
-	           * A temporary fix to mute false alarm in cases where the root argument is stripped
-	           * off by the compiler due to a conditional directive, we do not need this argument
-	           * when tryiny to read the data from the store.
-	           */
-	          break;
-	        }
+	        __webpack_require__(45)(rootVariables.hasOwnProperty(definition.name), 'RelayConcreteVariables: Expected a defined query variable for `$%s` ' + 'in fragment `%s`.', definition.name, fragment.name);
 	        variables[definition.name] = rootVariables[definition.name];
 	        break;
 	      default:
-	        __webpack_require__(47)(false, 'RelayConcreteVariables: Unexpected node kind `%s` in fragment `%s`.', definition.kind, fragment.name);
+	        __webpack_require__(45)(false, 'RelayConcreteVariables: Unexpected node kind `%s` in fragment `%s`.', definition.kind, fragment.name);
 	    }
 	  });
 	  return variables || argumentVariables;
@@ -3865,14 +3955,14 @@ webpackJsonp([0],[
 	 */
 	function getOperationVariables(operation, variables) {
 	  var operationVariables = {};
-	  operation.argumentDefinitions.forEach(function (def) {
+	  operation.query.argumentDefinitions.forEach(function (def) {
 	    var value = def.defaultValue;
 	    if (variables[def.name] != null) {
 	      value = variables[def.name];
 	    }
 	    operationVariables[def.name] = value;
-	    if (true) {
-	      __webpack_require__(44)(value != null || def.type[def.type.length - 1] !== '!', 'RelayConcreteVariables: Expected a value for non-nullable variable ' + '`$%s: %s` on operation `%s`, got `%s`. Make sure you supply a ' + 'value for all non-nullable arguments.', def.name, def.type, operation.name, JSON.stringify(value));
+	    if (false) {
+	      require('fbjs/lib/warning')(value != null || def.type[def.type.length - 1] !== '!', 'RelayConcreteVariables: Expected a value for non-nullable variable ' + '`$%s: %s` on operation `%s`, got `%s`. Make sure you supply a ' + 'value for all non-nullable arguments.', def.name, def.type, operation.name, JSON.stringify(value));
 	    }
 	  });
 	  return operationVariables;
@@ -3884,7 +3974,7 @@ webpackJsonp([0],[
 	};
 
 /***/ },
-/* 108 */
+/* 98 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -3900,10 +3990,10 @@ webpackJsonp([0],[
 	
 	'use strict';
 	
-	var _require = __webpack_require__(107),
+	var _require = __webpack_require__(97),
 	    getFragmentVariables = _require.getFragmentVariables;
 	
-	var _require2 = __webpack_require__(85),
+	var _require2 = __webpack_require__(75),
 	    FRAGMENTS_KEY = _require2.FRAGMENTS_KEY,
 	    ID_KEY = _require2.ID_KEY;
 	
@@ -3937,7 +4027,7 @@ webpackJsonp([0],[
 	 * ```
 	 */
 	function getSelector(operationVariables, fragment, item) {
-	  __webpack_require__(47)(typeof item === 'object' && item !== null && !Array.isArray(item), 'RelayModernSelector: Expected value for fragment `%s` to be an object, got ' + '`%s`.', fragment.name, JSON.stringify(item));
+	  __webpack_require__(45)(typeof item === 'object' && item !== null && !Array.isArray(item), 'RelayModernSelector: Expected value for fragment `%s` to be an object, got ' + '`%s`.', fragment.name, JSON.stringify(item));
 	  var dataID = item[ID_KEY];
 	  var fragments = item[FRAGMENTS_KEY];
 	  if (typeof dataID === 'string' && typeof fragments === 'object' && fragments !== null && typeof fragments[fragment.name] === 'object' && fragments[fragment.name] !== null) {
@@ -3949,7 +4039,7 @@ webpackJsonp([0],[
 	      variables: fragmentVariables
 	    };
 	  }
-	  __webpack_require__(44)(false, 'RelayModernSelector: Expected object to contain data for fragment `%s`, got ' + '`%s`. Make sure that the parent operation/fragment included fragment ' + '`...%s` without `@relay(mask: false)`.', fragment.name, JSON.stringify(item), fragment.name);
+	  __webpack_require__(71)(false, 'RelayModernSelector: Expected object to contain data for fragment `%s`, got ' + '`%s`. Make sure that the parent operation/fragment included fragment ' + '`...%s` without `@relay(mask: false)`.', fragment.name, JSON.stringify(item), fragment.name);
 	  return null;
 	}
 	
@@ -3992,10 +4082,10 @@ webpackJsonp([0],[
 	      if (item == null) {
 	        selectors[_key] = item;
 	      } else if (fragment.metadata && fragment.metadata.plural === true) {
-	        __webpack_require__(47)(Array.isArray(item), 'RelayModernSelector: Expected value for key `%s` to be an array, got `%s`. ' + 'Remove `@relay(plural: true)` from fragment `%s` to allow the prop to be an object.', _key, JSON.stringify(item), fragment.name);
+	        __webpack_require__(45)(Array.isArray(item), 'RelayModernSelector: Expected value for key `%s` to be an array, got `%s`. ' + 'Remove `@relay(plural: true)` from fragment `%s` to allow the prop to be an object.', _key, JSON.stringify(item), fragment.name);
 	        selectors[_key] = getSelectorList(operationVariables, fragment, item);
 	      } else {
-	        __webpack_require__(47)(!Array.isArray(item), 'RelayModernFragmentSpecResolver: Expected value for key `%s` to be an object, got `%s`. ' + 'Add `@relay(plural: true)` to fragment `%s` to allow the prop to be an array of items.', _key, JSON.stringify(item), fragment.name);
+	        __webpack_require__(45)(!Array.isArray(item), 'RelayModernFragmentSpecResolver: Expected value for key `%s` to be an object, got `%s`. ' + 'Add `@relay(plural: true)` to fragment `%s` to allow the prop to be an array of items.', _key, JSON.stringify(item), fragment.name);
 	        selectors[_key] = getSelector(operationVariables, fragment, item);
 	      }
 	    }
@@ -4021,10 +4111,10 @@ webpackJsonp([0],[
 	      if (item == null) {
 	        ids[_key2] = item;
 	      } else if (fragment.metadata && fragment.metadata.plural === true) {
-	        __webpack_require__(47)(Array.isArray(item), 'RelayModernSelector: Expected value for key `%s` to be an array, got `%s`. ' + 'Remove `@relay(plural: true)` from fragment `%s` to allow the prop to be an object.', _key2, JSON.stringify(item), fragment.name);
+	        __webpack_require__(45)(Array.isArray(item), 'RelayModernSelector: Expected value for key `%s` to be an array, got `%s`. ' + 'Remove `@relay(plural: true)` from fragment `%s` to allow the prop to be an object.', _key2, JSON.stringify(item), fragment.name);
 	        ids[_key2] = getDataIDs(fragment, item);
 	      } else {
-	        __webpack_require__(47)(!Array.isArray(item), 'RelayModernFragmentSpecResolver: Expected value for key `%s` to be an object, got `%s`. ' + 'Add `@relay(plural: true)` to fragment `%s` to allow the prop to be an array of items.', _key2, JSON.stringify(item), fragment.name);
+	        __webpack_require__(45)(!Array.isArray(item), 'RelayModernFragmentSpecResolver: Expected value for key `%s` to be an object, got `%s`. ' + 'Add `@relay(plural: true)` to fragment `%s` to allow the prop to be an array of items.', _key2, JSON.stringify(item), fragment.name);
 	        ids[_key2] = getDataID(fragment, item);
 	      }
 	    }
@@ -4051,12 +4141,12 @@ webpackJsonp([0],[
 	 * @internal
 	 */
 	function getDataID(fragment, item) {
-	  __webpack_require__(47)(typeof item === 'object' && item !== null && !Array.isArray(item), 'RelayModernSelector: Expected value for fragment `%s` to be an object, got ' + '`%s`.', fragment.name, JSON.stringify(item));
+	  __webpack_require__(45)(typeof item === 'object' && item !== null && !Array.isArray(item), 'RelayModernSelector: Expected value for fragment `%s` to be an object, got ' + '`%s`.', fragment.name, JSON.stringify(item));
 	  var dataID = item[ID_KEY];
 	  if (typeof dataID === 'string') {
 	    return dataID;
 	  }
-	  __webpack_require__(44)(false, 'RelayModernSelector: Expected object to contain data for fragment `%s`, got ' + '`%s`. Make sure that the parent operation/fragment included fragment ' + '`...%s` without `@relay(mask: false)`.', fragment.name, JSON.stringify(item), fragment.name);
+	  __webpack_require__(71)(false, 'RelayModernSelector: Expected object to contain data for fragment `%s`, got ' + '`%s`. Make sure that the parent operation/fragment included fragment ' + '`...%s` without `@relay(mask: false)`.', fragment.name, JSON.stringify(item), fragment.name);
 	  return null;
 	}
 	
@@ -4080,7 +4170,7 @@ webpackJsonp([0],[
 	        if (item == null) {
 	          return 'continue';
 	        } else if (fragment.metadata && fragment.metadata.plural === true) {
-	          __webpack_require__(47)(Array.isArray(item), 'RelayModernSelector: Expected value for key `%s` to be an array, got `%s`. ' + 'Remove `@relay(plural: true)` from fragment `%s` to allow the prop to be an object.', _key3, JSON.stringify(item), fragment.name);
+	          __webpack_require__(45)(Array.isArray(item), 'RelayModernSelector: Expected value for key `%s` to be an array, got `%s`. ' + 'Remove `@relay(plural: true)` from fragment `%s` to allow the prop to be an object.', _key3, JSON.stringify(item), fragment.name);
 	          item.forEach(function (value) {
 	            if (value != null) {
 	              var itemVariables = getVariables(operationVariables, fragment, value);
@@ -4090,7 +4180,7 @@ webpackJsonp([0],[
 	            }
 	          });
 	        } else {
-	          __webpack_require__(47)(!Array.isArray(item), 'RelayModernFragmentSpecResolver: Expected value for key `%s` to be an object, got `%s`. ' + 'Add `@relay(plural: true)` to fragment `%s` to allow the prop to be an array of items.', _key3, JSON.stringify(item), fragment.name);
+	          __webpack_require__(45)(!Array.isArray(item), 'RelayModernFragmentSpecResolver: Expected value for key `%s` to be an object, got `%s`. ' + 'Add `@relay(plural: true)` to fragment `%s` to allow the prop to be an array of items.', _key3, JSON.stringify(item), fragment.name);
 	          var itemVariables = getVariables(operationVariables, fragment, item);
 	          if (itemVariables) {
 	            Object.assign(variables, itemVariables);
@@ -4120,7 +4210,7 @@ webpackJsonp([0],[
 	 * different objects, even if they select the same fields.
 	 */
 	function areEqualSelectors(thisSelector, thatSelector) {
-	  return thisSelector.dataID === thatSelector.dataID && thisSelector.node === thatSelector.node && __webpack_require__(93)(thisSelector.variables, thatSelector.variables);
+	  return thisSelector.dataID === thatSelector.dataID && thisSelector.node === thatSelector.node && __webpack_require__(83)(thisSelector.variables, thatSelector.variables);
 	}
 	
 	module.exports = {
@@ -4133,7 +4223,7 @@ webpackJsonp([0],[
 	};
 
 /***/ },
-/* 109 */
+/* 99 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -4151,11 +4241,11 @@ webpackJsonp([0],[
 	
 	var _extends3 = _interopRequireDefault(__webpack_require__(1));
 	
-	var _classCallCheck3 = _interopRequireDefault(__webpack_require__(73));
+	var _classCallCheck3 = _interopRequireDefault(__webpack_require__(62));
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 	
-	var _require = __webpack_require__(108),
+	var _require = __webpack_require__(98),
 	    areEqualSelectors = _require.areEqualSelectors,
 	    getSelectorsFromObject = _require.getSelectorsFromObject;
 	
@@ -4227,7 +4317,7 @@ webpackJsonp([0],[
 	          } else {
 	            var prop = this._props[_key2];
 	            var _nextItem = prop !== undefined ? prop : null;
-	            if (nextData || !__webpack_require__(110)(_nextItem, prevItem)) {
+	            if (nextData || !__webpack_require__(100)(_nextItem, prevItem)) {
 	              nextData = nextData || (0, _extends3['default'])({}, prevData);
 	              nextData[_key2] = _nextItem;
 	            }
@@ -4255,14 +4345,14 @@ webpackJsonp([0],[
 	          if (resolver == null) {
 	            resolver = new SelectorListResolver(this._context.environment, selector, this._onChange);
 	          } else {
-	            __webpack_require__(47)(resolver instanceof SelectorListResolver, 'RelayModernFragmentSpecResolver: Expected prop `%s` to always be an array.', _key3);
+	            __webpack_require__(45)(resolver instanceof SelectorListResolver, 'RelayModernFragmentSpecResolver: Expected prop `%s` to always be an array.', _key3);
 	            resolver.setSelectors(selector);
 	          }
 	        } else {
 	          if (resolver == null) {
 	            resolver = new SelectorResolver(this._context.environment, selector, this._onChange);
 	          } else {
-	            __webpack_require__(47)(resolver instanceof SelectorResolver, 'RelayModernFragmentSpecResolver: Expected prop `%s` to always be an object.', _key3);
+	            __webpack_require__(45)(resolver instanceof SelectorResolver, 'RelayModernFragmentSpecResolver: Expected prop `%s` to always be an object.', _key3);
 	            resolver.setSelector(selector);
 	          }
 	        }
@@ -4283,16 +4373,6 @@ webpackJsonp([0],[
 	      }
 	    }
 	    this._stale = true;
-	  };
-	
-	  RelayModernFragmentSpecResolver.prototype.getVariables = function getVariables() {
-	    var variables = {};
-	    __webpack_require__(111)(this._resolvers, function (resolver) {
-	      if (resolver) {
-	        Object.assign(variables, resolver.getVariables());
-	      }
-	    });
-	    return variables;
 	  };
 	
 	  return RelayModernFragmentSpecResolver;
@@ -4344,10 +4424,6 @@ webpackJsonp([0],[
 	      variables: variables
 	    });
 	    this.setSelector(selector);
-	  };
-	
-	  SelectorResolver.prototype.getVariables = function getVariables() {
-	    return this._selector.variables;
 	  };
 	
 	  return SelectorResolver;
@@ -4436,13 +4512,6 @@ webpackJsonp([0],[
 	    this._stale = true;
 	  };
 	
-	  SelectorListResolver.prototype.getVariables = function getVariables() {
-	    if (this._resolvers.length > 0) {
-	      return this._resolvers[0].getVariables();
-	    }
-	    return {};
-	  };
-	
 	  return SelectorListResolver;
 	}();
 	
@@ -4453,7 +4522,7 @@ webpackJsonp([0],[
 	module.exports = RelayModernFragmentSpecResolver;
 
 /***/ },
-/* 110 */
+/* 100 */
 /***/ function(module, exports) {
 
 	/**
@@ -4484,8 +4553,7 @@ webpackJsonp([0],[
 	module.exports = isScalarAndEqual;
 
 /***/ },
-/* 111 */,
-/* 112 */
+/* 101 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -4501,24 +4569,25 @@ webpackJsonp([0],[
 	
 	'use strict';
 	
-	var _require = __webpack_require__(85),
+	var _extends3 = _interopRequireDefault(__webpack_require__(1));
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	
+	var _require = __webpack_require__(75),
 	    ROOT_ID = _require.ROOT_ID;
 	
-	function normalizePayload(payload) {
-	  var operation = payload.operation,
-	      variables = payload.variables,
-	      response = payload.response;
-	  var data = response.data,
-	      errors = response.errors;
+	function normalizePayload(operation, variables, payload) {
+	  var data = payload.data,
+	      errors = payload.errors;
 	
 	  if (data != null) {
-	    return __webpack_require__(97)({
+	    return __webpack_require__(87)({
 	      dataID: ROOT_ID,
-	      node: operation,
-	      variables: variables
+	      node: operation.query,
+	      variables: payload.rerunVariables ? (0, _extends3['default'])({}, variables, payload.rerunVariables) : variables
 	    }, data, errors, { handleStrippedNulls: true });
 	  }
-	  var error = __webpack_require__(113).create('RelayNetwork', 'No data returned for operation `%s`, got error(s):\n%s\n\nSee the error ' + '`source` property for more information.', operation.name, errors ? errors.map(function (_ref) {
+	  var error = __webpack_require__(102).create('RelayNetwork', 'No data returned for operation `%s`, got error(s):\n%s\n\nSee the error ' + '`source` property for more information.', operation.name, errors ? errors.map(function (_ref) {
 	    var message = _ref.message;
 	    return message;
 	  }).join('\n') : '(No errors)');
@@ -4529,7 +4598,7 @@ webpackJsonp([0],[
 	module.exports = normalizePayload;
 
 /***/ },
-/* 113 */
+/* 102 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -4545,7 +4614,7 @@ webpackJsonp([0],[
 	
 	'use strict';
 	
-	var _toConsumableArray3 = _interopRequireDefault(__webpack_require__(114));
+	var _toConsumableArray3 = _interopRequireDefault(__webpack_require__(103));
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 	
@@ -4575,7 +4644,7 @@ webpackJsonp([0],[
 	 * @private
 	 */
 	function createError(type, name, format, args) {
-	  var error = new Error(__webpack_require__(137).apply(undefined, [format].concat((0, _toConsumableArray3['default'])(args))));
+	  var error = new Error(__webpack_require__(126).apply(undefined, [format].concat((0, _toConsumableArray3['default'])(args))));
 	  error.name = name;
 	  error.type = type;
 	  error.framesToPop = 2;
@@ -4585,6 +4654,17 @@ webpackJsonp([0],[
 	module.exports = RelayError;
 
 /***/ },
+/* 103 */,
+/* 104 */,
+/* 105 */,
+/* 106 */,
+/* 107 */,
+/* 108 */,
+/* 109 */,
+/* 110 */,
+/* 111 */,
+/* 112 */,
+/* 113 */,
 /* 114 */,
 /* 115 */,
 /* 116 */,
@@ -4598,18 +4678,7 @@ webpackJsonp([0],[
 /* 124 */,
 /* 125 */,
 /* 126 */,
-/* 127 */,
-/* 128 */,
-/* 129 */,
-/* 130 */,
-/* 131 */,
-/* 132 */,
-/* 133 */,
-/* 134 */,
-/* 135 */,
-/* 136 */,
-/* 137 */,
-/* 138 */
+/* 127 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -4625,22 +4694,22 @@ webpackJsonp([0],[
 	
 	'use strict';
 	
-	var _classCallCheck3 = _interopRequireDefault(__webpack_require__(73));
+	var _classCallCheck3 = _interopRequireDefault(__webpack_require__(62));
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 	
-	var _require = __webpack_require__(90),
+	var _require = __webpack_require__(80),
 	    EXISTENT = _require.EXISTENT,
 	    UNKNOWN = _require.UNKNOWN;
 	
-	var CONDITION = __webpack_require__(86).CONDITION,
-	    INLINE_FRAGMENT = __webpack_require__(86).INLINE_FRAGMENT,
-	    LINKED_FIELD = __webpack_require__(86).LINKED_FIELD,
-	    LINKED_HANDLE = __webpack_require__(86).LINKED_HANDLE,
-	    SCALAR_FIELD = __webpack_require__(86).SCALAR_FIELD;
+	var CONDITION = __webpack_require__(76).CONDITION,
+	    INLINE_FRAGMENT = __webpack_require__(76).INLINE_FRAGMENT,
+	    LINKED_FIELD = __webpack_require__(76).LINKED_FIELD,
+	    LINKED_HANDLE = __webpack_require__(76).LINKED_HANDLE,
+	    SCALAR_FIELD = __webpack_require__(76).SCALAR_FIELD;
 	
-	var getStorageKey = __webpack_require__(85).getStorageKey,
-	    getArgumentValues = __webpack_require__(85).getArgumentValues;
+	var getStorageKey = __webpack_require__(75).getStorageKey,
+	    getArgumentValues = __webpack_require__(75).getArgumentValues;
 	
 	/**
 	 * Synchronously check whether the records required to fulfill the
@@ -4675,7 +4744,7 @@ webpackJsonp([0],[
 	    this._variables = variables;
 	    this._recordWasMissing = false;
 	    this._handlers = handlers;
-	    this._mutator = new (__webpack_require__(91))(source, target);
+	    this._mutator = new (__webpack_require__(81))(source, target);
 	  }
 	
 	  RelayDataLoader.prototype.check = function check(node, dataID) {
@@ -4684,7 +4753,7 @@ webpackJsonp([0],[
 	  };
 	
 	  RelayDataLoader.prototype._getVariableValue = function _getVariableValue(name) {
-	    __webpack_require__(47)(this._variables.hasOwnProperty(name), 'RelayAsyncLoader(): Undefined variable `%s`.', name);
+	    __webpack_require__(45)(this._variables.hasOwnProperty(name), 'RelayAsyncLoader(): Undefined variable `%s`.', name);
 	    return this._variables[name];
 	  };
 	
@@ -4863,7 +4932,7 @@ webpackJsonp([0],[
 	        case LINKED_HANDLE:
 	          // Handles have no selections themselves; traverse the original field
 	          // where the handle was set-up instead.
-	          var handleField = __webpack_require__(139)(selection, selections, _this2._variables);
+	          var handleField = __webpack_require__(128)(selection, selections, _this2._variables);
 	          if (handleField.plural) {
 	            _this2._preparePluralLink(handleField, dataID);
 	          } else {
@@ -4871,7 +4940,7 @@ webpackJsonp([0],[
 	          }
 	          break;
 	        default:
-	          __webpack_require__(47)(selection.kind === SCALAR_FIELD, 'RelayAsyncLoader(): Unexpected ast kind `%s`.', selection.kind);
+	          __webpack_require__(45)(selection.kind === SCALAR_FIELD, 'RelayAsyncLoader(): Unexpected ast kind `%s`.', selection.kind);
 	      }
 	      return !_this2._done;
 	    });
@@ -4932,7 +5001,7 @@ webpackJsonp([0],[
 	};
 
 /***/ },
-/* 139 */
+/* 128 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -4952,10 +5021,10 @@ webpackJsonp([0],[
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 	
-	var _require = __webpack_require__(85),
+	var _require = __webpack_require__(75),
 	    getHandleFilterValues = _require.getHandleFilterValues;
 	
-	var LINKED_FIELD = __webpack_require__(86).LINKED_FIELD;
+	var LINKED_FIELD = __webpack_require__(76).LINKED_FIELD;
 	
 	/**
 	 * @private
@@ -4968,13 +5037,13 @@ webpackJsonp([0],[
 	
 	function cloneRelayHandleSourceField(handleField, selections, variables) {
 	  var sourceField = selections.find(function (source) {
-	    return source.kind === LINKED_FIELD && source.name === handleField.name && source.alias === handleField.alias && __webpack_require__(93)(source.args, handleField.args);
+	    return source.kind === LINKED_FIELD && source.name === handleField.name && source.alias === handleField.alias && __webpack_require__(83)(source.args, handleField.args);
 	  });
-	  __webpack_require__(47)(sourceField && sourceField.kind === LINKED_FIELD, 'cloneRelayHandleSourceField: Expected a corresponding source field for ' + 'handle `%s`.', handleField.handle);
-	  var handleKey = __webpack_require__(82)(handleField.handle, handleField.key, handleField.name);
+	  __webpack_require__(45)(sourceField && sourceField.kind === LINKED_FIELD, 'cloneRelayHandleSourceField: Expected a corresponding source field for ' + 'handle `%s`.', handleField.handle);
+	  var handleKey = __webpack_require__(72)(handleField.handle, handleField.key, handleField.name);
 	  if (handleField.filters && handleField.filters.length > 0) {
 	    var filterValues = getHandleFilterValues(handleField.args || [], handleField.filters, variables);
-	    handleKey = __webpack_require__(99)(handleKey, filterValues);
+	    handleKey = __webpack_require__(89)(handleKey, filterValues);
 	  }
 	
 	  var clonedField = (0, _extends3['default'])({}, sourceField, {
@@ -4988,7 +5057,7 @@ webpackJsonp([0],[
 	module.exports = cloneRelayHandleSourceField;
 
 /***/ },
-/* 140 */
+/* 129 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -5004,7 +5073,7 @@ webpackJsonp([0],[
 	
 	'use strict';
 	
-	var _require = __webpack_require__(141),
+	var _require = __webpack_require__(130),
 	    convertFetch = _require.convertFetch,
 	    convertSubscribe = _require.convertSubscribe;
 	
@@ -5017,23 +5086,21 @@ webpackJsonp([0],[
 	  var observeFetch = convertFetch(fetchFn);
 	  var observeSubscribe = subscribeFn ? convertSubscribe(subscribeFn) : undefined;
 	
-	  function execute(_request, variables, cacheConfig, uploadables) {
-	    // Const so Flow can refine.
-	    var request = _request;
-	    if (request.kind === 'Operation' && request.operation === 'subscription') {
-	      __webpack_require__(47)(observeSubscribe, 'RelayNetwork: This network layer does not support Subscriptions. ' + 'To use Subscriptions, provide a custom network layer.');
+	  function execute(operation, variables, cacheConfig, uploadables) {
+	    if (operation.query.operation === 'subscription') {
+	      __webpack_require__(45)(observeSubscribe, 'RelayNetwork: This network layer does not support Subscriptions. ' + 'To use Subscriptions, provide a custom network layer.');
 	
-	      __webpack_require__(47)(!uploadables, 'RelayNetwork: Cannot provide uploadables while subscribing.');
-	      return observeSubscribe(request, variables, cacheConfig);
+	      __webpack_require__(45)(!uploadables, 'RelayNetwork: Cannot provide uploadables while subscribing.');
+	      return observeSubscribe(operation, variables, cacheConfig);
 	    }
 	
 	    var pollInterval = cacheConfig.poll;
 	    if (pollInterval != null) {
-	      __webpack_require__(47)(!uploadables, 'RelayNetwork: Cannot provide uploadables while polling.');
-	      return observeFetch(request, variables, { force: true }).poll(pollInterval);
+	      __webpack_require__(45)(!uploadables, 'RelayNetwork: Cannot provide uploadables while polling.');
+	      return observeFetch(operation, variables, { force: true }).poll(pollInterval);
 	    }
 	
-	    return observeFetch(request, variables, cacheConfig, uploadables);
+	    return observeFetch(operation, variables, cacheConfig, uploadables);
 	  }
 	
 	  return { execute: execute };
@@ -5042,7 +5109,7 @@ webpackJsonp([0],[
 	module.exports = { create: create };
 
 /***/ },
-/* 141 */
+/* 130 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -5062,19 +5129,17 @@ webpackJsonp([0],[
 	 * Converts a FetchFunction into an ExecuteFunction for use by RelayNetwork.
 	 */
 	function convertFetch(fn) {
-	  return function fetch(request, variables, cacheConfig, uploadables) {
-	    var result = fn(request, variables, cacheConfig, uploadables);
+	  return function fetch(operation, variables, cacheConfig, uploadables) {
+	    var result = fn(operation, variables, cacheConfig, uploadables);
 	    // Note: We allow FetchFunction to directly return Error to indicate
 	    // a failure to fetch. To avoid handling this special case throughout the
 	    // Relay codebase, it is explicitly handled here.
 	    if (result instanceof Error) {
-	      return new (__webpack_require__(142))(function (sink) {
+	      return new (__webpack_require__(131))(function (sink) {
 	        return sink.error(result);
 	      });
 	    }
-	    return __webpack_require__(142).from(result).map(function (value) {
-	      return convertToExecutePayload(request, variables, value);
-	    });
+	    return __webpack_require__(131).from(result);
 	  };
 	}
 	
@@ -5083,31 +5148,10 @@ webpackJsonp([0],[
 	 */
 	function convertSubscribe(fn) {
 	  return function subscribe(operation, variables, cacheConfig) {
-	    return __webpack_require__(142).fromLegacy(function (observer) {
-	      return (
-	        // $FlowFixMe: Flow issues with covariant Observable types.
-	        fn(operation, variables, cacheConfig, observer)
-	      );
-	    }).map(function (value) {
-	      return convertToExecutePayload(operation, variables, value);
+	    return __webpack_require__(131).fromLegacy(function (observer) {
+	      return fn(operation, variables, cacheConfig, observer);
 	    });
 	  };
-	}
-	
-	/**
-	 * Given a value which might be a plain GraphQLResponse, coerce to always return
-	 * an ExecutePayload. A GraphQLResponse may be returned directly from older or
-	 * simpler Relay Network implementations.
-	 */
-	function convertToExecutePayload(request, variables, value) {
-	  if (!value.data && !value.errors && value.response) {
-	    if (!value.operation) {
-	      __webpack_require__(44)(false, 'ConvertToExecuteFunction: execute payload contains response but ' + 'is missing operation.');
-	      return { operation: request, variables: variables, response: value.response };
-	    }
-	    return value;
-	  }
-	  return { operation: request, variables: variables, response: value };
 	}
 	
 	module.exports = {
@@ -5116,7 +5160,7 @@ webpackJsonp([0],[
 	};
 
 /***/ },
-/* 142 */
+/* 131 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -5132,7 +5176,7 @@ webpackJsonp([0],[
 	
 	'use strict';
 	
-	var _classCallCheck3 = _interopRequireDefault(__webpack_require__(73));
+	var _classCallCheck3 = _interopRequireDefault(__webpack_require__(62));
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 	
@@ -5156,7 +5200,7 @@ webpackJsonp([0],[
 	  function RelayObservable(source) {
 	    (0, _classCallCheck3['default'])(this, RelayObservable);
 	
-	    if (true) {
+	    if (false) {
 	      // Early runtime errors for ill-formed sources.
 	      if (!source || typeof source !== 'function') {
 	        throw new Error('Source must be a Function: ' + String(source));
@@ -5203,7 +5247,7 @@ webpackJsonp([0],[
 	
 	
 	  RelayObservable.from = function from(obj) {
-	    return isObservable(obj) ? fromObservable(obj) : __webpack_require__(143)(obj) ? fromPromise(obj) : fromValue(obj);
+	    return isObservable(obj) ? fromObservable(obj) : __webpack_require__(132)(obj) ? fromPromise(obj) : fromValue(obj);
 	  };
 	
 	  /**
@@ -5382,7 +5426,7 @@ webpackJsonp([0],[
 	
 	
 	  RelayObservable.prototype.subscribe = function subscribe(observer) {
-	    if (true) {
+	    if (false) {
 	      // Early runtime errors for ill-formed observers.
 	      if (!observer || typeof observer !== 'object') {
 	        throw new Error('Observer must be an Object with callbacks: ' + String(observer));
@@ -5486,7 +5530,7 @@ webpackJsonp([0],[
 	  RelayObservable.prototype.poll = function poll(pollInterval) {
 	    var _this6 = this;
 	
-	    if (true) {
+	    if (false) {
 	      if (typeof pollInterval !== 'number' || pollInterval <= 0) {
 	        throw new Error('RelayObservable: Expected pollInterval to be positive, got: ' + pollInterval);
 	      }
@@ -5688,7 +5732,7 @@ webpackJsonp([0],[
 	    sink.error(error, true /* isUncaughtThrownError */);
 	  }
 	
-	  if (true) {
+	  if (false) {
 	    // Early runtime errors for ill-formed returned cleanup.
 	    if (cleanup !== undefined && typeof cleanup !== 'function' && (!cleanup || typeof cleanup.unsubscribe !== 'function')) {
 	      throw new Error('Returned cleanup function which cannot be called: ' + String(cleanup));
@@ -5707,7 +5751,7 @@ webpackJsonp([0],[
 	  // do nothing.
 	}
 	
-	if (true) {
+	if (false) {
 	  // Default implementation of HostReportErrors() in development builds.
 	  // Can be replaced by the host application environment.
 	  RelayObservable.onUnhandledError(function (error, isUncaughtThrownError) {
@@ -5731,7 +5775,7 @@ webpackJsonp([0],[
 	module.exports = RelayObservable;
 
 /***/ },
-/* 143 */
+/* 132 */
 /***/ function(module, exports) {
 
 	/**
@@ -5754,7 +5798,7 @@ webpackJsonp([0],[
 	module.exports = isPromise;
 
 /***/ },
-/* 144 */
+/* 133 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -5770,7 +5814,7 @@ webpackJsonp([0],[
 	
 	'use strict';
 	
-	var _classCallCheck3 = _interopRequireDefault(__webpack_require__(73));
+	var _classCallCheck3 = _interopRequireDefault(__webpack_require__(62));
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 	
@@ -5785,8 +5829,8 @@ webpackJsonp([0],[
 	        ttl = _ref.ttl;
 	    (0, _classCallCheck3['default'])(this, RelayQueryResponseCache);
 	
-	    __webpack_require__(47)(size > 0, 'RelayQueryResponseCache: Expected the max cache size to be > 0, got ' + '`%s`.', size);
-	    __webpack_require__(47)(ttl > 0, 'RelayQueryResponseCache: Expected the max ttl to be > 0, got `%s`.', ttl);
+	    __webpack_require__(45)(size > 0, 'RelayQueryResponseCache: Expected the max cache size to be > 0, got ' + '`%s`.', size);
+	    __webpack_require__(45)(ttl > 0, 'RelayQueryResponseCache: Expected the max ttl to be > 0, got `%s`.', ttl);
 	    this._responses = new Map();
 	    this._size = size;
 	    this._ttl = ttl;
@@ -5830,7 +5874,7 @@ webpackJsonp([0],[
 	}();
 	
 	function getCacheKey(queryID, variables) {
-	  return __webpack_require__(87)({ queryID: queryID, variables: variables });
+	  return __webpack_require__(77)({ queryID: queryID, variables: variables });
 	}
 	
 	/**
@@ -5844,7 +5888,7 @@ webpackJsonp([0],[
 	module.exports = RelayQueryResponseCache;
 
 /***/ },
-/* 145 */
+/* 134 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -5862,11 +5906,11 @@ webpackJsonp([0],[
 	
 	var _extends3 = _interopRequireDefault(__webpack_require__(1));
 	
-	var _classCallCheck3 = _interopRequireDefault(__webpack_require__(73));
+	var _classCallCheck3 = _interopRequireDefault(__webpack_require__(62));
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 	
-	var _require = __webpack_require__(85),
+	var _require = __webpack_require__(75),
 	    UNPUBLISH_RECORD_SENTINEL = _require.UNPUBLISH_RECORD_SENTINEL;
 	
 	/**
@@ -5886,12 +5930,12 @@ webpackJsonp([0],[
 	    (0, _classCallCheck3['default'])(this, RelayMarkSweepStore);
 	
 	    // Prevent mutation of a record from outside the store.
-	    if (true) {
+	    if (false) {
 	      var storeIDs = source.getRecordIDs();
 	      for (var ii = 0; ii < storeIDs.length; ii++) {
 	        var record = source.get(storeIDs[ii]);
 	        if (record) {
-	          __webpack_require__(92).freeze(record);
+	          require('./RelayModernRecord').freeze(record);
 	        }
 	      }
 	    }
@@ -5908,7 +5952,7 @@ webpackJsonp([0],[
 	  };
 	
 	  RelayMarkSweepStore.prototype.check = function check(selector) {
-	    return __webpack_require__(138).check(this._recordSource, this._recordSource, selector, []);
+	    return __webpack_require__(127).check(this._recordSource, this._recordSource, selector, []);
 	  };
 	
 	  RelayMarkSweepStore.prototype.retain = function retain(selector) {
@@ -5924,9 +5968,9 @@ webpackJsonp([0],[
 	  };
 	
 	  RelayMarkSweepStore.prototype.lookup = function lookup(selector) {
-	    var snapshot = __webpack_require__(103).read(this._recordSource, selector);
-	    if (true) {
-	      __webpack_require__(94)(snapshot);
+	    var snapshot = __webpack_require__(93).read(this._recordSource, selector);
+	    if (false) {
+	      require('./deepFreeze')(snapshot);
 	    }
 	    return snapshot;
 	  };
@@ -5966,21 +6010,21 @@ webpackJsonp([0],[
 	    var callback = subscription.callback,
 	        snapshot = subscription.snapshot;
 	
-	    if (!__webpack_require__(146)(snapshot, this._updatedRecordIDs)) {
+	    if (!__webpack_require__(135)(snapshot, this._updatedRecordIDs)) {
 	      return;
 	    }
 	
-	    var _RelayReader$read = __webpack_require__(103).read(this._recordSource, snapshot),
+	    var _RelayReader$read = __webpack_require__(93).read(this._recordSource, snapshot),
 	        data = _RelayReader$read.data,
 	        seenRecords = _RelayReader$read.seenRecords;
 	
-	    var nextData = __webpack_require__(147)(snapshot.data, data);
+	    var nextData = __webpack_require__(136)(snapshot.data, data);
 	    var nextSnapshot = (0, _extends3['default'])({}, snapshot, {
 	      data: nextData,
 	      seenRecords: seenRecords
 	    });
-	    if (true) {
-	      __webpack_require__(94)(nextSnapshot);
+	    if (false) {
+	      require('./deepFreeze')(nextSnapshot);
 	    }
 	    subscription.snapshot = nextSnapshot;
 	    if (nextSnapshot.data !== snapshot.data) {
@@ -5995,7 +6039,7 @@ webpackJsonp([0],[
 	      return;
 	    }
 	    this._hasScheduledGC = true;
-	    __webpack_require__(148)(function () {
+	    __webpack_require__(137)(function () {
 	      _this4._gc();
 	      _this4._hasScheduledGC = false;
 	    });
@@ -6007,7 +6051,7 @@ webpackJsonp([0],[
 	    var references = new Set();
 	    // Mark all records that are traversable from a root
 	    this._roots.forEach(function (selector) {
-	      __webpack_require__(160).mark(_this5._recordSource, selector, references);
+	      __webpack_require__(149).mark(_this5._recordSource, selector, references);
 	    });
 	    // Short-circuit if *nothing* is referenced
 	    if (!references.size) {
@@ -6040,9 +6084,9 @@ webpackJsonp([0],[
 	    var sourceRecord = source.get(dataID);
 	    var targetRecord = target.get(dataID);
 	    // Prevent mutation of a record from outside the store.
-	    if (true) {
+	    if (false) {
 	      if (sourceRecord) {
-	        __webpack_require__(92).freeze(sourceRecord);
+	        require('./RelayModernRecord').freeze(sourceRecord);
 	      }
 	    }
 	    if (sourceRecord === UNPUBLISH_RECORD_SENTINEL) {
@@ -6050,11 +6094,11 @@ webpackJsonp([0],[
 	      target.remove(dataID);
 	      updatedRecordIDs[dataID] = true;
 	    } else if (sourceRecord && targetRecord) {
-	      var nextRecord = __webpack_require__(92).update(targetRecord, sourceRecord);
+	      var nextRecord = __webpack_require__(82).update(targetRecord, sourceRecord);
 	      if (nextRecord !== targetRecord) {
 	        // Prevent mutation of a record from outside the store.
-	        if (true) {
-	          __webpack_require__(92).freeze(nextRecord);
+	        if (false) {
+	          require('./RelayModernRecord').freeze(nextRecord);
 	        }
 	        updatedRecordIDs[dataID] = true;
 	        target.set(dataID, nextRecord);
@@ -6071,7 +6115,7 @@ webpackJsonp([0],[
 	  }
 	}
 	
-	__webpack_require__(100).instrumentMethods(RelayMarkSweepStore.prototype, {
+	__webpack_require__(90).instrumentMethods(RelayMarkSweepStore.prototype, {
 	  lookup: 'RelayMarkSweepStore.prototype.lookup',
 	  notify: 'RelayMarkSweepStore.prototype.notify',
 	  publish: 'RelayMarkSweepStore.prototype.publish',
@@ -6082,7 +6126,7 @@ webpackJsonp([0],[
 	module.exports = RelayMarkSweepStore;
 
 /***/ },
-/* 146 */
+/* 135 */
 /***/ function(module, exports) {
 
 	/**
@@ -6111,7 +6155,7 @@ webpackJsonp([0],[
 	module.exports = hasOverlappingIDs;
 
 /***/ },
-/* 147 */
+/* 136 */
 /***/ function(module, exports) {
 
 	/**
@@ -6170,19 +6214,19 @@ webpackJsonp([0],[
 	module.exports = recycleNodesInto;
 
 /***/ },
+/* 137 */,
+/* 138 */,
+/* 139 */,
+/* 140 */,
+/* 141 */,
+/* 142 */,
+/* 143 */,
+/* 144 */,
+/* 145 */,
+/* 146 */,
+/* 147 */,
 /* 148 */,
-/* 149 */,
-/* 150 */,
-/* 151 */,
-/* 152 */,
-/* 153 */,
-/* 154 */,
-/* 155 */,
-/* 156 */,
-/* 157 */,
-/* 158 */,
-/* 159 */,
-/* 160 */
+/* 149 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -6198,19 +6242,19 @@ webpackJsonp([0],[
 	
 	'use strict';
 	
-	var _classCallCheck3 = _interopRequireDefault(__webpack_require__(73));
+	var _classCallCheck3 = _interopRequireDefault(__webpack_require__(62));
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 	
-	var CONDITION = __webpack_require__(86).CONDITION,
-	    FRAGMENT_SPREAD = __webpack_require__(86).FRAGMENT_SPREAD,
-	    INLINE_FRAGMENT = __webpack_require__(86).INLINE_FRAGMENT,
-	    LINKED_FIELD = __webpack_require__(86).LINKED_FIELD,
-	    LINKED_HANDLE = __webpack_require__(86).LINKED_HANDLE,
-	    SCALAR_FIELD = __webpack_require__(86).SCALAR_FIELD,
-	    SCALAR_HANDLE = __webpack_require__(86).SCALAR_HANDLE;
+	var CONDITION = __webpack_require__(76).CONDITION,
+	    FRAGMENT_SPREAD = __webpack_require__(76).FRAGMENT_SPREAD,
+	    INLINE_FRAGMENT = __webpack_require__(76).INLINE_FRAGMENT,
+	    LINKED_FIELD = __webpack_require__(76).LINKED_FIELD,
+	    LINKED_HANDLE = __webpack_require__(76).LINKED_HANDLE,
+	    SCALAR_FIELD = __webpack_require__(76).SCALAR_FIELD,
+	    SCALAR_HANDLE = __webpack_require__(76).SCALAR_HANDLE;
 	
-	var getStorageKey = __webpack_require__(85).getStorageKey;
+	var getStorageKey = __webpack_require__(75).getStorageKey;
 	
 	function mark(recordSource, selector, references) {
 	  var dataID = selector.dataID,
@@ -6248,7 +6292,7 @@ webpackJsonp([0],[
 	  };
 	
 	  RelayReferenceMarker.prototype._getVariableValue = function _getVariableValue(name) {
-	    __webpack_require__(47)(this._variables.hasOwnProperty(name), 'RelayReferenceMarker(): Undefined variable `%s`.', name);
+	    __webpack_require__(45)(this._variables.hasOwnProperty(name), 'RelayReferenceMarker(): Undefined variable `%s`.', name);
 	    return this._variables[name];
 	  };
 	
@@ -6268,12 +6312,12 @@ webpackJsonp([0],[
 	          _this._traverseSelections(selection.selections, record);
 	        }
 	      } else if (selection.kind === INLINE_FRAGMENT) {
-	        var typeName = __webpack_require__(92).getType(record);
+	        var typeName = __webpack_require__(82).getType(record);
 	        if (typeName != null && typeName === selection.type) {
 	          _this._traverseSelections(selection.selections, record);
 	        }
 	      } else if (selection.kind === FRAGMENT_SPREAD) {
-	        __webpack_require__(47)(false, 'RelayReferenceMarker(): Unexpected fragment spread `...%s`, ' + 'expected all fragments to be inlined.', selection.name);
+	        __webpack_require__(45)(false, 'RelayReferenceMarker(): Unexpected fragment spread `...%s`, ' + 'expected all fragments to be inlined.', selection.name);
 	      } else if (selection.kind === LINKED_HANDLE) {
 	        // The selections for a "handle" field are the same as those of the
 	        // original linked field where the handle was applied. Reference marking
@@ -6284,21 +6328,21 @@ webpackJsonp([0],[
 	        // the concrete structure to allow shared subtrees, and have the linked
 	        // handle directly refer to the same selections as the LinkedField that
 	        // it was split from.
-	        var handleField = __webpack_require__(139)(selection, selections, _this._variables);
+	        var handleField = __webpack_require__(128)(selection, selections, _this._variables);
 	        if (handleField.plural) {
 	          _this._traversePluralLink(handleField, record);
 	        } else {
 	          _this._traverseLink(handleField, record);
 	        }
 	      } else {
-	        __webpack_require__(47)(selection.kind === SCALAR_FIELD || selection.kind === SCALAR_HANDLE, 'RelayReferenceMarker(): Unexpected ast kind `%s`.', selection.kind);
+	        __webpack_require__(45)(selection.kind === SCALAR_FIELD || selection.kind === SCALAR_HANDLE, 'RelayReferenceMarker(): Unexpected ast kind `%s`.', selection.kind);
 	      }
 	    });
 	  };
 	
 	  RelayReferenceMarker.prototype._traverseLink = function _traverseLink(field, record) {
 	    var storageKey = getStorageKey(field, this._variables);
-	    var linkedID = __webpack_require__(92).getLinkedRecordID(record, storageKey);
+	    var linkedID = __webpack_require__(82).getLinkedRecordID(record, storageKey);
 	
 	    if (linkedID == null) {
 	      return;
@@ -6310,7 +6354,7 @@ webpackJsonp([0],[
 	    var _this2 = this;
 	
 	    var storageKey = getStorageKey(field, this._variables);
-	    var linkedIDs = __webpack_require__(92).getLinkedRecordIDs(record, storageKey);
+	    var linkedIDs = __webpack_require__(82).getLinkedRecordIDs(record, storageKey);
 	
 	    if (linkedIDs == null) {
 	      return;
@@ -6328,7 +6372,7 @@ webpackJsonp([0],[
 	module.exports = { mark: mark };
 
 /***/ },
-/* 161 */
+/* 150 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -6349,7 +6393,7 @@ webpackJsonp([0],[
 	 * environment.
 	 */
 	function applyRelayModernOptimisticMutation(environment, config) {
-	  __webpack_require__(47)(__webpack_require__(162)(environment), 'commitRelayModernMutation: expect `environment` to be an instance of ' + '`RelayModernEnvironment`.');
+	  __webpack_require__(45)(__webpack_require__(151)(environment), 'commitRelayModernMutation: expect `environment` to be an instance of ' + '`RelayModernEnvironment`.');
 	  var _environment$unstable = environment.unstable_internal,
 	      createOperationSelector = _environment$unstable.createOperationSelector,
 	      getOperation = _environment$unstable.getOperation;
@@ -6362,7 +6406,7 @@ webpackJsonp([0],[
 	
 	  var operation = createOperationSelector(mutation, variables);
 	  if (configs) {
-	    var _setRelayModernMutati = __webpack_require__(163)(configs, mutation, optimisticUpdater);
+	    var _setRelayModernMutati = __webpack_require__(152)(configs, mutation, optimisticUpdater);
 	
 	    optimisticUpdater = _setRelayModernMutati.optimisticUpdater;
 	  }
@@ -6377,7 +6421,7 @@ webpackJsonp([0],[
 	module.exports = applyRelayModernOptimisticMutation;
 
 /***/ },
-/* 162 */
+/* 151 */
 /***/ function(module, exports) {
 
 	/**
@@ -6409,7 +6453,7 @@ webpackJsonp([0],[
 	module.exports = isRelayModernEnvironment;
 
 /***/ },
-/* 163 */
+/* 152 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -6502,7 +6546,7 @@ webpackJsonp([0],[
 	      edgeName = config.edgeName;
 	
 	  if (!parentID) {
-	    __webpack_require__(44)(false, 'setRelayModernMutationConfigs: For mutation config RANGE_ADD ' + 'to work you must include a parentID');
+	    __webpack_require__(71)(false, 'setRelayModernMutationConfigs: For mutation config RANGE_ADD ' + 'to work you must include a parentID');
 	    return;
 	  }
 	  var rootField = getRootField(operation);
@@ -6524,26 +6568,26 @@ webpackJsonp([0],[
 	            var info = _step.value;
 	
 	            if (serverEdge) {
-	              var connection = __webpack_require__(75).getConnection(parent, info.key, info.filters);
+	              var connection = __webpack_require__(64).getConnection(parent, info.key, info.filters);
 	              if (!connection) {
 	                return;
 	              }
-	              var clientEdge = __webpack_require__(75).buildConnectionEdge(store, connection, serverEdge);
+	              var clientEdge = __webpack_require__(64).buildConnectionEdge(store, connection, serverEdge);
 	              if (!clientEdge) {
 	                return;
 	              }
 	              switch (info.rangeBehavior) {
 	                case 'append':
-	                  __webpack_require__(75).insertEdgeAfter(connection, clientEdge);
+	                  __webpack_require__(64).insertEdgeAfter(connection, clientEdge);
 	                  break;
 	                case 'ignore':
 	                  // Do nothing
 	                  break;
 	                case 'prepend':
-	                  __webpack_require__(75).insertEdgeBefore(connection, clientEdge);
+	                  __webpack_require__(64).insertEdgeBefore(connection, clientEdge);
 	                  break;
 	                default:
-	                  __webpack_require__(44)(false, 'setRelayModernMutationConfigs: RANGE_ADD range behavior ' + ('\'' + info.rangeBehavior + '\' will not work as expected in RelayModern, ') + "supported range behaviors are 'append', 'prepend', and " + "'ignore'");
+	                  __webpack_require__(71)(false, 'setRelayModernMutationConfigs: RANGE_ADD range behavior ' + ('\'' + info.rangeBehavior + '\' will not work as expected in RelayModern, ') + "supported range behaviors are 'append', 'prepend', and " + "'ignore'");
 	                  break;
 	              }
 	            }
@@ -6579,7 +6623,7 @@ webpackJsonp([0],[
 	      deletedIDFieldName = config.deletedIDFieldName;
 	
 	  if (!parentID) {
-	    __webpack_require__(44)(false, 'setRelayModernMutationConfigs: For mutation config RANGE_DELETE ' + 'to work you must include a parentID');
+	    __webpack_require__(71)(false, 'setRelayModernMutationConfigs: For mutation config RANGE_DELETE ' + 'to work you must include a parentID');
 	    return;
 	  }
 	  var rootField = getRootField(operation);
@@ -6645,7 +6689,7 @@ webpackJsonp([0],[
 	}
 	
 	function deleteNode(parentID, connectionKeys, pathToConnection, store, deleteIDs) {
-	  __webpack_require__(44)(connectionKeys, 'setRelayModernMutationConfigs: RANGE_DELETE must provide a ' + 'connectionKeys');
+	  __webpack_require__(71)(connectionKeys, 'setRelayModernMutationConfigs: RANGE_DELETE must provide a ' + 'connectionKeys');
 	  var parent = store.get(parentID);
 	  if (!parent) {
 	    return;
@@ -6667,10 +6711,10 @@ webpackJsonp([0],[
 	        var _loop = function _loop() {
 	          var key = _step3.value;
 	
-	          var connection = __webpack_require__(75).getConnection(recordProxy, key.key, key.filters);
+	          var connection = __webpack_require__(64).getConnection(recordProxy, key.key, key.filters);
 	          if (connection) {
 	            deleteIDs.forEach(function (deleteID) {
-	              __webpack_require__(75).deleteNode(connection, deleteID);
+	              __webpack_require__(64).deleteNode(connection, deleteID);
 	            });
 	            return 'break';
 	          }
@@ -6696,10 +6740,10 @@ webpackJsonp([0],[
 	        }
 	      }
 	    } else {
-	      __webpack_require__(44)(false, 'setRelayModernMutationConfigs: RANGE_DELETE ' + 'pathToConnection is incorrect. Unable to find connection with ' + 'parentID: %s and path: %s', parentID, pathToConnection.toString());
+	      __webpack_require__(71)(false, 'setRelayModernMutationConfigs: RANGE_DELETE ' + 'pathToConnection is incorrect. Unable to find connection with ' + 'parentID: %s and path: %s', parentID, pathToConnection.toString());
 	    }
 	  } else {
-	    __webpack_require__(44)(false, 'setRelayModernMutationConfigs: RANGE_DELETE ' + 'pathToConnection must include at least parent and connection');
+	    __webpack_require__(71)(false, 'setRelayModernMutationConfigs: RANGE_DELETE ' + 'pathToConnection must include at least parent and connection');
 	  }
 	}
 	
@@ -6714,7 +6758,7 @@ webpackJsonp([0],[
 	module.exports = setRelayModernMutationConfigs;
 
 /***/ },
-/* 164 */
+/* 153 */
 /***/ function(module, exports) {
 
 	/**
@@ -6737,7 +6781,7 @@ webpackJsonp([0],[
 	module.exports = commitLocalUpdate;
 
 /***/ },
-/* 165 */
+/* 154 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -6757,12 +6801,8 @@ webpackJsonp([0],[
 	 * Higher-level helper function to execute a mutation against a specific
 	 * environment.
 	 */
-	function commitRelayModernMutation(
-	/* $FlowFixMe(>=0.55.0 site=www) This comment suppresses an error found when
-	 * Flow v0.55 was deployed. To see the error delete this comment and run
-	 * Flow. */
-	environment, config) {
-	  __webpack_require__(47)(__webpack_require__(162)(environment), 'commitRelayModernMutation: expect `environment` to be an instance of ' + '`RelayModernEnvironment`.');
+	function commitRelayModernMutation(environment, config) {
+	  __webpack_require__(45)(__webpack_require__(151)(environment), 'commitRelayModernMutation: expect `environment` to be an instance of ' + '`RelayModernEnvironment`.');
 	  var _environment$unstable = environment.unstable_internal,
 	      createOperationSelector = _environment$unstable.createOperationSelector,
 	      getOperation = _environment$unstable.getOperation;
@@ -6780,14 +6820,14 @@ webpackJsonp([0],[
 	  // TODO: remove this check after we fix flow.
 	  if (typeof optimisticResponse === 'function') {
 	    optimisticResponse = optimisticResponse();
-	    __webpack_require__(44)(false, 'commitRelayModernMutation: Expected `optimisticResponse` to be an object, ' + 'received a function.');
+	    __webpack_require__(71)(false, 'commitRelayModernMutation: Expected `optimisticResponse` to be an object, ' + 'received a function.');
 	  }
-	  if (optimisticResponse && mutation.selections && mutation.selections.length === 1 && mutation.selections[0].kind === 'LinkedField') {
-	    var mutationRoot = mutation.selections[0].name;
-	    __webpack_require__(44)(optimisticResponse[mutationRoot], 'commitRelayModernMutation: Expected `optimisticResponse` to be wrapped ' + 'in mutation name `%s`', mutationRoot);
+	  if (optimisticResponse && mutation.query.selections && mutation.query.selections.length === 1 && mutation.query.selections[0].kind === 'LinkedField') {
+	    var mutationRoot = mutation.query.selections[0].name;
+	    __webpack_require__(71)(optimisticResponse[mutationRoot], 'commitRelayModernMutation: Expected `optimisticResponse` to be wrapped ' + 'in mutation name `%s`', mutationRoot);
 	  }
 	  if (configs) {
-	    var _setRelayModernMutati = __webpack_require__(163)(configs, mutation, optimisticUpdater, updater);
+	    var _setRelayModernMutati = __webpack_require__(152)(configs, mutation, optimisticUpdater, updater);
 	
 	    optimisticUpdater = _setRelayModernMutati.optimisticUpdater;
 	    updater = _setRelayModernMutati.updater;
@@ -6817,7 +6857,7 @@ webpackJsonp([0],[
 	module.exports = commitRelayModernMutation;
 
 /***/ },
-/* 166 */
+/* 155 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -6847,7 +6887,7 @@ webpackJsonp([0],[
 	 * shape.
 	 */
 	function fetchRelayModernQuery(environment, taggedNode, variables, cacheConfig) {
-	  __webpack_require__(47)(environment.unstable_internal, 'fetchRelayModernQuery: Expected a valid Relay environment, got `%s`.', environment);
+	  __webpack_require__(45)(environment.unstable_internal, 'fetchRelayModernQuery: Expected a valid Relay environment, got `%s`.', environment);
 	  var _environment$unstable = environment.unstable_internal,
 	      createOperationSelector = _environment$unstable.createOperationSelector,
 	      getOperation = _environment$unstable.getOperation;
@@ -6863,7 +6903,7 @@ webpackJsonp([0],[
 	module.exports = fetchRelayModernQuery;
 
 /***/ },
-/* 167 */
+/* 156 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -6893,9 +6933,9 @@ webpackJsonp([0],[
 	
 	  var operation = createOperationSelector(subscription, variables);
 	
-	  __webpack_require__(44)(!(config.updater && configs), 'requestRelaySubscription: Expected only one of `updater` and `configs` to be provided');
+	  __webpack_require__(71)(!(config.updater && configs), 'requestRelaySubscription: Expected only one of `updater` and `configs` to be provided');
 	
-	  var _ref = configs ? __webpack_require__(163)(configs, subscription, null /* optimisticUpdater */
+	  var _ref = configs ? __webpack_require__(152)(configs, subscription, null /* optimisticUpdater */
 	  , config.updater) : config,
 	      updater = _ref.updater;
 	
@@ -6915,42 +6955,7 @@ webpackJsonp([0],[
 	module.exports = requestRelaySubscription;
 
 /***/ },
-/* 168 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * Copyright (c) 2013-present, Facebook, Inc.
-	 *
-	 * This source code is licensed under the MIT license found in the
-	 * LICENSE file in the root directory of this source tree.
-	 *
-	 * @providesModule simpleClone
-	 * 
-	 * @format
-	 */
-	
-	'use strict';
-	
-	/**
-	 * A helper to create a deep clone of a value, plain Object, or array of such.
-	 *
-	 * Does not support RegExp, Date, other classes, or self-referential values.
-	 */
-	function simpleClone(value) {
-	  if (Array.isArray(value)) {
-	    return value.map(simpleClone);
-	  } else if (value && typeof value === 'object') {
-	    return __webpack_require__(169)(value, simpleClone);
-	  } else {
-	    return value;
-	  }
-	}
-	
-	module.exports = simpleClone;
-
-/***/ },
-/* 169 */,
-/* 170 */
+/* 157 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -6968,11 +6973,11 @@ webpackJsonp([0],[
 	
 	var _extends3 = _interopRequireDefault(__webpack_require__(1));
 	
-	var _classCallCheck3 = _interopRequireDefault(__webpack_require__(73));
+	var _classCallCheck3 = _interopRequireDefault(__webpack_require__(62));
 	
-	var _possibleConstructorReturn3 = _interopRequireDefault(__webpack_require__(171));
+	var _possibleConstructorReturn3 = _interopRequireDefault(__webpack_require__(158));
 	
-	var _inherits3 = _interopRequireDefault(__webpack_require__(193));
+	var _inherits3 = _interopRequireDefault(__webpack_require__(180));
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 	
@@ -7013,7 +7018,7 @@ webpackJsonp([0],[
 	  }
 	
 	  ReactRelayQueryRenderer.prototype.componentWillReceiveProps = function componentWillReceiveProps(nextProps) {
-	    if (nextProps.query !== this.props.query || nextProps.environment !== this.props.environment || !__webpack_require__(93)(nextProps.variables, this.props.variables)) {
+	    if (nextProps.query !== this.props.query || nextProps.environment !== this.props.environment || !__webpack_require__(83)(nextProps.variables, this.props.variables)) {
 	      this.setState({
 	        readyState: this._fetchForProps(nextProps)
 	      });
@@ -7190,8 +7195,8 @@ webpackJsonp([0],[
 	    // Note that the root fragment results in `readyState.props` is already
 	    // frozen by the store; this call is to freeze the readyState object and
 	    // error property if set.
-	    if (true) {
-	      __webpack_require__(201)(this.state.readyState);
+	    if (false) {
+	      require('./deepFreeze')(this.state.readyState);
 	    }
 	    return this.props.render(this.state.readyState);
 	  };
@@ -7200,7 +7205,7 @@ webpackJsonp([0],[
 	}(__webpack_require__(41).Component);
 	
 	ReactRelayQueryRenderer.childContextTypes = {
-	  relay: __webpack_require__(202).Relay
+	  relay: __webpack_require__(188).Relay
 	};
 	
 	function getDefaultState() {
@@ -7214,6 +7219,19 @@ webpackJsonp([0],[
 	module.exports = ReactRelayQueryRenderer;
 
 /***/ },
+/* 158 */,
+/* 159 */,
+/* 160 */,
+/* 161 */,
+/* 162 */,
+/* 163 */,
+/* 164 */,
+/* 165 */,
+/* 166 */,
+/* 167 */,
+/* 168 */,
+/* 169 */,
+/* 170 */,
 /* 171 */,
 /* 172 */,
 /* 173 */,
@@ -7231,57 +7249,7 @@ webpackJsonp([0],[
 /* 185 */,
 /* 186 */,
 /* 187 */,
-/* 188 */,
-/* 189 */,
-/* 190 */,
-/* 191 */,
-/* 192 */,
-/* 193 */,
-/* 194 */,
-/* 195 */,
-/* 196 */,
-/* 197 */,
-/* 198 */,
-/* 199 */,
-/* 200 */,
-/* 201 */
-/***/ function(module, exports) {
-
-	/**
-	 * Copyright (c) 2013-present, Facebook, Inc.
-	 *
-	 * This source code is licensed under the MIT license found in the
-	 * LICENSE file in the root directory of this source tree.
-	 *
-	 * 
-	 * @providesModule deepFreeze
-	 * @format
-	 */
-	
-	'use strict';
-	
-	/**
-	 * Recursively "deep" freezes the supplied object.
-	 *
-	 * For convenience, and for consistency with the behavior of `Object.freeze`,
-	 * returns the now-frozen original object.
-	 */
-	
-	function deepFreeze(object) {
-	  Object.freeze(object);
-	  Object.getOwnPropertyNames(object).forEach(function (name) {
-	    var property = object[name];
-	    if (property && typeof property === 'object' && !Object.isFrozen(property)) {
-	      deepFreeze(property);
-	    }
-	  });
-	  return object;
-	}
-	
-	module.exports = deepFreeze;
-
-/***/ },
-/* 202 */
+/* 188 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -7301,38 +7269,38 @@ webpackJsonp([0],[
 	  Container: function Container(props, propName, componentName) {
 	    var component = props[propName];
 	    if (component == null) {
-	      return new Error(__webpack_require__(137)('Required prop `%s` was not specified in `%s`.', propName, componentName));
-	    } else if (!__webpack_require__(203)(component)) {
-	      return new Error(__webpack_require__(137)('Invalid prop `%s` supplied to `%s`, expected a RelayContainer.', propName, componentName));
+	      return new Error(__webpack_require__(126)('Required prop `%s` was not specified in `%s`.', propName, componentName));
+	    } else if (!__webpack_require__(189)(component)) {
+	      return new Error(__webpack_require__(126)('Invalid prop `%s` supplied to `%s`, expected a RelayContainer.', propName, componentName));
 	    }
 	    return null;
 	  },
 	  Environment: function Environment(props, propName, componentName) {
 	    var context = props[propName];
-	    if (!__webpack_require__(204)(context) || !__webpack_require__(205)(context)) {
-	      return new Error(__webpack_require__(137)('Invalid prop/context `%s` supplied to `%s`, expected `%s` to be ' + 'an object conforming to the `RelayEnvironment` interface.', propName, componentName, context));
+	    if (!__webpack_require__(190)(context) || !__webpack_require__(191)(context)) {
+	      return new Error(__webpack_require__(126)('Invalid prop/context `%s` supplied to `%s`, expected `%s` to be ' + 'an object conforming to the `RelayEnvironment` interface.', propName, componentName, context));
 	    }
 	    return null;
 	  },
 	
 	
-	  QueryConfig: __webpack_require__(60).shape({
-	    name: __webpack_require__(60).string.isRequired,
-	    params: __webpack_require__(60).object.isRequired,
-	    queries: __webpack_require__(60).object.isRequired
+	  QueryConfig: __webpack_require__(192).shape({
+	    name: __webpack_require__(192).string.isRequired,
+	    params: __webpack_require__(192).object.isRequired,
+	    queries: __webpack_require__(192).object.isRequired
 	  }),
 	
 	  ClassicRelay: function ClassicRelay(props, propName, componentName) {
 	    var relay = props[propName];
-	    if (!__webpack_require__(206)(relay) || !__webpack_require__(204)(relay.environment)) {
-	      return new Error(__webpack_require__(137)('Invalid prop/context `%s` supplied to `%s`, expected `%s` to be ' + 'an object with a classic `environment` implementation and `variables`.', propName, componentName, relay));
+	    if (!__webpack_require__(195)(relay) || !__webpack_require__(190)(relay.environment)) {
+	      return new Error(__webpack_require__(126)('Invalid prop/context `%s` supplied to `%s`, expected `%s` to be ' + 'an object with a classic `environment` implementation and `variables`.', propName, componentName, relay));
 	    }
 	    return null;
 	  },
 	  Relay: function Relay(props, propName, componentName) {
 	    var relay = props[propName];
-	    if (!__webpack_require__(206)(relay)) {
-	      return new Error(__webpack_require__(137)('Invalid prop/context `%s` supplied to `%s`, expected `%s` to be ' + 'an object with an `environment` and `variables`.', propName, componentName, relay));
+	    if (!__webpack_require__(195)(relay)) {
+	      return new Error(__webpack_require__(126)('Invalid prop/context `%s` supplied to `%s`, expected `%s` to be ' + 'an object with an `environment` and `variables`.', propName, componentName, relay));
 	    }
 	    return null;
 	  }
@@ -7341,7 +7309,7 @@ webpackJsonp([0],[
 	module.exports = RelayPropTypes;
 
 /***/ },
-/* 203 */
+/* 189 */
 /***/ function(module, exports) {
 
 	/**
@@ -7364,7 +7332,7 @@ webpackJsonp([0],[
 	module.exports = isRelayContainer;
 
 /***/ },
-/* 204 */
+/* 190 */
 /***/ function(module, exports) {
 
 	/**
@@ -7392,7 +7360,7 @@ webpackJsonp([0],[
 	module.exports = isClassicRelayEnvironment;
 
 /***/ },
-/* 205 */
+/* 191 */
 /***/ function(module, exports) {
 
 	/**
@@ -7422,7 +7390,10 @@ webpackJsonp([0],[
 	module.exports = isRelayEnvironment;
 
 /***/ },
-/* 206 */
+/* 192 */,
+/* 193 */,
+/* 194 */,
+/* 195 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -7443,13 +7414,13 @@ webpackJsonp([0],[
 	 * type defined in `RelayEnvironmentTypes`.
 	 */
 	function isRelayContext(context) {
-	  return typeof context === 'object' && context !== null && !Array.isArray(context) && __webpack_require__(205)(context.environment) && __webpack_require__(207)(context.variables);
+	  return typeof context === 'object' && context !== null && !Array.isArray(context) && __webpack_require__(191)(context.environment) && __webpack_require__(196)(context.variables);
 	}
 	
 	module.exports = isRelayContext;
 
 /***/ },
-/* 207 */
+/* 196 */
 /***/ function(module, exports) {
 
 	/**
@@ -7476,7 +7447,7 @@ webpackJsonp([0],[
 	module.exports = isRelayVariables;
 
 /***/ },
-/* 208 */
+/* 197 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -7494,26 +7465,23 @@ webpackJsonp([0],[
 	
 	var _extends3 = _interopRequireDefault(__webpack_require__(1));
 	
-	var _classCallCheck3 = _interopRequireDefault(__webpack_require__(73));
+	var _classCallCheck3 = _interopRequireDefault(__webpack_require__(62));
 	
-	var _possibleConstructorReturn3 = _interopRequireDefault(__webpack_require__(171));
+	var _possibleConstructorReturn3 = _interopRequireDefault(__webpack_require__(158));
 	
-	var _inherits3 = _interopRequireDefault(__webpack_require__(193));
+	var _inherits3 = _interopRequireDefault(__webpack_require__(180));
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 	
-	var _require = __webpack_require__(209),
-	    getComponentName = _require.getComponentName,
-	    getReactComponent = _require.getReactComponent;
+	var _require = __webpack_require__(198),
+	    profileContainer = _require.profileContainer;
 	
-	var _require2 = __webpack_require__(210),
-	    profileContainer = _require2.profileContainer;
-	
-	var _require3 = __webpack_require__(70),
-	    RelayProfiler = _require3.RelayProfiler;
+	var _require2 = __webpack_require__(200),
+	    getComponentName = _require2.getComponentName,
+	    getReactComponent = _require2.getReactComponent;
 	
 	var containerContextTypes = {
-	  relay: __webpack_require__(202).Relay
+	  relay: __webpack_require__(188).Relay
 	};
 	
 	/**
@@ -7536,7 +7504,7 @@ webpackJsonp([0],[
 	
 	      _this._handleFragmentDataUpdate = function () {
 	        var data = _this._resolver.resolve();
-	        var profiler = RelayProfiler.profile('ReactRelayFragmentContainer.handleFragmentDataUpdate');
+	        var profiler = __webpack_require__(199).profile('ReactRelayFragmentContainer.handleFragmentDataUpdate');
 	        _this.setState({ data: data }, profiler.stop);
 	      };
 	
@@ -7561,7 +7529,7 @@ webpackJsonp([0],[
 	
 	
 	    Container.prototype.componentWillReceiveProps = function componentWillReceiveProps(nextProps, nextContext) {
-	      var context = __webpack_require__(211)(nextContext);
+	      var context = __webpack_require__(201)(nextContext);
 	      var relay = assertRelayContext(context.relay);
 	      var _relay$environment$un = relay.environment.unstable_internal,
 	          createFragmentSpecResolver = _relay$environment$un.createFragmentSpecResolver,
@@ -7574,7 +7542,7 @@ webpackJsonp([0],[
 	      // - Existing references are on the old environment.
 	      // - Existing references are based on old variables.
 	      // - Pending fetches are for the previous records.
-	      if (this.context.relay.environment !== relay.environment || this.context.relay.variables !== relay.variables || !__webpack_require__(93)(prevIDs, nextIDs)) {
+	      if (this.context.relay.environment !== relay.environment || this.context.relay.variables !== relay.variables || !__webpack_require__(83)(prevIDs, nextIDs)) {
 	        this._resolver.dispose();
 	        this._resolver = createFragmentSpecResolver(relay, containerName, fragments, nextProps, this._handleFragmentDataUpdate);
 	        var _relayProp = {
@@ -7604,7 +7572,7 @@ webpackJsonp([0],[
 	      var keys = Object.keys(nextProps);
 	      for (var ii = 0; ii < keys.length; ii++) {
 	        var _key = keys[ii];
-	        if (!fragments.hasOwnProperty(_key) && !__webpack_require__(212)(nextProps[_key], this.props[_key])) {
+	        if (!fragments.hasOwnProperty(_key) && !__webpack_require__(202)(nextProps[_key], this.props[_key])) {
 	          return true;
 	        }
 	      }
@@ -7642,7 +7610,7 @@ webpackJsonp([0],[
 	}
 	
 	function assertRelayContext(relay) {
-	  __webpack_require__(47)(__webpack_require__(206)(relay), 'ReactRelayFragmentContainer: Expected `context.relay` to be an object ' + 'conforming to the `RelayContext` interface, got `%s`.', relay);
+	  __webpack_require__(45)(__webpack_require__(195)(relay), 'ReactRelayFragmentContainer: Expected `context.relay` to be an object ' + 'conforming to the `RelayContext` interface, got `%s`.', relay);
 	  return relay;
 	}
 	
@@ -7654,13 +7622,306 @@ webpackJsonp([0],[
 	 * instance of the container constructed/rendered.
 	 */
 	function createContainer(Component, fragmentSpec) {
-	  return __webpack_require__(213)(Component, fragmentSpec, createContainerWithFragments);
+	  return __webpack_require__(203)(Component, fragmentSpec, createContainerWithFragments);
 	}
 	
 	module.exports = { createContainer: createContainer, createContainerWithFragments: createContainerWithFragments };
 
 /***/ },
-/* 209 */
+/* 198 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Copyright (c) 2013-present, Facebook, Inc.
+	 *
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
+	 *
+	 * @providesModule ReactRelayContainerProfiler
+	 * 
+	 * @format
+	 */
+	
+	'use strict';
+	
+	function profileContainer(Container, containerName) {
+	  /* $FlowFixMe(>=0.53.0) This comment suppresses an error
+	   * when upgrading Flow's support for React. Common errors found when
+	   * upgrading Flow's React support are documented at
+	   * https://fburl.com/eq7bs81w */
+	  __webpack_require__(199).instrumentMethods(Container.prototype, {
+	    constructor: containerName + '.prototype.constructor',
+	    componentWillReceiveProps: containerName + '.prototype.componentWillReceiveProps',
+	    componentWillUnmount: containerName + '.prototype.componentWillUnmount',
+	    shouldComponentUpdate: containerName + '.prototype.shouldComponentUpdate'
+	  });
+	}
+	
+	module.exports = { profileContainer: profileContainer };
+
+/***/ },
+/* 199 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Copyright (c) 2013-present, Facebook, Inc.
+	 *
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
+	 *
+	 * @providesModule RelayProfiler
+	 * 
+	 * @format
+	 */
+	
+	'use strict';
+	
+	var aggregateHandlersByName = {
+	  '*': []
+	};
+	var profileHandlersByName = {
+	  '*': []
+	};
+	
+	var NOT_INVOKED = {};
+	var defaultProfiler = { stop: __webpack_require__(46) };
+	var shouldInstrument = function shouldInstrument(name) {
+	  if (false) {
+	    return true;
+	  }
+	  return name.charAt(0) !== '@';
+	};
+	
+	/**
+	 * @public
+	 *
+	 * Instruments methods to allow profiling various parts of Relay. Profiling code
+	 * in Relay consists of three steps:
+	 *
+	 *  - Instrument the function to be profiled.
+	 *  - Attach handlers to the instrumented function.
+	 *  - Run the code which triggers the handlers.
+	 *
+	 * Handlers attached to instrumented methods are called with an instrumentation
+	 * name and a callback that must be synchronously executed:
+	 *
+	 *   instrumentedMethod.attachHandler(function(name, callback) {
+	 *     const start = performance.now();
+	 *     callback();
+	 *     console.log('Duration', performance.now() - start);
+	 *   });
+	 *
+	 * Handlers for profiles are callbacks that return a stop method:
+	 *
+	 *   RelayProfiler.attachProfileHandler('profileName', (name, state) => {
+	 *     const start = performance.now();
+	 *     return function stop(name, state) {
+	 *       console.log(`Duration (${name})`, performance.now() - start);
+	 *     }
+	 *   });
+	 *
+	 * In order to reduce the impact on performance in production, instrumented
+	 * methods and profilers with names that begin with `@` will only be measured
+	 * if `__DEV__` is true. This should be used for very hot functions.
+	 */
+	var RelayProfiler = {
+	  /**
+	   * Instruments methods on a class or object. This re-assigns the method in
+	   * order to preserve function names in stack traces (which are detected by
+	   * modern debuggers via heuristics). Example usage:
+	   *
+	   *   const RelayStore = { primeCache: function() {...} };
+	   *   RelayProfiler.instrumentMethods(RelayStore, {
+	   *     primeCache: 'RelayStore.primeCache'
+	   *   });
+	   *
+	   *   RelayStore.primeCache.attachHandler(...);
+	   *
+	   * As a result, the methods will be replaced by wrappers that provide the
+	   * `attachHandler` and `detachHandler` methods.
+	   */
+	  instrumentMethods: function instrumentMethods(object, names) {
+	    for (var _key in names) {
+	      if (names.hasOwnProperty(_key)) {
+	        object[_key] = RelayProfiler.instrument(names[_key], object[_key]);
+	      }
+	    }
+	  },
+	
+	
+	  /**
+	   * Wraps the supplied function with one that provides the `attachHandler` and
+	   * `detachHandler` methods. Example usage:
+	   *
+	   *   const printRelayQuery =
+	   *     RelayProfiler.instrument('printRelayQuery', printRelayQuery);
+	   *
+	   *   printRelayQuery.attachHandler(...);
+	   *
+	   * NOTE: The instrumentation assumes that no handlers are attached or detached
+	   * in the course of executing another handler.
+	   */
+	  instrument: function instrument(name, originalFunction) {
+	    if (!shouldInstrument(name)) {
+	      originalFunction.attachHandler = __webpack_require__(46);
+	      originalFunction.detachHandler = __webpack_require__(46);
+	      return originalFunction;
+	    }
+	    if (!aggregateHandlersByName.hasOwnProperty(name)) {
+	      aggregateHandlersByName[name] = [];
+	    }
+	    var catchallHandlers = aggregateHandlersByName['*'];
+	    var aggregateHandlers = aggregateHandlersByName[name];
+	    var handlers = [];
+	    var contexts = [];
+	    var invokeHandlers = function invokeHandlers() {
+	      var context = contexts[contexts.length - 1];
+	      if (context[0]) {
+	        context[0]--;
+	        catchallHandlers[context[0]](name, invokeHandlers);
+	      } else if (context[1]) {
+	        context[1]--;
+	        aggregateHandlers[context[1]](name, invokeHandlers);
+	      } else if (context[2]) {
+	        context[2]--;
+	        handlers[context[2]](name, invokeHandlers);
+	      } else {
+	        context[5] = originalFunction.apply(context[3], context[4]);
+	      }
+	    };
+	    var instrumentedCallback = function instrumentedCallback() {
+	      var returnValue = void 0;
+	      if (aggregateHandlers.length === 0 && handlers.length === 0 && catchallHandlers.length === 0) {
+	        returnValue = originalFunction.apply(this, arguments);
+	      } else {
+	        contexts.push([catchallHandlers.length, aggregateHandlers.length, handlers.length, this, arguments, NOT_INVOKED]);
+	        invokeHandlers();
+	        var context = contexts.pop();
+	        returnValue = context[5];
+	        if (returnValue === NOT_INVOKED) {
+	          throw new Error('RelayProfiler: Handler did not invoke original function.');
+	        }
+	      }
+	      return returnValue;
+	    };
+	    instrumentedCallback.attachHandler = function (handler) {
+	      handlers.push(handler);
+	    };
+	    instrumentedCallback.detachHandler = function (handler) {
+	      __webpack_require__(91)(handlers, handler);
+	    };
+	    instrumentedCallback.displayName = '(instrumented ' + name + ')';
+	    return instrumentedCallback;
+	  },
+	
+	
+	  /**
+	   * Attaches a handler to all methods instrumented with the supplied name.
+	   *
+	   *   function createRenderer() {
+	   *     return RelayProfiler.instrument('render', function() {...});
+	   *   }
+	   *   const renderA = createRenderer();
+	   *   const renderB = createRenderer();
+	   *
+	   *   // Only profiles `renderA`.
+	   *   renderA.attachHandler(...);
+	   *
+	   *   // Profiles both `renderA` and `renderB`.
+	   *   RelayProfiler.attachAggregateHandler('render', ...);
+	   *
+	   */
+	  attachAggregateHandler: function attachAggregateHandler(name, handler) {
+	    if (shouldInstrument(name)) {
+	      if (!aggregateHandlersByName.hasOwnProperty(name)) {
+	        aggregateHandlersByName[name] = [];
+	      }
+	      aggregateHandlersByName[name].push(handler);
+	    }
+	  },
+	
+	
+	  /**
+	   * Detaches a handler attached via `attachAggregateHandler`.
+	   */
+	  detachAggregateHandler: function detachAggregateHandler(name, handler) {
+	    if (shouldInstrument(name)) {
+	      if (aggregateHandlersByName.hasOwnProperty(name)) {
+	        __webpack_require__(91)(aggregateHandlersByName[name], handler);
+	      }
+	    }
+	  },
+	
+	
+	  /**
+	   * Instruments profiling for arbitrarily asynchronous code by a name.
+	   *
+	   *   const timerProfiler = RelayProfiler.profile('timeout');
+	   *   setTimeout(function() {
+	   *     timerProfiler.stop();
+	   *   }, 1000);
+	   *
+	   *   RelayProfiler.attachProfileHandler('timeout', ...);
+	   *
+	   * Arbitrary state can also be passed into `profile` as a second argument. The
+	   * attached profile handlers will receive this as the second argument.
+	   */
+	  profile: function profile(name, state) {
+	    var hasCatchAllHandlers = profileHandlersByName['*'].length > 0;
+	    var hasNamedHandlers = profileHandlersByName.hasOwnProperty(name);
+	    if (hasNamedHandlers || hasCatchAllHandlers) {
+	      var profileHandlers = hasNamedHandlers && hasCatchAllHandlers ? profileHandlersByName[name].concat(profileHandlersByName['*']) : hasNamedHandlers ? profileHandlersByName[name] : profileHandlersByName['*'];
+	      var stopHandlers = void 0;
+	      for (var ii = profileHandlers.length - 1; ii >= 0; ii--) {
+	        var profileHandler = profileHandlers[ii];
+	        var stopHandler = profileHandler(name, state);
+	        stopHandlers = stopHandlers || [];
+	        stopHandlers.unshift(stopHandler);
+	      }
+	      return {
+	        stop: function stop() {
+	          if (stopHandlers) {
+	            stopHandlers.forEach(function (stopHandler) {
+	              return stopHandler();
+	            });
+	          }
+	        }
+	      };
+	    }
+	    return defaultProfiler;
+	  },
+	
+	
+	  /**
+	   * Attaches a handler to profiles with the supplied name. You can also
+	   * attach to the special name '*' which is a catch all.
+	   */
+	  attachProfileHandler: function attachProfileHandler(name, handler) {
+	    if (shouldInstrument(name)) {
+	      if (!profileHandlersByName.hasOwnProperty(name)) {
+	        profileHandlersByName[name] = [];
+	      }
+	      profileHandlersByName[name].push(handler);
+	    }
+	  },
+	
+	
+	  /**
+	   * Detaches a handler attached via `attachProfileHandler`.
+	   */
+	  detachProfileHandler: function detachProfileHandler(name, handler) {
+	    if (shouldInstrument(name)) {
+	      if (profileHandlersByName.hasOwnProperty(name)) {
+	        __webpack_require__(91)(profileHandlersByName[name], handler);
+	      }
+	    }
+	  }
+	};
+	
+	module.exports = RelayProfiler;
+
+/***/ },
+/* 200 */
 /***/ function(module, exports) {
 
 	/**
@@ -7720,43 +7981,8 @@ webpackJsonp([0],[
 	};
 
 /***/ },
-/* 210 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * Copyright (c) 2013-present, Facebook, Inc.
-	 *
-	 * This source code is licensed under the MIT license found in the
-	 * LICENSE file in the root directory of this source tree.
-	 *
-	 * @providesModule ReactRelayContainerProfiler
-	 * 
-	 * @format
-	 */
-	
-	'use strict';
-	
-	var _require = __webpack_require__(70),
-	    RelayProfiler = _require.RelayProfiler;
-	
-	function profileContainer(Container, containerName) {
-	  /* $FlowFixMe(>=0.53.0) This comment suppresses an error
-	   * when upgrading Flow's support for React. Common errors found when
-	   * upgrading Flow's React support are documented at
-	   * https://fburl.com/eq7bs81w */
-	  RelayProfiler.instrumentMethods(Container.prototype, {
-	    constructor: containerName + '.prototype.constructor',
-	    componentWillReceiveProps: containerName + '.prototype.componentWillReceiveProps',
-	    componentWillUnmount: containerName + '.prototype.componentWillUnmount',
-	    shouldComponentUpdate: containerName + '.prototype.shouldComponentUpdate'
-	  });
-	}
-	
-	module.exports = { profileContainer: profileContainer };
-
-/***/ },
-/* 211 */,
-/* 212 */
+/* 201 */,
+/* 202 */
 /***/ function(module, exports) {
 
 	/**
@@ -7787,7 +8013,7 @@ webpackJsonp([0],[
 	module.exports = isScalarAndEqual;
 
 /***/ },
-/* 213 */
+/* 203 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -7803,12 +8029,12 @@ webpackJsonp([0],[
 	
 	'use strict';
 	
-	var _require = __webpack_require__(209),
+	var _require = __webpack_require__(200),
 	    getComponentName = _require.getComponentName,
 	    getContainerName = _require.getContainerName;
 	
 	var containerContextTypes = {
-	  relay: __webpack_require__(202).Relay
+	  relay: __webpack_require__(188).Relay
 	};
 	
 	/**
@@ -7820,7 +8046,7 @@ webpackJsonp([0],[
 	function buildReactRelayContainer(ComponentClass, fragmentSpec, createContainerWithFragments) {
 	  // Sanity-check user-defined fragment input
 	  var containerName = getContainerName(ComponentClass);
-	  __webpack_require__(214)(getComponentName(ComponentClass), fragmentSpec);
+	  __webpack_require__(204)(getComponentName(ComponentClass), fragmentSpec);
 	
 	  // Memoize a container for the last environment instance encountered
 	  var environment = void 0;
@@ -7828,8 +8054,8 @@ webpackJsonp([0],[
 	  function ContainerConstructor(props, context) {
 	    if (Container == null || context.relay.environment !== environment) {
 	      environment = context.relay.environment;
-	      if (true) {
-	        var _require2 = __webpack_require__(70),
+	      if (false) {
+	        var _require2 = require('relay-runtime'),
 	            isRelayModernEnvironment = _require2.isRelayModernEnvironment;
 	
 	        if (!isRelayModernEnvironment(environment)) {
@@ -7838,7 +8064,7 @@ webpackJsonp([0],[
 	      }
 	      var getFragmentFromTag = environment.unstable_internal.getFragment;
 	
-	      var _fragments = __webpack_require__(169)(fragmentSpec, getFragmentFromTag);
+	      var _fragments = __webpack_require__(205)(fragmentSpec, getFragmentFromTag);
 	      Container = createContainerWithFragments(ComponentClass, _fragments);
 	    }
 	    /* $FlowFixMe(>=0.53.0) This comment suppresses an
@@ -7850,7 +8076,7 @@ webpackJsonp([0],[
 	  ContainerConstructor.contextTypes = containerContextTypes;
 	  ContainerConstructor.displayName = containerName;
 	
-	  if (true) {
+	  if (false) {
 	    // Classic container static methods.
 	    ContainerConstructor.getFragment = function getFragmentOnModernContainer() {
 	      throw new Error('RelayModernContainer: ' + containerName + '.getFragment() was called on ' + 'a Relay Modern component by a Relay Classic or Relay Compat ' + 'component.\n' + 'When using Relay Modern and Relay Classic in the same ' + 'application, ensure components use Relay Compat to work in ' + 'both environments.\n' + 'See: http://facebook.github.io/relay/docs/relay-compat.html');
@@ -7863,7 +8089,7 @@ webpackJsonp([0],[
 	module.exports = buildReactRelayContainer;
 
 /***/ },
-/* 214 */
+/* 204 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -7883,12 +8109,12 @@ webpackJsonp([0],[
 	 * Fail fast if the user supplies invalid fragments as input.
 	 */
 	function assertFragmentMap(componentName, fragments) {
-	  __webpack_require__(47)(fragments && typeof fragments === 'object', 'Could not create Relay Container for `%s`. ' + 'Expected a set of GraphQL fragments, got `%s` instead.', componentName, fragments);
+	  __webpack_require__(45)(fragments && typeof fragments === 'object', 'Could not create Relay Container for `%s`. ' + 'Expected a set of GraphQL fragments, got `%s` instead.', componentName, fragments);
 	
 	  for (var key in fragments) {
 	    if (fragments.hasOwnProperty(key)) {
 	      var fragment = fragments[key];
-	      __webpack_require__(47)(fragment && (typeof fragment === 'object' || typeof fragment === 'function'), 'Could not create Relay Container for `%s`. ' + 'The value of fragment `%s` was expected to be a fragment, got `%s` instead.', componentName, key, fragment);
+	      __webpack_require__(45)(fragment && (typeof fragment === 'object' || typeof fragment === 'function'), 'Could not create Relay Container for `%s`. ' + 'The value of fragment `%s` was expected to be a fragment, got `%s` instead.', componentName, key, fragment);
 	    }
 	  }
 	}
@@ -7896,7 +8122,8 @@ webpackJsonp([0],[
 	module.exports = assertFragmentMap;
 
 /***/ },
-/* 215 */
+/* 205 */,
+/* 206 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -7912,32 +8139,31 @@ webpackJsonp([0],[
 	
 	'use strict';
 	
-	var _classCallCheck3 = _interopRequireDefault(__webpack_require__(73));
+	var _classCallCheck3 = _interopRequireDefault(__webpack_require__(62));
 	
-	var _possibleConstructorReturn3 = _interopRequireDefault(__webpack_require__(171));
+	var _possibleConstructorReturn3 = _interopRequireDefault(__webpack_require__(158));
 	
-	var _inherits3 = _interopRequireDefault(__webpack_require__(193));
+	var _inherits3 = _interopRequireDefault(__webpack_require__(180));
 	
-	var _defineProperty3 = _interopRequireDefault(__webpack_require__(77));
+	var _defineProperty3 = _interopRequireDefault(__webpack_require__(66));
 	
 	var _extends4 = _interopRequireDefault(__webpack_require__(1));
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 	
-	var _require = __webpack_require__(209),
-	    getComponentName = _require.getComponentName,
-	    getReactComponent = _require.getReactComponent;
+	var _require = __webpack_require__(198),
+	    profileContainer = _require.profileContainer;
 	
-	var _require2 = __webpack_require__(210),
-	    profileContainer = _require2.profileContainer;
+	var _require2 = __webpack_require__(200),
+	    getComponentName = _require2.getComponentName,
+	    getReactComponent = _require2.getReactComponent;
 	
-	var _require3 = __webpack_require__(70),
+	var _require3 = __webpack_require__(59),
 	    ConnectionInterface = _require3.ConnectionInterface,
-	    RelayProfiler = _require3.RelayProfiler,
 	    Observable = _require3.Observable;
 	
 	var containerContextTypes = {
-	  relay: __webpack_require__(202).Relay
+	  relay: __webpack_require__(188).Relay
 	};
 	
 	var FORWARD = 'forward';
@@ -8077,7 +8303,7 @@ webpackJsonp([0],[
 	
 	function createGetConnectionFromProps(metadata) {
 	  var path = metadata.path;
-	  __webpack_require__(47)(path, 'ReactRelayPaginationContainer: Unable to synthesize a ' + 'getConnectionFromProps function.');
+	  __webpack_require__(45)(path, 'ReactRelayPaginationContainer: Unable to synthesize a ' + 'getConnectionFromProps function.');
 	  return function (props) {
 	    var data = props[metadata.fragmentName];
 	    for (var i = 0; i < path.length; i++) {
@@ -8092,7 +8318,7 @@ webpackJsonp([0],[
 	
 	function createGetFragmentVariables(metadata) {
 	  var countVariable = metadata.count;
-	  __webpack_require__(47)(countVariable, 'ReactRelayPaginationContainer: Unable to synthesize a ' + 'getFragmentVariables function.');
+	  __webpack_require__(45)(countVariable, 'ReactRelayPaginationContainer: Unable to synthesize a ' + 'getFragmentVariables function.');
 	  return function (prevVars, totalCount) {
 	    return (0, _extends4['default'])({}, prevVars, (0, _defineProperty3['default'])({}, countVariable, totalCount));
 	  };
@@ -8111,25 +8337,19 @@ webpackJsonp([0],[
 	      isRelayModern = true;
 	    }
 	    if (connectionMetadata) {
-	      __webpack_require__(47)(connectionMetadata.length === 1, 'ReactRelayPaginationContainer: Only a single @connection is ' + 'supported, `%s` has %s.', _fragmentName, connectionMetadata.length);
-	      __webpack_require__(47)(!foundConnectionMetadata, 'ReactRelayPaginationContainer: Only a single fragment with ' + '@connection is supported.');
+	      __webpack_require__(45)(connectionMetadata.length === 1, 'ReactRelayPaginationContainer: Only a single @connection is ' + 'supported, `%s` has %s.', _fragmentName, connectionMetadata.length);
+	      __webpack_require__(45)(!foundConnectionMetadata, 'ReactRelayPaginationContainer: Only a single fragment with ' + '@connection is supported.');
 	      foundConnectionMetadata = (0, _extends4['default'])({}, connectionMetadata[0], {
 	        fragmentName: _fragmentName
 	      });
 	    }
 	  }
-	  __webpack_require__(47)(!isRelayModern || foundConnectionMetadata !== null, 'ReactRelayPaginationContainer: A @connection directive must be present.');
+	  __webpack_require__(45)(!isRelayModern || foundConnectionMetadata !== null, 'ReactRelayPaginationContainer: A @connection directive must be present.');
 	  return foundConnectionMetadata || {};
 	}
 	
 	function toObserver(observerOrCallback) {
-	  return typeof observerOrCallback === 'function' ? {
-	    error: observerOrCallback,
-	    complete: observerOrCallback,
-	    unsubscribe: function unsubscribe(subscription) {
-	      typeof observerOrCallback === 'function' && observerOrCallback();
-	    }
-	  } : observerOrCallback || {};
+	  return typeof observerOrCallback === 'function' ? { error: observerOrCallback, complete: observerOrCallback } : observerOrCallback || {};
 	}
 	
 	function createContainerWithFragments(Component, fragments, connectionConfig) {
@@ -8142,7 +8362,7 @@ webpackJsonp([0],[
 	  var getConnectionFromProps = connectionConfig.getConnectionFromProps || createGetConnectionFromProps(metadata);
 	
 	  var direction = connectionConfig.direction || metadata.direction;
-	  __webpack_require__(47)(direction, 'ReactRelayPaginationContainer: Unable to infer direction of the ' + 'connection, possibly because both first and last are provided.');
+	  __webpack_require__(45)(direction, 'ReactRelayPaginationContainer: Unable to infer direction of the ' + 'connection, possibly because both first and last are provided.');
 	
 	  var getFragmentVariables = connectionConfig.getFragmentVariables || createGetFragmentVariables(metadata);
 	
@@ -8155,7 +8375,7 @@ webpackJsonp([0],[
 	      var _this = (0, _possibleConstructorReturn3['default'])(this, _React$Component.call(this, props, context));
 	
 	      _this._handleFragmentDataUpdate = function () {
-	        var profiler = RelayProfiler.profile('ReactRelayPaginationContainer.handleFragmentDataUpdate');
+	        var profiler = __webpack_require__(199).profile('ReactRelayPaginationContainer.handleFragmentDataUpdate');
 	        _this.setState({ data: _this._resolver.resolve() }, profiler.stop);
 	      };
 	
@@ -8175,17 +8395,12 @@ webpackJsonp([0],[
 	          totalCount: totalCount
 	        };
 	        var fetch = _this._fetchPage(paginatingVariables, toObserver(observerOrCallback), { force: true }, refetchVariables);
-	
-	        return { dispose: fetch.unsubscribe };
+	        return fetch ? { dispose: fetch.unsubscribe } : null;
 	      };
 	
 	      _this._loadMore = function (pageSize, observerOrCallback, options) {
-	        var observer = toObserver(observerOrCallback);
 	        var connectionData = _this._getConnectionData();
 	        if (!connectionData) {
-	          new Observable(function (sink) {
-	            return sink.complete();
-	          }).subscribe(observer);
 	          return null;
 	        }
 	        var totalCount = connectionData.edgeCount + pageSize;
@@ -8197,8 +8412,8 @@ webpackJsonp([0],[
 	          cursor: connectionData.cursor,
 	          totalCount: totalCount
 	        };
-	        var fetch = _this._fetchPage(paginatingVariables, observer, options);
-	        return { dispose: fetch.unsubscribe };
+	        var fetch = _this._fetchPage(paginatingVariables, toObserver(observerOrCallback), options);
+	        return fetch ? { dispose: fetch.unsubscribe } : null;
 	      };
 	
 	      var relay = assertRelayContext(context.relay);
@@ -8228,7 +8443,7 @@ webpackJsonp([0],[
 	
 	
 	    Container.prototype.componentWillReceiveProps = function componentWillReceiveProps(nextProps, nextContext) {
-	      var context = __webpack_require__(211)(nextContext);
+	      var context = __webpack_require__(201)(nextContext);
 	      var relay = assertRelayContext(context.relay);
 	      var _relay$environment$un = relay.environment.unstable_internal,
 	          createFragmentSpecResolver = _relay$environment$un.createFragmentSpecResolver,
@@ -8242,7 +8457,7 @@ webpackJsonp([0],[
 	      // - Existing references are on the old environment.
 	      // - Existing references are based on old variables.
 	      // - Pending fetches are for the previous records.
-	      if (this.context.relay.environment !== relay.environment || this.context.relay.variables !== relay.variables || !__webpack_require__(93)(prevIDs, nextIDs)) {
+	      if (this.context.relay.environment !== relay.environment || this.context.relay.variables !== relay.variables || !__webpack_require__(83)(prevIDs, nextIDs)) {
 	        this._release();
 	        this._localVariables = null;
 	        this._relayContext = {
@@ -8274,7 +8489,7 @@ webpackJsonp([0],[
 	      var keys = Object.keys(nextProps);
 	      for (var ii = 0; ii < keys.length; ii++) {
 	        var _key = keys[ii];
-	        if (!fragments.hasOwnProperty(_key) && !__webpack_require__(212)(nextProps[_key], this.props[_key])) {
+	        if (!fragments.hasOwnProperty(_key) && !__webpack_require__(202)(nextProps[_key], this.props[_key])) {
 	          return true;
 	        }
 	      }
@@ -8312,18 +8527,18 @@ webpackJsonp([0],[
 	          END_CURSOR = _ConnectionInterface$.END_CURSOR,
 	          START_CURSOR = _ConnectionInterface$.START_CURSOR;
 	
-	      __webpack_require__(47)(typeof connectionData === 'object', 'ReactRelayPaginationContainer: Expected `getConnectionFromProps()` in `%s`' + 'to return `null` or a plain object with %s and %s properties, got `%s`.' + componentName, EDGES, PAGE_INFO, connectionData);
+	      __webpack_require__(45)(typeof connectionData === 'object', 'ReactRelayPaginationContainer: Expected `getConnectionFromProps()` in `%s`' + 'to return `null` or a plain object with %s and %s properties, got `%s`.' + componentName, EDGES, PAGE_INFO, connectionData);
 	      var edges = connectionData[EDGES];
 	      var pageInfo = connectionData[PAGE_INFO];
 	      if (edges == null || pageInfo == null) {
 	        return null;
 	      }
-	      __webpack_require__(47)(Array.isArray(edges), 'ReactRelayPaginationContainer: Expected `getConnectionFromProps()` in `%s`' + 'to return an object with %s: Array, got `%s`.', componentName, EDGES, edges);
-	      __webpack_require__(47)(typeof pageInfo === 'object', 'ReactRelayPaginationContainer: Expected `getConnectionFromProps()` in `%s`' + 'to return an object with %s: Object, got `%s`.', componentName, PAGE_INFO, pageInfo);
+	      __webpack_require__(45)(Array.isArray(edges), 'ReactRelayPaginationContainer: Expected `getConnectionFromProps()` in `%s`' + 'to return an object with %s: Array, got `%s`.', componentName, EDGES, edges);
+	      __webpack_require__(45)(typeof pageInfo === 'object', 'ReactRelayPaginationContainer: Expected `getConnectionFromProps()` in `%s`' + 'to return an object with %s: Object, got `%s`.', componentName, PAGE_INFO, pageInfo);
 	      var hasMore = direction === FORWARD ? pageInfo[HAS_NEXT_PAGE] : pageInfo[HAS_PREV_PAGE];
 	      var cursor = direction === FORWARD ? pageInfo[END_CURSOR] : pageInfo[START_CURSOR];
 	      if (typeof hasMore !== 'boolean' || typeof cursor !== 'string') {
-	        __webpack_require__(44)(false, 'ReactRelayPaginationContainer: Cannot paginate without %s fields in `%s`. ' + 'Be sure to fetch %s (got `%s`) and %s (got `%s`).', PAGE_INFO, componentName, direction === FORWARD ? HAS_NEXT_PAGE : HAS_PREV_PAGE, hasMore, direction === FORWARD ? END_CURSOR : START_CURSOR, cursor);
+	        __webpack_require__(71)(false, 'ReactRelayPaginationContainer: Cannot paginate without %s fields in `%s`. ' + 'Be sure to fetch %s (got `%s`) and %s (got `%s`).', PAGE_INFO, componentName, direction === FORWARD ? HAS_NEXT_PAGE : HAS_PREV_PAGE, hasMore, direction === FORWARD ? END_CURSOR : START_CURSOR, cursor);
 	        return null;
 	      }
 	      return {
@@ -8353,7 +8568,7 @@ webpackJsonp([0],[
 	      },
 	      // Pass the variables used to fetch the fragments initially
 	      fragmentVariables);
-	      __webpack_require__(47)(typeof fetchVariables === 'object' && fetchVariables !== null, 'ReactRelayPaginationContainer: Expected `getVariables()` to ' + 'return an object, got `%s` in `%s`.', fetchVariables, componentName);
+	      __webpack_require__(45)(typeof fetchVariables === 'object' && fetchVariables !== null, 'ReactRelayPaginationContainer: Expected `getVariables()` to ' + 'return an object, got `%s` in `%s`.', fetchVariables, componentName);
 	      fetchVariables = (0, _extends4['default'])({}, fetchVariables, refetchVariables);
 	      this._localVariables = fetchVariables;
 	
@@ -8393,7 +8608,7 @@ webpackJsonp([0],[
 	        // `setState` is only required if changing the variables would change the
 	        // resolved data.
 	        // TODO #14894725: remove PaginationContainer equal check
-	        if (!__webpack_require__(93)(prevData, nextData)) {
+	        if (!__webpack_require__(83)(prevData, nextData)) {
 	          _this2.setState({ data: nextData }, complete);
 	        } else {
 	          complete();
@@ -8471,7 +8686,7 @@ webpackJsonp([0],[
 	}
 	
 	function assertRelayContext(relay) {
-	  __webpack_require__(47)(__webpack_require__(206)(relay), 'ReactRelayPaginationContainer: Expected `context.relay` to be an object ' + 'conforming to the `RelayContext` interface, got `%s`.', relay);
+	  __webpack_require__(45)(__webpack_require__(195)(relay), 'ReactRelayPaginationContainer: Expected `context.relay` to be an object ' + 'conforming to the `RelayContext` interface, got `%s`.', relay);
 	  return relay;
 	}
 	
@@ -8483,7 +8698,7 @@ webpackJsonp([0],[
 	 * instance of the container constructed/rendered.
 	 */
 	function createContainer(Component, fragmentSpec, connectionConfig) {
-	  var Container = __webpack_require__(213)(Component, fragmentSpec, function (ComponentClass, fragments) {
+	  var Container = __webpack_require__(203)(Component, fragmentSpec, function (ComponentClass, fragments) {
 	    return createContainerWithFragments(ComponentClass, fragments, connectionConfig);
 	  });
 	  /* $FlowFixMe(>=0.53.0) This comment suppresses an error
@@ -8497,7 +8712,7 @@ webpackJsonp([0],[
 	module.exports = { createContainer: createContainer, createContainerWithFragments: createContainerWithFragments };
 
 /***/ },
-/* 216 */
+/* 207 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -8515,27 +8730,26 @@ webpackJsonp([0],[
 	
 	var _extends3 = _interopRequireDefault(__webpack_require__(1));
 	
-	var _classCallCheck3 = _interopRequireDefault(__webpack_require__(73));
+	var _classCallCheck3 = _interopRequireDefault(__webpack_require__(62));
 	
-	var _possibleConstructorReturn3 = _interopRequireDefault(__webpack_require__(171));
+	var _possibleConstructorReturn3 = _interopRequireDefault(__webpack_require__(158));
 	
-	var _inherits3 = _interopRequireDefault(__webpack_require__(193));
+	var _inherits3 = _interopRequireDefault(__webpack_require__(180));
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 	
-	var _require = __webpack_require__(209),
-	    getComponentName = _require.getComponentName,
-	    getReactComponent = _require.getReactComponent;
+	var _require = __webpack_require__(198),
+	    profileContainer = _require.profileContainer;
 	
-	var _require2 = __webpack_require__(210),
-	    profileContainer = _require2.profileContainer;
+	var _require2 = __webpack_require__(200),
+	    getComponentName = _require2.getComponentName,
+	    getReactComponent = _require2.getReactComponent;
 	
-	var _require3 = __webpack_require__(70),
-	    Observable = _require3.Observable,
-	    RelayProfiler = _require3.RelayProfiler;
+	var _require3 = __webpack_require__(59),
+	    Observable = _require3.Observable;
 	
 	var containerContextTypes = {
-	  relay: __webpack_require__(202).Relay
+	  relay: __webpack_require__(188).Relay
 	};
 	
 	/**
@@ -8557,12 +8771,8 @@ webpackJsonp([0],[
 	      var _this = (0, _possibleConstructorReturn3['default'])(this, _React$Component.call(this, props, context));
 	
 	      _this._handleFragmentDataUpdate = function () {
-	        var profiler = RelayProfiler.profile('ReactRelayRefetchContainer.handleFragmentDataUpdate');
+	        var profiler = __webpack_require__(199).profile('ReactRelayRefetchContainer.handleFragmentDataUpdate');
 	        _this.setState({ data: _this._resolver.resolve() }, profiler.stop);
-	      };
-	
-	      _this._getFragmentVariables = function () {
-	        return _this._resolver.getVariables();
 	      };
 	
 	      _this._refetch = function (refetchVariables, renderVariables, callback, options) {
@@ -8653,7 +8863,7 @@ webpackJsonp([0],[
 	
 	
 	    Container.prototype.componentWillReceiveProps = function componentWillReceiveProps(nextProps, nextContext) {
-	      var context = __webpack_require__(211)(nextContext);
+	      var context = __webpack_require__(201)(nextContext);
 	      var relay = assertRelayContext(context.relay);
 	      var _relay$environment$un = relay.environment.unstable_internal,
 	          createFragmentSpecResolver = _relay$environment$un.createFragmentSpecResolver,
@@ -8667,7 +8877,7 @@ webpackJsonp([0],[
 	      // - Existing references are on the old environment.
 	      // - Existing references are based on old variables.
 	      // - Pending fetches are for the previous records.
-	      if (this.context.relay.environment !== relay.environment || this.context.relay.variables !== relay.variables || !__webpack_require__(93)(prevIDs, nextIDs)) {
+	      if (this.context.relay.environment !== relay.environment || this.context.relay.variables !== relay.variables || !__webpack_require__(83)(prevIDs, nextIDs)) {
 	        this._release();
 	        this._localVariables = null;
 	        this._relayContext = {
@@ -8699,7 +8909,7 @@ webpackJsonp([0],[
 	      var keys = Object.keys(nextProps);
 	      for (var ii = 0; ii < keys.length; ii++) {
 	        var _key = keys[ii];
-	        if (!fragments.hasOwnProperty(_key) && !__webpack_require__(212)(nextProps[_key], this.props[_key])) {
+	        if (!fragments.hasOwnProperty(_key) && !__webpack_require__(202)(nextProps[_key], this.props[_key])) {
 	          return true;
 	        }
 	      }
@@ -8718,8 +8928,7 @@ webpackJsonp([0],[
 	    Container.prototype._buildRelayProp = function _buildRelayProp(relay) {
 	      return {
 	        environment: relay.environment,
-	        refetch: this._refetch,
-	        getVariables: this._getFragmentVariables
+	        refetch: this._refetch
 	      };
 	    };
 	
@@ -8727,6 +8936,12 @@ webpackJsonp([0],[
 	     * Render new data for the existing props/context.
 	     */
 	
+	
+	    Container.prototype._getFragmentVariables = function _getFragmentVariables() {
+	      var getVariablesFromObject = this.context.relay.environment.unstable_internal.getVariablesFromObject;
+	
+	      return getVariablesFromObject(this.context.relay.variables, fragments, this.props);
+	    };
 	
 	    Container.prototype.getChildContext = function getChildContext() {
 	      return { relay: this._relayContext };
@@ -8758,7 +8973,7 @@ webpackJsonp([0],[
 	}
 	
 	function assertRelayContext(relay) {
-	  __webpack_require__(47)(__webpack_require__(206)(relay), 'ReactRelayRefetchContainer: Expected `context.relay` to be an object ' + 'conforming to the `RelayContext` interface, got `%s`.', relay);
+	  __webpack_require__(45)(__webpack_require__(195)(relay), 'ReactRelayRefetchContainer: Expected `context.relay` to be an object ' + 'conforming to the `RelayContext` interface, got `%s`.', relay);
 	  return relay;
 	}
 	
@@ -8770,7 +8985,7 @@ webpackJsonp([0],[
 	 * instance of the container constructed/rendered.
 	 */
 	function createContainer(Component, fragmentSpec, taggedNode) {
-	  var Container = __webpack_require__(213)(Component, fragmentSpec, function (ComponentClass, fragments) {
+	  var Container = __webpack_require__(203)(Component, fragmentSpec, function (ComponentClass, fragments) {
 	    return createContainerWithFragments(ComponentClass, fragments, taggedNode);
 	  });
 	  /* $FlowFixMe(>=0.53.0) This comment suppresses an error
@@ -8784,7 +8999,7 @@ webpackJsonp([0],[
 	module.exports = { createContainer: createContainer, createContainerWithFragments: createContainerWithFragments };
 
 /***/ },
-/* 217 */
+/* 208 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -8794,20 +9009,30 @@ webpackJsonp([0],[
 	});
 	exports.socket = undefined;
 	
-	var _socket = __webpack_require__(218);
+	var _socket = __webpack_require__(209);
 	
 	var _socket2 = _interopRequireDefault(_socket);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var __DEV__ = ("production ") !== 'production'; //eslint-disable-line
+	var __DEV__ = ("production") !== 'production'; //eslint-disable-line
 	
 	
+	console.log('*******  process.env.NODE_ENV = ' + ("production") + ' __DEV__ = ' + __DEV__ + ' *********');
 	var socket = __DEV__ ? (0, _socket2.default)('http://localhost:8081') : (0, _socket2.default)();
 	
 	exports.socket = socket;
 
 /***/ },
+/* 209 */,
+/* 210 */,
+/* 211 */,
+/* 212 */,
+/* 213 */,
+/* 214 */,
+/* 215 */,
+/* 216 */,
+/* 217 */,
 /* 218 */,
 /* 219 */,
 /* 220 */,
@@ -8835,28 +9060,19 @@ webpackJsonp([0],[
 /* 242 */,
 /* 243 */,
 /* 244 */,
-/* 245 */,
+/* 245 */
+/***/ function(module, exports) {
+
+	/* (ignored) */
+
+/***/ },
 /* 246 */,
 /* 247 */,
 /* 248 */,
 /* 249 */,
 /* 250 */,
 /* 251 */,
-/* 252 */,
-/* 253 */,
-/* 254 */
-/***/ function(module, exports) {
-
-	/* (ignored) */
-
-/***/ },
-/* 255 */,
-/* 256 */,
-/* 257 */,
-/* 258 */,
-/* 259 */,
-/* 260 */,
-/* 261 */
+/* 252 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -8865,35 +9081,35 @@ webpackJsonp([0],[
 	  value: true
 	});
 	
-	var _classCallCheck2 = __webpack_require__(73);
+	var _classCallCheck2 = __webpack_require__(62);
 	
 	var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
 	
-	var _createClass2 = __webpack_require__(262);
+	var _createClass2 = __webpack_require__(253);
 	
 	var _createClass3 = _interopRequireDefault(_createClass2);
 	
-	var _possibleConstructorReturn2 = __webpack_require__(171);
+	var _possibleConstructorReturn2 = __webpack_require__(158);
 	
 	var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
 	
-	var _inherits2 = __webpack_require__(193);
+	var _inherits2 = __webpack_require__(180);
 	
 	var _inherits3 = _interopRequireDefault(_inherits2);
 	
-	var _AddTodoMutation = __webpack_require__(263);
+	var _AddTodoMutation = __webpack_require__(254);
 	
 	var _AddTodoMutation2 = _interopRequireDefault(_AddTodoMutation);
 	
-	var _TodoList = __webpack_require__(265);
+	var _TodoList = __webpack_require__(256);
 	
 	var _TodoList2 = _interopRequireDefault(_TodoList);
 	
-	var _TodoListFooter = __webpack_require__(286);
+	var _TodoListFooter = __webpack_require__(277);
 	
 	var _TodoListFooter2 = _interopRequireDefault(_TodoListFooter);
 	
-	var _TodoTextInput = __webpack_require__(275);
+	var _TodoTextInput = __webpack_require__(266);
 	
 	var _TodoTextInput2 = _interopRequireDefault(_TodoTextInput);
 	
@@ -8901,7 +9117,7 @@ webpackJsonp([0],[
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _reactRelay = __webpack_require__(68);
+	var _reactRelay = __webpack_require__(57);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -8963,13 +9179,13 @@ webpackJsonp([0],[
 	
 	exports.default = (0, _reactRelay.createFragmentContainer)(TodoApp, {
 	  viewer: function viewer() {
-	    return __webpack_require__(290);
+	    return __webpack_require__(281);
 	  }
 	});
 
 /***/ },
-/* 262 */,
-/* 263 */
+/* 253 */,
+/* 254 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -8978,12 +9194,12 @@ webpackJsonp([0],[
 	  value: true
 	});
 	
-	var _reactRelay = __webpack_require__(68);
+	var _reactRelay = __webpack_require__(57);
 	
-	var _relayRuntime = __webpack_require__(70);
+	var _relayRuntime = __webpack_require__(59);
 	
 	var mutation = function mutation() {
-	  return __webpack_require__(264);
+	  return __webpack_require__(255);
 	};
 	
 	function sharedUpdater(store, user, newEdge) {
@@ -9022,7 +9238,7 @@ webpackJsonp([0],[
 	exports.default = { commit: commit };
 
 /***/ },
-/* 264 */
+/* 255 */
 /***/ function(module, exports) {
 
 	/**
@@ -9192,7 +9408,7 @@ webpackJsonp([0],[
 	module.exports = batch;
 
 /***/ },
-/* 265 */
+/* 256 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -9201,19 +9417,19 @@ webpackJsonp([0],[
 	  value: true
 	});
 	
-	var _classCallCheck2 = __webpack_require__(73);
+	var _classCallCheck2 = __webpack_require__(62);
 	
 	var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
 	
-	var _createClass2 = __webpack_require__(262);
+	var _createClass2 = __webpack_require__(253);
 	
 	var _createClass3 = _interopRequireDefault(_createClass2);
 	
-	var _possibleConstructorReturn2 = __webpack_require__(171);
+	var _possibleConstructorReturn2 = __webpack_require__(158);
 	
 	var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
 	
-	var _inherits2 = __webpack_require__(193);
+	var _inherits2 = __webpack_require__(180);
 	
 	var _inherits3 = _interopRequireDefault(_inherits2);
 	
@@ -9221,19 +9437,19 @@ webpackJsonp([0],[
 	
 	var _extends3 = _interopRequireDefault(_extends2);
 	
-	var _MarkAllTodosMutation = __webpack_require__(266);
+	var _MarkAllTodosMutation = __webpack_require__(257);
 	
 	var _MarkAllTodosMutation2 = _interopRequireDefault(_MarkAllTodosMutation);
 	
-	var _Todo = __webpack_require__(268);
+	var _Todo = __webpack_require__(259);
 	
 	var _Todo2 = _interopRequireDefault(_Todo);
 	
-	var _TodoWithDetails = __webpack_require__(279);
+	var _TodoWithDetails = __webpack_require__(270);
 	
 	var _TodoWithDetails2 = _interopRequireDefault(_TodoWithDetails);
 	
-	var _propTypes = __webpack_require__(60);
+	var _propTypes = __webpack_require__(192);
 	
 	var _propTypes2 = _interopRequireDefault(_propTypes);
 	
@@ -9241,9 +9457,9 @@ webpackJsonp([0],[
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _reactRelay = __webpack_require__(68);
+	var _reactRelay = __webpack_require__(57);
 	
-	var _todo = __webpack_require__(282);
+	var _todo = __webpack_require__(273);
 	
 	var _todo2 = _interopRequireDefault(_todo);
 	
@@ -9385,14 +9601,14 @@ webpackJsonp([0],[
 	};
 	exports.default = (0, _reactRelay.createRefetchContainer)(TodoList, {
 	  viewer: function viewer() {
-	    return __webpack_require__(284);
+	    return __webpack_require__(275);
 	  }
 	}, function () {
-	  return __webpack_require__(285);
+	  return __webpack_require__(276);
 	});
 
 /***/ },
-/* 266 */
+/* 257 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -9401,10 +9617,10 @@ webpackJsonp([0],[
 	  value: true
 	});
 	
-	var _reactRelay = __webpack_require__(68);
+	var _reactRelay = __webpack_require__(57);
 	
 	var mutation = function mutation() {
-	  return __webpack_require__(267);
+	  return __webpack_require__(258);
 	};
 	
 	function getOptimisticResponse(complete, todos, user) {
@@ -9442,7 +9658,7 @@ webpackJsonp([0],[
 	exports.default = { commit: commit };
 
 /***/ },
-/* 267 */
+/* 258 */
 /***/ function(module, exports) {
 
 	/**
@@ -9575,7 +9791,7 @@ webpackJsonp([0],[
 	module.exports = batch;
 
 /***/ },
-/* 268 */
+/* 259 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -9584,35 +9800,35 @@ webpackJsonp([0],[
 	  value: true
 	});
 	
-	var _classCallCheck2 = __webpack_require__(73);
+	var _classCallCheck2 = __webpack_require__(62);
 	
 	var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
 	
-	var _createClass2 = __webpack_require__(262);
+	var _createClass2 = __webpack_require__(253);
 	
 	var _createClass3 = _interopRequireDefault(_createClass2);
 	
-	var _possibleConstructorReturn2 = __webpack_require__(171);
+	var _possibleConstructorReturn2 = __webpack_require__(158);
 	
 	var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
 	
-	var _inherits2 = __webpack_require__(193);
+	var _inherits2 = __webpack_require__(180);
 	
 	var _inherits3 = _interopRequireDefault(_inherits2);
 	
-	var _ChangeTodoStatusMutation = __webpack_require__(269);
+	var _ChangeTodoStatusMutation = __webpack_require__(260);
 	
 	var _ChangeTodoStatusMutation2 = _interopRequireDefault(_ChangeTodoStatusMutation);
 	
-	var _RemoveTodoMutation = __webpack_require__(271);
+	var _RemoveTodoMutation = __webpack_require__(262);
 	
 	var _RemoveTodoMutation2 = _interopRequireDefault(_RemoveTodoMutation);
 	
-	var _RenameTodoMutation = __webpack_require__(273);
+	var _RenameTodoMutation = __webpack_require__(264);
 	
 	var _RenameTodoMutation2 = _interopRequireDefault(_RenameTodoMutation);
 	
-	var _TodoTextInput = __webpack_require__(275);
+	var _TodoTextInput = __webpack_require__(266);
 	
 	var _TodoTextInput2 = _interopRequireDefault(_TodoTextInput);
 	
@@ -9620,9 +9836,9 @@ webpackJsonp([0],[
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _reactRelay = __webpack_require__(68);
+	var _reactRelay = __webpack_require__(57);
 	
-	var _classnames = __webpack_require__(276);
+	var _classnames = __webpack_require__(267);
 	
 	var _classnames2 = _interopRequireDefault(_classnames);
 	
@@ -9719,15 +9935,15 @@ webpackJsonp([0],[
 	
 	exports.default = (0, _reactRelay.createFragmentContainer)(Todo, {
 	  todo: function todo() {
-	    return __webpack_require__(277);
+	    return __webpack_require__(268);
 	  },
 	  viewer: function viewer() {
-	    return __webpack_require__(278);
+	    return __webpack_require__(269);
 	  }
 	});
 
 /***/ },
-/* 269 */
+/* 260 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -9736,10 +9952,10 @@ webpackJsonp([0],[
 	  value: true
 	});
 	
-	var _reactRelay = __webpack_require__(68);
+	var _reactRelay = __webpack_require__(57);
 	
 	var mutation = function mutation() {
-	  return __webpack_require__(270);
+	  return __webpack_require__(261);
 	};
 	
 	function getOptimisticResponse(complete, todo, user) {
@@ -9773,7 +9989,7 @@ webpackJsonp([0],[
 	exports.default = { commit: commit };
 
 /***/ },
-/* 270 */
+/* 261 */
 /***/ function(module, exports) {
 
 	/**
@@ -9907,7 +10123,7 @@ webpackJsonp([0],[
 	module.exports = batch;
 
 /***/ },
-/* 271 */
+/* 262 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -9916,12 +10132,12 @@ webpackJsonp([0],[
 	  value: true
 	});
 	
-	var _reactRelay = __webpack_require__(68);
+	var _reactRelay = __webpack_require__(57);
 	
-	var _relayRuntime = __webpack_require__(70);
+	var _relayRuntime = __webpack_require__(59);
 	
 	var mutation = function mutation() {
-	  return __webpack_require__(272);
+	  return __webpack_require__(263);
 	};
 	
 	function sharedUpdater(store, user, deletedID) {
@@ -9949,7 +10165,7 @@ webpackJsonp([0],[
 	exports.default = { commit: commit };
 
 /***/ },
-/* 272 */
+/* 263 */
 /***/ function(module, exports) {
 
 	/**
@@ -10094,7 +10310,7 @@ webpackJsonp([0],[
 	module.exports = batch;
 
 /***/ },
-/* 273 */
+/* 264 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -10103,10 +10319,10 @@ webpackJsonp([0],[
 	  value: true
 	});
 	
-	var _reactRelay = __webpack_require__(68);
+	var _reactRelay = __webpack_require__(57);
 	
 	var mutation = function mutation() {
-	  return __webpack_require__(274);
+	  return __webpack_require__(265);
 	};
 	
 	
@@ -10136,7 +10352,7 @@ webpackJsonp([0],[
 	exports.default = { commit: commit };
 
 /***/ },
-/* 274 */
+/* 265 */
 /***/ function(module, exports) {
 
 	/**
@@ -10246,7 +10462,7 @@ webpackJsonp([0],[
 	module.exports = batch;
 
 /***/ },
-/* 275 */
+/* 266 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -10255,19 +10471,19 @@ webpackJsonp([0],[
 	  value: true
 	});
 	
-	var _classCallCheck2 = __webpack_require__(73);
+	var _classCallCheck2 = __webpack_require__(62);
 	
 	var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
 	
-	var _createClass2 = __webpack_require__(262);
+	var _createClass2 = __webpack_require__(253);
 	
 	var _createClass3 = _interopRequireDefault(_createClass2);
 	
-	var _possibleConstructorReturn2 = __webpack_require__(171);
+	var _possibleConstructorReturn2 = __webpack_require__(158);
 	
 	var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
 	
-	var _inherits2 = __webpack_require__(193);
+	var _inherits2 = __webpack_require__(180);
 	
 	var _inherits3 = _interopRequireDefault(_inherits2);
 	
@@ -10275,13 +10491,13 @@ webpackJsonp([0],[
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _reactDom = __webpack_require__(50);
+	var _reactDom = __webpack_require__(47);
 	
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var PropTypes = __webpack_require__(60);
+	var PropTypes = __webpack_require__(192);
 	
 	var ENTER_KEY_CODE = 13;
 	var ESC_KEY_CODE = 27;
@@ -10364,8 +10580,8 @@ webpackJsonp([0],[
 	};
 
 /***/ },
-/* 276 */,
-/* 277 */
+/* 267 */,
+/* 268 */
 /***/ function(module, exports) {
 
 	
@@ -10413,7 +10629,7 @@ webpackJsonp([0],[
 	module.exports = fragment;
 
 /***/ },
-/* 278 */
+/* 269 */
 /***/ function(module, exports) {
 
 	
@@ -10461,7 +10677,7 @@ webpackJsonp([0],[
 	module.exports = fragment;
 
 /***/ },
-/* 279 */
+/* 270 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -10474,7 +10690,7 @@ webpackJsonp([0],[
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _reactRelay = __webpack_require__(68);
+	var _reactRelay = __webpack_require__(57);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -10520,14 +10736,14 @@ webpackJsonp([0],[
 	
 	exports.default = (0, _reactRelay.createRefetchContainer)(TodoWithDetails, {
 	  todo: function todo() {
-	    return __webpack_require__(280);
+	    return __webpack_require__(271);
 	  }
 	}, function () {
-	  return __webpack_require__(281);
+	  return __webpack_require__(272);
 	});
 
 /***/ },
-/* 280 */
+/* 271 */
 /***/ function(module, exports) {
 
 	
@@ -10592,7 +10808,7 @@ webpackJsonp([0],[
 	module.exports = fragment;
 
 /***/ },
-/* 281 */
+/* 272 */
 /***/ function(module, exports) {
 
 	/**
@@ -10742,7 +10958,7 @@ webpackJsonp([0],[
 	module.exports = batch;
 
 /***/ },
-/* 282 */
+/* 273 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -10751,12 +10967,12 @@ webpackJsonp([0],[
 	  value: true
 	});
 	
-	var _reactRelay = __webpack_require__(68);
+	var _reactRelay = __webpack_require__(57);
 	
-	var _relayRuntime = __webpack_require__(70);
+	var _relayRuntime = __webpack_require__(59);
 	
 	var subscription = function subscription() {
-	  return __webpack_require__(283);
+	  return __webpack_require__(274);
 	};
 	
 	var subscribeTodo = function subscribeTodo(environment, arg) {
@@ -10805,7 +11021,7 @@ webpackJsonp([0],[
 	exports.default = { subscribeTodo: subscribeTodo };
 
 /***/ },
-/* 283 */
+/* 274 */
 /***/ function(module, exports) {
 
 	/**
@@ -10938,7 +11154,7 @@ webpackJsonp([0],[
 	module.exports = batch;
 
 /***/ },
-/* 284 */
+/* 275 */
 /***/ function(module, exports) {
 
 	
@@ -11120,7 +11336,7 @@ webpackJsonp([0],[
 	module.exports = fragment;
 
 /***/ },
-/* 285 */
+/* 276 */
 /***/ function(module, exports) {
 
 	/**
@@ -11431,7 +11647,7 @@ webpackJsonp([0],[
 	module.exports = batch;
 
 /***/ },
-/* 286 */
+/* 277 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -11440,23 +11656,23 @@ webpackJsonp([0],[
 	  value: true
 	});
 	
-	var _classCallCheck2 = __webpack_require__(73);
+	var _classCallCheck2 = __webpack_require__(62);
 	
 	var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
 	
-	var _createClass2 = __webpack_require__(262);
+	var _createClass2 = __webpack_require__(253);
 	
 	var _createClass3 = _interopRequireDefault(_createClass2);
 	
-	var _possibleConstructorReturn2 = __webpack_require__(171);
+	var _possibleConstructorReturn2 = __webpack_require__(158);
 	
 	var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
 	
-	var _inherits2 = __webpack_require__(193);
+	var _inherits2 = __webpack_require__(180);
 	
 	var _inherits3 = _interopRequireDefault(_inherits2);
 	
-	var _RemoveCompletedTodosMutation = __webpack_require__(287);
+	var _RemoveCompletedTodosMutation = __webpack_require__(278);
 	
 	var _RemoveCompletedTodosMutation2 = _interopRequireDefault(_RemoveCompletedTodosMutation);
 	
@@ -11464,7 +11680,7 @@ webpackJsonp([0],[
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _reactRelay = __webpack_require__(68);
+	var _reactRelay = __webpack_require__(57);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -11522,12 +11738,12 @@ webpackJsonp([0],[
 	
 	exports.default = (0, _reactRelay.createFragmentContainer)(TodoListFooter, {
 	  viewer: function viewer() {
-	    return __webpack_require__(289);
+	    return __webpack_require__(280);
 	  }
 	});
 
 /***/ },
-/* 287 */
+/* 278 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -11536,12 +11752,12 @@ webpackJsonp([0],[
 	  value: true
 	});
 	
-	var _reactRelay = __webpack_require__(68);
+	var _reactRelay = __webpack_require__(57);
 	
-	var _relayRuntime = __webpack_require__(70);
+	var _relayRuntime = __webpack_require__(59);
 	
 	var mutation = function mutation() {
-	  return __webpack_require__(288);
+	  return __webpack_require__(279);
 	};
 	
 	function sharedUpdater(store, user, deletedIDs) {
@@ -11578,7 +11794,7 @@ webpackJsonp([0],[
 	exports.default = { commit: commit };
 
 /***/ },
-/* 288 */
+/* 279 */
 /***/ function(module, exports) {
 
 	/**
@@ -11722,7 +11938,7 @@ webpackJsonp([0],[
 	module.exports = batch;
 
 /***/ },
-/* 289 */
+/* 280 */
 /***/ function(module, exports) {
 
 	
@@ -11824,7 +12040,7 @@ webpackJsonp([0],[
 	module.exports = fragment;
 
 /***/ },
-/* 290 */
+/* 281 */
 /***/ function(module, exports) {
 
 	
@@ -11877,7 +12093,7 @@ webpackJsonp([0],[
 	module.exports = fragment;
 
 /***/ },
-/* 291 */
+/* 282 */
 /***/ function(module, exports) {
 
 	/**

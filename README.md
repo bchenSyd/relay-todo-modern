@@ -3,9 +3,23 @@
 
 ```json
     "predeploy":"rm -rf heroku &find public -name '*.js' -or -name '*.map' | xargs rm -rf ",
-    "deploy": "set NODE_ENV=production &npm run build-server&webpack --progress --verbose --colors --display-error-details",
+    "note":"!!*************  set NODE_ENV=production& whatever ************  make sure no blank space after your enVars definition",
+    "deploy": "set NODE_ENV=production&npm run build-server&webpack --progress --verbose --colors --display-error-details",
     "postdeploy":"cp -r public heroku/public",
     "build-server": "babel server --out-dir heroku --source-maps --copy-files"
+```
+
+# yarn add by default upgrade your packages and override ver defined in package.json
+```bash
+$yarn add --dev babel-plugin-relay relay-compiler relay-runtime
+yarn add v0.24.5
+[1/4] Resolving packages...
+[2/4] Fetching packages...
+ ||||||||||||||||||||||||||||||||||||||||||||||||
+├─ babel-plugin-relay@1.4.1 (note: this is the latest for now)
+├─ relay-compiler@1.4.1
+└─ relay-runtime@1.4.1
+Done in 4.19s.
 ```
 # watchman
 > https://github.com/facebook/watchman/issues/475#issuecomment-304948937

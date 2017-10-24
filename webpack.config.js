@@ -2,12 +2,14 @@ const path = require('path');
 const webpack = require('webpack');
 
 const env = process.env.NODE_ENV;
-console.log(`********** webpack env=${env} *********`);
+// make sure you use JSON.stringify to make sure env become a string. user can set NODE_ENV=production
+// without quotation marks
+console.log(`********** webpack env=${JSON.stringify(env)} *********`);
 
 const isVendorModule = (module) => {
-  const white_list = ['react-relay','relay-runtime'];
-  if(module.context){
-    if(white_list.find(m=> module.context.indexOf(m) !== -1 )){
+  const white_list = ['react-relay', 'relay-runtime'];
+  if (module.context) {
+    if (white_list.find(m => module.context.indexOf(m) !== -1)) {
       return false; // don't put it into vendor.js
     }
     return module.context.indexOf('node_modules') !== -1;
@@ -69,7 +71,7 @@ var config = {
   },
   devServer: {
     historyApiFallback: true,
-    proxy: {'/graphql': 'http://localhost:8081'},
+    proxy: { '/graphql': 'http://localhost:8081' },
   },
 };
 module.exports = config;
