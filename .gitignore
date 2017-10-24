@@ -3,3 +3,4 @@ __generated__/
 yarn.lock
 public/*.js
 public/*.map
+heroku/

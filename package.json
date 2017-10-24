@@ -7,8 +7,8 @@
   ],
   "private": true,
   "scripts": {
-    "start": "node heroku/index.js",
-    "start-local": "npm-run-all --parallel start-server   start-client",
+    "start": "npm-run-all --parallel start-server   start-client",
+    "start-heroku":"node heroku/index.js",
     "relay-compiler": "npm run clean &&relay-compiler --src ./js/ --schema ./server/data/schema.graphql  --extensions js jsx tsx",
     "debug-build": "node --debug-brk --inspect ./node_modules/relay-compiler/bin/relay-compiler --src ./js/ --schema ./data/schema.graphql --extensions js jsx tsx --watch",
     "clean": "find . -name __generated__ -print | xargs rm -rf",
