@@ -1,5 +1,12 @@
-#
+# tips
  `rm -rf node_modules/+(babel-plugin-relay|react-relay|relay-compiler|relay-runtime)`
+
+```json
+    "predeploy":"rm -rf heroku &find public -name '*.js' -or -name '*.map' | xargs rm -rf ",
+    "deploy": "set NODE_ENV=production &npm run build-server&webpack --progress --verbose --colors --display-error-details",
+    "postdeploy":"cp -r public heroku/public",
+    "build-server": "babel server --out-dir heroku --source-maps --copy-files"
+```
 # watchman
 > https://github.com/facebook/watchman/issues/475#issuecomment-304948937
 
