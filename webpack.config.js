@@ -18,7 +18,6 @@ const isVendorModule = (module) => {
 }
 
 var config = {
-  debug: true,
   entry: {
     vendor: ['whatwg-fetch'],
     a: path.resolve(__dirname, 'js', 'app.js'),
