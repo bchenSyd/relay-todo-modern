@@ -16,7 +16,7 @@
     "start-server-v2": "nodemon ./server.js  --exec babel-node  --watch data --ignore  data/schema.json --ignore data/schema.graphql",
     "debug-server": "babel-node ./server.js --source-maps --debug-brk --inspect",
     "debug-server-v2": "node  ./node_modules/babel-cli/bin/babel-node.js  ./server.js --debug-brk --inspect",
-    "start-client": "npm run relay-compiler&webpack-dev-server --port 8001 --inline --content-base ./public ",
+    "start-client": "npm run relay-compiler&& webpack-dev-server --port 8001 --inline --content-base ./public ",
     "update-schema": "babel-node ./script/updateSchema.js",
     "test": "mocha --compilers js:babel-register --recursive \"component/**/*.spec.js\" --require test/setup.js",
     "debug-mocha": "mocha --compilers js:babel-register  --recursive \"js/**/*.spec.js\" --require test/setup.js --debug-brk --inspect",
