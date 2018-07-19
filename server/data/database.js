@@ -1,7 +1,7 @@
-export class Todo { }
-export class User { }
+const events = require('../events');
+class Todo {}
+class User {}
 
-import events from '../events';
 // Mock authenticated ID
 const VIEWER_ID = 'me';
 
@@ -27,7 +27,7 @@ addTodo('R 6', false);
 addTodo('R 7', false);
 addTodo('R 8', false);
 
-export function addTodo(text, complete) {
+function addTodo(text, complete) {
   const todo = new Todo();
   todo.complete = !!complete;
   todo.id = `${nextTodoId++}`;
@@ -37,18 +37,17 @@ export function addTodo(text, complete) {
   return todo.id;
 }
 
-export function changeTodoStatus(id, complete) {
-
+function changeTodoStatus(id, complete) {
   const todo = getTodo(id);
   todo.complete = complete;
-  events.emit('amqp.changes', {id});
+  events.emit('amqp.changes', { id });
 }
 
-export function getTodo(id) {
+function getTodo(id) {
   return todosById[id];
 }
 
-export function getTodos(status = 'any') {
+function getTodos(status = 'any') {
   const todos = todoIdsByUser[VIEWER_ID].map(id => todosById[id]);
   if (status === 'any') {
     return todos;
@@ -56,15 +55,15 @@ export function getTodos(status = 'any') {
   return todos.filter(todo => todo.complete === (status === 'completed'));
 }
 
-export function getUser(id) {
+function getUser(id) {
   return usersById[id];
 }
 
-export function getViewer() {
+function getViewer() {
   return getUser(VIEWER_ID);
 }
 
-export function markAllTodos(complete) {
+function markAllTodos(complete) {
   const changedTodos = [];
   getTodos().forEach(todo => {
     if (todo.complete !== complete) {
@@ -75,7 +74,7 @@ export function markAllTodos(complete) {
   return changedTodos.map(todo => todo.id);
 }
 
-export function removeTodo(id) {
+function removeTodo(id) {
   const todoIndex = todoIdsByUser[VIEWER_ID].indexOf(id);
   if (todoIndex !== -1) {
     todoIdsByUser[VIEWER_ID].splice(todoIndex, 1);
@@ -83,13 +82,28 @@ export function removeTodo(id) {
   delete todosById[id];
 }
 
-export function removeCompletedTodos() {
+function removeCompletedTodos() {
   const todosToRemove = getTodos().filter(todo => todo.complete);
   todosToRemove.forEach(todo => removeTodo(todo.id));
   return todosToRemove.map(todo => todo.id);
 }
 
-export function renameTodo(id, text) {
+function renameTodo(id, text) {
   const todo = getTodo(id);
   todo.text = text;
 }
+
+module.exports = {
+  Todo,
+  User,
+  addTodo,
+  changeTodoStatus,
+  getTodo,
+  getTodos,
+  getUser,
+  getViewer,
+  markAllTodos,
+  removeTodo,
+  removeCompletedTodos,
+  renameTodo,
+};

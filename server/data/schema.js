@@ -1,4 +1,4 @@
-import {
+const {
   GraphQLBoolean,
   GraphQLID,
   GraphQLInt,
@@ -7,9 +7,9 @@ import {
   GraphQLObjectType,
   GraphQLSchema,
   GraphQLString,
-} from 'graphql';
+} =require('graphql');
 
-import {
+const {
   connectionArgs,
   connectionDefinitions,
   connectionFromArray,
@@ -19,13 +19,13 @@ import {
   mutationWithClientMutationId,
   nodeDefinitions,
   toGlobalId,
-} from 'graphql-relay';
+} =require('graphql-relay');
 
-import {
+const {
   subscriptionWithClientId,
-} from 'graphql-relay-subscription';
+} =require('graphql-relay-subscription');
 
-import {
+const {
   Todo,
   User,
   addTodo,
@@ -38,10 +38,10 @@ import {
   removeCompletedTodos,
   removeTodo,
   renameTodo,
-} from './database';
+} =require('./database');
 
-import { globalIdField_unibet, fromGlobalId_unibet } from './unibetIds';
-import casual from 'casual';
+const { globalIdField_unibet, fromGlobalId_unibet } =require('./unibetIds');
+const casual =require('casual');
 
 const { nodeInterface, nodeField } = nodeDefinitions(
   (globalId) => {
@@ -91,9 +91,9 @@ const {
   connectionType: TodosConnection,
   edgeType: GraphQLTodoEdge,
 } = connectionDefinitions({
-    name: 'Todo',
-    nodeType: GraphQLTodo,
-  });
+  name: 'Todo',
+  nodeType: GraphQLTodo,
+});
 
 const GraphQLUser = new GraphQLObjectType({
   name: 'User',
@@ -334,7 +334,7 @@ const Subscription = new GraphQLObjectType({
 
 
 
-export const schema = new GraphQLSchema({
+exports.schema = new GraphQLSchema({
   query: Query,
   mutation: Mutation,
   subscription: Subscription,

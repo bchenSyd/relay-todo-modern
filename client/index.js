@@ -2,26 +2,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import {
-  QueryRenderer,
-  graphql,
-} from 'react-relay';
-import {
-  Environment,
-  Network,
-  RecordSource,
-  Store,
-} from 'relay-runtime';
+import 'whatwg-fetch';
+import { QueryRenderer, graphql } from 'react-relay';
+import { Environment, Network, RecordSource, Store } from 'relay-runtime';
 
-import {socket} from './socket';
+import { socket } from './socket';
 import TodoApp from './components/TodoApp';
+import './styles/index.css';
+import './styles/base.css';
 
-const mountNode = document.getElementById('root');
 
-function fetchQuery(
-  operation,
-  variables,
-) {
+const mountNode = document.querySelector('#root');
+
+function fetchQuery(operation, variables) {
   return fetch('/graphql', {
     method: 'POST',
     headers: {
@@ -38,20 +31,23 @@ function fetchQuery(
 
 //https://github.com/facebook/relay/issues/1655#issuecomment-306178478
 function subscribeFunction(operation, variables, cacheConfig, observer) {
-  const {onCompleted, onError, onNext} = observer;
+  const { onCompleted, onError, onNext } = observer;
   socket.emit('graphql:subscription', {
     query: operation.text,
     variables,
   });
 
   socket.on('graphql:subscription', response => {
-    console.log('graphql:subscription received......' + JSON.stringify(response));
+    console.log(
+      'graphql:subscription received......' + JSON.stringify(response)
+    );
     onNext({
-      ...response, errors: []
+      ...response,
+      errors: [],
     });
   });
 
-  return {dispose: () => null}; // must return a disposable;
+  return { dispose: () => null }; // must return a disposable;
 }
 
 const modernEnvironment = new Environment({
@@ -63,16 +59,19 @@ ReactDOM.render(
   <QueryRenderer
     environment={modernEnvironment}
     query={graphql`
-      query appQuery {
+      # your graphql literal defined here will be compiled by relay-compiler,
+      # so make sure query name is defined as module_nameQuery where module_name in this case is client
+      # see ./__generated__ 
+      query clientQuery {
         viewer {
-          user{
-               ...TodoApp_viewer 
-            }
+          user {
+            ...TodoApp_viewer
+          }
         }
       }
     `}
     variables={{}}
-    render={({error, props}) => {
+    render={({ error, props }) => {
       if (props) {
         return <TodoApp viewer={props.viewer.user} />;
       } else {
@@ -88,7 +87,9 @@ socket.on('connect', () => {
 });
 ['connect_timeout', 'connect_error'].forEach(error_event => {
   socket.on(error_event, error => {
-    console.error(`ws error: event ${error_event}  error: ${JSON.stringify(error)}`);
+    console.error(
+      `ws error: event ${error_event}  error: ${JSON.stringify(error)}`
+    );
     //socket.connect(); // by default socket.io will try reconnect;
   });
 });

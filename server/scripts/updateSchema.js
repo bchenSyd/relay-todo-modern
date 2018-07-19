@@ -1,7 +1,7 @@
-import fs from 'fs';
-import path from 'path';
-import { schema } from '../data/schema';
-import { printSchema } from 'graphql';
+const fs = require('fs');
+const path = require('path');
+const { schema } = require('../data/schema');
+const { printSchema } = require('graphql');
 
 // we don't need 'schema.json' file anymore in relay-modern
 // (async () => {
@@ -20,9 +20,9 @@ import { printSchema } from 'graphql';
 //   }
 // })();
 
+// used to feed relay-compiler
 const schemaPath = path.resolve(__dirname, '../data/schema.graphql');
 
 fs.writeFileSync(schemaPath, printSchema(schema));
 
-console.log('************** update schema  ********************')
- 
+console.log('************** update schema  ********************');

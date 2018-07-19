@@ -1,12 +1,22 @@
+// JSON5 allow trailling comma, single quote, and comments
+// https://github.com/babel/babel/issues/4630#issuecomment-269027003
 {
-  "passPerPreset": true,
-  "plugins": [
-    ["relay"],
-    "transform-runtime"
-  ],
   "presets": [
-    "react",
-    "es2015",
-    "stage-0"
+    [
+      "env",
+      {
+        "targets": {
+          "browsers": ["last 2 versions", "safari >= 7"]
+        },
+        "modules": false, // default to "commonjs"
+      }
+    ],
+    "react"
+  ],
+  "plugins": [
+    "relay",
+    "transform-runtime",
+    "transform-class-properties",
+    "transform-object-rest-spread"
   ]
 }
