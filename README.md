@@ -19,6 +19,15 @@ query myQuery($n: Int) {
 }
 ```
 
+## esm emulate export default
+
+```js
+// WRONG
+// exports.default = events;
+
+// CORRECT
+module.exports = events;
+```
 
 # flow [ignore]
 >  https://github.com/facebook/flow/issues/869#issuecomment-192548460

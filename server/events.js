@@ -5,4 +5,9 @@ const events = new EventEmitter2({
   wildcard: true,
   maxListeners: 500, // yolo
 });
-exports.default = events;
+
+// WRONG
+// exports.default = events;
+
+// CORRECT
+module.exports = events;

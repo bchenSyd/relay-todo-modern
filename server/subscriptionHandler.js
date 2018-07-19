@@ -38,4 +38,4 @@ const _subscript2RabbitMQ = (query, variables, updateCallback) => {
   });
 };
 
-exports.default = subscribe;
+module.exports = subscribe;
