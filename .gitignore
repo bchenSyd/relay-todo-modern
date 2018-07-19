@@ -1,6 +1,5 @@
 .DS_Store
 __generated__/
 yarn.lock
-public/*.js
-public/*.map
+public/
 heroku/
