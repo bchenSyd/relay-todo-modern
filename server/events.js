@@ -1,10 +1,7 @@
 // @flow
-const { EventEmitter2 } = require('eventemitter2');
+const { EventEmitter } = require('events');
 
-const events = new EventEmitter2({
-  wildcard: true,
-  maxListeners: 500, // yolo
-});
+const events = new EventEmitter();
 
 // WRONG
 // exports.default = events;

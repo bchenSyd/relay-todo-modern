@@ -26,6 +26,7 @@ const subscribe = async (request, updateCallback) => {
 
 const _subscript2RabbitMQ = (query, variables, updateCallback) => {
   events.on('amqp.changes', async msg => {
+    debugger;
     const { id: localTodoId } = msg;
     const updatedPayload = await graphql(
       schema,
@@ -38,4 +39,6 @@ const _subscript2RabbitMQ = (query, variables, updateCallback) => {
   });
 };
 
-module.exports = subscribe;
+module.exports = {
+  subscribe,
+};
