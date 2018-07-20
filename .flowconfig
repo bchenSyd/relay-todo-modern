@@ -1,6 +1,10 @@
+# yarn flow init
+; will only setup structure, you need to put content in it;
 [ignore]
 <PROJECT_ROOT>/node_modules/react/node_modules/.*
 <PROJECT_ROOT>/node_modules/react-dom/node_modules/.*
+
+[include]
 
 [libs]
 node_modules/fbjs/flow/lib
@@ -8,3 +12,5 @@ node_modules/fbjs/flow/lib
 [lints]
 
 [options]
+
+[strict]

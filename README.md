@@ -32,6 +32,7 @@ module.exports = events;
 # flow [ignore]
 >  https://github.com/facebook/flow/issues/869#issuecomment-192548460
 
+`yarn add -D flow-bin &&yarn flow --help`
 Ignoring everything in node_modules is problematic, because we look in there to a) ensure you've actually installed your dependencies and b) find Flow types for packages which might have included them.
 
 # debug mocha
