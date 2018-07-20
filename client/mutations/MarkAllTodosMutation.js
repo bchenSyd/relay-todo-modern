@@ -53,7 +53,7 @@ function commit(
       variables: {
         input: {complete},
       },
-      optimisticResponse: () => getOptimisticResponse(complete, todos, user),
+      optimisticResponse: getOptimisticResponse(complete, todos, user),
     }
   );
 }

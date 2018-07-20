@@ -1,24 +1,28 @@
 // @flow
 import React from 'react';
 import ReactDOM from 'react-dom';
-
 const PropTypes = require('prop-types');
 
 const ENTER_KEY_CODE = 13;
 const ESC_KEY_CODE = 27;
 
-export default class TodoTextInput extends React.Component {
+type Props = {
+  //className?: string,
+  commitOnBlur: boolean,
+  initialValue?: string,
+  onCancel?: () => void,
+  onDelete?: () => void,
+  onSave: string => void,
+  placeholder?: string,
+};
+
+type State = {
+  isEditing: boolean,
+  text: string,
+};
+export default class TodoTextInput extends React.Component<Props, State> {
   static defaultProps = {
     commitOnBlur: false,
-  };
-  static propTypes = {
-    className: PropTypes.string,
-    commitOnBlur: PropTypes.bool.isRequired,
-    initialValue: PropTypes.string,
-    onCancel: PropTypes.func,
-    onDelete: PropTypes.func,
-    onSave: PropTypes.func.isRequired,
-    placeholder: PropTypes.string,
   };
   state = {
     isEditing: false,
@@ -35,7 +39,7 @@ export default class TodoTextInput extends React.Component {
       this.props.onCancel();
     } else if (newText !== '') {
       this.props.onSave(newText);
-      this.setState({text: ''});
+      this.setState({ text: '' });
     }
   };
   _handleBlur = () => {
@@ -43,10 +47,10 @@ export default class TodoTextInput extends React.Component {
       this._commitChanges();
     }
   };
-  _handleChange = (e) => {
-    this.setState({text: e.target.value});
+  _handleChange = e => {
+    this.setState({ text: e.target.value });
   };
-  _handleKeyDown = (e) => {
+  _handleKeyDown = e => {
     if (this.props.onCancel && e.keyCode === ESC_KEY_CODE) {
       this.props.onCancel();
     } else if (e.keyCode === ENTER_KEY_CODE) {
