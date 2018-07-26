@@ -38,7 +38,8 @@ const connect_redis = () =>
         chalk.green('you now have successfully connected to redis server')
       );
       await initRaces(redis_client);
-      getRaces();
+      const races = await getRaces();
+      console.log(chalk.gray('current races: '), races);
       resolve();
     });
     redis_client.on('error', error => {

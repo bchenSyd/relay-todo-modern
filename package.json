@@ -29,6 +29,7 @@
     "graphql": "^0.13.2",
     "graphql-relay": "^0.5.5",
     "graphql-relay-subscription": "^0.1.3",
+    "p-map": "^1.2.0",
     "p-waterfall": "^1.0.0",
     "redis": "^2.8.0",
     "socket.io": "^2.0.3"
