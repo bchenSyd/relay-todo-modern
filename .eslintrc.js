@@ -2,6 +2,7 @@ module.exports = {
   env: {
     browser: true,
     node: true, // understand require keyword;
+    es6: true, // Promise is undefined
     jest: true
   },
   parser: "babel-eslint",
