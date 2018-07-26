@@ -7,7 +7,7 @@ const {
   GraphQLObjectType,
   GraphQLSchema,
   GraphQLString,
-} =require('graphql');
+} = require('graphql');
 
 const {
   connectionArgs,
@@ -19,11 +19,9 @@ const {
   mutationWithClientMutationId,
   nodeDefinitions,
   toGlobalId,
-} =require('graphql-relay');
+} = require('graphql-relay');
 
-const {
-  subscriptionWithClientId,
-} =require('graphql-relay-subscription');
+const { subscriptionWithClientId } = require('graphql-relay-subscription');
 
 const {
   Todo,
@@ -32,28 +30,27 @@ const {
   changeTodoStatus,
   getTodo,
   getTodos,
-  getUser,
   getViewer,
   markAllTodos,
   removeCompletedTodos,
   removeTodo,
   renameTodo,
-} =require('./database');
+} = require('./database');
 
-const { globalIdField_unibet, fromGlobalId_unibet } =require('./unibetIds');
-const casual =require('casual');
+const { globalIdField_unibet, fromGlobalId_unibet } = require('./unibetIds');
+const casual = require('casual');
 
 const { nodeInterface, nodeField } = nodeDefinitions(
-  (globalId) => {
+  globalId => {
     const { type, id } = fromGlobalId_unibet(globalId);
     if (type === 'Todo') {
       return getTodo(id);
     } else if (type === 'User') {
-      return getUser(id);
+      return getViewer(id);
     }
     return null;
   },
-  (obj) => {
+  obj => {
     if (obj instanceof Todo) {
       return GraphQLTodo;
     } else if (obj instanceof User) {
@@ -69,11 +66,11 @@ const GraphQLTodo = new GraphQLObjectType({
     id: globalIdField_unibet('Todo'),
     text: {
       type: GraphQLString,
-      resolve: (obj) => obj.text,
+      resolve: obj => obj.text,
     },
-    complete: {
+    completed: {
       type: GraphQLBoolean,
-      resolve: (obj) => obj.complete,
+      resolve: obj => obj.completed === true.toString(),
     },
     status: {
       type: GraphQLString,
@@ -108,16 +105,24 @@ const GraphQLUser = new GraphQLObjectType({
         },
         ...connectionArgs,
       },
-      resolve: (obj, { status, _, ...args }) =>
-        connectionFromArray(getTodos(status), args),
+      resolve: async (obj, { status, _, ...args }) => {
+        const todos = await getTodos(status);
+        return connectionFromArray(todos, args);
+      },
     },
     totalCount: {
       type: GraphQLInt,
-      resolve: () => getTodos().length,
+      resolve: async () => {
+        const todos = await getTodos();
+        return todos.length;
+      },
     },
     completedCount: {
       type: GraphQLInt,
-      resolve: () => getTodos('completed').length,
+      resolve: async () => {
+        const todos = await getTodos('completed');
+        return todos.length;
+      },
     },
     echo: {
       type: GraphQLInt,
@@ -196,7 +201,6 @@ const GraphQLChangeTodoStatusMutation = mutationWithClientMutationId({
     },
   },
   mutateAndGetPayload: ({ id, complete }) => {
-
     const localTodoId = fromGlobalId_unibet(id).id;
     changeTodoStatus(localTodoId, complete);
     return { localTodoId };
@@ -239,7 +243,9 @@ const GraphQLRemoveCompletedTodosMutation = mutationWithClientMutationId({
   },
   mutateAndGetPayload: () => {
     const deletedTodoLocalIds = removeCompletedTodos();
-    const deletedTodoIds = deletedTodoLocalIds.map(toGlobalId.bind(null, 'Todo'));
+    const deletedTodoIds = deletedTodoLocalIds.map(
+      toGlobalId.bind(null, 'Todo')
+    );
     return { deletedTodoIds };
   },
 });
@@ -297,16 +303,15 @@ const Mutation = new GraphQLObjectType({
   },
 });
 
-
-
 const GraphqlTodoSubscription = subscriptionWithClientId({
   name: 'TodoSubScription',
   inputFields: () => ({
     arg: { type: GraphQLString },
   }),
   outputFields: () => ({
-    arg: { type: GraphQLString }, // useless, just for demo purpose 
-    todo: { //useful!!
+    arg: { type: GraphQLString }, // useless, just for demo purpose
+    todo: {
+      //useful!!
       type: GraphQLTodo,
       resolve: ({ localTodoId }) => {
         return typeof localTodoId !== 'undefined' ? getTodo(localTodoId) : null;
@@ -332,13 +337,8 @@ const Subscription = new GraphQLObjectType({
   },
 });
 
-
-
 exports.schema = new GraphQLSchema({
   query: Query,
   mutation: Mutation,
   subscription: Subscription,
 });
-
-
-

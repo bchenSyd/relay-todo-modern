@@ -1,4 +1,4 @@
-const {} = require('./redis');
+const { insertRace, deleteRace, updateRace, getRaces } = require('./redis');
 const events = require('../events');
 class Todo {}
 class User {}
@@ -9,79 +9,71 @@ const VIEWER_ID = 'me';
 // Mock user data
 const viewer = new User();
 viewer.id = VIEWER_ID;
-const usersById = {
-  [VIEWER_ID]: viewer,
-};
 
-const todoIdsByUser = {
-  [VIEWER_ID]: [],
-};
-
-function addTodo(text, complete) {
-  const todo = new Todo();
-  todo.complete = !!complete;
-  todo.id = `${nextTodoId++}`;
-  todo.text = text;
-  todosById[todo.id] = todo;
-  todoIdsByUser[VIEWER_ID].push(todo.id);
-  return todo.id;
+async function addTodo(text, complete) {
+  const id = await insertRace({
+    text,
+    complete,
+  });
+  return id;
 }
 
-function changeTodoStatus(id, complete) {
-  const todo = getTodo(id);
-  todo.complete = complete;
+async function renameTodo(id, text) {
+  const race = getRace(id);
+  race.text = text;
+  updateRace(id, race);
   events.emit('amqp.changes', { id });
 }
 
-function getTodo(id) {
-  return todosById[id];
+function changeTodoStatus(id, isCompleted) {
+  const race = getRace(id);
+  race.completed = isCompleted;
+  updateRace(id, race);
+  events.emit('amqp.changes', { id });
 }
 
-function getTodos(status = 'any') {
-  const todos = todoIdsByUser[VIEWER_ID].map(id => todosById[id]);
-  if (status === 'any') {
-    return todos;
-  }
-  return todos.filter(todo => todo.complete === (status === 'completed'));
+async function getTodo(id) {
+  const race = await getRace(id);
+  return race;
 }
 
-function getUser(id) {
-  return usersById[id];
+async function getTodos(status = 'any') {
+  const races= await getRaces(status);
+  return races;
 }
 
 function getViewer() {
-  return getUser(VIEWER_ID);
+  return viewer;
 }
 
-function markAllTodos(complete) {
-  const changedTodos = [];
-  getTodos().forEach(todo => {
-    if (todo.complete !== complete) {
-      todo.complete = complete;
-      changedTodos.push(todo);
+async function markAllTodos(completed) {
+  const races = await getRaces();
+  const changedIds = [];
+  races.forEach(race => {
+    if (race.completed !== completed.toString()) {
+      race.complete = completed;
+      updateRace(race.id, race);
+      changedIds.push(race.id);
     }
   });
-  return changedTodos.map(todo => todo.id);
+  return changedIds;
 }
 
 function removeTodo(id) {
-  const todoIndex = todoIdsByUser[VIEWER_ID].indexOf(id);
-  if (todoIndex !== -1) {
-    todoIdsByUser[VIEWER_ID].splice(todoIndex, 1);
-  }
-  delete todosById[id];
+  deleteRace(id);
 }
 
-function removeCompletedTodos() {
-  const todosToRemove = getTodos().filter(todo => todo.complete);
-  todosToRemove.forEach(todo => removeTodo(todo.id));
-  return todosToRemove.map(todo => todo.id);
+async function removeCompletedTodos() {
+  const races = getRaces('completed');
+  const deletedIds = [];
+  races.forEach(race => {
+    deleteRace(race.id);
+    deletedIds.push(race.id);
+  });
+  return races;
 }
 
-function renameTodo(id, text) {
-  const todo = getTodo(id);
-  todo.text = text;
-}
+
 
 module.exports = {
   Todo,
@@ -90,7 +82,6 @@ module.exports = {
   changeTodoStatus,
   getTodo,
   getTodos,
-  getUser,
   getViewer,
   markAllTodos,
   removeTodo,

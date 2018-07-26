@@ -1,6 +1,7 @@
 const { GraphQLNonNull, GraphQLID } = require('graphql');
 
 const fromGlobalId_unibet = globalId => {
+  debugger;
   const tmp = globalId.split(':');
   return {
     id: tmp[1],

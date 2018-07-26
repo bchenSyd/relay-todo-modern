@@ -112,7 +112,7 @@ type Todo implements Node {
   """The ID of an object"""
   id: ID!
   text: String
-  complete: Boolean
+  completed: Boolean
   status: String
   details: String
 }

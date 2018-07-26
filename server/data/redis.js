@@ -69,7 +69,7 @@ const getRaces = (status = 'any') => {
           const completed = (status === 'completed').toString();
           return races.filter(r => r.completed === completed);
         }
-        return races;
+        return races; // Promises are chained;
       });
     }
   });
@@ -80,8 +80,9 @@ const getRace = async id => {
   return race;
 };
 
-const updateRace = async (id, race) => {
-  await redis_client.hmsetAsync(id, race);
+const updateRace = (id, race) => {
+  // if you are not interested in the return value, don't use Async form;
+  redis_client.hmset(id, race);
 };
 
 const deleteRace = id => {
@@ -101,4 +102,13 @@ const getRaces_Primitive_Ugly = () => {
     });
   });
 };
-module.exports = { initRaces, insertRace, getRace, getRaces };
+
+
+module.exports = {
+  initRaces,
+  insertRace,
+  getRace,
+  getRaces,
+  updateRace,
+  deleteRace,
+};
