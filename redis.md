@@ -13,9 +13,9 @@ OK
 redis:6379> keys *
 1) "todo:1"
 2) "todo:0"
-redis:6379> sadd todos todo:0  =============================> better to use :   lpush todos todo:0
+redis:6379> sadd todos todo:0  =============================> better to use :   rpush todos todo:0
 (integer) 1
-redis:6379> sadd todos todo:1   ==============================> better to use :   lpush todos todo:1
+redis:6379> sadd todos todo:1   ==============================> better to use :   rpush todos todo:1
 (integer) 1
 redis:6379> keys *
 1) "todo:1"

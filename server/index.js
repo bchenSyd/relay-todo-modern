@@ -9,7 +9,7 @@ const chalk = require('chalk');
 const pWaterfall = require('p-waterfall');
 const bodyParser = require('body-parser');
 
-const { initData } = require('./data//redis');
+const { initRaces, getRaces } = require('./data//redis');
 const { schema } = require('./data/schema');
 const subscriptionHandler = require('./subscriptionHandler');
 //if you don't have below line, nodemon won't re-load generateSchemaJson,
@@ -33,11 +33,12 @@ const connect_redis = () =>
       host: 'localhost', // default '127.0.0.1'
       port: 6379,
     });
-    redis_client.on('connect', () => {
+    redis_client.on('connect', async () => {
       console.log(
         chalk.green('you now have successfully connected to redis server')
       );
-      initData(redis_client);
+      await initRaces(redis_client);
+      getRaces();
       resolve();
     });
     redis_client.on('error', error => {
