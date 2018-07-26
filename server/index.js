@@ -18,7 +18,7 @@ require('./scripts/updateSchema');
 //called every time the file is loaded (node loads that module)
 
 const app = express();
-app.use(bodyParser.json());
+app.use(bodyParser.json());  
 // *********************************************************************************
 // must be the right order; static file first!
 app.use('/', express.static(path.resolve(__dirname, '../public')));

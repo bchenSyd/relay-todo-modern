@@ -1,12 +1,11 @@
 {
     "verbose": true,
     "watch": [
-        "server/data"
+        "server"
     ],
     "ignore": [
         "server/data/schema.json",
-        "server/data/schema.graphql",
-        "js/*"
+        "server/data/schema.graphql"
     ],
     "env": {
         "NODE_ENV": "development"
