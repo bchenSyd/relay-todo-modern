@@ -1,3 +1,4 @@
+/*eslint-disable no-unused-vars */
 const { GraphQLNonNull, GraphQLID } = require('graphql');
 
 const fromGlobalId_unibet = globalId => {

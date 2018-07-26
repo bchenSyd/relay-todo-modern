@@ -86,7 +86,6 @@ const updateRace = (id, race) => {
 };
 
 const deleteRace = id => {
-  debugger;
   // you don't need to use the Async form if you are not interested in the return value;
   redis_client.lrem(races_topic, 1, id);
   redis_client.del(id);

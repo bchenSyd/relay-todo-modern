@@ -1,15 +1,20 @@
 module.exports = {
+  env: {
+    browser: true,
+    node: true, // understand require keyword;
+    jest: true
+  },
+  parser: "babel-eslint",
   extends: [
-    "plugin:flowtype/recommended",
-    "prettier",
-    "prettier/flowtype",
-    "prettier/react",
-    "prettier/standard",
-    "plugin:import/errors",
-    "plugin:import/warnings"
+    'eslint:recommended',
+    'plugin:import/errors',
+    'plugin:import/warnings',
   ],
-  plugins: [
-    "import",
-    "flowtype"
-  ]
-}
+  plugins: ['import'],
+  rules: {
+    // need to explicitly add rules;
+    'import/no-unresolved': [2, { commonjs: true, amd: true }],
+    'no-console':'off',
+    'no-debugger':'off'
+  },
+};

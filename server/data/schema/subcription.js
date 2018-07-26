@@ -1,24 +1,15 @@
 const {
     GraphQLObjectType,
-    GraphQLSchema,
     GraphQLString,
   } = require('graphql');
   
   
   const { subscriptionWithClientId } = require('graphql-relay-subscription');
   const {
-    Todo,
-    User,
-    addTodo,
-    changeTodoStatus,
     getTodo,
-    getTodos,
-    getViewer,
-    markAllTodos,
-    removeCompletedTodos,
-    removeTodo,
-    renameTodo,
-  } = require('./database');
+  } = require('../database');
+
+const { GraphQLTodo} =require('./types');
 
 const GraphqlTodoSubscription = subscriptionWithClientId({
     name: 'TodoSubScription',

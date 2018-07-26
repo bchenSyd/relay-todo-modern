@@ -48,7 +48,6 @@ async function changeTodoStatus(id, isCompleted) {
 
 async function getTodo(id) {
   const race = await getRace(id);
-  console.log('-------------  redis getRace ', race)
   return new Todo(race);
 }
 

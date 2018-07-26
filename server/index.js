@@ -8,7 +8,7 @@ const pWaterfall = require('p-waterfall');
 const bodyParser = require('body-parser');
 
 const redis = require('./redis-promisified');
-const { initRaces, getRaces } = require('./data//redis');
+const { initRaces, getRaces } = require('./data/redis');
 const { schema } = require('./data/schema');
 const subscriptionHandler = require('./subscriptionHandler');
 //if you don't have below line, nodemon won't re-load generateSchemaJson,
