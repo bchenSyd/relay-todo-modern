@@ -26,11 +26,11 @@ const _subscript2RabbitMQ = (query, variables, updateCallback) => {
   events.on('amqp.changes', async msg => {
     const { id: localTodoId } = msg;
     const updatedPayload = await graphql(
-      schema,
-      query,
-      { localTodoId },
-      null,
-      variables
+      schema, // GraphQLSchema 
+      query, // query string to be executed
+      { localTodoId }, // rootValue
+      null, //context value
+      variables // variables
     );
     updateCallback(updatedPayload);
   });

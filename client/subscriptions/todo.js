@@ -3,9 +3,9 @@ import { requestSubscription, graphql } from 'react-relay';
 import { ConnectionHandler } from 'relay-runtime';
 
 const subscription = graphql`
-  #relay-compiler: FindGraphQLTags: Operation names in graphql tags must be
-  #prefixed with the module name and end in "Mutation", "Query", or "Subscription".
-  #Got 'TodoblablaSubscription' in module 'TodoSubscription' (file name).
+  # relay-compiler: FindGraphQLTags: Operation names in graphql tags must be
+  # prefixed with the module name and end in "Mutation", "Query", or "Subscription".
+  # Got 'TodoxxxxxxSubscription' in module 'TodoSubscription' (file name).
   subscription todoSubscription($input: TodoSubScriptionInput!) {
     todoSubScription(input: $input) {
       clientSubscriptionId
@@ -21,7 +21,7 @@ const subscription = graphql`
 
 const subscribeTodo = (environment, arg) => {
   /**
-   * D:\relay-muckaround\packages\relay-runtime\store\RelayModernEnvironment.js #sendSubscription
+   * relay-muckaround/packages/relay-runtime/store/RelayModernEnvironment.js #sendSubscription
     *RelayModernEnvironment#sendSubscription({
       onCompleted,
       onNext,
@@ -52,7 +52,7 @@ const subscribeTodo = (environment, arg) => {
       store /*RelayRecordSourceSelectorProxy*/,
       data /*selector data, raw json*/
     ) => {
-      //@see: D:\relay-muckaround\packages\relay-runtime\store\RelayPublishQueue.js
+      //@see:   relay-muckaround/packages/relay-runtime/store/RelayPublishQueue.js
       /**
        'RelayRecordSourceSelectorProxy.getResponse: This call is deprecated. ' +
         'If you need need to access data from a mutation response, you ' +

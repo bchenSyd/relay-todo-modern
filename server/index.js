@@ -66,6 +66,7 @@ const start_httpServer = () =>
 const start_socketIO = httpServer =>
   new Promise(resolve => {
     const ioServer = IO(httpServer);
+    // todo: must unsubscribe with socketIO disconnect otherwise memory leak
     ioServer.on('connection', socket => {
       socket.on('graphql:subscription', async request => {
         var initialPayload = await subscriptionHandler.subscribe(

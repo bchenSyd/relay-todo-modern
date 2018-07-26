@@ -11,7 +11,6 @@ import TodoApp from './components/TodoApp';
 import './styles/index.css';
 import './styles/base.css';
 
-
 const mountNode = document.querySelector('#root');
 
 function fetchQuery(operation, variables) {
@@ -29,7 +28,8 @@ function fetchQuery(operation, variables) {
   });
 }
 
-//https://github.com/facebook/relay/issues/1655#issuecomment-306178478
+// https://github.com/facebook/relay/issues/1655#issuecomment-306178478
+// consumed by ./subscriptions/todo.js #requestSubscription
 function subscribeFunction(operation, variables, cacheConfig, observer) {
   const { onCompleted, onError, onNext } = observer;
   socket.emit('graphql:subscription', {
@@ -38,9 +38,7 @@ function subscribeFunction(operation, variables, cacheConfig, observer) {
   });
 
   socket.on('graphql:subscription', response => {
-    console.log(
-      'graphql:subscription received......' + JSON.stringify(response)
-    );
+    console.log('graphql:subscription received......', response);
     onNext({
       ...response,
       errors: [],
@@ -61,7 +59,7 @@ ReactDOM.render(
     query={graphql`
       # your graphql literal defined here will be compiled by relay-compiler,
       # so make sure query name is defined as module_nameQuery where module_name in this case is client
-      # see ./__generated__ 
+      # see ./__generated__
       query clientQuery {
         viewer {
           user {
@@ -85,6 +83,7 @@ ReactDOM.render(
 socket.on('connect', () => {
   console.log('ws connection established!!');
 });
+
 ['connect_timeout', 'connect_error'].forEach(error_event => {
   socket.on(error_event, error => {
     console.error(
