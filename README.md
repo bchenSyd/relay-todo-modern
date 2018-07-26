@@ -28,6 +28,9 @@ query myQuery($n: Int) {
 // CORRECT
 module.exports = events;
 ```
+# redis
+see redis docs [here](./redis.md)
+
 
 # flow [ignore]
 >  https://github.com/facebook/flow/issues/869#issuecomment-192548460
