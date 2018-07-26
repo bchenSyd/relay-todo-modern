@@ -1,14 +1,13 @@
-const { RedisClient } = require('redis');
-
-const initData = (client) => {
-    
-  addTodo('R 1', true);
-  addTodo('R 2', false);
-  addTodo('R 3', false);
-  addTodo('R 4', false);
-  addTodo('R 5', false);
-  addTodo('R 6', false);
-  addTodo('R 7', false);
-  addTodo('R 8', false);
+const initData = redis_client => {
+  Array.from({ length: 5 }, (val, index) => {
+    const race_id = `R:${index}`;
+    redis_client.hmset(race_id, {
+      id: race_id,
+      text: `Race ${index}`,
+      completed: false,
+    });
+    redis_client.lpush('races', race_id);
+  });
 };
-export { initData };
+
+module.exports = { initData };

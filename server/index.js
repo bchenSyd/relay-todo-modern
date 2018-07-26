@@ -37,9 +37,8 @@ const connect_redis = () =>
       console.log(
         chalk.green('you now have successfully connected to redis server')
       );
-      initData(redis_client).then(() => {
-        resolve();
-      });
+      initData(redis_client);
+      resolve();
     });
     redis_client.on('error', error => {
       console.error(error);

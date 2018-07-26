@@ -13,15 +13,15 @@ OK
 redis:6379> keys *
 1) "todo:1"
 2) "todo:0"
-redis:6379> sadd todos todo:0
+redis:6379> sadd todos todo:0  =============================> better to use :   lpush todos todo:0
 (integer) 1
-redis:6379> sadd todos todo:1
+redis:6379> sadd todos todo:1   ==============================> better to use :   lpush todos todo:1
 (integer) 1
 redis:6379> keys *
 1) "todo:1"
 2) "todo:0"
 3) "todos"
-redis:6379> smembers todos
+redis:6379> smembers todos    ======================> lrange todos 0 -1 // lrange list-name  start( zero-indexed)  end (inclusive)
 1) "todo:1"
 2) "todo:0"
 redis:6379> hgetall todo:1
@@ -29,4 +29,10 @@ redis:6379> hgetall todo:1
 2) "use graphql in coral"
 3) "completed"
 4) "false"
+
+
+redis:6379> dbsize
+// this will list keys in current db;
+redis:6379> flushdb
+// this will delete all keys of current db
 ```
