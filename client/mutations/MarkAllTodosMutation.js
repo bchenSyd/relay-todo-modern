@@ -10,7 +10,7 @@ const mutation = graphql`
     markAllTodos(input: $input) {
       changedTodos {
         id
-        complete
+        completed
       }
       viewer {
         id

@@ -1,11 +1,10 @@
 const { GraphQLNonNull, GraphQLID } = require('graphql');
 
 const fromGlobalId_unibet = globalId => {
-  debugger;
-  const tmp = globalId.split(':');
+  const index = globalId.indexOf(':');
   return {
-    id: tmp[1],
-    type: tmp[0],
+    id: globalId.slice(index + 1, globalId.length),
+    type: globalId.slice(0, index),
   };
 };
 const globalIdField_unibet = (typeName /*'User', 'Todo'..etc*/, idFetcher) => ({

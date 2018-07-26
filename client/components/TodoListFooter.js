@@ -48,7 +48,7 @@ export default createFragmentContainer(
         edges {
           node {
             id
-            complete
+            completed
           }
         }
       },

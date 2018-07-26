@@ -78,7 +78,7 @@ class Todo extends React.Component {
     return (
       <li
         className={classnames({
-          completed: this.props.todo.complete,
+          completed: this.props.todo.completed,
           editing: this.state.isEditing,
         })}>
         <div className="view">
@@ -105,7 +105,7 @@ class Todo extends React.Component {
 export default createFragmentContainer(Todo, {
   todo: graphql`
     fragment Todo_todo on Todo {
-      complete,
+      completed,
       id,
       text,
     }

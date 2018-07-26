@@ -1,4 +1,4 @@
-const { insertRace, deleteRace, updateRace, getRaces } = require('./redis');
+const { insertRace, deleteRace, updateRace, getRace, getRaces } = require('./redis');
 const events = require('../events');
 class Todo {}
 class User {}

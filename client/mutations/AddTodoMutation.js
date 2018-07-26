@@ -13,7 +13,7 @@ const mutation = graphql`
         __typename
         cursor
         node {
-          complete
+          completed
           id
           text
         }

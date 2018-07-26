@@ -10,7 +10,7 @@ const mutation = graphql`
     changeTodoStatus(input: $input) {
       todo {
         id
-        complete
+        completed
       }
       viewer {
         id

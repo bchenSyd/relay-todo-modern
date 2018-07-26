@@ -128,7 +128,7 @@ export default createRefetchContainer(TodoList,
                     edges {
                       node {
                         id,
-                        complete,
+                        completed,
                         ...TodoWithDetails_todo @include(if: $showTodoWithDetails),
                         ...Todo_todo  @skip(if: $showTodoWithDetails)
                       },

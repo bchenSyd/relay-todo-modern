@@ -17,7 +17,7 @@ const subscription = graphql`
          todo{
            id,
            text,
-           complete
+           completed
          }
       }
   }`;

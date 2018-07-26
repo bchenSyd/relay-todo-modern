@@ -22,7 +22,7 @@ const {
 } = require('graphql-relay');
 
 const { subscriptionWithClientId } = require('graphql-relay-subscription');
-
+const chalk = require('chalk');
 const {
   Todo,
   User,
@@ -41,13 +41,15 @@ const { globalIdField_unibet, fromGlobalId_unibet } = require('./unibetIds');
 const casual = require('casual');
 
 const { nodeInterface, nodeField } = nodeDefinitions(
-  globalId => {
+  async globalId => {
     const { type, id } = fromGlobalId_unibet(globalId);
     if (type === 'Todo') {
-      return getTodo(id);
+      const todo = await getTodo(id);
+      return todo;
     } else if (type === 'User') {
       return getViewer(id);
     }
+    console.log(chalk.red(`Client has submitted a node id which can't be resolved to an object`))
     return null;
   },
   obj => {
@@ -56,6 +58,7 @@ const { nodeInterface, nodeField } = nodeDefinitions(
     } else if (obj instanceof User) {
       return GraphQLUser;
     }
+    console.error(chalk.red(`Error: node ID has been resolved into an object successfully, but we don't know its graphqlType`));
     return null;
   }
 );
