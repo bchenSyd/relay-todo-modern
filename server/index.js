@@ -1,14 +1,13 @@
-// @flow
 require('babel-polyfill');
 const path = require('path');
 const express = require('express');
 const graphQLHTTP = require('express-graphql');
 const IO = require('socket.io');
-const redis = require('redis');
 const chalk = require('chalk');
 const pWaterfall = require('p-waterfall');
 const bodyParser = require('body-parser');
 
+const redis = require('./redis-promisified');
 const { initRaces, getRaces } = require('./data//redis');
 const { schema } = require('./data/schema');
 const subscriptionHandler = require('./subscriptionHandler');
@@ -29,6 +28,7 @@ app.use('/', graphQLHTTP({ schema, graphiql: true, pretty: true }));
 const connect_redis = () =>
   new Promise((resolve, reject) => {
     // http://redis.js.org/
+    debugger;
     const redis_client = redis.createClient({
       host: 'localhost', // default '127.0.0.1'
       port: 6379,

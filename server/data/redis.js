@@ -1,12 +1,15 @@
-const { promisify } = require('util');
+// we use bluebird to promisify all, so we don't need below line anymore; 
+// git checkout 3619569 to see how individual methods were promisified;
+const { promisify } = require('util'); 
+
 const pWaterfall = require('p-waterfall');
 const pMap = require('p-map');
 
 let redis_client, pLRange; // passed in from server/index.js when server is starting up, saved for future use;
 let races_topic = 'races';
 const setClient = async client => {
-  const pFlushAll = promisify(client.flushall).bind(client);
-  await pFlushAll();
+  await client.flushallAsync();
+  debugger;
   redis_client = client;
 };
 const initRaces = async client => {
@@ -38,13 +41,10 @@ const getRaces = () => {
   if (!redis_client) {
     throw new Error('redis_client not exists. Please connect to redis first');
   }
-  const pLrange = promisify(redis_client.lrange).bind(redis_client);
-  const pHGetAll = promisify(redis_client.hgetall).bind(redis_client);
 
-  return pLrange(races_topic, 0, -1).then((races, error) => {
-    debugger;
+  return redis_client.lrangeAsync(races_topic, 0, -1).then((races, error) => {
     if (!error) {
-      return pMap(races, r => pHGetAll(r));
+      return pMap(races, r => redis_client.hgetallAsync(r));
     }
   });
 };
@@ -53,11 +53,9 @@ const getRaces_Primitive_Ugly = () => {
   if (!redis_client) {
     throw new Error('redis_client not exists. Please connect to redis first');
   }
-  const pLrange = promisify(redis_client.lrange).bind(redis_client);
-  const pHGetAll = promisify(redis_client.hgetall).bind(redis_client);
-  pLrange(races_topic, 0, -1).then((races, error) => {
+  redis_client.lrangeAsync(races_topic, 0, -1).then((races, error) => {
     const race = races.map(async r => {
-      const result = await pHGetAll(r);
+      const result = await redis_client.hgetallAsync(r);
       console.log(result);
     });
   });
