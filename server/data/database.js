@@ -12,7 +12,7 @@ class Todo {
     const { id, text, completed } = race;
     this.id = id;
     this.text = text;
-    this.complete = completed === 'true';
+    this.completed = completed === 'true';
   }
 }
 class User {}
@@ -39,8 +39,8 @@ async function renameTodo(id, text) {
   events.emit('amqp.changes', { id });
 }
 
-function changeTodoStatus(id, isCompleted) {
-  const race = getRace(id);
+async function changeTodoStatus(id, isCompleted) {
+  const race = await getRace(id);
   race.completed = isCompleted;
   updateRace(id, race);
   events.emit('amqp.changes', { id });

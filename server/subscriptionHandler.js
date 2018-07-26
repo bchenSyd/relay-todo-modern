@@ -1,5 +1,3 @@
-// @flow
-
 const { graphql } = require('graphql');
 const { graphqlSubscribe } = require('graphql-relay-subscription');
 const { schema } = require('./data/schema');
@@ -26,7 +24,6 @@ const subscribe = async (request, updateCallback) => {
 
 const _subscript2RabbitMQ = (query, variables, updateCallback) => {
   events.on('amqp.changes', async msg => {
-    debugger;
     const { id: localTodoId } = msg;
     const updatedPayload = await graphql(
       schema,

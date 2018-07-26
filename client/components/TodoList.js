@@ -35,10 +35,10 @@ class TodoList extends React.Component {
 
 
   _handleMarkAllChange = (e) => {
-    const complete = e.target.checked;
+    const completed = e.target.checked;
     MarkAllTodosMutation.commit(
       this.props.relay.environment,
-      complete,
+      completed,
       this.props.viewer.todos,
       this.props.viewer,
     );

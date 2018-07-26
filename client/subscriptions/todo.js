@@ -1,26 +1,23 @@
 // @flow
-import {
-  requestSubscription,
-  graphql,
-} from 'react-relay';
-import {ConnectionHandler} from 'relay-runtime';
-
+import { requestSubscription, graphql } from 'react-relay';
+import { ConnectionHandler } from 'relay-runtime';
 
 const subscription = graphql`
-  #relay-compiler: FindGraphQLTags: Operation names in graphql tags must be 
-  #prefixed with the module name and end in "Mutation", "Query", or "Subscription". 
+  #relay-compiler: FindGraphQLTags: Operation names in graphql tags must be
+  #prefixed with the module name and end in "Mutation", "Query", or "Subscription".
   #Got 'TodoblablaSubscription' in module 'TodoSubscription' (file name).
-  subscription todoSubscription($input: TodoSubScriptionInput!){
-      todoSubScription(input: $input){
-         clientSubscriptionId
-         arg
-         todo{
-           id,
-           text,
-           completed
-         }
+  subscription todoSubscription($input: TodoSubScriptionInput!) {
+    todoSubScription(input: $input) {
+      clientSubscriptionId
+      arg
+      todo {
+        id
+        text
+        completed
       }
-  }`;
+    }
+  }
+`;
 
 const subscribeTodo = (environment, arg) => {
   /**
@@ -43,13 +40,18 @@ const subscribeTodo = (environment, arg) => {
     subscription,
     variables: arg,
     // after socket has been closed successfully
-    onCompleted: () => {alert('done!');/* need this if payload doesn't contain an id field*/},
+    onCompleted: () => {
+      alert('done!'); /* need this if payload doesn't contain an id field*/
+    },
     // connection_err ..etc
     onError: error => console.error(error),
     //end of pipe line; after store merged
     onNext: response => {},
     // begin of pipe line; before store merged
-    updater: (store /*RelayRecordSourceSelectorProxy*/, data /*selector data, raw json*/) => {
+    updater: (
+      store /*RelayRecordSourceSelectorProxy*/,
+      data /*selector data, raw json*/
+    ) => {
       //@see: D:\relay-muckaround\packages\relay-runtime\store\RelayPublishQueue.js
       /**
        'RelayRecordSourceSelectorProxy.getResponse: This call is deprecated. ' +
@@ -57,8 +59,8 @@ const subscribeTodo = (environment, arg) => {
         'should use the mutation fragment data passed in as a second ' +
         'argument to the mutation updater.'
        */
-    }
+    },
   });
 };
 
-export default {subscribeTodo};
+export default { subscribeTodo };

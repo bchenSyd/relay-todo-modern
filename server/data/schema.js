@@ -49,7 +49,11 @@ const { nodeInterface, nodeField } = nodeDefinitions(
     } else if (type === 'User') {
       return getViewer(id);
     }
-    console.log(chalk.red(`Client has submitted a node id which can't be resolved to an object`))
+    console.log(
+      chalk.red(
+        `Client has submitted a node id which can't be resolved to an object`
+      )
+    );
     return null;
   },
   obj => {
@@ -58,7 +62,11 @@ const { nodeInterface, nodeField } = nodeDefinitions(
     } else if (obj instanceof User) {
       return GraphQLUser;
     }
-    console.error(chalk.red(`Error: node ID has been resolved into an object successfully, but we don't know its graphqlType`));
+    console.error(
+      chalk.red(
+        `Error: node ID has been resolved into an object successfully, but we don't know its graphqlType`
+      )
+    );
     return null;
   }
 );
@@ -73,7 +81,7 @@ const GraphQLTodo = new GraphQLObjectType({
     },
     completed: {
       type: GraphQLBoolean,
-      resolve: obj => obj.completed === true.toString(),
+      resolve: obj => obj.completed,
     },
     status: {
       type: GraphQLString,
@@ -171,7 +179,7 @@ const GraphQLAddTodoMutation = mutationWithClientMutationId({
       resolve: async ({ localTodoId }) => {
         debugger;
         const todos = await getTodos();
-        const todo = todos.find(t=>t.id === localTodoId)
+        const todo = todos.find(t => t.id === localTodoId);
         return {
           cursor: cursorForObjectInConnection(todos, todo),
           node: todo,
@@ -202,16 +210,16 @@ const GraphQLChangeTodoStatusMutation = mutationWithClientMutationId({
       resolve: async ({ localTodoId }) => {
         const todo = await getTodo(localTodoId);
         return todo;
-      }
+      },
     },
     viewer: {
       type: GraphQLUser,
       resolve: () => getViewer(),
     },
   },
-  mutateAndGetPayload: ({ id, completed }) => {
+  mutateAndGetPayload: async ({ id, completed }) => {
     const localTodoId = fromGlobalId_unibet(id).id;
-    changeTodoStatus(localTodoId, completed);
+    await changeTodoStatus(localTodoId, completed);
     return { localTodoId };
   },
 });

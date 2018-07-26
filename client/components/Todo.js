@@ -83,7 +83,7 @@ class Todo extends React.Component {
         })}>
         <div className="view">
           <input
-            checked={this.props.todo.complete}
+            checked={this.props.todo.completed}
             className="toggle"
             onChange={this._handleCompleteChange}
             type="checkbox"

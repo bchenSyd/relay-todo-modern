@@ -20,7 +20,7 @@ const mutation = graphql`
 function getOptimisticResponse(completed, todo, user) {
   const viewerPayload = { id: user.id };
   if (user.completedCount != null) {
-    viewerPayload.completedCount = complete
+    viewerPayload.completedCount = completed
       ? user.completedCount + 1
       : user.completedCount - 1;
   }
