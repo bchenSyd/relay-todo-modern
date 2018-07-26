@@ -168,10 +168,12 @@ const GraphQLAddTodoMutation = mutationWithClientMutationId({
   outputFields: {
     todoEdge: {
       type: GraphQLTodoEdge,
-      resolve: ({ localTodoId }) => {
-        const todo = getTodo(localTodoId);
+      resolve: async ({ localTodoId }) => {
+        debugger;
+        const todos = await getTodos();
+        const todo = todos.find(t=>t.id === localTodoId)
         return {
-          cursor: cursorForObjectInConnection(getTodos(), todo),
+          cursor: cursorForObjectInConnection(todos, todo),
           node: todo,
         };
       },
@@ -181,8 +183,9 @@ const GraphQLAddTodoMutation = mutationWithClientMutationId({
       resolve: () => getViewer(),
     },
   },
-  mutateAndGetPayload: ({ text }) => {
-    const localTodoId = addTodo(text);
+  mutateAndGetPayload: async ({ text }) => {
+    debugger;
+    const localTodoId = await addTodo(text);
     return { localTodoId };
   },
 });
@@ -190,22 +193,25 @@ const GraphQLAddTodoMutation = mutationWithClientMutationId({
 const GraphQLChangeTodoStatusMutation = mutationWithClientMutationId({
   name: 'ChangeTodoStatus',
   inputFields: {
-    complete: { type: new GraphQLNonNull(GraphQLBoolean) },
+    completed: { type: new GraphQLNonNull(GraphQLBoolean) },
     id: { type: new GraphQLNonNull(GraphQLID) },
   },
   outputFields: {
     todo: {
       type: GraphQLTodo,
-      resolve: ({ localTodoId }) => getTodo(localTodoId),
+      resolve: async ({ localTodoId }) => {
+        const todo = await getTodo(localTodoId);
+        return todo;
+      }
     },
     viewer: {
       type: GraphQLUser,
       resolve: () => getViewer(),
     },
   },
-  mutateAndGetPayload: ({ id, complete }) => {
+  mutateAndGetPayload: ({ id, completed }) => {
     const localTodoId = fromGlobalId_unibet(id).id;
-    changeTodoStatus(localTodoId, complete);
+    changeTodoStatus(localTodoId, completed);
     return { localTodoId };
   },
 });

@@ -1,5 +1,26 @@
 you can do `query{ viewer{user{ totalCount}}}` if you are not using varialbes
 ```js
+{
+  viewer {
+    user {
+      todos(first: 2) {
+        edges {
+          node {
+            id
+            text
+            completed
+            details
+          }
+        }
+      }
+      totalCount
+      completedCount
+    }
+  }
+}
+
+
+
 query myQuery($n: Int) {
   viewer {
     user {

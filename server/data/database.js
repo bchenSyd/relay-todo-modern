@@ -1,6 +1,20 @@
-const { insertRace, deleteRace, updateRace, getRace, getRaces } = require('./redis');
+const {
+  insertRace,
+  deleteRace,
+  updateRace,
+  getRace,
+  getRaces,
+} = require('./redis');
 const events = require('../events');
-class Todo {}
+
+class Todo {
+  constructor(race) {
+    const { id, text, completed } = race;
+    this.id = id;
+    this.text = text;
+    this.complete = completed === 'true';
+  }
+}
 class User {}
 
 // Mock authenticated ID
@@ -10,10 +24,10 @@ const VIEWER_ID = 'me';
 const viewer = new User();
 viewer.id = VIEWER_ID;
 
-async function addTodo(text, complete) {
+async function addTodo(text, completed = false) {
   const id = await insertRace({
     text,
-    complete,
+    completed,
   });
   return id;
 }
@@ -34,12 +48,12 @@ function changeTodoStatus(id, isCompleted) {
 
 async function getTodo(id) {
   const race = await getRace(id);
-  return race;
+  return new Todo(race);
 }
 
 async function getTodos(status = 'any') {
-  const races= await getRaces(status);
-  return races;
+  const races = await getRaces(status);
+  return races.map(r => new Todo(r));
 }
 
 function getViewer() {
@@ -64,7 +78,7 @@ function removeTodo(id) {
 }
 
 async function removeCompletedTodos() {
-  const races = getRaces('completed');
+  const races = await getRaces('completed');
   const deletedIds = [];
   races.forEach(race => {
     deleteRace(race.id);
@@ -72,8 +86,6 @@ async function removeCompletedTodos() {
   });
   return races;
 }
-
-
 
 module.exports = {
   Todo,

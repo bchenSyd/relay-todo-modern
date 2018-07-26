@@ -10,7 +10,7 @@ type AddTodoPayload {
 }
 
 input ChangeTodoStatusInput {
-  complete: Boolean!
+  completed: Boolean!
   id: ID!
   clientMutationId: String
 }
