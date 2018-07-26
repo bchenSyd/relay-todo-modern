@@ -1,3 +1,4 @@
+const {} = require('./redis');
 const events = require('../events');
 class Todo {}
 class User {}
@@ -12,20 +13,9 @@ const usersById = {
   [VIEWER_ID]: viewer,
 };
 
-// Mock todo data
-const todosById = {};
 const todoIdsByUser = {
   [VIEWER_ID]: [],
 };
-let nextTodoId = 0;
-addTodo('R 1', true);
-addTodo('R 2', false);
-addTodo('R 3', false);
-addTodo('R 4', false);
-addTodo('R 5', false);
-addTodo('R 6', false);
-addTodo('R 7', false);
-addTodo('R 8', false);
 
 function addTodo(text, complete) {
   const todo = new Todo();

@@ -30,7 +30,6 @@ const initRaces = async client => {
     });
   }
 
-  
   // Array.from({ length: 5 }, async (val, index) => {
   //   const race = {
   //     text: `Race`,
@@ -41,7 +40,8 @@ const initRaces = async client => {
 };
 
 const insertRace = async race => {
-  const raceId = await redis_client.getAsync('_id');
+  const id = await redis_client.getAsync('_id');
+  const raceId = `Race:${id}`;
   await redis_client.hmsetAsync(raceId, {
     ...race,
     id: raceId,
@@ -53,19 +53,41 @@ const insertRace = async race => {
   // thread safe approach, not useful for nodejs though
   await redis_client.incrAsync('_id');
   //**************************************************** */
+  return raceId;
 };
 
 // advanced: use pMap
-const getRaces = () => {
+const getRaces = (status = 'any') => {
   if (!redis_client) {
     throw new Error('redis_client not exists. Please connect to redis first');
   }
 
-  return redis_client.lrangeAsync(races_topic, 0, -1).then((races, error) => {
+  return redis_client.lrangeAsync(races_topic, 0, -1).then((raceIds, error) => {
     if (!error) {
-      return pMap(races, r => redis_client.hgetallAsync(r));
+      return pMap(raceIds, r => redis_client.hgetallAsync(r)).then(races => {
+        if (status !== 'any') {
+          const completed = (status === 'completed').toString();
+          return races.filter(r => r.completed === completed);
+        }
+        return races;
+      });
     }
   });
+};
+
+const getRace = async id => {
+  const race = await redis_client.hgetallAsync(id);
+  return race;
+};
+
+const updateRace = async (id, race) => {
+  await redis_client.hmsetAsync(id, race);
+};
+
+const deleteRace = id => {
+  // you don't need to use the Async form if you are not interested in the return value;
+  redis_client.lrem(races_topic, id, 1);
+  redis_client.del(id);
 };
 
 const getRaces_Primitive_Ugly = () => {
@@ -79,4 +101,4 @@ const getRaces_Primitive_Ugly = () => {
     });
   });
 };
-module.exports = { initRaces, insertRace, getRaces };
+module.exports = { initRaces, insertRace, getRace, getRaces };
