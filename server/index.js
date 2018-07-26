@@ -28,7 +28,6 @@ app.use('/', graphQLHTTP({ schema, graphiql: true, pretty: true }));
 const connect_redis = () =>
   new Promise((resolve, reject) => {
     // http://redis.js.org/
-    debugger;
     const redis_client = redis.createClient({
       host: 'localhost', // default '127.0.0.1'
       port: 6379,

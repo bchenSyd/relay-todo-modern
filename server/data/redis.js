@@ -1,39 +1,58 @@
-// we use bluebird to promisify all, so we don't need below line anymore; 
+// we use bluebird to promisify all, so we don't need below line anymore;
 // git checkout 3619569 to see how individual methods were promisified;
-const { promisify } = require('util'); 
+const { promisify } = require('util');
 
 const pWaterfall = require('p-waterfall');
 const pMap = require('p-map');
 
 let redis_client, pLRange; // passed in from server/index.js when server is starting up, saved for future use;
 let races_topic = 'races';
+
 const setClient = async client => {
   await client.flushallAsync();
-  debugger;
   redis_client = client;
+  client.set('_id', 0);
 };
 const initRaces = async client => {
   await setClient(client);
-  Array.from({ length: 5 }, async (val, index) => {
-    const race_id = `R:${index}`;
-    const race = {
-      id: race_id,
-      text: `Race ${index}`,
+
+  /* https://stackoverflow.com/a/37576787
+  ok i know why... Using Babel will transform async/await to generator function and using forEach means that
+   each iteration has an individual generator function, which has nothing to do with the others. 
+   so they will be executed independently and has no context of next() with others. 
+   Actually, a simple for() loop also works because the iterations are also in one single generator function.
+    – Demonbane Aug 15 '16 at 19:21 
+  */
+  for (i of Array.from({ length: 5 })) {
+    await insertRace({
+      text: 'Race',
       completed: false,
-    };
-    await insertRace(race);
-  });
+    });
+  }
+
+  
+  // Array.from({ length: 5 }, async (val, index) => {
+  //   const race = {
+  //     text: `Race`,
+  //     completed: false,
+  //   };
+  //   await insertRace(race);
+  // });
 };
 
 const insertRace = async race => {
-  const { id: raceId } = race;
-  //   console.log('---------------------------  hmset ', race, '           begin')
-  //   await pHMSet(raceId, race);
-  //   console.log('---------------------------  hmset ', race, '           completed')
-  //   await pRPush(races_topic, raceId);
+  const raceId = await redis_client.getAsync('_id');
+  await redis_client.hmsetAsync(raceId, {
+    ...race,
+    id: raceId,
+    text: `${race.text}  ${raceId}`,
+  });
+  await redis_client.rpushAsync(races_topic, raceId);
 
-  redis_client.hmset(raceId, race); // this is a synchronous function;
-  redis_client.rpush(races_topic, raceId); // this is a synchronous function;
+  //**************************************************** */
+  // thread safe approach, not useful for nodejs though
+  await redis_client.incrAsync('_id');
+  //**************************************************** */
 };
 
 // advanced: use pMap
