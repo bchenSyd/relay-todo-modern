@@ -16,7 +16,7 @@ const { nodeInterface, nodeField } = nodeDefinitions(
   },
   obj => {
     if (typeof obj !== "object" || !obj.__type) {
-      throw new Error("not query should resolve to an object");
+      throw new Error("node query should resolve to an object");
     }
     // __type is auxiliary filed;
     const { __type } = obj;

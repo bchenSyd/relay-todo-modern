@@ -7,23 +7,6 @@ const {
 } = require('./redis');
 const events = require('../events');
 
-class Todo {
-  constructor(race) {
-    const { id, text, completed } = race;
-    this.id = id;
-    this.text = text;
-    this.completed = completed === 'true';
-  }
-}
-class User {}
-
-// Mock authenticated ID
-const VIEWER_ID = 'me';
-
-// Mock user data
-const viewer = new User();
-viewer.id = VIEWER_ID;
-
 async function addTodo(text, completed = false) {
   const id = await insertRace({
     text,
@@ -48,16 +31,18 @@ async function changeTodoStatus(id, isCompleted) {
 
 async function getTodo(id) {
   const race = await getRace(id);
-  return new Todo(race);
+  return race;
 }
 
 async function getTodos(status = 'any') {
   const races = await getRaces(status);
-  return races.map(r => new Todo(r));
+  return races;
 }
 
 function getViewer() {
-  return viewer;
+  return {
+    id: 'bochen2014',
+  };
 }
 
 async function markAllTodos(completed) {
@@ -88,8 +73,6 @@ async function removeCompletedTodos() {
 }
 
 module.exports = {
-  Todo,
-  User,
   addTodo,
   changeTodoStatus,
   getTodo,
