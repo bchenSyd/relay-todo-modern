@@ -14,7 +14,8 @@ const Query = new GraphQLObjectType({
             type: GraphQLUser,
             // https://graphql.org/learn/execution/#root-fields-resolvers
             resolve: (
-              obj, // the previous object, which for a field on the root Query type is often not used;
+              obj, // the source object (the underlying object uphold the graphql type instance -- solved by it parent ). 
+                   // For root field, this is often not used ( it doesn't have parnet to resolve it)
               args, // args provided to the filed in query
               context, // available to every resolver
               info // a value which holds field-specific information relevant to the current query as well as schema details
