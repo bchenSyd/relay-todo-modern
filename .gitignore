@@ -3,3 +3,4 @@ __generated__/
 yarn.lock
 public/
 heroku/
+redis.js
