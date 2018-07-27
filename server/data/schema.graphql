@@ -111,8 +111,8 @@ type Subscription {
 type Todo implements Node {
   """The ID of an object"""
   id: ID!
-  text: String
-  completed: Boolean
+  text: String!
+  completed: Boolean!
   status: String
   details: String
 }

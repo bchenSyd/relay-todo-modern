@@ -19,8 +19,10 @@ const { Todo, User, getTodo, getTodos, getViewer } = require('../database');
 const { globalIdField_unibet, fromGlobalId_unibet } = require('./unibetIds');
 const casual = require('casual');
 
+// https://facebook.github.io/relay/graphql/objectidentification.htm
+// this is a relay feature, not graphql
 const { nodeInterface, nodeField } = nodeDefinitions(
-  async globalId => {
+  async globalId => { // idFetcher;
     const { type, id } = fromGlobalId_unibet(globalId);
     if (type === 'Todo') {
       const todo = await getTodo(id);
@@ -35,7 +37,7 @@ const { nodeInterface, nodeField } = nodeDefinitions(
     );
     return null;
   },
-  obj => {
+  obj => { // type resolver
     if (obj instanceof Todo) {
       return GraphQLTodo;
     } else if (obj instanceof User) {
