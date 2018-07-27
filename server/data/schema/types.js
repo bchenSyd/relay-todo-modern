@@ -1,4 +1,5 @@
 const {
+  GraphQLNonNull,
   GraphQLBoolean,
   GraphQLInt,
   GraphQLObjectType,
@@ -54,11 +55,11 @@ const GraphQLTodo = new GraphQLObjectType({
   fields: {
     id: globalIdField_unibet('Todo'),
     text: {
-      type: GraphQLString,
-      resolve: obj => obj.text,
+      type: new GraphQLNonNull(GraphQLString),
+      // resolve: obj => obj.text, if exactly match, you can omit resolve method;
     },
     completed: {
-      type: GraphQLBoolean,
+      type: new GraphQLNonNull(GraphQLBoolean),
       resolve: obj => obj.completed,
     },
     status: {
