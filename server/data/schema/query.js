@@ -12,7 +12,13 @@ const Query = new GraphQLObjectType({
         fields: {
           user: {
             type: GraphQLUser,
-            resolve: () => getViewer(),
+            // https://graphql.org/learn/execution/#root-fields-resolvers
+            resolve: (
+              obj, // the previous object, which for a field on the root Query type is often not used;
+              args, // args provided to the filed in query
+              context, // available to every resolver
+              info // a value which holds field-specific information relevant to the current query as well as schema details
+            ) => getViewer(),
           },
         },
       }),
