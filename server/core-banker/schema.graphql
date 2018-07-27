@@ -1,0 +1,72 @@
+type Customer implements Node {
+  """The ID of an object"""
+  id: ID!
+  CIS: String
+  number: String
+  title: String
+  name: String
+  gender: String
+  dateOfBirth: Boolean
+  age: Int
+  customerSince: Int
+  idVerified: String
+  brandSilo: String
+  addresses: [String]!
+  emails: [String]!
+  phones: [String]!
+  customerCharacteristics: [String]
+}
+
+type Employee implements Node {
+  """The ID of an object"""
+  id: ID!
+  fullName: String
+  number: String
+}
+
+enum HandoffStatus {
+  Not_Applicable
+  Unacknowledged
+  Acknowledged
+}
+
+"""An object with an ID"""
+interface Node {
+  """The id of the object."""
+  id: ID!
+}
+
+type Opportunity implements Node {
+  """The ID of an object"""
+  id: ID!
+  name: String
+  channel: String
+  source: String
+  description: String
+  productName: String
+  compaignName: String
+  comments: String
+  potentialSalesValue: String
+  handoffStatus: HandoffStatus
+  createdDate: String
+  referredBy: String
+  referrerBranch: String
+  primaryCustomer: String
+  primaryEmployee: String
+  customers: [Customer]
+  employees: [Employee]
+}
+
+type Query {
+  viewer: Viewer
+
+  """Fetches an object given its ID"""
+  node(
+    """The ID of an object"""
+    id: ID!
+  ): Node
+}
+
+type Viewer {
+  opportunities: [Opportunity]
+}
