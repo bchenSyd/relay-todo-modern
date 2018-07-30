@@ -1,7 +1,7 @@
 {
   "scripts": {
     "start": "npm-run-all --parallel start-server   start-client",
-    "update-schema": "babel-node server/scripts/updateSchema.js",
+    "update-schema": "node server/scripts/updateSchema.js",
     "clean-client": "find . -name __generated__ | xargs rm -rf",
     "compile-client": "npm run clean-client &&relay-compiler --src ./client --schema ./server/data/schema.graphql  --extensions js jsx tsx",
     "debug-compile": "node --debug-brk --inspect ./node_modules/relay-compiler/bin/relay-compiler --src ./js/ --schema ./data/schema.graphql --extensions js jsx tsx",

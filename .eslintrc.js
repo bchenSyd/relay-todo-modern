@@ -3,9 +3,9 @@ module.exports = {
     browser: true,
     node: true, // understand require keyword;
     es6: true, // Promise is undefined
-    jest: true
+    jest: true,
   },
-  parser: "babel-eslint",
+  parser: 'babel-eslint',
   extends: [
     'eslint:recommended',
     'plugin:import/errors',
@@ -15,7 +15,8 @@ module.exports = {
   rules: {
     // need to explicitly add rules;
     'import/no-unresolved': [2, { commonjs: true, amd: true }],
-    'no-console':'off',
-    'no-debugger':'off'
+    'no-undef': 'error',
+    'no-console': 'off',
+    'no-debugger': 'off',
   },
 };
