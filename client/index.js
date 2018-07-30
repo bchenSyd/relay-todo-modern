@@ -63,7 +63,7 @@ ReactDOM.render(
       query clientQuery {
         viewer {
           user {
-            ...TodoApp_viewer
+            ...TodoApp_viewer  # nest a child fragment from 1.  <TodoApp/> ; 2. fragment name "viewer"
           }
         }
       }

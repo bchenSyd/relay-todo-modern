@@ -6,17 +6,14 @@ import TodoListFooter from './TodoListFooter';
 import TodoTextInput from './TodoTextInput';
 
 import React from 'react';
-import {
-  createFragmentContainer,
-  graphql,
-} from 'react-relay';
+import { createFragmentContainer, graphql } from 'react-relay';
 
 class TodoApp extends React.Component {
-  _handleTextInputSave = (text) => {
+  _handleTextInputSave = text => {
     AddTodoMutation.commit(
       this.props.relay.environment,
       text,
-      this.props.viewer,
+      this.props.viewer
     );
   };
   render() {
@@ -25,7 +22,7 @@ class TodoApp extends React.Component {
       <div>
         <div className="header">Relay Modern Demo</div>
         <section className="todoapp">
-          <header >
+          <header>
             <TodoTextInput
               autoFocus={true}
               className="new-todo"
@@ -34,12 +31,12 @@ class TodoApp extends React.Component {
             />
           </header>
           <TodoList viewer={this.props.viewer} />
-          {hasTodos &&
+          {hasTodos && (
             <TodoListFooter
               todos={this.props.viewer.todos}
               viewer={this.props.viewer}
             />
-          }
+          )}
         </section>
       </div>
     );
@@ -47,12 +44,15 @@ class TodoApp extends React.Component {
 }
 
 export default createFragmentContainer(TodoApp, {
+  // https://facebook.github.io/relay/docs/en/fragment-container.html#arguments
+  // convention: either  <fileName><...anyhing..>_<propName>
+  //             or { propname: graphql tagged fragment}
   viewer: graphql`
     fragment TodoApp_viewer on User {
-      id,
-      totalCount,
-      ...TodoListFooter_viewer,
-      ...TodoList_viewer,
+      id
+      totalCount
+      ...TodoListFooter_viewer
+      ...TodoList_viewer
     }
   `,
 });
