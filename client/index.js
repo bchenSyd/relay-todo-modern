@@ -2,7 +2,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import 'whatwg-fetch';
+import 'whatwg-fetch'; // polyfill fetch so that you can use fetch with peace in mind;
 import { QueryRenderer, graphql } from 'react-relay';
 import { Environment, Network, RecordSource, Store } from 'relay-runtime';
 
@@ -63,7 +63,7 @@ ReactDOM.render(
       query clientQuery {
         viewer {
           user {
-            ...TodoApp_viewer  # nest a child fragment from 1.  <TodoApp/> ; 2. fragment name "viewer"
+            ...TodoApp_viewer # nest a child fragment from 1.  <TodoApp/> ; 2. fragment name "viewer"
           }
         }
       }
