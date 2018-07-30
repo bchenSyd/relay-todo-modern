@@ -25,11 +25,11 @@ const fetchTask = () =>
     return response.json();
   });
 
-const buildSchemaTask = ({ data }) =>
-  new Promise(resolve => {
-    const schema = buildClientSchema(data);
-    resolve(printSchema(schema));
-  });
+const buildSchemaTask = ({ data }) => {
+  // your p-waterfall task can return plain object with no problems
+  const schema = buildClientSchema(data);
+  return printSchema(schema);
+};
 
 const writeSchemaTask = schema =>
   new Promise((resolve, rej) => {
