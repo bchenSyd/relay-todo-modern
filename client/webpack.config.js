@@ -52,7 +52,7 @@ var config = {
     // put `--hot` in cli options (which instruct wds to auto insert a HMRPlugin into your webpac.config.js)
     //#######################################################################
 
-    proxy: { '/graphql': 'http://localhost:8081' },
+    proxy: { '/graphql': 'http://localhost:8082' },
   },
 };
 module.exports = config;

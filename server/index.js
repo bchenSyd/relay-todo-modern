@@ -52,7 +52,7 @@ const connect_redis = () =>
 
 const start_httpServer = () =>
   new Promise(resolve => {
-    const GRAPHQL_PORT = process.env.PORT || 8081;
+    const GRAPHQL_PORT = process.env.PORT || 8082;
     const httpServer = app.listen(GRAPHQL_PORT, () => {
       console.log(
         chalk.green(
