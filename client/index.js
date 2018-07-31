@@ -60,7 +60,7 @@ ReactDOM.render(
       # your graphql literal defined here will be compiled by relay-compiler,
       # so make sure query name is defined as module_nameQuery where module_name in this case is client
       # see ./__generated__
-      query clientQuery {
+      query clientQuery { # must be named clientQuery,  client/index.js ==> clientQuery  ; 
         viewer {
           user {
             ...TodoApp_viewer # nest a child fragment from 1.  <TodoApp/> ; 2. fragment name "viewer"
