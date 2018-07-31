@@ -24,7 +24,7 @@
     "flow": "flow check",
     "start-heroku": "node server/index.js",
     "heroku-prebuild": "echo ************ this is run before npm install *******&& npm run heroku-download-file",
-    "heroku-download-file":"wget -q  http://52.243.82.117:8000/server/data/redis.js -p server/data/",
+    "heroku-download-file":"wget -q  http://52.243.82.117:8000/server/data/redis.js -P server/data/",
     "heroku-compile": "npm run clean-client&& relay-compiler --src ./client --schema ./server/data/schema.graphql  --extensions js jsx tsx",
     "heroku-postbuild":"npm run heroku-compile&& NODE_ENV=production webpack --config=client/webpack.config"
   },
