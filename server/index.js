@@ -19,11 +19,8 @@ require('./scripts/updateSchema');
 
 const app = express();
 app.use(bodyParser.json());  
-// *********************************************************************************
-// must be the right order; static file first!
 app.use('/', express.static(path.resolve(__dirname, '../public')));
-app.use('/', graphQLHTTP({ schema, graphiql: true, pretty: true }));
-// *********************************************************************************
+app.use('/graphql', graphQLHTTP({ schema, graphiql: true, pretty: true }));
 
 const connect_redis = () =>
   new Promise((resolve, reject) => {
