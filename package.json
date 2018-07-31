@@ -1,4 +1,10 @@
 {
+  "name": "relay-todo-modern",
+  "version": "1.0.0",
+  "private": true,
+  "engines": {
+    "npm":"^6.0.0"
+  },
   "scripts": {
     "start": "npm-run-all --parallel start-server   start-client",
     "update-schema": "node server/scripts/updateSchema.js",
