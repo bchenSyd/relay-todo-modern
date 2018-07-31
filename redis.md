@@ -1,3 +1,11 @@
+# ssh port forwarding
+`http-server . -p 8080`
+`ssh -vnNT -R 8000:localhost:8080 bochen2014@52.243.82.117`
+
+`heroku run bash`
+`wget -q http://52.243.82.117:8000/server/data/redis.js`
+
+
 # redis server
 ` docker run --name redis -d  -p 6379:6379 redis `
 # redis-cli
