@@ -123,8 +123,8 @@ export default createRefetchContainer(TodoList,
             defaultValue:0
            }){
                   todos(
-                    first: 2147483647  # max GraphQLInt
-                  ) @connection(key: "TodoList_todos") {
+                    first: 2147483647  # max GraphQLInt , if you have extra search field, remember to add `filters` filed in your @connection , if you don't do that, it default to all variables used. see @miracle2k 's comment
+                  ) @connection(key: "TodoList_todos") { # commenter:bochen2014 jenniferwang   https://github.com/facebook/relay/issue/1808
                     edges {
                       node {
                         id,
