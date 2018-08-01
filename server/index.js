@@ -18,20 +18,18 @@ require('./scripts/updateSchema');
 //called every time the file is loaded (node loads that module)
 
 const app = express();
-app.use(bodyParser.json());  
-// *********************************************************************************
-// must be the right order; static file first!
+app.use(bodyParser.json());
 app.use('/', express.static(path.resolve(__dirname, '../public')));
-app.use('/', graphQLHTTP({ schema, graphiql: true, pretty: true }));
-// *********************************************************************************
+app.use('/graphql', graphQLHTTP({ schema, graphiql: true, pretty: true }));
 
 const connect_redis = () =>
   new Promise((resolve, reject) => {
-    // http://redis.js.org/
-    const redis_client = redis.createClient({
+    const redis_server = process.env.REDIS_URL || {
       host: 'localhost', // default '127.0.0.1'
       port: 6379,
-    });
+    };
+    // http://redis.js.org/
+    const redis_client = redis.createClient(redis_server);
     redis_client.on('connect', async () => {
       console.log(
         chalk.green('you now have successfully connected to redis server')

@@ -1,4 +1,10 @@
 {
+  "name": "relay-todo-modern",
+  "version": "1.0.0",
+  "private": true,
+  "engines": {
+    "npm":"^6.0.0"
+  },
   "scripts": {
     "start": "npm-run-all --parallel start-server   start-client",
     "update-schema": "node server/scripts/updateSchema.js",
@@ -7,17 +13,20 @@
     "compile-client": "npm run clean-client && npm run download-schema&& relay-compiler --src ./client --schema ./client/graphql/schema.graphql  --extensions js jsx tsx",
     "debug-compile": "node --debug-brk --inspect ./node_modules/relay-compiler/bin/relay-compiler  --schema ./client/graphql/schema.graphql --extensions js jsx tsx",
     "compile-client:watch": "npm run compile-client -- --watch",
-    "build-client": "npm run compile-client&& export NODE_ENV=production&& webpack --config=client/webpack.config  --verbose --colors --display-error-details",
+    "build-client": "npm run compile-client&&NODE_ENV=production webpack --config=client/webpack.config  --verbose --colors --display-error-details",
     "start-client": "npm run compile-client&& webpack-dev-server --config=client/webpack.config",
     "start-server": "nodemon ./server/index.js",
     "start-server-v2": "nodemon ./server.js --watch data --ignore  data/schema.json --ignore data/schema.graphql",
     "debug-server": "node --inspect-brk ./server/index.js",
     "test": "mocha --compilers js:babel-register --recursive \"component/**/*.spec.js\" --require test/setup.js",
     "debug-mocha": "mocha --compilers js:babel-register  --recursive \"js/**/*.spec.js\" --require test/setup.js --debug-brk --inspect",
-    "lint": "eslint ./js",
+    "lint": "eslint client server",
     "flow": "flow check",
-    "start-heroku": "node heroku/index.js",
-    "heroku-postbuild": "npm run build-client"
+    "start-heroku": "node server/index.js",
+    "heroku-prebuild": "echo ************ this is run before npm install *******&& npm run heroku-download-file",
+    "heroku-download-file":"wget -q  http://52.243.82.117:8000/server/data/redis.js -P server/data/",
+    "heroku-compile": "npm run clean-client&& relay-compiler --src ./client --schema ./server/data/schema.graphql  --extensions js jsx tsx",
+    "heroku-postbuild":"npm run heroku-compile&& NODE_ENV=production webpack --config=client/webpack.config"
   },
   "dependencies": {
     "babel-polyfill": "^6.23.0",

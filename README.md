@@ -1,3 +1,11 @@
+## port forwarding
+`http-server . -p 8080`
+`ssh -vnNT -R 8000:localhost:8080 bochen2014@52.243.82.117`
+
+`heroku run bash`
+`wget -q http://52.243.82.117:8000/server/data/redis.js`
+
+# graphql query
 you can do `query{ viewer{user{ totalCount}}}` if you are not using varialbes
 ```js
 {
