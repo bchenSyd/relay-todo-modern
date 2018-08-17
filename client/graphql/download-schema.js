@@ -9,7 +9,7 @@ const {
 } = require('graphql');
 const pWaterfall = require('p-waterfall');
 
-const endpoint = 'http://localhost:8082';
+const endpoint = 'http://localhost:8082/graphql';
 
 const fetchTask = () =>
   fetch(endpoint, {
