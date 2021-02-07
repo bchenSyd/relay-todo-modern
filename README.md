@@ -1,3 +1,6 @@
+## graphql zero mock server 
+
+![](./graphqlzero.png)
 ## port forwarding
 `http-server . -p 8080`
 `ssh -vnNT -R 8000:localhost:8080 bochen2014@52.243.82.117`
