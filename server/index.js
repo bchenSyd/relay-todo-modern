@@ -64,9 +64,9 @@ const start_httpServer = () =>
 const start_socketIO = httpServer =>
   new Promise(resolve => {
     const ioServer = IO(httpServer, {
-      cors:{
-        origin: true,  // see https://github.com/expressjs/cors#configuration-options for all options
-      }
+      cors: {
+        origin: true, // see https://github.com/expressjs/cors#configuration-options for all options
+      },
     });
     // todo: must unsubscribe with socketIO disconnect otherwise memory leak
     ioServer.on('connection', socket => {
@@ -74,6 +74,9 @@ const start_socketIO = httpServer =>
         '************************************************************* client connected'
       );
       socket.on('graphql:subscription', async request => {
+        console.log(
+          '************************************************************* graphql:subscription'
+        );
         var initialPayload = await subscriptionHandler.subscribe(
           request,
           updatedPayload => {

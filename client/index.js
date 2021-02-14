@@ -32,17 +32,18 @@ function fetchQuery(operation, variables) {
 // consumed by ./subscriptions/todo.js #requestSubscription
 function subscribeFunction(operation, variables, cacheConfig, observer) {
   const { onCompleted, onError, onNext } = observer;
-  socket.on('connection', socket => {
+  socket.on('connect', () => {
     socket.emit('graphql:subscription', {
       query: operation.text,
       variables,
     });
-    socket.on('graphql:subscription', response => {
-      console.log('graphql:subscription received......', response);
-      onNext({
-        ...response,
-        errors: [],
-      });
+  });
+  
+  socket.on('graphql:subscription', response => {
+    console.log('graphql:subscription received......', response);
+    onNext({
+      ...response,
+      errors: [],
     });
   });
   return { dispose: () => null }; // must return a disposable;
