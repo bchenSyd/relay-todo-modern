@@ -2,9 +2,6 @@
   "name": "relay-todo-modern",
   "version": "1.0.0",
   "private": true,
-  "engines": {
-    "npm":"^6.0.0"
-  },
   "scripts": {
     "start": "npm-run-all --parallel start-server   start-client",
     "update-schema": "node server/scripts/updateSchema.js",
@@ -24,9 +21,9 @@
     "flow": "flow check",
     "start-heroku": "node server/index.js",
     "heroku-prebuild": "echo ************ this is run before npm install *******&& npm run heroku-download-file",
-    "heroku-download-file":"wget -q  http://52.243.82.117:8000/server/data/redis.js -P server/data/",
+    "heroku-download-file": "wget -q  http://52.243.82.117:8000/server/data/redis.js -P server/data/",
     "heroku-compile": "npm run clean-client&& relay-compiler --src ./client --schema ./server/data/schema.graphql  --extensions js jsx tsx",
-    "heroku-postbuild":"npm run heroku-compile&& NODE_ENV=production webpack --config=client/webpack.config"
+    "heroku-postbuild": "npm run heroku-compile&& NODE_ENV=production webpack --config=client/webpack.config"
   },
   "dependencies": {
     "babel-polyfill": "^6.23.0",
