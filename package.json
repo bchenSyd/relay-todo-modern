@@ -11,7 +11,7 @@
     "debug-compile": "node --debug-brk --inspect ./node_modules/relay-compiler/bin/relay-compiler  --schema ./client/graphql/schema.graphql --extensions js jsx tsx",
     "compile-client:watch": "npm run compile-client -- --watch",
     "build-client": "npm run compile-client&&NODE_ENV=production webpack --config=client/webpack.config  --verbose --colors --display-error-details",
-    "start-client": "npm run compile-client&& webpack-dev-server --config=client/webpack.config",
+    "start-client": "npm run compile-client&& webpack serve --config=client/webpack.config",
     "start-server": "nodemon ./server/index.js",
     "start-server-v2": "nodemon ./server.js --watch data --ignore  data/schema.json --ignore data/schema.graphql",
     "debug-server": "node --inspect-brk ./server/index.js",
@@ -77,9 +77,9 @@
     "socket.io-client": "^2.0.3",
     "style-loader": "^0.21.0",
     "todomvc-app-css": "^2.1.0",
-    "webpack": "^4.6.0",
-    "webpack-cli": "^2.1.2",
-    "webpack-dev-server": "^3.1.4",
+    "webpack": "^4.46.0",
+    "webpack-cli": "^4.5.0",
+    "webpack-dev-server": "^3.11.2",
     "whatwg-fetch": "^2.0.4"
   }
 }
