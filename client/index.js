@@ -32,19 +32,19 @@ function fetchQuery(operation, variables) {
 // consumed by ./subscriptions/todo.js #requestSubscription
 function subscribeFunction(operation, variables, cacheConfig, observer) {
   const { onCompleted, onError, onNext } = observer;
-  socket.emit('graphql:subscription', {
-    query: operation.text,
-    variables,
-  });
-
-  socket.on('graphql:subscription', response => {
-    console.log('graphql:subscription received......', response);
-    onNext({
-      ...response,
-      errors: [],
+  socket.on('connection', socket => {
+    socket.emit('graphql:subscription', {
+      query: operation.text,
+      variables,
+    });
+    socket.on('graphql:subscription', response => {
+      console.log('graphql:subscription received......', response);
+      onNext({
+        ...response,
+        errors: [],
+      });
     });
   });
-
   return { dispose: () => null }; // must return a disposable;
 }
 
@@ -60,7 +60,8 @@ ReactDOM.render(
       # your graphql literal defined here will be compiled by relay-compiler,
       # so make sure query name is defined as module_nameQuery where module_name in this case is client
       # see ./__generated__
-      query clientQuery { # must be named clientQuery,  client/index.js ==> clientQuery  ; 
+      query clientQuery {
+        # must be named clientQuery,  client/index.js ==> clientQuery  ;
         viewer {
           user {
             ...TodoApp_viewer # nest a child fragment from 1.  <TodoApp/> ; 2. fragment name "viewer"
